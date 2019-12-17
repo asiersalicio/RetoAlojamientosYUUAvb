@@ -1,0 +1,12 @@
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.exe.config
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.exe
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.pdb
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbprojAssemblyReference.cache
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.Login.resources
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.Resources.resources
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.GenerateResource.cache
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.CoreCompileInputs.cache
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.exe
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.pdb
