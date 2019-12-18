@@ -10,3 +10,16 @@ C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\o
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.exe
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.xml
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.pdb
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.exe.config
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.exe
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.pdb
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.xml
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbprojAssemblyReference.cache
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.Gestion.resources
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.Login.resources
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.Resources.resources
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.GenerateResource.cache
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.CoreCompileInputs.cache
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.exe
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.xml
+C:\WorkspaceRetoYUUA\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.pdb

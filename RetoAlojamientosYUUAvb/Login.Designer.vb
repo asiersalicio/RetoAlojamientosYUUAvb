@@ -32,7 +32,7 @@ Partial Class Login
         'lblUsuario
         '
         Me.lblUsuario.AutoSize = True
-        Me.lblUsuario.Location = New System.Drawing.Point(192, 129)
+        Me.lblUsuario.Location = New System.Drawing.Point(210, 124)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(43, 13)
         Me.lblUsuario.TabIndex = 0
@@ -48,7 +48,7 @@ Partial Class Login
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(192, 162)
+        Me.lblPassword.Location = New System.Drawing.Point(192, 158)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(61, 13)
         Me.lblPassword.TabIndex = 2
@@ -70,7 +70,7 @@ Partial Class Login
         Me.btnEntrar.Text = "Entrar"
         Me.btnEntrar.UseVisualStyleBackColor = True
         '
-        'Form1
+        'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -80,7 +80,7 @@ Partial Class Login
         Me.Controls.Add(Me.lblPassword)
         Me.Controls.Add(Me.tbUsuario)
         Me.Controls.Add(Me.lblUsuario)
-        Me.Name = "Form1"
+        Me.Name = "Login"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
