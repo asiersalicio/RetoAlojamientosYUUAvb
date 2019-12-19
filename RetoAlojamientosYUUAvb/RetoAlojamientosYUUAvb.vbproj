@@ -84,6 +84,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAlojamiento.Designer.vb">
+      <DependentUpon>AddAlojamiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddAlojamiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUsuario.Designer.vb">
+      <DependentUpon>AddUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Metodos.vb" />
     <Compile Include="GestionUsuarios.Designer.vb">
@@ -126,8 +138,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WatermarkTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddAlojamiento.resx">
+      <DependentUpon>AddAlojamiento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionAlojamientos.resx">
       <DependentUpon>GestionAlojamientos.vb</DependentUpon>
     </EmbeddedResource>
