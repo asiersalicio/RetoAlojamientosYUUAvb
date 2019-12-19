@@ -28,7 +28,7 @@ Partial Class GestionAlojamientos
         Me.btnBorrar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.listaAlojamientos = New System.Windows.Forms.ListBox()
+        Me.listadoAlojamientos = New System.Windows.Forms.ListBox()
         Me.btnVer = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -85,13 +85,13 @@ Partial Class GestionAlojamientos
         Me.btnAdd.Text = "Añadir"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'listaAlojamientos
+        'listadoAlojamientos
         '
-        Me.listaAlojamientos.FormattingEnabled = True
-        Me.listaAlojamientos.Location = New System.Drawing.Point(237, 136)
-        Me.listaAlojamientos.Name = "listaAlojamientos"
-        Me.listaAlojamientos.Size = New System.Drawing.Size(286, 277)
-        Me.listaAlojamientos.TabIndex = 6
+        Me.listadoAlojamientos.FormattingEnabled = True
+        Me.listadoAlojamientos.Location = New System.Drawing.Point(237, 136)
+        Me.listadoAlojamientos.Name = "listadoAlojamientos"
+        Me.listadoAlojamientos.Size = New System.Drawing.Size(286, 277)
+        Me.listadoAlojamientos.TabIndex = 6
         '
         'btnVer
         '
@@ -124,10 +124,10 @@ Partial Class GestionAlojamientos
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.listaAlojamientos)
+        Me.Controls.Add(Me.listadoAlojamientos)
         Me.Controls.Add(Me.btnSalir)
         Me.Name = "GestionAlojamientos"
-        Me.Text = "Gestión de alojamientos"
+        Me.Text = "Gestión de Alojamientos"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -138,7 +138,7 @@ Partial Class GestionAlojamientos
     Friend WithEvents btnBorrar As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnAdd As Button
-    Friend WithEvents listaAlojamientos As ListBox
+    Friend WithEvents listadoAlojamientos As ListBox
     Friend WithEvents btnVer As Button
     Friend WithEvents btnVolver As Button
 End Class

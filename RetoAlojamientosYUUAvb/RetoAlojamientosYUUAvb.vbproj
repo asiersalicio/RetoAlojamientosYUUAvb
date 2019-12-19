@@ -84,6 +84,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metodos.vb" />
     <Compile Include="GestionUsuarios.Designer.vb">
       <DependentUpon>GestionUsuarios.vb</DependentUpon>
     </Compile>
@@ -128,6 +129,9 @@
   <ItemGroup>
     <EmbeddedResource Include="GestionAlojamientos.resx">
       <DependentUpon>GestionAlojamientos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionUsuarios.resx">
+      <DependentUpon>GestionUsuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
