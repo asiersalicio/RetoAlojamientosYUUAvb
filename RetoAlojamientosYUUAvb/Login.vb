@@ -1,7 +1,30 @@
 ﻿Public Class Login
-    Private Sub BtnEntrar_Click(sender As Object, e As EventArgs) Handles btnEntrar.Click
+    Private usuario As String = "admin"
+    Private password As String = "123"
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub MaterialFlatButton1_Click(sender As Object, e As EventArgs) Handles btnAcceder.Click
+        Try
+            If (tbUsuario.Text = "") Then
+                MsgBox("Debe introducir un nombre de usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+            ElseIf (tbPassword.Text = "") Then
+                MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+            Else
+                If (tbUsuario.Text = usuario And tbPassword.Text = password) Then
+                    Acceder()
+                Else
+                    MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub Acceder()
         Me.Hide()
-        Gestion.Show()
+        MenuGestion.Show()
     End Sub
 End Class
