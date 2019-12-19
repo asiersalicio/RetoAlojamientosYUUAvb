@@ -1,7 +1,10 @@
 ﻿Public Class Login
+    Dim m As New Metodos
     Private usuario As String = "admin"
     Private password As String = "123"
+
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'm.pantallaCompleta()
 
     End Sub
 
@@ -13,18 +16,14 @@
                 MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             Else
                 If (tbUsuario.Text = usuario And tbPassword.Text = password) Then
-                    Acceder()
+                    m.Acceder()
                 Else
                     MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
                 End If
             End If
         Catch ex As Exception
-
+            MessageBox.Show(ex.Message)
+            MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
         End Try
-    End Sub
-
-    Private Sub Acceder()
-        Me.Hide()
-        MenuGestion.Show()
     End Sub
 End Class

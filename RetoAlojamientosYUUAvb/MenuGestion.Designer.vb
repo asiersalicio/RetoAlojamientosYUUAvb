@@ -63,7 +63,7 @@ Partial Class MenuGestion
         Me.Controls.Add(Me.btnGestionUsuarios)
         Me.Controls.Add(Me.btnGestionAlojamientos)
         Me.Name = "MenuGestion"
-        Me.Text = "Form1"
+        Me.Text = "Menú"
         Me.ResumeLayout(False)
 
     End Sub

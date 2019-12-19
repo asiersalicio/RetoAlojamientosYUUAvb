@@ -90,7 +90,7 @@ Partial Class Login
         Me.btnAcceder.AutoSize = True
         Me.btnAcceder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnAcceder.Depth = 0
-        Me.btnAcceder.Location = New System.Drawing.Point(237, 296)
+        Me.btnAcceder.Location = New System.Drawing.Point(242, 294)
         Me.btnAcceder.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAcceder.MinimumSize = New System.Drawing.Size(250, 0)
         Me.btnAcceder.MouseState = MaterialSkin.MouseState.HOVER
