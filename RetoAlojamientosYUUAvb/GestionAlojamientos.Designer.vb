@@ -28,9 +28,10 @@ Partial Class GestionAlojamientos
         Me.btnBorrar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.listadoAlojamientos = New System.Windows.Forms.ListBox()
         Me.btnVer = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
+        Me.DataGridAlojamientos = New System.Windows.Forms.DataGridView()
+        CType(Me.DataGridAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnSalir
@@ -85,14 +86,6 @@ Partial Class GestionAlojamientos
         Me.btnAdd.Text = "Añadir"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'listadoAlojamientos
-        '
-        Me.listadoAlojamientos.FormattingEnabled = True
-        Me.listadoAlojamientos.Location = New System.Drawing.Point(237, 136)
-        Me.listadoAlojamientos.Name = "listadoAlojamientos"
-        Me.listadoAlojamientos.Size = New System.Drawing.Size(286, 277)
-        Me.listadoAlojamientos.TabIndex = 6
-        '
         'btnVer
         '
         Me.btnVer.Location = New System.Drawing.Point(237, 415)
@@ -111,12 +104,21 @@ Partial Class GestionAlojamientos
         Me.btnVolver.Text = "Volver"
         Me.btnVolver.UseVisualStyleBackColor = True
         '
+        'DataGridAlojamientos
+        '
+        Me.DataGridAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridAlojamientos.Location = New System.Drawing.Point(237, 136)
+        Me.DataGridAlojamientos.Name = "DataGridAlojamientos"
+        Me.DataGridAlojamientos.Size = New System.Drawing.Size(286, 273)
+        Me.DataGridAlojamientos.TabIndex = 14
+        '
         'GestionAlojamientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DataGridAlojamientos)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnVer)
         Me.Controls.Add(Me.btnBuscar)
@@ -124,10 +126,10 @@ Partial Class GestionAlojamientos
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.listadoAlojamientos)
         Me.Controls.Add(Me.btnSalir)
         Me.Name = "GestionAlojamientos"
         Me.Text = "Gestión de Alojamientos"
+        CType(Me.DataGridAlojamientos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -138,7 +140,7 @@ Partial Class GestionAlojamientos
     Friend WithEvents btnBorrar As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnAdd As Button
-    Friend WithEvents listadoAlojamientos As ListBox
     Friend WithEvents btnVer As Button
     Friend WithEvents btnVolver As Button
+    Friend WithEvents DataGridAlojamientos As DataGridView
 End Class

@@ -26,4 +26,8 @@
             MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
         End Try
     End Sub
+
+    Private Sub TbUsuario_Click(sender As Object, e As EventArgs) Handles tbUsuario.Click
+
+    End Sub
 End Class

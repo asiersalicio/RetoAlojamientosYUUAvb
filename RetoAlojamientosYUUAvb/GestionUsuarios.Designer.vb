@@ -29,8 +29,9 @@ Partial Class GestionUsuarios
         Me.btnBorrar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.listadoUsuarios = New System.Windows.Forms.ListBox()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.DataGridUsuarios = New System.Windows.Forms.DataGridView()
+        CType(Me.DataGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnVolver
@@ -94,14 +95,6 @@ Partial Class GestionUsuarios
         Me.btnAdd.Text = "Añadir"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'listadoUsuarios
-        '
-        Me.listadoUsuarios.FormattingEnabled = True
-        Me.listadoUsuarios.Location = New System.Drawing.Point(237, 135)
-        Me.listadoUsuarios.Name = "listadoUsuarios"
-        Me.listadoUsuarios.Size = New System.Drawing.Size(286, 277)
-        Me.listadoUsuarios.TabIndex = 15
-        '
         'btnSalir
         '
         Me.btnSalir.Location = New System.Drawing.Point(713, 414)
@@ -111,11 +104,20 @@ Partial Class GestionUsuarios
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'DataGridUsuarios
+        '
+        Me.DataGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridUsuarios.Location = New System.Drawing.Point(237, 136)
+        Me.DataGridUsuarios.Name = "DataGridUsuarios"
+        Me.DataGridUsuarios.Size = New System.Drawing.Size(286, 272)
+        Me.DataGridUsuarios.TabIndex = 23
+        '
         'GestionUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DataGridUsuarios)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnVer)
         Me.Controls.Add(Me.btnBuscar)
@@ -123,10 +125,10 @@ Partial Class GestionUsuarios
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.listadoUsuarios)
         Me.Controls.Add(Me.btnSalir)
         Me.Name = "GestionUsuarios"
         Me.Text = "Gestión de Usuarios"
+        CType(Me.DataGridUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -139,6 +141,6 @@ Partial Class GestionUsuarios
     Friend WithEvents btnBorrar As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnAdd As Button
-    Friend WithEvents listadoUsuarios As ListBox
     Friend WithEvents btnSalir As Button
+    Friend WithEvents DataGridUsuarios As DataGridView
 End Class

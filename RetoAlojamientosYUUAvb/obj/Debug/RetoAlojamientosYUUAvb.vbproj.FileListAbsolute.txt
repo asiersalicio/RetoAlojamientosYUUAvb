@@ -46,3 +46,11 @@ C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\R
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.GestionAlojamientos.resources
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.MenuGestion.resources
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.GestionUsuarios.resources
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.AddAlojamiento.resources
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Protobuf.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\MySql.Data.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Renci.SshNet.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Protobuf.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\MySql.Data.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Renci.SshNet.xml

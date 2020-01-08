@@ -34,9 +34,9 @@ Partial Class AddAlojamiento
         Me.tbId = New System.Windows.Forms.TextBox()
         Me.tbNombre = New System.Windows.Forms.TextBox()
         Me.gbLocalizacion = New System.Windows.Forms.GroupBox()
-        Me.tbDireccion = New System.Windows.Forms.TextBox()
-        Me.tbMunicipio = New System.Windows.Forms.TextBox()
         Me.tbCP = New System.Windows.Forms.TextBox()
+        Me.tbMunicipio = New System.Windows.Forms.TextBox()
+        Me.tbDireccion = New System.Windows.Forms.TextBox()
         Me.gbLocalizacion.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -151,20 +151,20 @@ Partial Class AddAlojamiento
         Me.gbLocalizacion.Controls.Add(Me.tbCP)
         Me.gbLocalizacion.Controls.Add(Me.tbMunicipio)
         Me.gbLocalizacion.Controls.Add(Me.tbDireccion)
-        Me.gbLocalizacion.Location = New System.Drawing.Point(389, 345)
+        Me.gbLocalizacion.Location = New System.Drawing.Point(389, 176)
         Me.gbLocalizacion.Name = "gbLocalizacion"
         Me.gbLocalizacion.Size = New System.Drawing.Size(361, 74)
         Me.gbLocalizacion.TabIndex = 11
         Me.gbLocalizacion.TabStop = False
         Me.gbLocalizacion.Text = "GroupBox1"
         '
-        'tbDireccion
+        'tbCP
         '
-        Me.tbDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDireccion.Location = New System.Drawing.Point(0, 0)
-        Me.tbDireccion.Name = "tbDireccion"
-        Me.tbDireccion.Size = New System.Drawing.Size(293, 26)
-        Me.tbDireccion.TabIndex = 12
+        Me.tbCP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCP.Location = New System.Drawing.Point(0, 52)
+        Me.tbCP.Name = "tbCP"
+        Me.tbCP.Size = New System.Drawing.Size(293, 26)
+        Me.tbCP.TabIndex = 14
         '
         'tbMunicipio
         '
@@ -174,13 +174,13 @@ Partial Class AddAlojamiento
         Me.tbMunicipio.Size = New System.Drawing.Size(293, 26)
         Me.tbMunicipio.TabIndex = 13
         '
-        'tbCP
+        'tbDireccion
         '
-        Me.tbCP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCP.Location = New System.Drawing.Point(0, 52)
-        Me.tbCP.Name = "tbCP"
-        Me.tbCP.Size = New System.Drawing.Size(293, 26)
-        Me.tbCP.TabIndex = 14
+        Me.tbDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbDireccion.Location = New System.Drawing.Point(0, 0)
+        Me.tbDireccion.Name = "tbDireccion"
+        Me.tbDireccion.Size = New System.Drawing.Size(293, 26)
+        Me.tbDireccion.TabIndex = 12
         '
         'AddAlojamiento
         '
