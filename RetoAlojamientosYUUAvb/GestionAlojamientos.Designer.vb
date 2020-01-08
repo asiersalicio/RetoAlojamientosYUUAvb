@@ -22,6 +22,7 @@ Partial Class GestionAlojamientos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.tbBusqueda = New System.Windows.Forms.TextBox()
@@ -109,6 +110,15 @@ Partial Class GestionAlojamientos
         Me.DataGridAlojamientos.AllowUserToAddRows = False
         Me.DataGridAlojamientos.AllowUserToDeleteRows = False
         Me.DataGridAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.NullValue = "-"
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridAlojamientos.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridAlojamientos.Location = New System.Drawing.Point(13, 136)
         Me.DataGridAlojamientos.MultiSelect = False
         Me.DataGridAlojamientos.Name = "DataGridAlojamientos"

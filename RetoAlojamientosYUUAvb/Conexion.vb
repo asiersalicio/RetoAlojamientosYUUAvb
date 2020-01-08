@@ -1,18 +1,18 @@
 ﻿Imports MySql.Data.MySqlClient
-
+Imports System.Configuration
+Imports System.Collections.Specialized
 Public Class Conexion
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=retoaloj; Pwd=elchapas23")
+    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
+    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
+
 
     Public Sub Conectar()
-        ':::Utilizamos el try para capturar posibles errores
         Try
-            ':::Abrimos la conexión
             conex.Open()
-            ':::Si se estableció conexión correctamente dirá "Conectado"
-            MsgBox("Conectado")
+            MsgBox("Conexión establecida con éxito")
         Catch ex As Exception
-            ':::Si no se conecta nos mostrara el posible fallo en la conexión
-            MsgBox("No se pudo conectar a la BD por: " & ex.Message)
+            MsgBox("¡Error! No pudo establecerse la conexión a la base de datos." & vbLf & ex.Message)
             Application.ExitThread()
         End Try
     End Sub

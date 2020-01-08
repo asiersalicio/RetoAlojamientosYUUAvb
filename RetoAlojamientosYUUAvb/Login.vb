@@ -1,11 +1,18 @@
-﻿Public Class Login
+﻿Imports System.Configuration
+
+Public Class Login
     Dim m As New Metodos
-    Private usuario As String = "admin"
-    Private password As String = "123"
+    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("UsuarioApp")
+    Dim sPassword As String = ConfigurationManager.AppSettings.Get("PasswordApp")
+    ''' <summary>
+    ''' Usuario y Contraseña de la app
+    ''' </summary>
+    ''' 
+    'Private usuario As String = "root"
+    'Private password As String = "123"
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'm.pantallaCompleta()
-
     End Sub
 
     Private Sub MaterialFlatButton1_Click(sender As Object, e As EventArgs) Handles btnAcceder.Click
@@ -15,7 +22,8 @@
             ElseIf (tbPassword.Text = "") Then
                 MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             Else
-                If (tbUsuario.Text = usuario And tbPassword.Text = password) Then
+                If (tbUsuario.Text = sUsuario And tbPassword.Text = sPassword) Then
+
                     m.Acceder()
                 Else
                     MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
@@ -25,9 +33,5 @@
             MessageBox.Show(ex.Message)
             MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
         End Try
-    End Sub
-
-    Private Sub TbUsuario_Click(sender As Object, e As EventArgs) Handles tbUsuario.Click
-
     End Sub
 End Class
