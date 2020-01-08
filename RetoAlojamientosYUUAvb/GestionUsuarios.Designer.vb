@@ -45,16 +45,16 @@ Partial Class GestionUsuarios
         '
         'btnVer
         '
-        Me.btnVer.Location = New System.Drawing.Point(237, 414)
+        Me.btnVer.Location = New System.Drawing.Point(94, 414)
         Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(286, 23)
+        Me.btnVer.Size = New System.Drawing.Size(613, 23)
         Me.btnVer.TabIndex = 21
         Me.btnVer.Text = "Ver"
         Me.btnVer.UseVisualStyleBackColor = True
         '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(492, 109)
+        Me.btnBuscar.Location = New System.Drawing.Point(268, 110)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(31, 20)
         Me.btnBuscar.TabIndex = 20
@@ -63,14 +63,14 @@ Partial Class GestionUsuarios
         '
         'tbBusqueda
         '
-        Me.tbBusqueda.Location = New System.Drawing.Point(237, 109)
+        Me.tbBusqueda.Location = New System.Drawing.Point(13, 110)
         Me.tbBusqueda.Name = "tbBusqueda"
         Me.tbBusqueda.Size = New System.Drawing.Size(249, 20)
         Me.tbBusqueda.TabIndex = 19
         '
         'btnBorrar
         '
-        Me.btnBorrar.Location = New System.Drawing.Point(529, 193)
+        Me.btnBorrar.Location = New System.Drawing.Point(713, 194)
         Me.btnBorrar.Name = "btnBorrar"
         Me.btnBorrar.Size = New System.Drawing.Size(75, 23)
         Me.btnBorrar.TabIndex = 18
@@ -79,7 +79,7 @@ Partial Class GestionUsuarios
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(529, 164)
+        Me.btnModificar.Location = New System.Drawing.Point(713, 165)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(75, 23)
         Me.btnModificar.TabIndex = 17
@@ -88,7 +88,7 @@ Partial Class GestionUsuarios
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(529, 135)
+        Me.btnAdd.Location = New System.Drawing.Point(713, 136)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 16
@@ -107,9 +107,9 @@ Partial Class GestionUsuarios
         'DataGridUsuarios
         '
         Me.DataGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridUsuarios.Location = New System.Drawing.Point(237, 136)
+        Me.DataGridUsuarios.Location = New System.Drawing.Point(13, 136)
         Me.DataGridUsuarios.Name = "DataGridUsuarios"
-        Me.DataGridUsuarios.Size = New System.Drawing.Size(286, 272)
+        Me.DataGridUsuarios.Size = New System.Drawing.Size(694, 272)
         Me.DataGridUsuarios.TabIndex = 23
         '
         'GestionUsuarios

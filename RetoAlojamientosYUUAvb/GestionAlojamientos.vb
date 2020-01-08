@@ -3,7 +3,7 @@
 Public Class GestionAlojamientos
     Dim m As New Metodos
     Public conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=retoaloj; Pwd=elchapas23")
-    Public adapter As New MySqlDataAdapter("SELECT * FROM talojamientos", conex)
+    Public adapter As New MySqlDataAdapter("SELECT DISTINCT documentname 'Nombre alojamiento',marks 'Localidad',address 'Dirección', lodgingtype 'Tipo alojamiento',turismdescription 'Descripción',capacity 'Capacidad',phone 'Teléfono',tourismemail 'eMail' FROM talojamientos aloj, tlocalizacion loc WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion", conex)
 
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim tabla As New DataTable()

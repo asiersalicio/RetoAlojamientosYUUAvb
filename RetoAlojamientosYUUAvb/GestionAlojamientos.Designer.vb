@@ -45,7 +45,7 @@ Partial Class GestionAlojamientos
         '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(492, 110)
+        Me.btnBuscar.Location = New System.Drawing.Point(268, 110)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(31, 20)
         Me.btnBuscar.TabIndex = 11
@@ -54,14 +54,14 @@ Partial Class GestionAlojamientos
         '
         'tbBusqueda
         '
-        Me.tbBusqueda.Location = New System.Drawing.Point(237, 110)
+        Me.tbBusqueda.Location = New System.Drawing.Point(13, 110)
         Me.tbBusqueda.Name = "tbBusqueda"
         Me.tbBusqueda.Size = New System.Drawing.Size(249, 20)
         Me.tbBusqueda.TabIndex = 10
         '
         'btnBorrar
         '
-        Me.btnBorrar.Location = New System.Drawing.Point(529, 194)
+        Me.btnBorrar.Location = New System.Drawing.Point(713, 194)
         Me.btnBorrar.Name = "btnBorrar"
         Me.btnBorrar.Size = New System.Drawing.Size(75, 23)
         Me.btnBorrar.TabIndex = 9
@@ -70,7 +70,7 @@ Partial Class GestionAlojamientos
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(529, 165)
+        Me.btnModificar.Location = New System.Drawing.Point(713, 165)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(75, 23)
         Me.btnModificar.TabIndex = 8
@@ -79,7 +79,7 @@ Partial Class GestionAlojamientos
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(529, 136)
+        Me.btnAdd.Location = New System.Drawing.Point(713, 136)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 7
@@ -88,9 +88,9 @@ Partial Class GestionAlojamientos
         '
         'btnVer
         '
-        Me.btnVer.Location = New System.Drawing.Point(237, 415)
+        Me.btnVer.Location = New System.Drawing.Point(94, 415)
         Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(286, 23)
+        Me.btnVer.Size = New System.Drawing.Size(613, 23)
         Me.btnVer.TabIndex = 12
         Me.btnVer.Text = "Ver"
         Me.btnVer.UseVisualStyleBackColor = True
@@ -106,10 +106,15 @@ Partial Class GestionAlojamientos
         '
         'DataGridAlojamientos
         '
+        Me.DataGridAlojamientos.AllowUserToAddRows = False
+        Me.DataGridAlojamientos.AllowUserToDeleteRows = False
         Me.DataGridAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridAlojamientos.Location = New System.Drawing.Point(237, 136)
+        Me.DataGridAlojamientos.Location = New System.Drawing.Point(13, 136)
+        Me.DataGridAlojamientos.MultiSelect = False
         Me.DataGridAlojamientos.Name = "DataGridAlojamientos"
-        Me.DataGridAlojamientos.Size = New System.Drawing.Size(286, 273)
+        Me.DataGridAlojamientos.ReadOnly = True
+        Me.DataGridAlojamientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridAlojamientos.Size = New System.Drawing.Size(694, 273)
         Me.DataGridAlojamientos.TabIndex = 14
         '
         'GestionAlojamientos
