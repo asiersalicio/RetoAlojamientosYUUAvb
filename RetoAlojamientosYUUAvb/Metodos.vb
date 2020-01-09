@@ -1,8 +1,33 @@
-﻿Public Class Metodos
+﻿Imports System.Security.Cryptography
+
+Public Class Metodos
     Public Sub Acceder()
         Login.Hide()
         MenuGestion.Show()
     End Sub
+
+    Public Function MD5EncryptPass(ByVal StrPass As String)
+
+        Dim md5 As MD5CryptoServiceProvider
+        Dim bytValue() As Byte
+        Dim bytHash() As Byte
+        Dim contraEncriptada As String
+        Dim i As Integer
+        contraEncriptada = ""
+
+        md5 = New MD5CryptoServiceProvider
+
+        bytValue = System.Text.Encoding.UTF8.GetBytes(StrPass)
+
+        bytHash = md5.ComputeHash(bytValue)
+        md5.Clear()
+
+        For i = 0 To bytHash.Length - 1
+            contraEncriptada &= bytHash(i).ToString("x").PadLeft(2, "0")
+        Next
+
+        Return contraEncriptada
+    End Function
 
     Public Sub pantallaCompleta()
         'Pantalla Login
@@ -27,9 +52,5 @@
         If resp = MsgBoxResult.Yes Then
             Application.Exit()
         End If
-    End Sub
-
-    Public Sub addNuevoAlojamiento()
-
     End Sub
 End Class

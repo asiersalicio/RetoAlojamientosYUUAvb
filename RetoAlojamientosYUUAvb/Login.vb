@@ -1,4 +1,6 @@
 ﻿Imports System.Configuration
+Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 Public Class Login
     Dim m As New Metodos
@@ -22,8 +24,13 @@ Public Class Login
             ElseIf (tbPassword.Text = "") Then
                 MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             Else
-                If (tbUsuario.Text = sUsuario And tbPassword.Text = sPassword) Then
+                Dim contraEncriptada As String = m.MD5EncryptPass(tbPassword.Text)
+                Dim sPasswordEncriptada As String = m.MD5EncryptPass(sPassword)
+                Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
+                Dim adapterUsuario As New MySqlCommand("SELECT nombreUsuario FROM usuario WHERE nombreUsuario=" & tbUsuario.Text, conex)
+                Dim adapterPassword As New MySqlCommand("SELECT contrasena FROM usuario WHERE contrasena=" & contraEncriptada, conex)
 
+                If (tbUsuario.Text = sUsuario And contraEncriptada = sPasswordEncriptada) Then
                     m.Acceder()
                 Else
                     MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
