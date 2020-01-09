@@ -22,6 +22,7 @@ Partial Class AddAlojamiento
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblId = New System.Windows.Forms.Label()
         Me.lblCapacidad = New System.Windows.Forms.Label()
         Me.lblDescripcion = New System.Windows.Forms.Label()
@@ -33,13 +34,15 @@ Partial Class AddAlojamiento
         Me.tbId = New System.Windows.Forms.TextBox()
         Me.tbNombre = New System.Windows.Forms.TextBox()
         Me.gbTAlojamientos = New System.Windows.Forms.GroupBox()
+        Me.cbTiposAloj = New System.Windows.Forms.ComboBox()
         Me.tbDescripcion = New System.Windows.Forms.TextBox()
-        Me.tbCapacidad = New System.Windows.Forms.TextBox()
-        Me.tbTelefono = New System.Windows.Forms.TextBox()
-        Me.tbEmail = New System.Windows.Forms.TextBox()
         Me.tbWeb = New System.Windows.Forms.TextBox()
+        Me.tbCapacidad = New System.Windows.Forms.TextBox()
+        Me.tbEmail = New System.Windows.Forms.TextBox()
+        Me.tbTelefono = New System.Windows.Forms.TextBox()
         Me.gbTLocalizacion = New System.Windows.Forms.GroupBox()
         Me.tbDireccion = New System.Windows.Forms.TextBox()
+        Me.tbCodMunicipio = New System.Windows.Forms.TextBox()
         Me.tbCodPostal = New System.Windows.Forms.TextBox()
         Me.tbAltitud = New System.Windows.Forms.TextBox()
         Me.tbLocalidad = New System.Windows.Forms.TextBox()
@@ -49,13 +52,13 @@ Partial Class AddAlojamiento
         Me.lblCodPostal = New System.Windows.Forms.Label()
         Me.lblLatitud = New System.Windows.Forms.Label()
         Me.lblAltitud = New System.Windows.Forms.Label()
-        Me.tbCodMunicipio = New System.Windows.Forms.TextBox()
         Me.lblCodMunicipio = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnAñadir = New System.Windows.Forms.Button()
+        Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbTAlojamientos.SuspendLayout()
         Me.gbTLocalizacion.SuspendLayout()
+        CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblId
@@ -156,7 +159,7 @@ Partial Class AddAlojamiento
         '
         'gbTAlojamientos
         '
-        Me.gbTAlojamientos.Controls.Add(Me.ComboBox1)
+        Me.gbTAlojamientos.Controls.Add(Me.cbTiposAloj)
         Me.gbTAlojamientos.Controls.Add(Me.tbDescripcion)
         Me.gbTAlojamientos.Controls.Add(Me.tbWeb)
         Me.gbTAlojamientos.Controls.Add(Me.tbCapacidad)
@@ -171,6 +174,14 @@ Partial Class AddAlojamiento
         Me.gbTAlojamientos.TabStop = False
         Me.gbTAlojamientos.Text = "GroupBox1"
         '
+        'cbTiposAloj
+        '
+        Me.cbTiposAloj.FormattingEnabled = True
+        Me.cbTiposAloj.Location = New System.Drawing.Point(0, 111)
+        Me.cbTiposAloj.Name = "cbTiposAloj"
+        Me.cbTiposAloj.Size = New System.Drawing.Size(200, 21)
+        Me.cbTiposAloj.TabIndex = 20
+        '
         'tbDescripcion
         '
         Me.tbDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -178,6 +189,14 @@ Partial Class AddAlojamiento
         Me.tbDescripcion.Name = "tbDescripcion"
         Me.tbDescripcion.Size = New System.Drawing.Size(200, 26)
         Me.tbDescripcion.TabIndex = 14
+        '
+        'tbWeb
+        '
+        Me.tbWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbWeb.Location = New System.Drawing.Point(0, 268)
+        Me.tbWeb.Name = "tbWeb"
+        Me.tbWeb.Size = New System.Drawing.Size(200, 26)
+        Me.tbWeb.TabIndex = 14
         '
         'tbCapacidad
         '
@@ -187,14 +206,6 @@ Partial Class AddAlojamiento
         Me.tbCapacidad.Size = New System.Drawing.Size(200, 26)
         Me.tbCapacidad.TabIndex = 13
         '
-        'tbTelefono
-        '
-        Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelefono.Location = New System.Drawing.Point(0, 204)
-        Me.tbTelefono.Name = "tbTelefono"
-        Me.tbTelefono.Size = New System.Drawing.Size(200, 26)
-        Me.tbTelefono.TabIndex = 12
-        '
         'tbEmail
         '
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -203,13 +214,13 @@ Partial Class AddAlojamiento
         Me.tbEmail.Size = New System.Drawing.Size(200, 26)
         Me.tbEmail.TabIndex = 13
         '
-        'tbWeb
+        'tbTelefono
         '
-        Me.tbWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbWeb.Location = New System.Drawing.Point(0, 268)
-        Me.tbWeb.Name = "tbWeb"
-        Me.tbWeb.Size = New System.Drawing.Size(200, 26)
-        Me.tbWeb.TabIndex = 14
+        Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbTelefono.Location = New System.Drawing.Point(0, 204)
+        Me.tbTelefono.Name = "tbTelefono"
+        Me.tbTelefono.Size = New System.Drawing.Size(200, 26)
+        Me.tbTelefono.TabIndex = 12
         '
         'gbTLocalizacion
         '
@@ -233,6 +244,14 @@ Partial Class AddAlojamiento
         Me.tbDireccion.Name = "tbDireccion"
         Me.tbDireccion.Size = New System.Drawing.Size(200, 26)
         Me.tbDireccion.TabIndex = 14
+        '
+        'tbCodMunicipio
+        '
+        Me.tbCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCodMunicipio.Location = New System.Drawing.Point(0, 170)
+        Me.tbCodMunicipio.Name = "tbCodMunicipio"
+        Me.tbCodMunicipio.Size = New System.Drawing.Size(200, 26)
+        Me.tbCodMunicipio.TabIndex = 14
         '
         'tbCodPostal
         '
@@ -316,14 +335,6 @@ Partial Class AddAlojamiento
         Me.lblAltitud.TabIndex = 17
         Me.lblAltitud.Text = "Altitud:"
         '
-        'tbCodMunicipio
-        '
-        Me.tbCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCodMunicipio.Location = New System.Drawing.Point(0, 170)
-        Me.tbCodMunicipio.Name = "tbCodMunicipio"
-        Me.tbCodMunicipio.Size = New System.Drawing.Size(200, 26)
-        Me.tbCodMunicipio.TabIndex = 14
-        '
         'lblCodMunicipio
         '
         Me.lblCodMunicipio.AutoSize = True
@@ -333,14 +344,6 @@ Partial Class AddAlojamiento
         Me.lblCodMunicipio.Size = New System.Drawing.Size(155, 20)
         Me.lblCodMunicipio.TabIndex = 19
         Me.lblCodMunicipio.Text = "Código de Municipio:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(0, 111)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(200, 21)
-        Me.ComboBox1.TabIndex = 20
         '
         'btnCancelar
         '
@@ -359,6 +362,10 @@ Partial Class AddAlojamiento
         Me.btnAñadir.TabIndex = 21
         Me.btnAñadir.Text = "Añadir"
         Me.btnAñadir.UseVisualStyleBackColor = True
+        '
+        'ConexionBindingSource
+        '
+        Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
         '
         'AddAlojamiento
         '
@@ -389,6 +396,7 @@ Partial Class AddAlojamiento
         Me.gbTAlojamientos.PerformLayout()
         Me.gbTLocalizacion.ResumeLayout(False)
         Me.gbTLocalizacion.PerformLayout()
+        CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -423,7 +431,8 @@ Partial Class AddAlojamiento
     Friend WithEvents lblLatitud As Label
     Friend WithEvents lblAltitud As Label
     Friend WithEvents lblCodMunicipio As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbTiposAloj As ComboBox
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnAñadir As Button
+    Friend WithEvents ConexionBindingSource As BindingSource
 End Class

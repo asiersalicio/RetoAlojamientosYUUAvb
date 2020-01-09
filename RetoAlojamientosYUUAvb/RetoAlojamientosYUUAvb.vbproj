@@ -191,6 +191,17 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\AddAlojamiento.datasource" />
+    <None Include="My Project\DataSources\AddUsuario.datasource" />
+    <None Include="My Project\DataSources\Conexion.datasource" />
+    <None Include="My Project\DataSources\GestionAlojamientos.datasource" />
+    <None Include="My Project\DataSources\GestionUsuarios.datasource" />
+    <None Include="My Project\DataSources\Login.datasource" />
+    <None Include="My Project\DataSources\MenuGestion.datasource" />
+    <None Include="My Project\DataSources\Metodos.datasource" />
+    <None Include="My Project\DataSources\RetoAlojamientosYUUAvb.My.MyApplication.datasource" />
+    <None Include="My Project\DataSources\RetoAlojamientosYUUAvb.My.MySettings.datasource" />
+    <None Include="My Project\DataSources\WatermarkTextBox.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
