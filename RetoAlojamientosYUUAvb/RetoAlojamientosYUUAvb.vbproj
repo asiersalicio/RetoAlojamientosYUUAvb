@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B0B22AD4-D68C-4527-86CA-5233A23A3591}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>RetoAlojamientosYUUAvb.My.MyApplication</StartupObject>
+    <StartupObject>RetoAlojamientosYUUAvb.Login</StartupObject>
     <RootNamespace>RetoAlojamientosYUUAvb</RootNamespace>
     <AssemblyName>RetoAlojamientosYUUAvb</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
