@@ -14,8 +14,8 @@ Public Class GestionUsuarios
         m.salir()
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Hide()
-        MenuGestion.Show()
-    End Sub
+	Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+		Me.Hide()
+		MenuGestion.Show()
+	End Sub
 End Class
