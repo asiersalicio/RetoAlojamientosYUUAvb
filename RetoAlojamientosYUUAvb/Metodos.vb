@@ -7,7 +7,6 @@ Public Class Metodos
     End Sub
 
     Public Function MD5EncryptPass(ByVal StrPass As String)
-
         Dim md5 As MD5CryptoServiceProvider
         Dim bytValue() As Byte
         Dim bytHash() As Byte
@@ -16,9 +15,7 @@ Public Class Metodos
         contraEncriptada = ""
 
         md5 = New MD5CryptoServiceProvider
-
-        bytValue = System.Text.Encoding.UTF8.GetBytes(StrPass)
-
+        bytValue = Text.Encoding.UTF8.GetBytes(StrPass)
         bytHash = md5.ComputeHash(bytValue)
         md5.Clear()
 
