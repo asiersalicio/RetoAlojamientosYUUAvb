@@ -51,21 +51,23 @@ Partial Class GestionAlojamientos
 		Me.tbEmail = New System.Windows.Forms.TextBox()
 		Me.tbTelefono = New System.Windows.Forms.TextBox()
 		Me.gbTLocalizacion = New System.Windows.Forms.GroupBox()
+		Me.tbPais = New System.Windows.Forms.ComboBox()
 		Me.tbDireccion = New System.Windows.Forms.TextBox()
-		Me.tbCodMunicipio = New System.Windows.Forms.TextBox()
+		Me.tbMunicipio = New System.Windows.Forms.ComboBox()
 		Me.tbCodPostal = New System.Windows.Forms.TextBox()
-		Me.tbAltitud = New System.Windows.Forms.TextBox()
-		Me.tbLocalidad = New System.Windows.Forms.TextBox()
+		Me.tbLongitud = New System.Windows.Forms.TextBox()
+		Me.tbTerritorio = New System.Windows.Forms.ComboBox()
 		Me.tbLatitud = New System.Windows.Forms.TextBox()
-		Me.lblLocalidad = New System.Windows.Forms.Label()
+		Me.lblTerritorio = New System.Windows.Forms.Label()
 		Me.lblDireccion = New System.Windows.Forms.Label()
 		Me.lblCodPostal = New System.Windows.Forms.Label()
 		Me.lblLatitud = New System.Windows.Forms.Label()
-		Me.lblAltitud = New System.Windows.Forms.Label()
-		Me.lblCodMunicipio = New System.Windows.Forms.Label()
+		Me.lblLongitud = New System.Windows.Forms.Label()
+		Me.lblMunicipio = New System.Windows.Forms.Label()
 		Me.btnAñadir = New System.Windows.Forms.Button()
 		Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.btnCancelar = New System.Windows.Forms.Button()
+		Me.lblPais = New System.Windows.Forms.Label()
 		CType(Me.DataGridAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.gbTAlojamientos.SuspendLayout()
 		Me.gbTLocalizacion.SuspendLayout()
@@ -327,82 +329,91 @@ Partial Class GestionAlojamientos
 		'
 		'gbTLocalizacion
 		'
+		Me.gbTLocalizacion.Controls.Add(Me.tbPais)
 		Me.gbTLocalizacion.Controls.Add(Me.tbDireccion)
-		Me.gbTLocalizacion.Controls.Add(Me.tbCodMunicipio)
+		Me.gbTLocalizacion.Controls.Add(Me.tbMunicipio)
 		Me.gbTLocalizacion.Controls.Add(Me.tbCodPostal)
-		Me.gbTLocalizacion.Controls.Add(Me.tbAltitud)
-		Me.gbTLocalizacion.Controls.Add(Me.tbLocalidad)
+		Me.gbTLocalizacion.Controls.Add(Me.tbLongitud)
+		Me.gbTLocalizacion.Controls.Add(Me.tbTerritorio)
 		Me.gbTLocalizacion.Controls.Add(Me.tbLatitud)
-		Me.gbTLocalizacion.Location = New System.Drawing.Point(1284, 122)
+		Me.gbTLocalizacion.Location = New System.Drawing.Point(1256, 119)
 		Me.gbTLocalizacion.Name = "gbTLocalizacion"
-		Me.gbTLocalizacion.Size = New System.Drawing.Size(208, 211)
+		Me.gbTLocalizacion.Size = New System.Drawing.Size(208, 230)
 		Me.gbTLocalizacion.TabIndex = 12
 		Me.gbTLocalizacion.TabStop = False
 		Me.gbTLocalizacion.Text = "GroupBox1"
 		'
+		'tbPais
+		'
+		Me.tbPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.tbPais.Location = New System.Drawing.Point(2, 13)
+		Me.tbPais.Name = "tbPais"
+		Me.tbPais.Size = New System.Drawing.Size(200, 28)
+		Me.tbPais.TabIndex = 15
+		'
 		'tbDireccion
 		'
 		Me.tbDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbDireccion.Location = New System.Drawing.Point(0, 74)
+		Me.tbDireccion.Location = New System.Drawing.Point(2, 137)
 		Me.tbDireccion.Name = "tbDireccion"
 		Me.tbDireccion.Size = New System.Drawing.Size(200, 26)
 		Me.tbDireccion.TabIndex = 14
 		'
-		'tbCodMunicipio
+		'tbMunicipio
 		'
-		Me.tbCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbCodMunicipio.Location = New System.Drawing.Point(0, 170)
-		Me.tbCodMunicipio.Name = "tbCodMunicipio"
-		Me.tbCodMunicipio.Size = New System.Drawing.Size(200, 26)
-		Me.tbCodMunicipio.TabIndex = 14
+		Me.tbMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.tbMunicipio.Location = New System.Drawing.Point(2, 75)
+		Me.tbMunicipio.Name = "tbMunicipio"
+		Me.tbMunicipio.Size = New System.Drawing.Size(200, 28)
+		Me.tbMunicipio.TabIndex = 14
 		'
 		'tbCodPostal
 		'
 		Me.tbCodPostal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbCodPostal.Location = New System.Drawing.Point(0, 42)
+		Me.tbCodPostal.Location = New System.Drawing.Point(2, 106)
 		Me.tbCodPostal.Name = "tbCodPostal"
 		Me.tbCodPostal.Size = New System.Drawing.Size(200, 26)
 		Me.tbCodPostal.TabIndex = 13
 		'
-		'tbAltitud
+		'tbLongitud
 		'
-		Me.tbAltitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbAltitud.Location = New System.Drawing.Point(0, 138)
-		Me.tbAltitud.Name = "tbAltitud"
-		Me.tbAltitud.Size = New System.Drawing.Size(200, 26)
-		Me.tbAltitud.TabIndex = 13
+		Me.tbLongitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.tbLongitud.Location = New System.Drawing.Point(2, 199)
+		Me.tbLongitud.Name = "tbLongitud"
+		Me.tbLongitud.Size = New System.Drawing.Size(200, 26)
+		Me.tbLongitud.TabIndex = 13
 		'
-		'tbLocalidad
+		'tbTerritorio
 		'
-		Me.tbLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbLocalidad.Location = New System.Drawing.Point(0, 10)
-		Me.tbLocalidad.Name = "tbLocalidad"
-		Me.tbLocalidad.Size = New System.Drawing.Size(200, 26)
-		Me.tbLocalidad.TabIndex = 12
+		Me.tbTerritorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.tbTerritorio.Location = New System.Drawing.Point(2, 44)
+		Me.tbTerritorio.Name = "tbTerritorio"
+		Me.tbTerritorio.Size = New System.Drawing.Size(200, 28)
+		Me.tbTerritorio.TabIndex = 12
 		'
 		'tbLatitud
 		'
 		Me.tbLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbLatitud.Location = New System.Drawing.Point(0, 106)
+		Me.tbLatitud.Location = New System.Drawing.Point(2, 168)
 		Me.tbLatitud.Name = "tbLatitud"
 		Me.tbLatitud.Size = New System.Drawing.Size(200, 26)
 		Me.tbLatitud.TabIndex = 12
 		'
-		'lblLocalidad
+		'lblTerritorio
 		'
-		Me.lblLocalidad.AutoSize = True
-		Me.lblLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-		Me.lblLocalidad.Location = New System.Drawing.Point(1175, 135)
-		Me.lblLocalidad.Name = "lblLocalidad"
-		Me.lblLocalidad.Size = New System.Drawing.Size(56, 13)
-		Me.lblLocalidad.TabIndex = 13
-		Me.lblLocalidad.Text = "Localidad:"
+		Me.lblTerritorio.AutoSize = True
+		Me.lblTerritorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+		Me.lblTerritorio.Location = New System.Drawing.Point(1175, 168)
+		Me.lblTerritorio.Name = "lblTerritorio"
+		Me.lblTerritorio.Size = New System.Drawing.Size(51, 13)
+		Me.lblTerritorio.TabIndex = 13
+		Me.lblTerritorio.Text = "Territorio:"
 		'
 		'lblDireccion
 		'
 		Me.lblDireccion.AutoSize = True
 		Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-		Me.lblDireccion.Location = New System.Drawing.Point(1175, 199)
+		Me.lblDireccion.Location = New System.Drawing.Point(1175, 267)
 		Me.lblDireccion.Name = "lblDireccion"
 		Me.lblDireccion.Size = New System.Drawing.Size(55, 13)
 		Me.lblDireccion.TabIndex = 14
@@ -412,7 +423,7 @@ Partial Class GestionAlojamientos
 		'
 		Me.lblCodPostal.AutoSize = True
 		Me.lblCodPostal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-		Me.lblCodPostal.Location = New System.Drawing.Point(1175, 167)
+		Me.lblCodPostal.Location = New System.Drawing.Point(1175, 234)
 		Me.lblCodPostal.Name = "lblCodPostal"
 		Me.lblCodPostal.Size = New System.Drawing.Size(75, 13)
 		Me.lblCodPostal.TabIndex = 15
@@ -422,31 +433,31 @@ Partial Class GestionAlojamientos
 		'
 		Me.lblLatitud.AutoSize = True
 		Me.lblLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-		Me.lblLatitud.Location = New System.Drawing.Point(1175, 231)
+		Me.lblLatitud.Location = New System.Drawing.Point(1175, 300)
 		Me.lblLatitud.Name = "lblLatitud"
 		Me.lblLatitud.Size = New System.Drawing.Size(42, 13)
 		Me.lblLatitud.TabIndex = 16
 		Me.lblLatitud.Text = "Latitud:"
 		'
-		'lblAltitud
+		'lblLongitud
 		'
-		Me.lblAltitud.AutoSize = True
-		Me.lblAltitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-		Me.lblAltitud.Location = New System.Drawing.Point(1175, 265)
-		Me.lblAltitud.Name = "lblAltitud"
-		Me.lblAltitud.Size = New System.Drawing.Size(39, 13)
-		Me.lblAltitud.TabIndex = 17
-		Me.lblAltitud.Text = "Altitud:"
+		Me.lblLongitud.AutoSize = True
+		Me.lblLongitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+		Me.lblLongitud.Location = New System.Drawing.Point(1175, 333)
+		Me.lblLongitud.Name = "lblLongitud"
+		Me.lblLongitud.Size = New System.Drawing.Size(51, 13)
+		Me.lblLongitud.TabIndex = 17
+		Me.lblLongitud.Text = "Longitud:"
 		'
-		'lblCodMunicipio
+		'lblMunicipio
 		'
-		Me.lblCodMunicipio.AutoSize = True
-		Me.lblCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-		Me.lblCodMunicipio.Location = New System.Drawing.Point(1175, 297)
-		Me.lblCodMunicipio.Name = "lblCodMunicipio"
-		Me.lblCodMunicipio.Size = New System.Drawing.Size(106, 13)
-		Me.lblCodMunicipio.TabIndex = 19
-		Me.lblCodMunicipio.Text = "Código de Municipio:"
+		Me.lblMunicipio.AutoSize = True
+		Me.lblMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+		Me.lblMunicipio.Location = New System.Drawing.Point(1175, 201)
+		Me.lblMunicipio.Name = "lblMunicipio"
+		Me.lblMunicipio.Size = New System.Drawing.Size(55, 13)
+		Me.lblMunicipio.TabIndex = 19
+		Me.lblMunicipio.Text = "Municipio:"
 		'
 		'btnAñadir
 		'
@@ -470,12 +481,23 @@ Partial Class GestionAlojamientos
 		Me.btnCancelar.Text = "Cancelar"
 		Me.btnCancelar.UseVisualStyleBackColor = True
 		'
+		'lblPais
+		'
+		Me.lblPais.AutoSize = True
+		Me.lblPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+		Me.lblPais.Location = New System.Drawing.Point(1175, 135)
+		Me.lblPais.Name = "lblPais"
+		Me.lblPais.Size = New System.Drawing.Size(30, 13)
+		Me.lblPais.TabIndex = 22
+		Me.lblPais.Text = "Pais:"
+		'
 		'GestionAlojamientos
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.Window
 		Me.ClientSize = New System.Drawing.Size(1533, 504)
+		Me.Controls.Add(Me.lblPais)
 		Me.Controls.Add(Me.DataGridAlojamientos)
 		Me.Controls.Add(Me.btnVolver)
 		Me.Controls.Add(Me.btnVer)
@@ -487,12 +509,12 @@ Partial Class GestionAlojamientos
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.btnAñadir)
 		Me.Controls.Add(Me.btnCancelar)
-		Me.Controls.Add(Me.lblCodMunicipio)
-		Me.Controls.Add(Me.lblAltitud)
+		Me.Controls.Add(Me.lblMunicipio)
+		Me.Controls.Add(Me.lblLongitud)
 		Me.Controls.Add(Me.lblLatitud)
 		Me.Controls.Add(Me.lblCodPostal)
 		Me.Controls.Add(Me.lblDireccion)
-		Me.Controls.Add(Me.lblLocalidad)
+		Me.Controls.Add(Me.lblTerritorio)
 		Me.Controls.Add(Me.gbTLocalizacion)
 		Me.Controls.Add(Me.gbTAlojamientos)
 		Me.Controls.Add(Me.lblWeb)
@@ -542,19 +564,21 @@ Partial Class GestionAlojamientos
 	Friend WithEvents tbWeb As TextBox
 	Friend WithEvents gbTLocalizacion As GroupBox
 	Friend WithEvents tbDireccion As TextBox
-	Friend WithEvents tbCodMunicipio As TextBox
+	Friend WithEvents tbMunicipio As ComboBox
 	Friend WithEvents tbCodPostal As TextBox
-	Friend WithEvents tbAltitud As TextBox
-	Friend WithEvents tbLocalidad As TextBox
+	Friend WithEvents tbLongitud As TextBox
+	Friend WithEvents tbTerritorio As ComboBox
 	Friend WithEvents tbLatitud As TextBox
-	Friend WithEvents lblLocalidad As Label
+	Friend WithEvents lblTerritorio As Label
 	Friend WithEvents lblDireccion As Label
 	Friend WithEvents lblCodPostal As Label
 	Friend WithEvents lblLatitud As Label
-	Friend WithEvents lblAltitud As Label
-	Friend WithEvents lblCodMunicipio As Label
+	Friend WithEvents lblLongitud As Label
+	Friend WithEvents lblMunicipio As Label
 	Friend WithEvents cbTiposAloj As ComboBox
 	Friend WithEvents btnAñadir As Button
 	Friend WithEvents ConexionBindingSource As BindingSource
 	Friend WithEvents btnCancelar As Button
+	Friend WithEvents lblPais As Label
+	Friend WithEvents tbPais As ComboBox
 End Class
