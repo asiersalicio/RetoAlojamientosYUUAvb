@@ -65,7 +65,7 @@ Partial Class AddAlojamiento
         '
         Me.lblId.AutoSize = True
         Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblId.Location = New System.Drawing.Point(12, 75)
+        Me.lblId.Location = New System.Drawing.Point(12, 84)
         Me.lblId.Name = "lblId"
         Me.lblId.Size = New System.Drawing.Size(101, 20)
         Me.lblId.TabIndex = 0
@@ -75,7 +75,7 @@ Partial Class AddAlojamiento
         '
         Me.lblCapacidad.AutoSize = True
         Me.lblCapacidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCapacidad.Location = New System.Drawing.Point(12, 205)
+        Me.lblCapacidad.Location = New System.Drawing.Point(12, 214)
         Me.lblCapacidad.Name = "lblCapacidad"
         Me.lblCapacidad.Size = New System.Drawing.Size(89, 20)
         Me.lblCapacidad.TabIndex = 1
@@ -85,7 +85,7 @@ Partial Class AddAlojamiento
         '
         Me.lblDescripcion.AutoSize = True
         Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescripcion.Location = New System.Drawing.Point(12, 237)
+        Me.lblDescripcion.Location = New System.Drawing.Point(12, 246)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(96, 20)
         Me.lblDescripcion.TabIndex = 2
@@ -95,7 +95,7 @@ Partial Class AddAlojamiento
         '
         Me.lblEmail.AutoSize = True
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmail.Location = New System.Drawing.Point(11, 301)
+        Me.lblEmail.Location = New System.Drawing.Point(11, 310)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(142, 20)
         Me.lblEmail.TabIndex = 3
@@ -105,7 +105,7 @@ Partial Class AddAlojamiento
         '
         Me.lblName.AutoSize = True
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblName.Location = New System.Drawing.Point(12, 107)
+        Me.lblName.Location = New System.Drawing.Point(12, 116)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(69, 20)
         Me.lblName.TabIndex = 4
@@ -115,7 +115,7 @@ Partial Class AddAlojamiento
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefono.Location = New System.Drawing.Point(11, 269)
+        Me.lblTelefono.Location = New System.Drawing.Point(11, 278)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(75, 20)
         Me.lblTelefono.TabIndex = 5
@@ -125,7 +125,7 @@ Partial Class AddAlojamiento
         '
         Me.lblTipo.AutoSize = True
         Me.lblTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipo.Location = New System.Drawing.Point(11, 173)
+        Me.lblTipo.Location = New System.Drawing.Point(11, 182)
         Me.lblTipo.Name = "lblTipo"
         Me.lblTipo.Size = New System.Drawing.Size(150, 20)
         Me.lblTipo.TabIndex = 6
@@ -135,7 +135,7 @@ Partial Class AddAlojamiento
         '
         Me.lblWeb.AutoSize = True
         Me.lblWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWeb.Location = New System.Drawing.Point(11, 333)
+        Me.lblWeb.Location = New System.Drawing.Point(11, 342)
         Me.lblWeb.Name = "lblWeb"
         Me.lblWeb.Size = New System.Drawing.Size(46, 20)
         Me.lblWeb.TabIndex = 7
@@ -144,7 +144,7 @@ Partial Class AddAlojamiento
         'tbId
         '
         Me.tbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbId.Location = New System.Drawing.Point(0, 10)
+        Me.tbId.Location = New System.Drawing.Point(6, 19)
         Me.tbId.Name = "tbId"
         Me.tbId.Size = New System.Drawing.Size(200, 26)
         Me.tbId.TabIndex = 9
@@ -152,7 +152,7 @@ Partial Class AddAlojamiento
         'tbNombre
         '
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombre.Location = New System.Drawing.Point(0, 42)
+        Me.tbNombre.Location = New System.Drawing.Point(6, 51)
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(200, 26)
         Me.tbNombre.TabIndex = 10
@@ -169,23 +169,23 @@ Partial Class AddAlojamiento
         Me.gbTAlojamientos.Controls.Add(Me.tbNombre)
         Me.gbTAlojamientos.Location = New System.Drawing.Point(167, 62)
         Me.gbTAlojamientos.Name = "gbTAlojamientos"
-        Me.gbTAlojamientos.Size = New System.Drawing.Size(217, 307)
+        Me.gbTAlojamientos.Size = New System.Drawing.Size(212, 320)
         Me.gbTAlojamientos.TabIndex = 11
         Me.gbTAlojamientos.TabStop = False
-        Me.gbTAlojamientos.Text = "GroupBox1"
         '
         'cbTiposAloj
         '
+        Me.cbTiposAloj.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTiposAloj.FormattingEnabled = True
-        Me.cbTiposAloj.Location = New System.Drawing.Point(0, 111)
+        Me.cbTiposAloj.Location = New System.Drawing.Point(6, 120)
         Me.cbTiposAloj.Name = "cbTiposAloj"
-        Me.cbTiposAloj.Size = New System.Drawing.Size(200, 21)
+        Me.cbTiposAloj.Size = New System.Drawing.Size(200, 28)
         Me.cbTiposAloj.TabIndex = 20
         '
         'tbDescripcion
         '
         Me.tbDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDescripcion.Location = New System.Drawing.Point(0, 172)
+        Me.tbDescripcion.Location = New System.Drawing.Point(6, 186)
         Me.tbDescripcion.Name = "tbDescripcion"
         Me.tbDescripcion.Size = New System.Drawing.Size(200, 26)
         Me.tbDescripcion.TabIndex = 14
@@ -193,7 +193,7 @@ Partial Class AddAlojamiento
         'tbWeb
         '
         Me.tbWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbWeb.Location = New System.Drawing.Point(0, 268)
+        Me.tbWeb.Location = New System.Drawing.Point(6, 282)
         Me.tbWeb.Name = "tbWeb"
         Me.tbWeb.Size = New System.Drawing.Size(200, 26)
         Me.tbWeb.TabIndex = 14
@@ -201,7 +201,7 @@ Partial Class AddAlojamiento
         'tbCapacidad
         '
         Me.tbCapacidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCapacidad.Location = New System.Drawing.Point(0, 140)
+        Me.tbCapacidad.Location = New System.Drawing.Point(6, 154)
         Me.tbCapacidad.Name = "tbCapacidad"
         Me.tbCapacidad.Size = New System.Drawing.Size(200, 26)
         Me.tbCapacidad.TabIndex = 13
@@ -209,7 +209,7 @@ Partial Class AddAlojamiento
         'tbEmail
         '
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbEmail.Location = New System.Drawing.Point(0, 236)
+        Me.tbEmail.Location = New System.Drawing.Point(6, 250)
         Me.tbEmail.Name = "tbEmail"
         Me.tbEmail.Size = New System.Drawing.Size(200, 26)
         Me.tbEmail.TabIndex = 13
@@ -217,7 +217,7 @@ Partial Class AddAlojamiento
         'tbTelefono
         '
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelefono.Location = New System.Drawing.Point(0, 204)
+        Me.tbTelefono.Location = New System.Drawing.Point(6, 218)
         Me.tbTelefono.Name = "tbTelefono"
         Me.tbTelefono.Size = New System.Drawing.Size(200, 26)
         Me.tbTelefono.TabIndex = 12
@@ -232,15 +232,14 @@ Partial Class AddAlojamiento
         Me.gbTLocalizacion.Controls.Add(Me.tbLatitud)
         Me.gbTLocalizacion.Location = New System.Drawing.Point(583, 62)
         Me.gbTLocalizacion.Name = "gbTLocalizacion"
-        Me.gbTLocalizacion.Size = New System.Drawing.Size(208, 211)
+        Me.gbTLocalizacion.Size = New System.Drawing.Size(212, 320)
         Me.gbTLocalizacion.TabIndex = 12
         Me.gbTLocalizacion.TabStop = False
-        Me.gbTLocalizacion.Text = "GroupBox1"
         '
         'tbDireccion
         '
         Me.tbDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDireccion.Location = New System.Drawing.Point(0, 74)
+        Me.tbDireccion.Location = New System.Drawing.Point(6, 83)
         Me.tbDireccion.Name = "tbDireccion"
         Me.tbDireccion.Size = New System.Drawing.Size(200, 26)
         Me.tbDireccion.TabIndex = 14
@@ -248,7 +247,7 @@ Partial Class AddAlojamiento
         'tbCodMunicipio
         '
         Me.tbCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCodMunicipio.Location = New System.Drawing.Point(0, 170)
+        Me.tbCodMunicipio.Location = New System.Drawing.Point(6, 179)
         Me.tbCodMunicipio.Name = "tbCodMunicipio"
         Me.tbCodMunicipio.Size = New System.Drawing.Size(200, 26)
         Me.tbCodMunicipio.TabIndex = 14
@@ -256,7 +255,7 @@ Partial Class AddAlojamiento
         'tbCodPostal
         '
         Me.tbCodPostal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCodPostal.Location = New System.Drawing.Point(0, 42)
+        Me.tbCodPostal.Location = New System.Drawing.Point(6, 51)
         Me.tbCodPostal.Name = "tbCodPostal"
         Me.tbCodPostal.Size = New System.Drawing.Size(200, 26)
         Me.tbCodPostal.TabIndex = 13
@@ -264,7 +263,7 @@ Partial Class AddAlojamiento
         'tbAltitud
         '
         Me.tbAltitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbAltitud.Location = New System.Drawing.Point(0, 138)
+        Me.tbAltitud.Location = New System.Drawing.Point(6, 147)
         Me.tbAltitud.Name = "tbAltitud"
         Me.tbAltitud.Size = New System.Drawing.Size(200, 26)
         Me.tbAltitud.TabIndex = 13
@@ -272,7 +271,7 @@ Partial Class AddAlojamiento
         'tbLocalidad
         '
         Me.tbLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbLocalidad.Location = New System.Drawing.Point(0, 10)
+        Me.tbLocalidad.Location = New System.Drawing.Point(6, 19)
         Me.tbLocalidad.Name = "tbLocalidad"
         Me.tbLocalidad.Size = New System.Drawing.Size(200, 26)
         Me.tbLocalidad.TabIndex = 12
@@ -280,7 +279,7 @@ Partial Class AddAlojamiento
         'tbLatitud
         '
         Me.tbLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbLatitud.Location = New System.Drawing.Point(0, 106)
+        Me.tbLatitud.Location = New System.Drawing.Point(6, 115)
         Me.tbLatitud.Name = "tbLatitud"
         Me.tbLatitud.Size = New System.Drawing.Size(200, 26)
         Me.tbLatitud.TabIndex = 12
@@ -289,7 +288,7 @@ Partial Class AddAlojamiento
         '
         Me.lblLocalidad.AutoSize = True
         Me.lblLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLocalidad.Location = New System.Drawing.Point(424, 75)
+        Me.lblLocalidad.Location = New System.Drawing.Point(426, 84)
         Me.lblLocalidad.Name = "lblLocalidad"
         Me.lblLocalidad.Size = New System.Drawing.Size(81, 20)
         Me.lblLocalidad.TabIndex = 13
@@ -299,7 +298,7 @@ Partial Class AddAlojamiento
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(424, 139)
+        Me.lblDireccion.Location = New System.Drawing.Point(426, 148)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(79, 20)
         Me.lblDireccion.TabIndex = 14
@@ -309,7 +308,7 @@ Partial Class AddAlojamiento
         '
         Me.lblCodPostal.AutoSize = True
         Me.lblCodPostal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodPostal.Location = New System.Drawing.Point(424, 107)
+        Me.lblCodPostal.Location = New System.Drawing.Point(426, 116)
         Me.lblCodPostal.Name = "lblCodPostal"
         Me.lblCodPostal.Size = New System.Drawing.Size(111, 20)
         Me.lblCodPostal.TabIndex = 15
@@ -319,7 +318,7 @@ Partial Class AddAlojamiento
         '
         Me.lblLatitud.AutoSize = True
         Me.lblLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLatitud.Location = New System.Drawing.Point(424, 171)
+        Me.lblLatitud.Location = New System.Drawing.Point(426, 180)
         Me.lblLatitud.Name = "lblLatitud"
         Me.lblLatitud.Size = New System.Drawing.Size(62, 20)
         Me.lblLatitud.TabIndex = 16
@@ -329,7 +328,7 @@ Partial Class AddAlojamiento
         '
         Me.lblAltitud.AutoSize = True
         Me.lblAltitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAltitud.Location = New System.Drawing.Point(424, 205)
+        Me.lblAltitud.Location = New System.Drawing.Point(426, 214)
         Me.lblAltitud.Name = "lblAltitud"
         Me.lblAltitud.Size = New System.Drawing.Size(58, 20)
         Me.lblAltitud.TabIndex = 17
@@ -339,7 +338,7 @@ Partial Class AddAlojamiento
         '
         Me.lblCodMunicipio.AutoSize = True
         Me.lblCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodMunicipio.Location = New System.Drawing.Point(424, 237)
+        Me.lblCodMunicipio.Location = New System.Drawing.Point(426, 246)
         Me.lblCodMunicipio.Name = "lblCodMunicipio"
         Me.lblCodMunicipio.Size = New System.Drawing.Size(155, 20)
         Me.lblCodMunicipio.TabIndex = 19

@@ -50,4 +50,9 @@ Public Class Metodos
             Application.Exit()
         End If
     End Sub
+
+    Public Sub limpiarBusqueda()
+        GestionAlojamientos.tbBusqueda.Clear()
+        GestionUsuarios.tbBusqueda.Clear()
+    End Sub
 End Class

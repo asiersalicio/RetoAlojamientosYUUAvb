@@ -26,8 +26,8 @@ Public Class Login
                 Dim contraEncriptada As String = m.MD5EncryptPass(tbPassword.Text)
                 Dim sPasswordEncriptada As String = m.MD5EncryptPass(sPassword)
                 Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
-                Dim adapterUsuario As New MySqlCommand("SELECT nombreUsuario FROM usuario WHERE nombreUsuario=" & tbUsuario.Text, conex)
-                Dim adapterPassword As New MySqlCommand("SELECT contrasena FROM usuario WHERE contrasena=" & contraEncriptada, conex)
+                Dim adapterUsuario As New MySqlCommand("SELECT nombreUsuario FROM usuario WHERE nombreUsuario=" & tbUsuario.Text & " AND tipoUsuario='administrador'", conex)
+                Dim adapterPassword As New MySqlCommand("SELECT contrasena FROM usuario WHERE contrasena=" & contraEncriptada & " AND tipoUsuario='administrador'", conex)
 
                 If (tbUsuario.Text = sUsuario And contraEncriptada = sPasswordEncriptada) Then
                     m.Acceder()
