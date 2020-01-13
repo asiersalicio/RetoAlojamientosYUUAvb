@@ -1,6 +1,12 @@
-﻿Imports System.Security.Cryptography
+﻿Imports System.Configuration
+Imports System.Security.Cryptography
+Imports MySql.Data.MySqlClient
 
 Public Class Metodos
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
+    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
+    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
+
     Public Sub Acceder()
         Login.Hide()
         MenuGestion.Show()
@@ -25,6 +31,33 @@ Public Class Metodos
 
         Return contraEncriptada
     End Function
+
+    Public Sub cargarTiposAloj()
+        Dim query As New MySqlDataAdapter("SELECT DISTINCT lodgingtype 'Tipo alojamiento' " &
+                                          "FROM talojamientos ORDER BY lodgingtype ASC", conex)
+        Dim campoTexto As New DataTable()
+        query.Fill(campoTexto)
+
+        Dim numero As Integer = campoTexto.Rows.Count
+        For p = 0 To campoTexto.Rows.Count - 1
+            GestionAlojamientos.cbTiposAloj.Items.Add(campoTexto.Rows(p).Item(0))
+        Next
+    End Sub
+
+    Public Sub cargarDatosAloj(tabla As String, campo As String, item As ComboBox)
+        Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
+                                          " FROM talojamientos aloj, tlocalizacion loc, " & tabla &
+                                          " WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion AND  loc." & campo & "code=" & tabla & "." & campo & "code " &
+                                          "ORDER BY " & campo & " ASC", conex)
+
+        Dim campoTexto As New DataTable()
+        query.Fill(campoTexto)
+
+        Dim numero As Integer = campoTexto.Rows.Count
+        For p = 0 To campoTexto.Rows.Count - 1
+            item.Items.Add(campoTexto.Rows(p).Item(0))
+        Next
+    End Sub
 
     Public Sub pantallaCompleta()
         'Pantalla Login
@@ -55,4 +88,5 @@ Public Class Metodos
         GestionAlojamientos.tbBusqueda.Clear()
         GestionUsuarios.tbBusqueda.Clear()
     End Sub
+
 End Class
