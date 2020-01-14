@@ -37,17 +37,23 @@ Public Class Login
 
                 daUsuario.Fill(dsUsuario, "usuario")
                 daPassword.Fill(dsPassword, "contrasena")
+                Try
 
-                bbddUsuarioGet = dsUsuario.Tables(0).Rows(0).Item(0)
-                bbddPasswordGet = dsPassword.Tables(0).Rows(0).Item(0)
-
-                If (tbUsuario.Text = bbddUsuarioGet And passwordEncriptada = bbddPasswordGet) Then
-                    m.Acceder()
-                Else
+                    bbddUsuarioGet = dsUsuario.Tables(0).Rows(0).Item(0)
+                    bbddPasswordGet = dsPassword.Tables(0).Rows(0).Item(0)
+                Catch ex As Exception
+                    conex.Close()
                     MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
+                End Try
+
+                If (tbUsuario.Text <> bbddUsuarioGet And passwordEncriptada <> bbddPasswordGet) Then
+                    MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
+                ElseIf (tbUsuario.Text = bbddUsuarioGet And passwordEncriptada = bbddPasswordGet) Then
+                    m.Acceder()
                 End If
             End If
         Catch ex As Exception
+            conex.Close()
             MessageBox.Show(ex.Message)
             MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
         End Try
