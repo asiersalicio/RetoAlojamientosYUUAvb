@@ -6,7 +6,7 @@ Public Class GestionAlojamientos
     Dim m As Metodos
     Dim conex As MySqlConnection
     Dim adapter As MySqlDataAdapter
-    Dim arrayCampos As Control() = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, tbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+    Dim arrayCampos As Control()
     Dim usuarioBBDD As String
     Dim passwordBBDD As String
 
@@ -23,6 +23,10 @@ Public Class GestionAlojamientos
                                           "Where aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " Order By documentname ASC", conex)
 
+        ' For Each campo As Control In arrayCampos
+        'campo.
+        'Next
+        arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, tbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
         DataGridAlojamientos.DataSource = tabla
@@ -67,7 +71,6 @@ Public Class GestionAlojamientos
 
     Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridAlojamientos.RowEnter
         Dim index As Integer = e.RowIndex
-
         Dim arrayStrings() As String = New String(14) {}
         For pos = 0 To 14
             Try
@@ -76,9 +79,6 @@ Public Class GestionAlojamientos
                 arrayStrings(pos) = Nothing
             End Try
         Next
-
-
-
         For pos2 = 0 To 14
             arrayCampos(pos2).Text = arrayStrings(pos2)
         Next
