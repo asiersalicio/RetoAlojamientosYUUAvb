@@ -3,33 +3,45 @@ Imports MySql.Data.MySqlClient
 
 Public Class Login
     Dim m As New Metodos
-    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("UsuarioApp")
-    Dim sPassword As String = ConfigurationManager.AppSettings.Get("PasswordApp")
-    ''' <summary>
-    ''' Usuario y Contraseña de la app
-    ''' </summary>
-    ''' 
-    'Private usuario As String = "root"
-    'Private password As String = "123"
+    Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+    Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+
+    Dim cmdUsuario, cmdPassword As New MySqlCommand
+    Dim daUsuario, daPassword As New MySqlDataAdapter
+    Dim dsUsuario, dsPassword As New DataSet
+
+    Dim passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'm.pantallaCompleta()
     End Sub
 
     Private Sub MaterialFlatButton1_Click(sender As Object, e As EventArgs) Handles btnAcceder.Click
+        passwordEncriptada = m.MD5EncryptPass(tbPassword.Text)
         Try
             If (tbUsuario.Text = "") Then
                 MsgBox("Debe introducir un nombre de usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             ElseIf (tbPassword.Text = "") Then
                 MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             Else
-                Dim contraEncriptada As String = m.MD5EncryptPass(tbPassword.Text)
-                Dim sPasswordEncriptada As String = m.MD5EncryptPass(sPassword)
-                Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
-                Dim adapterUsuario As New MySqlCommand("SELECT nombreUsuario FROM usuario WHERE nombreUsuario=" & tbUsuario.Text & " AND tipoUsuario='administrador'", conex)
-                Dim adapterPassword As New MySqlCommand("SELECT contrasena FROM usuario WHERE contrasena=" & contraEncriptada & " AND tipoUsuario='administrador'", conex)
+                dsUsuario.Clear()
+                dsPassword.Clear()
+                conex.Open()
 
-                If (tbUsuario.Text = sUsuario And contraEncriptada = sPasswordEncriptada) Then
+                cmdUsuario = New MySqlCommand("SELECT nombreUsuario FROM usuario WHERE nombreUsuario='" & tbUsuario.Text & "' AND tipoUsuario='administrador'", conex)
+                cmdPassword = New MySqlCommand("SELECT contrasena FROM usuario WHERE contrasena='" & passwordEncriptada & "' AND tipoUsuario='administrador'", conex)
+
+                daUsuario = New MySqlDataAdapter(cmdUsuario)
+                daPassword = New MySqlDataAdapter(cmdPassword)
+
+                daUsuario.Fill(dsUsuario, "usuario")
+                daPassword.Fill(dsPassword, "contrasena")
+
+                bbddUsuarioGet = dsUsuario.Tables(0).Rows(0).Item(0)
+                bbddPasswordGet = dsPassword.Tables(0).Rows(0).Item(0)
+
+                If (tbUsuario.Text = bbddUsuarioGet And passwordEncriptada = bbddPasswordGet) Then
                     m.Acceder()
                 Else
                     MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")

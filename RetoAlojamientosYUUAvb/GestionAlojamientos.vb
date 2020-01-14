@@ -2,18 +2,20 @@
 Imports System.Configuration
 Imports System.Collections.Specialized
 Public Class GestionAlojamientos
+
     Dim m As Metodos
-    Dim sUsuario As String
-    Dim sPassword As String
     Dim conex As MySqlConnection
     Dim adapter As MySqlDataAdapter
     Dim arrayCampos As Control() = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, tbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+    Dim usuarioBBDD As String
+    Dim passwordBBDD As String
+
 
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         m = New Metodos
-        sUsuario = ConfigurationManager.AppSettings.Get("Usuario")
-        sPassword = ConfigurationManager.AppSettings.Get("Password")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword)
+        usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+        passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
         adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
                                           "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &

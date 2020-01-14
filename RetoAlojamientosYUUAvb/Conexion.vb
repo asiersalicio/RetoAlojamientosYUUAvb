@@ -2,10 +2,9 @@
 Imports System.Configuration
 Imports System.Collections.Specialized
 Public Class Conexion
-    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
-    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
-
+    Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+    Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
     Public Sub Conectar()
         Try

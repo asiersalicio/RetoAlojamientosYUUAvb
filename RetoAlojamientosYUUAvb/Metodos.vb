@@ -3,13 +3,15 @@ Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
 
 Public Class Metodos
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
-    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
-    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
+    Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+    Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
     Public Sub Acceder()
         Login.Hide()
         MenuGestion.Show()
+        Login.tbUsuario.Clear()
+        Login.tbPassword.Clear()
     End Sub
 
     Public Function MD5EncryptPass(ByVal StrPass As String)
@@ -39,8 +41,8 @@ Public Class Metodos
         query.Fill(campoTexto)
 
         Dim numero As Integer = campoTexto.Rows.Count
-        For p = 0 To campoTexto.Rows.Count - 1
-            GestionAlojamientos.cbTiposAloj.Items.Add(campoTexto.Rows(p).Item(0))
+        For i = 0 To campoTexto.Rows.Count - 1
+            GestionAlojamientos.cbTiposAloj.Items.Add(campoTexto.Rows(i).Item(0))
         Next
     End Sub
 
@@ -54,8 +56,8 @@ Public Class Metodos
         query.Fill(campoTexto)
 
         Dim numero As Integer = campoTexto.Rows.Count
-        For p = 0 To campoTexto.Rows.Count - 1
-            item.Items.Add(campoTexto.Rows(p).Item(0))
+        For i = 0 To campoTexto.Rows.Count - 1
+            item.Items.Add(campoTexto.Rows(i).Item(0))
         Next
     End Sub
 
@@ -80,7 +82,12 @@ Public Class Metodos
     Public Sub salir()
         Dim resp = MsgBox("¿Desea realmente salir?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         If resp = MsgBoxResult.Yes Then
-            Application.Exit()
+            Try
+                conex.Close()
+                Application.Exit()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
         End If
     End Sub
 
