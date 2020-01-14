@@ -3,11 +3,11 @@ Imports MySql.Data.MySqlClient
 
 Public Class GestionUsuarios
     Dim m As New Metodos
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
+    Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+    Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
     Public adapter As New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
                                            "FROM usuario", conex)
-    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
-    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim tabla As New DataTable()
         adapter.Fill(tabla)

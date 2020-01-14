@@ -3,10 +3,11 @@ Imports System.Configuration
 Imports System.Collections.Specialized
 Public Class GestionAlojamientos
     Dim m As New Metodos
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
+    Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+    Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
     Private adapter As New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre alojamiento',municipality 'Localidad',address 'Dirección', lodgingtype 'Tipo alojamiento',turismdescription 'Descripción',capacity 'Capacidad',phone 'Teléfono',tourismemail 'eMail' FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion AND loc.municipalitycode=muni.municipalitycode ORDER BY documentname ASC", conex)
-    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
-    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
+
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
