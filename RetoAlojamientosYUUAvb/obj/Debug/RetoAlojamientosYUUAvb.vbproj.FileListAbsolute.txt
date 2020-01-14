@@ -109,7 +109,6 @@ C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAloja
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.MenuGestion.resources
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.Resources.resources
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.GenerateResource.cache
-C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.CoreCompileInputs.cache
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbproj.CopyComplete
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.exe
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.xml

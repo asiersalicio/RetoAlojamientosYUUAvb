@@ -2,23 +2,35 @@
 Imports System.Configuration
 Imports System.Collections.Specialized
 Public Class GestionAlojamientos
-    Dim m As New Metodos
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword & "")
-    Private adapter As New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre alojamiento',municipality 'Localidad',address 'Dirección', lodgingtype 'Tipo alojamiento',turismdescription 'Descripción',capacity 'Capacidad',phone 'Teléfono',tourismemail 'eMail' FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion AND loc.municipalitycode=muni.municipalitycode ORDER BY documentname ASC", conex)
-    Dim sUsuario As String = ConfigurationManager.AppSettings.Get("Usuario")
-    Dim sPassword As String = ConfigurationManager.AppSettings.Get("Password")
+    Dim m As Metodos
+    Dim sUsuario As String
+    Dim sPassword As String
+    Dim conex As MySqlConnection
+    Dim adapter As MySqlDataAdapter
+    Dim arrayCampos As Control() = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, tbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        m = New Metodos
+        sUsuario = ConfigurationManager.AppSettings.Get("Usuario")
+        sPassword = ConfigurationManager.AppSettings.Get("Password")
+        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & sUsuario & "; Pwd=" & sPassword)
+        adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                          "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "lonwgs84 'Longitud' " &
+                                          "From talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
+                                          "Where aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          " Order By documentname ASC", conex)
+
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
-		DataGridAlojamientos.DataSource = tabla
-		DataGridAlojamientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridAlojamientos.DataSource = tabla
+        DataGridAlojamientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridAlojamientos.MultiSelect = False
 
         m.cargarTiposAloj()
-        m.cargarDatosAloj("tpais", "country", tbPais)
-        m.cargarDatosAloj("tterritorio", "territory", tbTerritorio)
-        m.cargarDatosAloj("tmunicipio", "municipality", tbMunicipio)
-
+        m.cargarDatosAloj("tpais", "country", cbPais)
+        m.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
+        m.cargarDatosAloj("tmunicipio", "municipality", cbMunicipio)
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -36,11 +48,14 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre alojamiento',municipality 'Localidad',address 'Dirección', lodgingtype 'Tipo alojamiento',turismdescription 'Descripción',capacity 'Capacidad',phone 'Teléfono',tourismemail 'eMail'" &
-                                              "FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni " &
-                                              "WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion AND loc.municipalitycode=muni.municipalitycode AND lower(documentname) like " & Chr(34) & "%" & tbBusqueda.Text.ToLower & "%" & Chr(34) & " ORDER BY documentname ASC", conex)
+        adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                          "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "lonwgs84 'Longitud' " &
+                                          "From talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
+                                          "Where aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          " Order By documentname ASC", conex)
         Dim tabla As New DataTable()
-        query.Fill(tabla)
+        adapter.Fill(tabla)
         DataGridAlojamientos.DataSource = tabla
     End Sub
 
@@ -48,51 +63,23 @@ Public Class GestionAlojamientos
         m.limpiarBusqueda()
     End Sub
 
-    Private Sub DataGridAlojamientos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(0)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(1)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(2)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(3)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(4)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(5)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(6)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(7)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(8)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(9)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(10)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(11)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(12)
-        'tbId.Text = DataGridAlojamientos.SelectedCells(0).Value(13)
-        Dim index As Integer
-        index = DataGridAlojamientos.CurrentCell.RowIndex
+    Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridAlojamientos.RowEnter
+        Dim index As Integer = e.RowIndex
 
-        Dim codigo = Convert.ToInt32(DataGridAlojamientos.Rows(index).Cells(0).Value)
-        Dim nombre = DataGridAlojamientos.Rows(index).Cells(1).Value
-        Dim descripcion = DataGridAlojamientos.Rows(index).Cells(2).Value
-        Dim direccion = DataGridAlojamientos.Rows(index).Cells(3).Value
-        Dim email = DataGridAlojamientos.Rows(index).Cells(4).Value
-        Dim latitud = DataGridAlojamientos.Rows(index).Cells(5).Value
-        Dim longitud = DataGridAlojamientos.Rows(index).Cells(6).Value
-        Dim localidad = DataGridAlojamientos.Rows(index).Cells(7).Value
-        Dim localizacion = DataGridAlojamientos.Rows(index).Cells(8).Value
-        Dim tipo = DataGridAlojamientos.Rows(index).Cells(9).Value
-        Dim telefono = DataGridAlojamientos.Rows(index).Cells(10).Value
-        Dim paginaWeb = DataGridAlojamientos.Rows(index).Cells(11).Value
-        Dim capacidad = Convert.ToInt32(DataGridAlojamientos.Rows(index).Cells(12).Value)
+        Dim arrayStrings() As String = New String(14) {}
+        For pos = 0 To 14
+            Try
+                arrayStrings(pos) = DataGridAlojamientos.Rows(index).Cells(pos).Value
+            Catch ex As Exception
+                arrayStrings(pos) = Nothing
+            End Try
+        Next
 
 
-        tbId.Text = codigo.ToString
-        tbCapacidad.Text = capacidad.ToString
-        tbDescripcion.Text = descripcion
-        tbDireccion.Text = direccion
-        tbLatitud.Text = latitud
-        tbLongitud.Text = longitud
-        tbMunicipio.Text = localidad
-        tbNombre.Text = nombre
-        tbTelefono.Text = telefono
-        tbEmail.Text = email
-        cbTiposAloj.Text = tipo
-        tbWeb.Text = paginaWeb
+
+        For pos2 = 0 To 14
+            arrayCampos(pos2).Text = arrayStrings(pos2)
+        Next
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
@@ -106,48 +93,10 @@ Public Class GestionAlojamientos
 
 
     Private Sub CbTiposAloj_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTiposAloj.SelectedIndexChanged
-        'Dim query As New MySqlDataAdapter("SELECT DISTINCT lodgingtype 'Tipo alojamiento' " &
-        '                                      "FROM talojamientos ORDER BY lodgingtype ASC", conex)
-        'Dim campoTexto As New DataTable()
-        'query.Fill(campoTexto)
-        ''cbTiposAloj.DataSource = campoTexto
 
-        'Dim numero As Integer = campoTexto.Rows.Count
-        'For p = 0 To campoTexto.Rows.Count - 1
-        '    cbTiposAloj.Items.Add(campoTexto.Rows(p).Item(0))
-        'Next
     End Sub
 
-    'Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridAlojamientos.SelectionChanged
-    '    Dim index As Integer
-    '    index = DataGridAlojamientos.CurrentCell.RowIndex
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
 
-    '    Dim codigo = Convert.ToInt32(DataGridAlojamientos.Rows(index).Cells(0).Value)
-    '    Dim nombre = DataGridAlojamientos.Rows(index).Cells(1).Value
-    '    Dim descripcion = DataGridAlojamientos.Rows(index).Cells(2).Value
-    '    Dim direccion = DataGridAlojamientos.Rows(index).Cells(3).Value
-    '    Dim email = DataGridAlojamientos.Rows(index).Cells(4).Value
-    '    Dim latitud = DataGridAlojamientos.Rows(index).Cells(5).Value
-    '    Dim longitud = DataGridAlojamientos.Rows(index).Cells(6).Value
-    '    Dim localidad = DataGridAlojamientos.Rows(index).Cells(7).Value
-    '    Dim localizacion = DataGridAlojamientos.Rows(index).Cells(8).Value
-    '    Dim tipo = DataGridAlojamientos.Rows(index).Cells(9).Value
-    '    Dim telefono = DataGridAlojamientos.Rows(index).Cells(10).Value
-    '    Dim paginaWeb = DataGridAlojamientos.Rows(index).Cells(11).Value
-    '    Dim capacidad = Convert.ToInt32(DataGridAlojamientos.Rows(index).Cells(12).Value)
-
-
-    '    tbId.Text = codigo.ToString
-    '    tbCapacidad.Text = capacidad.ToString
-    '    tbDescripcion.Text = descripcion
-    '    tbDireccion.Text = direccion
-    '    tbLatitud.Text = latitud
-    '    tbLongitud.Text = longitud
-    '    tbMunicipio.Text = localidad
-    '    tbNombre.Text = nombre
-    '    tbTelefono.Text = telefono
-    '    tbEmail.Text = email
-    '    cbTiposAloj.Text = tipo
-    '    tbWeb.Text = paginaWeb
-    'End Sub
+    End Sub
 End Class
