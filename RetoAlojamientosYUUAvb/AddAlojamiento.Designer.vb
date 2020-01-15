@@ -288,7 +288,7 @@ Partial Class AddAlojamiento
         '
         Me.lblLocalidad.AutoSize = True
         Me.lblLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLocalidad.Location = New System.Drawing.Point(426, 84)
+        Me.lblLocalidad.Location = New System.Drawing.Point(424, 84)
         Me.lblLocalidad.Name = "lblLocalidad"
         Me.lblLocalidad.Size = New System.Drawing.Size(81, 20)
         Me.lblLocalidad.TabIndex = 13
@@ -298,7 +298,7 @@ Partial Class AddAlojamiento
         '
         Me.lblDireccion.AutoSize = True
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDireccion.Location = New System.Drawing.Point(426, 148)
+        Me.lblDireccion.Location = New System.Drawing.Point(424, 148)
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(79, 20)
         Me.lblDireccion.TabIndex = 14
@@ -308,7 +308,7 @@ Partial Class AddAlojamiento
         '
         Me.lblCodPostal.AutoSize = True
         Me.lblCodPostal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodPostal.Location = New System.Drawing.Point(426, 116)
+        Me.lblCodPostal.Location = New System.Drawing.Point(424, 116)
         Me.lblCodPostal.Name = "lblCodPostal"
         Me.lblCodPostal.Size = New System.Drawing.Size(111, 20)
         Me.lblCodPostal.TabIndex = 15
@@ -318,7 +318,7 @@ Partial Class AddAlojamiento
         '
         Me.lblLatitud.AutoSize = True
         Me.lblLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLatitud.Location = New System.Drawing.Point(426, 180)
+        Me.lblLatitud.Location = New System.Drawing.Point(424, 180)
         Me.lblLatitud.Name = "lblLatitud"
         Me.lblLatitud.Size = New System.Drawing.Size(62, 20)
         Me.lblLatitud.TabIndex = 16
@@ -328,7 +328,7 @@ Partial Class AddAlojamiento
         '
         Me.lblAltitud.AutoSize = True
         Me.lblAltitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAltitud.Location = New System.Drawing.Point(426, 214)
+        Me.lblAltitud.Location = New System.Drawing.Point(424, 214)
         Me.lblAltitud.Name = "lblAltitud"
         Me.lblAltitud.Size = New System.Drawing.Size(58, 20)
         Me.lblAltitud.TabIndex = 17
@@ -338,7 +338,7 @@ Partial Class AddAlojamiento
         '
         Me.lblCodMunicipio.AutoSize = True
         Me.lblCodMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodMunicipio.Location = New System.Drawing.Point(426, 246)
+        Me.lblCodMunicipio.Location = New System.Drawing.Point(424, 246)
         Me.lblCodMunicipio.Name = "lblCodMunicipio"
         Me.lblCodMunicipio.Size = New System.Drawing.Size(155, 20)
         Me.lblCodMunicipio.TabIndex = 19

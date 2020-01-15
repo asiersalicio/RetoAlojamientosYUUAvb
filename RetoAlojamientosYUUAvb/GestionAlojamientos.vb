@@ -1,15 +1,12 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
-Imports System.Collections.Specialized
 Public Class GestionAlojamientos
-
     Dim m As Metodos
     Dim conex As MySqlConnection
     Dim adapter As MySqlDataAdapter
     Dim arrayCampos As Control()
     Dim usuarioBBDD As String
     Dim passwordBBDD As String
-
 
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         m = New Metodos
@@ -26,7 +23,10 @@ Public Class GestionAlojamientos
         ' For Each campo As Control In arrayCampos
         'campo.
         'Next
-        arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, tbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+        arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, rtbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+        rtbDescripcion.Multiline = True
+        rtbDescripcion.ScrollBars = ScrollBars.Vertical
+
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
         DataGridAlojamientos.DataSource = tabla
@@ -49,6 +49,18 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Me.Hide()
+
+        For Each i In Controls
+            If TypeOf i Is TextBox Then
+                i = ""
+            End If
+        Next
+
+        AddAlojamiento.Show()
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Me.Hide()
         AddAlojamiento.Show()
     End Sub
@@ -86,19 +98,10 @@ Public Class GestionAlojamientos
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
         Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
-        Dim query As New MySqlDataAdapter("DELETE FROM", conex)
+        Dim query As New MySqlCommand("DELETE FROM talojamientos WHERE idAlojamiento='" & "" & "'", conex)
 
         If resp = MsgBoxResult.Yes Then
             Application.Exit()
         End If
-    End Sub
-
-
-    Private Sub CbTiposAloj_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTiposAloj.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-
     End Sub
 End Class

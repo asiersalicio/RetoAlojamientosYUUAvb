@@ -25,11 +25,13 @@ Partial Class MenuGestion
         Me.btnGestionAlojamientos = New System.Windows.Forms.Button()
         Me.btnGestionUsuarios = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnGestionReservas = New System.Windows.Forms.Button()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnGestionAlojamientos
         '
-        Me.btnGestionAlojamientos.Location = New System.Drawing.Point(237, 156)
+        Me.btnGestionAlojamientos.Location = New System.Drawing.Point(228, 180)
         Me.btnGestionAlojamientos.Name = "btnGestionAlojamientos"
         Me.btnGestionAlojamientos.Size = New System.Drawing.Size(329, 41)
         Me.btnGestionAlojamientos.TabIndex = 0
@@ -38,7 +40,7 @@ Partial Class MenuGestion
         '
         'btnGestionUsuarios
         '
-        Me.btnGestionUsuarios.Location = New System.Drawing.Point(237, 212)
+        Me.btnGestionUsuarios.Location = New System.Drawing.Point(228, 236)
         Me.btnGestionUsuarios.Name = "btnGestionUsuarios"
         Me.btnGestionUsuarios.Size = New System.Drawing.Size(329, 41)
         Me.btnGestionUsuarios.TabIndex = 1
@@ -47,18 +49,38 @@ Partial Class MenuGestion
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(713, 415)
+        Me.btnSalir.Location = New System.Drawing.Point(698, 413)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(75, 23)
+        Me.btnSalir.Size = New System.Drawing.Size(90, 25)
         Me.btnSalir.TabIndex = 2
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'btnGestionReservas
+        '
+        Me.btnGestionReservas.Location = New System.Drawing.Point(228, 296)
+        Me.btnGestionReservas.Name = "btnGestionReservas"
+        Me.btnGestionReservas.Size = New System.Drawing.Size(329, 41)
+        Me.btnGestionReservas.TabIndex = 3
+        Me.btnGestionReservas.Text = "Gestionar Reservas"
+        Me.btnGestionReservas.UseVisualStyleBackColor = True
+        '
+        'btnLogout
+        '
+        Me.btnLogout.Location = New System.Drawing.Point(698, 74)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(90, 25)
+        Me.btnLogout.TabIndex = 4
+        Me.btnLogout.Text = "Desconectar"
+        Me.btnLogout.UseVisualStyleBackColor = True
         '
         'MenuGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnLogout)
+        Me.Controls.Add(Me.btnGestionReservas)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGestionUsuarios)
         Me.Controls.Add(Me.btnGestionAlojamientos)
@@ -71,4 +93,6 @@ Partial Class MenuGestion
     Friend WithEvents btnGestionAlojamientos As Button
     Friend WithEvents btnGestionUsuarios As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents btnGestionReservas As Button
+    Friend WithEvents btnLogout As Button
 End Class

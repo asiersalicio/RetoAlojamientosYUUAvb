@@ -128,11 +128,15 @@ Partial Class GestionUsuarios
         '
         'DataGridUsuarios
         '
+        Me.DataGridUsuarios.AllowUserToAddRows = False
+        Me.DataGridUsuarios.AllowUserToDeleteRows = False
         Me.DataGridUsuarios.AllowUserToResizeRows = False
         Me.DataGridUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridUsuarios.Location = New System.Drawing.Point(13, 136)
+        Me.DataGridUsuarios.MultiSelect = False
         Me.DataGridUsuarios.Name = "DataGridUsuarios"
+        Me.DataGridUsuarios.ReadOnly = True
         Me.DataGridUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridUsuarios.Size = New System.Drawing.Size(694, 272)
         Me.DataGridUsuarios.TabIndex = 23
@@ -232,60 +236,60 @@ Partial Class GestionUsuarios
         '
         'dtpFechaNac
         '
-        Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(6, 106)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpFechaNac.Size = New System.Drawing.Size(200, 26)
+        Me.dtpFechaNac.Size = New System.Drawing.Size(200, 23)
         Me.dtpFechaNac.TabIndex = 11
         '
         'cbTipoUsuario
         '
-        Me.cbTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoUsuario.Location = New System.Drawing.Point(6, 204)
         Me.cbTipoUsuario.Name = "cbTipoUsuario"
-        Me.cbTipoUsuario.Size = New System.Drawing.Size(200, 28)
+        Me.cbTipoUsuario.Size = New System.Drawing.Size(200, 24)
         Me.cbTipoUsuario.TabIndex = 42
         '
         'tbEmail
         '
-        Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbEmail.Location = New System.Drawing.Point(6, 172)
         Me.tbEmail.Name = "tbEmail"
-        Me.tbEmail.Size = New System.Drawing.Size(200, 26)
+        Me.tbEmail.Size = New System.Drawing.Size(200, 23)
         Me.tbEmail.TabIndex = 41
         '
         'tbApellidos
         '
-        Me.tbApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbApellidos.Location = New System.Drawing.Point(6, 42)
         Me.tbApellidos.Name = "tbApellidos"
-        Me.tbApellidos.Size = New System.Drawing.Size(200, 26)
+        Me.tbApellidos.Size = New System.Drawing.Size(200, 23)
         Me.tbApellidos.TabIndex = 14
         '
         'tbNombre
         '
-        Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNombre.Location = New System.Drawing.Point(6, 10)
         Me.tbNombre.Name = "tbNombre"
-        Me.tbNombre.Size = New System.Drawing.Size(200, 26)
+        Me.tbNombre.Size = New System.Drawing.Size(200, 23)
         Me.tbNombre.TabIndex = 13
         '
         'tbTelefono
         '
-        Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTelefono.Location = New System.Drawing.Point(6, 138)
         Me.tbTelefono.Name = "tbTelefono"
-        Me.tbTelefono.Size = New System.Drawing.Size(200, 26)
+        Me.tbTelefono.Size = New System.Drawing.Size(200, 23)
         Me.tbTelefono.TabIndex = 13
         '
         'tbDNI
         '
-        Me.tbDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDNI.Location = New System.Drawing.Point(6, 74)
         Me.tbDNI.Name = "tbDNI"
-        Me.tbDNI.Size = New System.Drawing.Size(200, 26)
+        Me.tbDNI.Size = New System.Drawing.Size(200, 23)
         Me.tbDNI.TabIndex = 12
         '
         'gbTAlojamientos
@@ -301,28 +305,28 @@ Partial Class GestionUsuarios
         '
         'tbNick
         '
-        Me.tbNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNick.Location = New System.Drawing.Point(6, 108)
         Me.tbNick.Name = "tbNick"
-        Me.tbNick.Size = New System.Drawing.Size(200, 26)
+        Me.tbNick.Size = New System.Drawing.Size(200, 23)
         Me.tbNick.TabIndex = 9
         '
         'tbPassword
         '
-        Me.tbPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbPassword.Location = New System.Drawing.Point(6, 140)
         Me.tbPassword.Name = "tbPassword"
-        Me.tbPassword.Size = New System.Drawing.Size(200, 26)
+        Me.tbPassword.Size = New System.Drawing.Size(200, 23)
         Me.tbPassword.TabIndex = 10
         '
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.BackColor = System.Drawing.SystemColors.Window
-        Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.lblPassword.Location = New System.Drawing.Point(829, 273)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(64, 13)
+        Me.lblPassword.Size = New System.Drawing.Size(75, 13)
         Me.lblPassword.TabIndex = 28
         Me.lblPassword.Text = "Contraseña:"
         '
@@ -330,10 +334,10 @@ Partial Class GestionUsuarios
         '
         Me.lblNick.AutoSize = True
         Me.lblNick.BackColor = System.Drawing.SystemColors.Window
-        Me.lblNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.lblNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.lblNick.Location = New System.Drawing.Point(829, 241)
         Me.lblNick.Name = "lblNick"
-        Me.lblNick.Size = New System.Drawing.Size(32, 13)
+        Me.lblNick.Size = New System.Drawing.Size(37, 13)
         Me.lblNick.TabIndex = 24
         Me.lblNick.Text = "Nick:"
         '

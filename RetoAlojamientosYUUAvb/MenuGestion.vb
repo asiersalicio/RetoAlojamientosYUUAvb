@@ -13,4 +13,8 @@
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         m.salir()
     End Sub
+
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        m.desconectar()
+    End Sub
 End Class
