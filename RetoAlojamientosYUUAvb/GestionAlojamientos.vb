@@ -74,12 +74,7 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
-        Dim query As New MySqlCommand("DELETE FROM talojamientos WHERE idAlojamiento='" & "" & "'", conex)
-
-        If resp = MsgBoxResult.Yes Then
-            Application.Exit()
-        End If
+        m.borrarReg("talojamientos", "idAlojamiento")
     End Sub
 
     Private Sub cargarDatosModificacion()
@@ -100,8 +95,16 @@ Public Class GestionAlojamientos
         AddAlojamiento.tbLongitud.Text = arrayCampos(14).Text
     End Sub
 
-    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        m.salir()
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        m.irEditarAlojamiento()
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        m.irEditarAlojamiento()
+    End Sub
+
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        m.desconectar()
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
@@ -109,14 +112,8 @@ Public Class GestionAlojamientos
         MenuGestion.Show()
     End Sub
 
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Me.Hide()
-        AddAlojamiento.Show()
-    End Sub
-
-    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        Me.Hide()
-        AddAlojamiento.Show()
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        m.salir()
     End Sub
 
 End Class

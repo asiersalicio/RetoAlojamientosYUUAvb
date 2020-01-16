@@ -51,6 +51,7 @@ Partial Class GestionUsuarios
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnLogout = New System.Windows.Forms.Button()
         CType(Me.DataGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
@@ -359,11 +360,21 @@ Partial Class GestionUsuarios
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'btnLogout
+        '
+        Me.btnLogout.Location = New System.Drawing.Point(1421, 74)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
+        Me.btnLogout.TabIndex = 49
+        Me.btnLogout.Text = "Desconectar"
+        Me.btnLogout.UseVisualStyleBackColor = True
+        '
         'GestionUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1533, 504)
+        Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnBorrar)
@@ -415,4 +426,5 @@ Partial Class GestionUsuarios
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnVolver As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents btnLogout As Button
 End Class

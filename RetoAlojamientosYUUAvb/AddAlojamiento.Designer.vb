@@ -57,9 +57,9 @@ Partial Class AddAlojamiento
         Me.lblCodMunicipio = New System.Windows.Forms.Label()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.lblTerritorio = New System.Windows.Forms.Label()
         Me.lblPais = New System.Windows.Forms.Label()
+        Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbTAlojamientos.SuspendLayout()
         Me.gbTLocalizacion.SuspendLayout()
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -385,10 +385,6 @@ Partial Class AddAlojamiento
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = True
         '
-        'ConexionBindingSource
-        '
-        Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
-        '
         'lblTerritorio
         '
         Me.lblTerritorio.AutoSize = True
@@ -408,6 +404,10 @@ Partial Class AddAlojamiento
         Me.lblPais.Size = New System.Drawing.Size(43, 20)
         Me.lblPais.TabIndex = 24
         Me.lblPais.Text = "Pais:"
+        '
+        'ConexionBindingSource
+        '
+        Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
         '
         'AddAlojamiento
         '
@@ -435,7 +435,7 @@ Partial Class AddAlojamiento
         Me.Controls.Add(Me.lblCapacidad)
         Me.Controls.Add(Me.lblId)
         Me.Name = "AddAlojamiento"
-        Me.Text = "Añadir Nuevo Alojamiento"
+        Me.Text = "Añadir / Modificar Alojamiento"
         Me.gbTAlojamientos.ResumeLayout(False)
         Me.gbTAlojamientos.PerformLayout()
         Me.gbTLocalizacion.ResumeLayout(False)

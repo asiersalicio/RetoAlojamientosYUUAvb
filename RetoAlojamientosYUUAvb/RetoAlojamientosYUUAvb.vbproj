@@ -189,6 +189,9 @@
     <EmbeddedResource Include="AddAlojamiento.resx">
       <DependentUpon>AddAlojamiento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddUsuario.resx">
+      <DependentUpon>AddUsuario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionAlojamientos.resx">
       <DependentUpon>GestionAlojamientos.vb</DependentUpon>
     </EmbeddedResource>

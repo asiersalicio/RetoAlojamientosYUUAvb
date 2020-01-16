@@ -65,6 +65,7 @@ Partial Class GestionAlojamientos
         Me.lblPais = New System.Windows.Forms.Label()
         Me.DataGridAlojamientos = New System.Windows.Forms.DataGridView()
         Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.gbTAlojamientos.SuspendLayout()
         Me.gbTLocalizacion.SuspendLayout()
         CType(Me.DataGridAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -462,12 +463,22 @@ Partial Class GestionAlojamientos
         '
         Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
         '
+        'btnLogout
+        '
+        Me.btnLogout.Location = New System.Drawing.Point(1421, 74)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
+        Me.btnLogout.TabIndex = 25
+        Me.btnLogout.Text = "Desconectar"
+        Me.btnLogout.UseVisualStyleBackColor = True
+        '
         'GestionAlojamientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1533, 504)
+        Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.DataGridAlojamientos)
         Me.Controls.Add(Me.lblPais)
         Me.Controls.Add(Me.btnVolver)
@@ -548,4 +559,5 @@ Partial Class GestionAlojamientos
     Friend WithEvents cbMunicipio As TextBox
     Friend WithEvents cbTerritorio As TextBox
     Friend WithEvents cbPais As TextBox
+    Friend WithEvents btnLogout As Button
 End Class
