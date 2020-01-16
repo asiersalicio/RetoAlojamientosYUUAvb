@@ -43,6 +43,7 @@ Public Class Login
                 usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
                 passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
                 conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+
                 dsUsuario.Clear()
                 dsPassword.Clear()
                 conex.Open()

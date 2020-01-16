@@ -52,18 +52,6 @@ Public Class Metodos
     '    Return
     'End Function
 
-    Public Sub cargarTipoUsuario()
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT tipoUsuario " &
-                                          "FROM usuario ORDER BY tipoUsuario ASC", conex)
-        Dim campoTexto As New DataTable()
-        query.Fill(campoTexto)
-
-        Dim numero As Integer = campoTexto.Rows.Count
-        For i = 0 To campoTexto.Rows.Count - 1
-            GestionUsuarios.cbTipoUsuario.Items.Add(campoTexto.Rows(i).Item(0))
-        Next
-    End Sub
-
     Public Sub cargarTiposAlojTxt(item As TextBox)
         Dim idAloj = GestionAlojamientos.tbId.Text
         Dim ds = New DataSet
@@ -73,7 +61,30 @@ Public Class Metodos
 
         ds.Clear()
         da = New MySqlDataAdapter(query)
-        GestionAlojamientos.cbTiposAloj.Text = da.Fill(ds, "Tipos de Alojamiento")
+        GestionAlojamientos.cbTiposAloj.Text = da.Fill(ds, "tiposAlojamiento")
+    End Sub
+
+    Public Sub cargarTiposUsuarioTxt(item As TextBox)
+        Dim idDni = GestionUsuarios.tbDNI.Text
+        Dim ds = New DataSet
+        Dim da = New MySqlDataAdapter
+        Dim query As New MySqlCommand("SELECT tipoUsuario FROM usuarios WHERE idDni=" &
+                                      idDni, conex)
+
+        ds.Clear()
+        da = New MySqlDataAdapter(query)
+        GestionUsuarios.tbTipoUsuario.Text = da.Fill(ds, "tiposUsuario")
+    End Sub
+    Public Sub cargarTipoUsuario()
+        Dim query As New MySqlDataAdapter("SELECT DISTINCT tipoUsuario " &
+                                          "FROM usuario ORDER BY tipoUsuario ASC", conex)
+        Dim campoTexto As New DataTable()
+        query.Fill(campoTexto)
+
+        Dim numero As Integer = campoTexto.Rows.Count
+        For i = 0 To campoTexto.Rows.Count - 1
+            'GestionUsuarios.cbTipoUsuario.Items.Add(campoTexto.Rows(i).Item(0))
+        Next
     End Sub
 
     Public Sub cargarTiposAloj(item As ComboBox)
@@ -105,6 +116,33 @@ Public Class Metodos
         Next
     End Sub
 
+    Public Sub salir()
+        Dim resp = MsgBox("¿Desea realmente salir?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+        If resp = MsgBoxResult.Yes Then
+            Try
+                conex.Close()
+                Application.Exit()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Public Sub limpiarBusqueda()
+        GestionAlojamientos.tbBusqueda.Clear()
+        GestionUsuarios.tbBusqueda.Clear()
+    End Sub
+
+    Public Sub soloLectura(gb As GroupBox)
+        For Each control In gb.Controls
+            If TypeOf control Is TextBox Then
+                control.ReadOnly = True
+            ElseIf TypeOf control Is RichTextBox Then
+                control.ReadOnly = True
+            End If
+        Next
+    End Sub
+
     Public Sub pantallaCompleta()
         'Pantalla Login
         Login.FormBorderStyle = FormBorderStyle.None
@@ -121,23 +159,6 @@ Public Class Metodos
         'Pantalla Gestion de Usuarios
         GestionUsuarios.FormBorderStyle = FormBorderStyle.None
         GestionUsuarios.WindowState = FormWindowState.Maximized
-    End Sub
-
-    Public Sub salir()
-        Dim resp = MsgBox("¿Desea realmente salir?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
-        If resp = MsgBoxResult.Yes Then
-            Try
-                conex.Close()
-                Application.Exit()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End If
-    End Sub
-
-    Public Sub limpiarBusqueda()
-        GestionAlojamientos.tbBusqueda.Clear()
-        GestionUsuarios.tbBusqueda.Clear()
     End Sub
 
 End Class

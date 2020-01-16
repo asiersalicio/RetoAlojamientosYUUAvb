@@ -20,14 +20,10 @@ Public Class GestionAlojamientos
                                           "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
 
-        ' For Each campo As Control In arrayCampos
-        'campo.
-        'Next
         arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, rtbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
         rtbDescripcion.Multiline = True
         rtbDescripcion.ScrollBars = ScrollBars.Vertical
 
-        soloLectura()
 
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
@@ -39,32 +35,9 @@ Public Class GestionAlojamientos
         'm.cargarDatosAloj("tpais", "country", cbPais)
         'm.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
         'm.cargarDatosAloj("tmunicipio", "municipality", cbMunicipio)
-    End Sub
 
-    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        m.salir()
-    End Sub
-
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Hide()
-        MenuGestion.Show()
-    End Sub
-
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Me.Hide()
-
-        For Each i In Controls
-            If TypeOf i Is TextBox Then
-                i = ""
-            End If
-        Next
-
-        AddAlojamiento.Show()
-    End Sub
-
-    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        Me.Hide()
-        AddAlojamiento.Show()
+        m.soloLectura(gbTAlojamientos)
+        m.soloLectura(gbTLocalizacion)
     End Sub
 
     Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
@@ -109,24 +82,6 @@ Public Class GestionAlojamientos
         End If
     End Sub
 
-    Private Sub soloLectura()
-        tbId.ReadOnly = True
-        tbNombre.ReadOnly = True
-        cbTiposAloj.ReadOnly = True
-        tbCapacidad.ReadOnly = True
-        rtbDescripcion.ReadOnly = True
-        tbTelefono.ReadOnly = True
-        tbEmail.ReadOnly = True
-        tbWeb.ReadOnly = True
-        cbPais.ReadOnly = True
-        cbTerritorio.ReadOnly = True
-        cbMunicipio.ReadOnly = True
-        tbCodPostal.ReadOnly = True
-        tbDireccion.ReadOnly = True
-        tbLatitud.ReadOnly = True
-        tbLongitud.ReadOnly = True
-    End Sub
-
     Private Sub cargarDatosModificacion()
         AddAlojamiento.tbId.Text = arrayCampos(0).Text
         AddAlojamiento.tbNombre.Text = arrayCampos(1).Text
@@ -144,4 +99,24 @@ Public Class GestionAlojamientos
         AddAlojamiento.tbLatitud.Text = arrayCampos(13).Text
         AddAlojamiento.tbLongitud.Text = arrayCampos(14).Text
     End Sub
+
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        m.salir()
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Hide()
+        MenuGestion.Show()
+    End Sub
+
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Me.Hide()
+        AddAlojamiento.Show()
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Me.Hide()
+        AddAlojamiento.Show()
+    End Sub
+
 End Class
