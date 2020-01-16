@@ -5,7 +5,7 @@ Public Class GestionUsuarios
     Dim m As New Metodos
     Dim conex As New MySqlConnection
     Public adapter As New MySqlDataAdapter
-    Dim arrayCampos As Control()
+    Public arrayCampos As Control()
     Dim usuarioBBDD, passwordBBDD As String
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")

@@ -109,7 +109,6 @@ Partial Class Login
         'Login
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnAcceder)

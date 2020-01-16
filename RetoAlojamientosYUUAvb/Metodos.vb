@@ -1,6 +1,5 @@
 ﻿Imports System.Configuration
 Imports System.Security.Cryptography
-Imports System.Text
 Imports MySql.Data.MySqlClient
 
 Public Class Metodos
@@ -65,15 +64,29 @@ Public Class Metodos
         Next
     End Sub
 
-    Public Sub cargarTiposAloj()
+    Public Sub cargarTiposAlojTxt(item As TextBox)
+        Dim idAloj = GestionAlojamientos.tbId.Text
+        Dim ds = New DataSet
+        Dim da = New MySqlDataAdapter
+        Dim query As New MySqlCommand("SELECT lodgingtype 'Tipo alojamiento' FROM talojamientos WHERE idAlojamiento=" &
+                                      idAloj, conex)
+
+        ds.Clear()
+        da = New MySqlDataAdapter(query)
+        GestionAlojamientos.cbTiposAloj.Text = da.Fill(ds, "Tipos de Alojamiento")
+    End Sub
+
+    Public Sub cargarTiposAloj(item As ComboBox)
         Dim query As New MySqlDataAdapter("SELECT DISTINCT lodgingtype 'Tipo alojamiento' " &
                                           "FROM talojamientos ORDER BY lodgingtype ASC", conex)
+        Dim da As New MySqlDataAdapter
+
         Dim campoTexto As New DataTable()
         query.Fill(campoTexto)
 
         Dim numero As Integer = campoTexto.Rows.Count
         For i = 0 To campoTexto.Rows.Count - 1
-            GestionAlojamientos.cbTiposAloj.Items.Add(campoTexto.Rows(i).Item(0))
+            item.Items.Add(campoTexto.Rows(i).Item(0))
         Next
     End Sub
 
