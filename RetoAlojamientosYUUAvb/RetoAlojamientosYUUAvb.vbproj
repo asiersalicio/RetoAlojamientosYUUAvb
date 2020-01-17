@@ -140,6 +140,12 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Conexion.vb" />
+    <Compile Include="GestionReservas.Designer.vb">
+      <DependentUpon>GestionReservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GestionReservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Metodos.vb" />
     <Compile Include="GestionUsuarios.Designer.vb">
       <DependentUpon>GestionUsuarios.vb</DependentUpon>
@@ -188,6 +194,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddAlojamiento.resx">
       <DependentUpon>AddAlojamiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionReservas.resx">
+      <DependentUpon>GestionReservas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionAlojamientos.resx">
       <DependentUpon>GestionAlojamientos.vb</DependentUpon>

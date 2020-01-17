@@ -10,26 +10,17 @@ Public Class Login
     Dim daUsuario, daPassword As New MySqlDataAdapter
     Dim dsUsuario, dsPassword As New DataSet
 
-    'Private Sub TbUsuario_KeyDown(sender As Object, e As KeyEventArgs) Handles tbUsuario.KeyDown, tbPassword.KeyDown, btnAcceder.KeyDown
-    '    If e.KeyChar = ChrW(Keys.Enter) Then
-    '        e.Handled = TrueSendKeys.Send("{TAB}")
-    '    End If
-    'End Sub
-
     Dim passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'm.pantallaCompleta()
-        'Me.Location = Screen.PrimaryScreen.WorkingArea.Location
-        'Me.Size = Screen.PrimaryScreen.WorkingArea.Size
 
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyPressEventArgs) Handles tbUsuario.KeyPress, tbPassword.KeyPress, btnAcceder.KeyPress
         If e.KeyChar = ChrW(Keys.Enter) Then
-5:          e.Handled = True
-6:          SendKeys.Send("{TAB}")
-7:      End If
+            e.Handled = True
+            SendKeys.Send("{TAB}")
+        End If
     End Sub
 
     Private Sub MaterialFlatButton1_Click(sender As Object, e As EventArgs) Handles btnAcceder.Click
@@ -62,6 +53,7 @@ Public Class Login
                 Catch ex As Exception
                     conex.Close()
                     MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
+                    Exit Sub
                 End Try
 
                 If (tbUsuario.Text <> bbddUsuarioGet And passwordEncriptada <> bbddPasswordGet) Then

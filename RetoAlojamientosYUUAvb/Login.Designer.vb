@@ -40,9 +40,8 @@ Partial Class Login
 		Me.lablUsuario.MouseState = MaterialSkin.MouseState.HOVER
 		Me.lablUsuario.Name = "lablUsuario"
 		Me.lablUsuario.Size = New System.Drawing.Size(61, 19)
-		Me.lablUsuario.TabIndex = 1
+		Me.lablUsuario.TabIndex = 3
 		Me.lablUsuario.Text = "Usuario"
-		Me.lablUsuario.TabStop = False
 		'
 		'lblPassword
 		'
@@ -57,7 +56,6 @@ Partial Class Login
 		Me.lblPassword.Size = New System.Drawing.Size(86, 19)
 		Me.lblPassword.TabIndex = 1
 		Me.lblPassword.Text = "Contraseña"
-		Me.lblPassword.TabStop = False
 		'
 		'tbUsuario
 		'
