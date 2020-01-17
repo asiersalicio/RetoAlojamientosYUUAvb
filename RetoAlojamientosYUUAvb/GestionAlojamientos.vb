@@ -40,22 +40,6 @@ Public Class GestionAlojamientos
         m.soloLectura(gbTLocalizacion)
     End Sub
 
-    Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
-        adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
-                                          "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
-                                          "lonwgs84 'Longitud' " &
-                                          "FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
-                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
-                                          " ORDER BY documentname ASC", conex)
-        Dim tabla As New DataTable()
-        adapter.Fill(tabla)
-        DataGridAlojamientos.DataSource = tabla
-    End Sub
-
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        m.limpiarBusqueda()
-    End Sub
-
     Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridAlojamientos.RowEnter
         Dim index As Integer = e.RowIndex
         Dim arrayStrings() As String = New String(14) {}
@@ -73,8 +57,20 @@ Public Class GestionAlojamientos
         cargarDatosModificacion()
     End Sub
 
-    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("talojamientos", "idAlojamiento")
+    Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
+        adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                          "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "lonwgs84 'Longitud' " &
+                                          "FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
+                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          " ORDER BY documentname ASC", conex)
+        Dim tabla As New DataTable()
+        adapter.Fill(tabla)
+        DataGridAlojamientos.DataSource = tabla
+    End Sub
+
+    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        m.limpiarBusqueda()
     End Sub
 
     Private Sub cargarDatosModificacion()
@@ -96,15 +92,24 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        DataGridAlojamientos.ClearSelection()
         m.irEditarAlojamiento()
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        m.irEditarAlojamiento()
+        If (DataGridAlojamientos.SelectedRows.Count < 0) Then
+            MsgBox("Debe tener un alojamiento seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+        Else
+            m.irEditarAlojamiento()
+        End If
+    End Sub
+
+    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        m.borrarReg("talojamientos", "idAlojamiento")
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        m.desconectar()
+        m.desconectar(GestionAlojamientos.ActiveForm)
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click

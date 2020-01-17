@@ -15,6 +15,6 @@
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        m.desconectar()
+        m.desconectar(MenuGestion.ActiveForm)
     End Sub
 End Class

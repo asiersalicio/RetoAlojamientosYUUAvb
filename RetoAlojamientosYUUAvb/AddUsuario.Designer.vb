@@ -294,7 +294,7 @@ Partial Class AddUsuario
         Me.Controls.Add(Me.gbDatosUsuario)
         Me.Controls.Add(Me.gbLogin)
         Me.Name = "AddUsuario"
-        Me.Text = "Registro de usuario"
+        Me.Text = "Añadir / Modificar Usuario"
         Me.gbDatosUsuario.ResumeLayout(False)
         Me.gbDatosUsuario.PerformLayout()
         Me.gbLogin.ResumeLayout(False)

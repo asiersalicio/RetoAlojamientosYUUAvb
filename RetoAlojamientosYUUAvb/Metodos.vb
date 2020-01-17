@@ -14,12 +14,12 @@ Public Class Metodos
         Login.tbPassword.Clear()
     End Sub
 
-    Public Sub desconectar()
+    Public Sub desconectar(c As Form)
         Dim resp = MsgBox("¿Desea cerrar la sesión actual?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención! Va a cerrar sesión")
         If resp = MsgBoxResult.Yes Then
             Try
                 conex.Close()
-                MenuGestion.Hide()
+                c.Hide()
                 Login.Show()
             Catch ex As Exception
                 conex.Close()
@@ -65,7 +65,7 @@ Public Class Metodos
     End Sub
 
     Public Sub cargarTiposUsuarioTxt(item As TextBox)
-        Dim idDni = GestionUsuarios.tbDNI.Text
+        Dim idDni = MD5EncryptPass(GestionUsuarios.tbDNI.Text)
         Dim ds = New DataSet
         Dim da = New MySqlDataAdapter
         Dim query As New MySqlCommand("SELECT tipoUsuario FROM usuarios WHERE idDni=" &
@@ -73,7 +73,7 @@ Public Class Metodos
 
         ds.Clear()
         da = New MySqlDataAdapter(query)
-        item.Text = da.Fill(ds, "tiposUsuario")
+        'item.Text = da.Fill(ds, "tiposUsuario")
     End Sub
     'Public Sub cargarTipoUsuario()
     '    Dim query As New MySqlDataAdapter("SELECT DISTINCT tipoUsuario " &
@@ -119,11 +119,14 @@ Public Class Metodos
 
     Public Sub irEditarAlojamiento()
         GestionAlojamientos.Hide()
+        limpiarCampos(GestionAlojamientos.gbTAlojamientos)
+        limpiarCampos(GestionAlojamientos.gbTLocalizacion)
         AddAlojamiento.Show()
     End Sub
 
     Public Sub irEditarUsuario()
         GestionUsuarios.Hide()
+        GestionUsuarios.DataGridUsuarios.ClearSelection()
         AddUsuario.Show()
     End Sub
 
