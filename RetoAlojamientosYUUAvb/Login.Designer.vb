@@ -22,6 +22,7 @@ Partial Class Login
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+
         Me.lablUsuario = New MaterialSkin.Controls.MaterialLabel()
         Me.lblPassword = New MaterialSkin.Controls.MaterialLabel()
         Me.tbUsuario = New MaterialSkin.Controls.MaterialSingleLineTextField()
