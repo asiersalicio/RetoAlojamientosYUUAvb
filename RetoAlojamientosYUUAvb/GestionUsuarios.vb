@@ -24,7 +24,7 @@ Public Class GestionUsuarios
         DataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridUsuarios.MultiSelect = False
 
-        m.cargarTipoUsuario()
+        m.cargarTiposUsuarioTxt(tbTipoUsuario)
         m.soloLectura(gbLogin)
         m.soloLectura(gbDatosUsuario)
     End Sub
@@ -57,10 +57,27 @@ Public Class GestionUsuarios
         m.limpiarBusqueda()
     End Sub
 
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        m.irEditarUsuario()
+    End Sub
+
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        m.irEditarUsuario()
+    End Sub
+
+    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        m.borrarReg("usuario", "idDni")
+    End Sub
+
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        m.desconectar()
+    End Sub
+
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Hide()
         MenuGestion.Show()
     End Sub
+
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         m.salir()
     End Sub

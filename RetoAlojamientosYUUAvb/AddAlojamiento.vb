@@ -33,9 +33,10 @@ Public Class AddAlojamiento
         Dim tabla As New DataTable()
         da.Fill(tabla)
 
-        m.cargarTiposAloj(cbTiposAloj)
+        m.cargarTipos("talojamientos", "lodgingtype", cbTiposAloj)
 
     End Sub
+
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         daInsert = New MySqlDataAdapter("INSERT INTO `talojamientos` " &
@@ -56,41 +57,12 @@ Public Class AddAlojamiento
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        'For Each control As Control In Me.Controls
-        '    If TypeOf control Is GroupBox Then
-        '        For Each controlText As Control In Me.gbTAlojamientos.Controls
-        '            If TypeOf controlText Is TextBox Then
-        '                CType(controlText, TextBox).Clear()
-        '            End If
-        '        Next
-
-        '        For Each controlText As Control In Me.gbTLocalizacion.Controls
-        '            If TypeOf controlText Is TextBox Then
-        '                CType(controlText, TextBox).Clear()
-        '            End If
-        '        Next
-        '    End If
-        'Next
-
-        tbId.Clear()
-        tbNombre.Clear()
-        cbTiposAloj.Items.Clear()
-        tbCapacidad.Clear()
-        rtbDescripcion.Clear()
-        tbTelefono.Clear()
-        tbEmail.Clear()
-        tbWeb.Clear()
-        cbPais.Items.Clear()
-        cbTerritorio.Items.Clear()
-        cbMunicipio.Items.Clear()
-        tbCodPostal.Clear()
-        tbDireccion.Clear()
-        tbLatitud.Clear()
-        tbLongitud.Clear()
+        m.limpiarCampos(gbTAlojamientos)
+        m.limpiarCampos(gbTLocalizacion)
 
         Me.Hide()
 
-        m.cargarTiposAloj(cbTiposAloj)
+        m.cargarTipos("talojamientos", "lodgingtype", cbTiposAloj)
         m.cargarDatosAloj("tpais", "country", cbPais)
         m.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
         m.cargarDatosAloj("tmunicipio", "municipality", cbMunicipio)

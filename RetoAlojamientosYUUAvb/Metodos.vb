@@ -73,23 +73,24 @@ Public Class Metodos
 
         ds.Clear()
         da = New MySqlDataAdapter(query)
-        GestionUsuarios.tbTipoUsuario.Text = da.Fill(ds, "tiposUsuario")
+        item.Text = da.Fill(ds, "tiposUsuario")
     End Sub
-    Public Sub cargarTipoUsuario()
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT tipoUsuario " &
-                                          "FROM usuario ORDER BY tipoUsuario ASC", conex)
-        Dim campoTexto As New DataTable()
-        query.Fill(campoTexto)
+    'Public Sub cargarTipoUsuario()
+    '    Dim query As New MySqlDataAdapter("SELECT DISTINCT tipoUsuario " &
+    '                                      "FROM usuario ORDER BY tipoUsuario ASC", conex)
+    '    Dim campoTexto As New DataTable()
+    '    query.Fill(campoTexto)
 
-        Dim numero As Integer = campoTexto.Rows.Count
-        For i = 0 To campoTexto.Rows.Count - 1
-            'GestionUsuarios.cbTipoUsuario.Items.Add(campoTexto.Rows(i).Item(0))
-        Next
-    End Sub
+    '    Dim numero As Integer = campoTexto.Rows.Count
+    '    For i = 0 To campoTexto.Rows.Count - 1
+    '        AddUsuario.cbTipoUsuario.Items.Add(campoTexto.Rows(i).Item(0))
+    '    Next
+    'End Sub
 
-    Public Sub cargarTiposAloj(item As ComboBox)
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT lodgingtype 'Tipo alojamiento' " &
-                                          "FROM talojamientos ORDER BY lodgingtype ASC", conex)
+    Public Sub cargarTipos(tabla As String, campo As String, item As ComboBox)
+        Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
+                                          " FROM " & tabla &
+                                          " ORDER BY " & campo & " ASC", conex)
         Dim da As New MySqlDataAdapter
 
         Dim campoTexto As New DataTable()
@@ -116,6 +117,26 @@ Public Class Metodos
         Next
     End Sub
 
+    Public Sub irEditarAlojamiento()
+        GestionAlojamientos.Hide()
+        AddAlojamiento.Show()
+    End Sub
+
+    Public Sub irEditarUsuario()
+        GestionUsuarios.Hide()
+        AddUsuario.Show()
+    End Sub
+
+    Public Sub borrarReg(tabla As String, campo As String)
+        Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+        Dim query As New MySqlCommand("DELETE FROM " & tabla & " WHERE " & campo & "='" & "" & "'", conex)
+
+        If resp = MsgBoxResult.Yes Then
+
+            Application.Exit()
+        End If
+    End Sub
+
     Public Sub salir()
         Dim resp = MsgBox("¿Desea realmente salir?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         If resp = MsgBoxResult.Yes Then
@@ -131,6 +152,18 @@ Public Class Metodos
     Public Sub limpiarBusqueda()
         GestionAlojamientos.tbBusqueda.Clear()
         GestionUsuarios.tbBusqueda.Clear()
+    End Sub
+
+    Public Sub limpiarCampos(gb As GroupBox)
+        For Each control In gb.Controls
+            If TypeOf control Is TextBox Then
+                control.Clear
+            ElseIf TypeOf control Is RichTextBox Then
+                control.Clear
+            ElseIf TypeOf control Is ComboBox Then
+                'control.SelectIndex(0)
+            End If
+        Next
     End Sub
 
     Public Sub soloLectura(gb As GroupBox)

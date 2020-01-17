@@ -67,9 +67,9 @@ Partial Class MenuGestion
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(698, 74)
+        Me.btnLogout.Location = New System.Drawing.Point(688, 74)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(90, 25)
+        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
         Me.btnLogout.TabIndex = 4
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
