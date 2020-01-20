@@ -36,5 +36,7 @@ Public Class GestionReservas
 
     End Sub
 
+    Private Sub BtnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
 
+    End Sub
 End Class

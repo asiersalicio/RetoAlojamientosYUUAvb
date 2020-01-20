@@ -10,6 +10,10 @@
         GestionUsuarios.Show()
     End Sub
 
+    Private Sub BtnGestionReservas_Click(sender As Object, e As EventArgs) Handles btnGestionReservas.Click
+        GestionReservas.Show()
+    End Sub
+
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         m.salir()
     End Sub

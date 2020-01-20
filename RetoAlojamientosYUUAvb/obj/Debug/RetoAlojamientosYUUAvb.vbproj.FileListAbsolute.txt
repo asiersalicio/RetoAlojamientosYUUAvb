@@ -115,3 +115,4 @@ C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAloja
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.pdb
 C:\workspaceVS\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.vbprojAssemblyReference.cache
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.AddUsuario.resources
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.GestionReservas.resources

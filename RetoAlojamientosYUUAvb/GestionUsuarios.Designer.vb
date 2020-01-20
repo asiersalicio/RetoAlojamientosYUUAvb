@@ -22,7 +22,6 @@ Partial Class GestionUsuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btnVer = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.tbBusqueda = New System.Windows.Forms.TextBox()
         Me.DataGridUsuarios = New System.Windows.Forms.DataGridView()
@@ -56,15 +55,6 @@ Partial Class GestionUsuarios
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnVer
-        '
-        Me.btnVer.Location = New System.Drawing.Point(13, 414)
-        Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(694, 25)
-        Me.btnVer.TabIndex = 21
-        Me.btnVer.Text = "Ver"
-        Me.btnVer.UseVisualStyleBackColor = True
         '
         'btnLimpiar
         '
@@ -383,7 +373,6 @@ Partial Class GestionUsuarios
         Me.Controls.Add(Me.gbLogin)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.DataGridUsuarios)
-        Me.Controls.Add(Me.btnVer)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.tbBusqueda)
         Me.Name = "GestionUsuarios"
@@ -397,7 +386,6 @@ Partial Class GestionUsuarios
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnVer As Button
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents tbBusqueda As TextBox
     Friend WithEvents DataGridUsuarios As DataGridView

@@ -29,7 +29,6 @@ Partial Class GestionAlojamientos
         Me.btnBorrar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnVer = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.lblId = New System.Windows.Forms.Label()
         Me.lblCapacidad = New System.Windows.Forms.Label()
@@ -123,15 +122,6 @@ Partial Class GestionAlojamientos
         Me.btnAdd.TabIndex = 7
         Me.btnAdd.Text = "Añadir"
         Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'btnVer
-        '
-        Me.btnVer.Location = New System.Drawing.Point(12, 414)
-        Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(694, 25)
-        Me.btnVer.TabIndex = 12
-        Me.btnVer.Text = "Ver"
-        Me.btnVer.UseVisualStyleBackColor = True
         '
         'btnVolver
         '
@@ -482,7 +472,6 @@ Partial Class GestionAlojamientos
         Me.Controls.Add(Me.DataGridAlojamientos)
         Me.Controls.Add(Me.lblPais)
         Me.Controls.Add(Me.btnVolver)
-        Me.Controls.Add(Me.btnVer)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.tbBusqueda)
         Me.Controls.Add(Me.btnBorrar)
@@ -523,7 +512,6 @@ Partial Class GestionAlojamientos
     Friend WithEvents btnBorrar As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnAdd As Button
-    Friend WithEvents btnVer As Button
     Friend WithEvents btnVolver As Button
     Friend WithEvents lblId As Label
     Friend WithEvents lblCapacidad As Label
