@@ -30,7 +30,6 @@ Public Class GestionUsuarios
         m.cargarTiposUsuarioTxt(tbTipoUsuario)
         m.soloLectura(gbLogin)
         m.soloLectura(gbDatosUsuario)
-        DataGridUsuarios.Select()
     End Sub
 
     Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridUsuarios.RowEnter
