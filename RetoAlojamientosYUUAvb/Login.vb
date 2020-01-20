@@ -5,25 +5,27 @@ Public Class Login
     Dim m As New Metodos
     Dim usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
-
     Dim cmdUsuario, cmdPassword As New MySqlCommand
     Dim daUsuario, daPassword As New MySqlDataAdapter
     Dim dsUsuario, dsPassword As New DataSet
-
     Dim passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
-    Private Sub TextBox1_KeyDown(sender As Object, e As KeyPressEventArgs) Handles tbUsuario.KeyPress, tbPassword.KeyPress, btnAcceder.KeyPress
-        If e.KeyChar = ChrW(Keys.Enter) Then
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyPressEventArgs) Handles tbUsuario.KeyPress, tbPassword.KeyPress
+        If e.KeyChar = ChrW(Keys.Tab) Then
             e.Handled = True
             SendKeys.Send("{TAB}")
+            'ElseIf e.KeyChar = ChrW(Keys.Enter) Then
+            '    e.Handled = True
+            '    SendKeys.Send("{ENTER}")
+            '    MaterialFlatButton1_Click(sender, e)
         End If
     End Sub
 
-    Private Sub MaterialFlatButton1_Click(sender As Object, e As EventArgs) Handles btnAcceder.Click
+    Private Sub MaterialFlatButton1_Click(sender As Object, e As EventArgs) Handles btnAcceder.Click, btnAcceder.KeyDown
         passwordEncriptada = m.MD5EncryptPass(tbPassword.Text)
         Try
             If (tbUsuario.Text = "") Then

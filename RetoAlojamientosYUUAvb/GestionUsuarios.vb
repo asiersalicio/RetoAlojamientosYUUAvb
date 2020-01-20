@@ -30,6 +30,7 @@ Public Class GestionUsuarios
         m.cargarTiposUsuarioTxt(tbTipoUsuario)
         m.soloLectura(gbLogin)
         m.soloLectura(gbDatosUsuario)
+        DataGridUsuarios.Select()
     End Sub
 
     Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridUsuarios.RowEnter
@@ -45,8 +46,6 @@ Public Class GestionUsuarios
         For pos2 = 0 To 8
             arrayCampos(pos2).Text = arrayStrings(pos2)
         Next
-
-        cargarDatosModificacion()
     End Sub
 
     Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
@@ -68,9 +67,10 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        If (DataGridUsuarios.SelectedRows.Count < 0) Then
+        If (DataGridUsuarios.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
+            cargarDatosModificacion()
             m.irEditarUsuario()
         End If
     End Sub
@@ -90,7 +90,9 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("usuario", "idDni")
+        'm.borrarReg("usuario", "idDni")
+        m.borrarReg("usuario", tbDNI.Text, DataGridUsuarios)
+        DataGridUsuarios.Refresh()
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

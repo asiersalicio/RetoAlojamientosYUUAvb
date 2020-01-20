@@ -78,7 +78,7 @@ Partial Class AddUsuario
         Me.cbTipoUsuario.Location = New System.Drawing.Point(315, 148)
         Me.cbTipoUsuario.Name = "cbTipoUsuario"
         Me.cbTipoUsuario.Size = New System.Drawing.Size(200, 24)
-        Me.cbTipoUsuario.TabIndex = 44
+        Me.cbTipoUsuario.TabIndex = 8
         '
         'lblNombre
         '
@@ -106,12 +106,13 @@ Partial Class AddUsuario
         '
         Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNac.Location = New System.Drawing.Point(443, 30)
+        Me.dtpFechaNac.MaxDate = New Date(2020, 1, 20, 0, 0, 0, 0)
         Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dtpFechaNac.Size = New System.Drawing.Size(250, 23)
-        Me.dtpFechaNac.TabIndex = 11
-        Me.dtpFechaNac.Value = New Date(2020, 1, 16, 12, 44, 46, 0)
+        Me.dtpFechaNac.TabIndex = 5
+        Me.dtpFechaNac.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
         '
         'lblTipoUsuario
         '
@@ -141,7 +142,7 @@ Partial Class AddUsuario
         Me.tbEmail.Location = New System.Drawing.Point(443, 96)
         Me.tbEmail.Name = "tbEmail"
         Me.tbEmail.Size = New System.Drawing.Size(250, 23)
-        Me.tbEmail.TabIndex = 41
+        Me.tbEmail.TabIndex = 7
         Me.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblFechaNac
@@ -161,7 +162,7 @@ Partial Class AddUsuario
         Me.tbApellidos.Location = New System.Drawing.Point(59, 64)
         Me.tbApellidos.Name = "tbApellidos"
         Me.tbApellidos.Size = New System.Drawing.Size(250, 23)
-        Me.tbApellidos.TabIndex = 14
+        Me.tbApellidos.TabIndex = 3
         Me.tbApellidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblTelefono
@@ -181,7 +182,7 @@ Partial Class AddUsuario
         Me.tbNombre.Location = New System.Drawing.Point(59, 32)
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(250, 23)
-        Me.tbNombre.TabIndex = 13
+        Me.tbNombre.TabIndex = 2
         Me.tbNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblApellidos
@@ -201,7 +202,7 @@ Partial Class AddUsuario
         Me.tbTelefono.Location = New System.Drawing.Point(443, 62)
         Me.tbTelefono.Name = "tbTelefono"
         Me.tbTelefono.Size = New System.Drawing.Size(250, 23)
-        Me.tbTelefono.TabIndex = 13
+        Me.tbTelefono.TabIndex = 6
         Me.tbTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbDNI
@@ -210,7 +211,7 @@ Partial Class AddUsuario
         Me.tbDNI.Location = New System.Drawing.Point(59, 96)
         Me.tbDNI.Name = "tbDNI"
         Me.tbDNI.Size = New System.Drawing.Size(250, 23)
-        Me.tbDNI.TabIndex = 12
+        Me.tbDNI.TabIndex = 4
         Me.tbDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'gbLogin
@@ -232,7 +233,7 @@ Partial Class AddUsuario
         Me.tbNick.Location = New System.Drawing.Point(241, 19)
         Me.tbNick.Name = "tbNick"
         Me.tbNick.Size = New System.Drawing.Size(300, 23)
-        Me.tbNick.TabIndex = 9
+        Me.tbNick.TabIndex = 0
         Me.tbNick.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbPassword
@@ -241,7 +242,7 @@ Partial Class AddUsuario
         Me.tbPassword.Location = New System.Drawing.Point(241, 51)
         Me.tbPassword.Name = "tbPassword"
         Me.tbPassword.Size = New System.Drawing.Size(300, 23)
-        Me.tbPassword.TabIndex = 10
+        Me.tbPassword.TabIndex = 1
         Me.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblNick
@@ -271,7 +272,7 @@ Partial Class AddUsuario
         Me.btnAceptar.Location = New System.Drawing.Point(358, 390)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(100, 40)
-        Me.btnAceptar.TabIndex = 37
+        Me.btnAceptar.TabIndex = 9
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = True
         '
@@ -280,7 +281,7 @@ Partial Class AddUsuario
         Me.btnCancelar.Location = New System.Drawing.Point(688, 413)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(100, 25)
-        Me.btnCancelar.TabIndex = 36
+        Me.btnCancelar.TabIndex = 10
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -306,7 +307,6 @@ Partial Class AddUsuario
     Friend WithEvents gbDatosUsuario As GroupBox
     Friend WithEvents lblNombre As Label
     Friend WithEvents lblDni As Label
-    Friend WithEvents dtpFechaNac As DateTimePicker
     Friend WithEvents lblTipoUsuario As Label
     Friend WithEvents lblEmail As Label
     Friend WithEvents tbEmail As TextBox
@@ -325,4 +325,5 @@ Partial Class AddUsuario
     Friend WithEvents cbTipoUsuario As ComboBox
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
+    Friend WithEvents dtpFechaNac As DateTimePicker
 End Class

@@ -22,7 +22,6 @@ Partial Class Login
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-
         Me.lablUsuario = New MaterialSkin.Controls.MaterialLabel()
         Me.lblPassword = New MaterialSkin.Controls.MaterialLabel()
         Me.tbUsuario = New MaterialSkin.Controls.MaterialSingleLineTextField()
@@ -72,6 +71,7 @@ Partial Class Login
         Me.tbUsuario.SelectionStart = 0
         Me.tbUsuario.Size = New System.Drawing.Size(224, 23)
         Me.tbUsuario.TabIndex = 0
+        Me.tbUsuario.TabStop = False
         Me.tbUsuario.UseSystemPasswordChar = False
         '
         'tbPassword
@@ -88,6 +88,7 @@ Partial Class Login
         Me.tbPassword.SelectionStart = 0
         Me.tbPassword.Size = New System.Drawing.Size(224, 23)
         Me.tbPassword.TabIndex = 1
+        Me.tbPassword.TabStop = False
         Me.tbPassword.UseSystemPasswordChar = False
         '
         'btnAcceder
@@ -104,6 +105,7 @@ Partial Class Login
         Me.btnAcceder.Primary = False
         Me.btnAcceder.Size = New System.Drawing.Size(250, 36)
         Me.btnAcceder.TabIndex = 2
+        Me.btnAcceder.TabStop = False
         Me.btnAcceder.Text = "Acceder"
         Me.btnAcceder.UseVisualStyleBackColor = True
         '

@@ -53,8 +53,6 @@ Public Class GestionAlojamientos
         For pos2 = 0 To 14
             arrayCampos(pos2).Text = arrayStrings(pos2)
         Next
-
-        cargarDatosModificacion()
     End Sub
 
     Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
@@ -97,15 +95,16 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        If (DataGridAlojamientos.SelectedRows.Count < 0) Then
+        If (DataGridAlojamientos.SelectedRows.Count < 1) Then
             MsgBox("Debe tener un alojamiento seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
+            cargarDatosModificacion()
             m.irEditarAlojamiento()
         End If
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("talojamientos", "idAlojamiento")
+        m.borrarReg("talojamientos", tbId.Text, DataGridAlojamientos)
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
@@ -120,5 +119,4 @@ Public Class GestionAlojamientos
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         m.salir()
     End Sub
-
 End Class

@@ -48,10 +48,6 @@ Public Class Metodos
         Return txtEncriptado
     End Function
 
-    'Public Function DesencriptarMD5(ByVal StrPass As String) As String
-    '    Return
-    'End Function
-
     Public Sub cargarTiposAlojTxt(item As TextBox)
         Dim idAloj = GestionAlojamientos.tbId.Text
         Dim ds = New DataSet
@@ -88,6 +84,7 @@ Public Class Metodos
     'End Sub
 
     Public Sub cargarTipos(tabla As String, campo As String, item As ComboBox)
+        item.Text = "Elegir una opción"
         Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
                                           " FROM " & tabla &
                                           " ORDER BY " & campo & " ASC", conex)
@@ -103,6 +100,7 @@ Public Class Metodos
     End Sub
 
     Public Sub cargarDatosAloj(tabla As String, campo As String, item As ComboBox)
+        item.Text = "Elegir una opción"
         Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
                                           " FROM talojamientos aloj, tlocalizacion loc, " & tabla &
                                           " WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion AND  loc." & campo & "code=" & tabla & "." & campo & "code " &
@@ -130,13 +128,29 @@ Public Class Metodos
         AddUsuario.Show()
     End Sub
 
-    Public Sub borrarReg(tabla As String, campo As String)
+    Public Sub borrarReg(tabla As String, campo As String, dgv As DataGridView)
         Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Dim query As New MySqlCommand("DELETE FROM " & tabla & " WHERE " & campo & "='" & "" & "'", conex)
 
         If resp = MsgBoxResult.Yes Then
+            Try
+                usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+                passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+                conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+                conex.Open()
 
-            Application.Exit()
+                Dim cmd As New MySqlCommand("DELETE FROM  `usuario` " &
+                                              "WHERE " &
+                                              "idDNi=" & campo & ";", conex)
+
+                cmd.ExecuteNonQuery()
+                conex.Close()
+                MsgBox("Se borrarron correctamente los datos de usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
+                dgv.Refresh()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            'Application.Exit()
         End If
     End Sub
 
@@ -177,6 +191,28 @@ Public Class Metodos
                 control.ReadOnly = True
             End If
         Next
+    End Sub
+
+    Sub soloLetras(ByRef e As KeyPressEventArgs)
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+            MsgBox("Solo se pueden ingresar valores de tipo texto", MsgBoxStyle.Exclamation, "Ingreso de Texto")
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = False
+        End If
+    End Sub
+
+    Sub soloNumeros(ByRef e As KeyPressEventArgs)
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+            MsgBox("Solo se pueden ingresar valores de tipo numérico", MsgBoxStyle.Exclamation, "Ingreso de Número")
+        End If
     End Sub
 
     Public Sub pantallaCompleta()

@@ -151,7 +151,7 @@ Partial Class AddAlojamiento
         Me.tbId.Location = New System.Drawing.Point(6, 19)
         Me.tbId.Name = "tbId"
         Me.tbId.Size = New System.Drawing.Size(200, 23)
-        Me.tbId.TabIndex = 9
+        Me.tbId.TabIndex = 0
         '
         'tbNombre
         '
@@ -159,7 +159,7 @@ Partial Class AddAlojamiento
         Me.tbNombre.Location = New System.Drawing.Point(6, 51)
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(200, 23)
-        Me.tbNombre.TabIndex = 10
+        Me.tbNombre.TabIndex = 1
         '
         'gbTAlojamientos
         '
@@ -183,7 +183,7 @@ Partial Class AddAlojamiento
         Me.rtbDescripcion.Location = New System.Drawing.Point(6, 186)
         Me.rtbDescripcion.Name = "rtbDescripcion"
         Me.rtbDescripcion.Size = New System.Drawing.Size(200, 61)
-        Me.rtbDescripcion.TabIndex = 26
+        Me.rtbDescripcion.TabIndex = 4
         Me.rtbDescripcion.Text = ""
         '
         'cbTiposAloj
@@ -193,7 +193,7 @@ Partial Class AddAlojamiento
         Me.cbTiposAloj.Location = New System.Drawing.Point(6, 120)
         Me.cbTiposAloj.Name = "cbTiposAloj"
         Me.cbTiposAloj.Size = New System.Drawing.Size(200, 24)
-        Me.cbTiposAloj.TabIndex = 20
+        Me.cbTiposAloj.TabIndex = 2
         '
         'tbWeb
         '
@@ -201,7 +201,7 @@ Partial Class AddAlojamiento
         Me.tbWeb.Location = New System.Drawing.Point(6, 317)
         Me.tbWeb.Name = "tbWeb"
         Me.tbWeb.Size = New System.Drawing.Size(200, 23)
-        Me.tbWeb.TabIndex = 14
+        Me.tbWeb.TabIndex = 7
         '
         'tbCapacidad
         '
@@ -209,7 +209,7 @@ Partial Class AddAlojamiento
         Me.tbCapacidad.Location = New System.Drawing.Point(6, 154)
         Me.tbCapacidad.Name = "tbCapacidad"
         Me.tbCapacidad.Size = New System.Drawing.Size(200, 23)
-        Me.tbCapacidad.TabIndex = 13
+        Me.tbCapacidad.TabIndex = 3
         '
         'tbEmail
         '
@@ -217,7 +217,7 @@ Partial Class AddAlojamiento
         Me.tbEmail.Location = New System.Drawing.Point(6, 285)
         Me.tbEmail.Name = "tbEmail"
         Me.tbEmail.Size = New System.Drawing.Size(200, 23)
-        Me.tbEmail.TabIndex = 13
+        Me.tbEmail.TabIndex = 6
         '
         'tbTelefono
         '
@@ -225,7 +225,7 @@ Partial Class AddAlojamiento
         Me.tbTelefono.Location = New System.Drawing.Point(6, 253)
         Me.tbTelefono.Name = "tbTelefono"
         Me.tbTelefono.Size = New System.Drawing.Size(200, 23)
-        Me.tbTelefono.TabIndex = 12
+        Me.tbTelefono.TabIndex = 5
         '
         'gbTLocalizacion
         '
@@ -249,7 +249,7 @@ Partial Class AddAlojamiento
         Me.cbPais.Location = New System.Drawing.Point(6, 165)
         Me.cbPais.Name = "cbPais"
         Me.cbPais.Size = New System.Drawing.Size(200, 24)
-        Me.cbPais.TabIndex = 17
+        Me.cbPais.TabIndex = 13
         '
         'cbMunicipio
         '
@@ -257,7 +257,7 @@ Partial Class AddAlojamiento
         Me.cbMunicipio.Location = New System.Drawing.Point(6, 18)
         Me.cbMunicipio.Name = "cbMunicipio"
         Me.cbMunicipio.Size = New System.Drawing.Size(200, 24)
-        Me.cbMunicipio.TabIndex = 16
+        Me.cbMunicipio.TabIndex = 8
         '
         'cbTerritorio
         '
@@ -265,7 +265,7 @@ Partial Class AddAlojamiento
         Me.cbTerritorio.Location = New System.Drawing.Point(6, 135)
         Me.cbTerritorio.Name = "cbTerritorio"
         Me.cbTerritorio.Size = New System.Drawing.Size(200, 24)
-        Me.cbTerritorio.TabIndex = 15
+        Me.cbTerritorio.TabIndex = 12
         '
         'tbDireccion
         '
@@ -273,7 +273,7 @@ Partial Class AddAlojamiento
         Me.tbDireccion.Location = New System.Drawing.Point(6, 77)
         Me.tbDireccion.Name = "tbDireccion"
         Me.tbDireccion.Size = New System.Drawing.Size(200, 23)
-        Me.tbDireccion.TabIndex = 14
+        Me.tbDireccion.TabIndex = 10
         '
         'tbCodMunicipio
         '
@@ -281,7 +281,7 @@ Partial Class AddAlojamiento
         Me.tbCodMunicipio.Location = New System.Drawing.Point(6, 48)
         Me.tbCodMunicipio.Name = "tbCodMunicipio"
         Me.tbCodMunicipio.Size = New System.Drawing.Size(200, 23)
-        Me.tbCodMunicipio.TabIndex = 14
+        Me.tbCodMunicipio.TabIndex = 9
         '
         'tbCodPostal
         '
@@ -289,23 +289,23 @@ Partial Class AddAlojamiento
         Me.tbCodPostal.Location = New System.Drawing.Point(6, 106)
         Me.tbCodPostal.Name = "tbCodPostal"
         Me.tbCodPostal.Size = New System.Drawing.Size(200, 23)
-        Me.tbCodPostal.TabIndex = 13
+        Me.tbCodPostal.TabIndex = 11
         '
         'tbLongitud
         '
         Me.tbLongitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbLongitud.Location = New System.Drawing.Point(6, 195)
+        Me.tbLongitud.Location = New System.Drawing.Point(5, 224)
         Me.tbLongitud.Name = "tbLongitud"
         Me.tbLongitud.Size = New System.Drawing.Size(200, 23)
-        Me.tbLongitud.TabIndex = 13
+        Me.tbLongitud.TabIndex = 15
         '
         'tbLatitud
         '
         Me.tbLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbLatitud.Location = New System.Drawing.Point(6, 224)
+        Me.tbLatitud.Location = New System.Drawing.Point(5, 195)
         Me.tbLatitud.Name = "tbLatitud"
         Me.tbLatitud.Size = New System.Drawing.Size(200, 23)
-        Me.tbLatitud.TabIndex = 12
+        Me.tbLatitud.TabIndex = 14
         '
         'lblMunicipio
         '
@@ -372,7 +372,7 @@ Partial Class AddAlojamiento
         Me.btnCancelar.Location = New System.Drawing.Point(708, 408)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancelar.TabIndex = 20
+        Me.btnCancelar.TabIndex = 17
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -381,7 +381,7 @@ Partial Class AddAlojamiento
         Me.btnAceptar.Location = New System.Drawing.Point(627, 408)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(75, 30)
-        Me.btnAceptar.TabIndex = 21
+        Me.btnAceptar.TabIndex = 16
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = True
         '

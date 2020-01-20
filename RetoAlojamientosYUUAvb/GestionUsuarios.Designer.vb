@@ -198,8 +198,10 @@ Partial Class GestionUsuarios
         '
         'dtpFechaNac
         '
+        Me.dtpFechaNac.Enabled = False
         Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNac.Location = New System.Drawing.Point(443, 30)
+        Me.dtpFechaNac.MaxDate = New Date(2020, 1, 20, 0, 0, 0, 0)
         Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.RightToLeft = System.Windows.Forms.RightToLeft.No
