@@ -24,19 +24,43 @@ Public Class GestionReservas
 
     End Sub
 
-    Private Sub lblIdReserva_Click(sender As Object, e As EventArgs) Handles lblIdReserva.Click
-
-    End Sub
-
-    Private Sub lblFechaEntrada_Click(sender As Object, e As EventArgs) Handles lblFechaEntrada.Click
-
-    End Sub
-
     Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 
     Private Sub BtnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
 
+    End Sub
+
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+
+    End Sub
+
+    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+
+    End Sub
+
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Hide()
+        m.limpiarCampos(gbDatosReserva)
+        MenuGestion.Show()
+    End Sub
+
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        m.desconectar(GestionReservas.ActiveForm)
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Hide()
+        m.limpiarCampos(gbDatosReserva)
+        MenuGestion.Show()
+    End Sub
+
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        m.salir()
     End Sub
 End Class

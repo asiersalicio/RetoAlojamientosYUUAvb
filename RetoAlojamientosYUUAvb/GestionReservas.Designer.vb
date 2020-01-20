@@ -42,15 +42,15 @@ Partial Class GestionReservas
         Me.lblFechaSalida = New System.Windows.Forms.Label()
         Me.lblNombreCliente = New System.Windows.Forms.Label()
         Me.tbNombreCliente = New System.Windows.Forms.TextBox()
-        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.gbDatosUsuario = New System.Windows.Forms.GroupBox()
+        Me.gbDatosReserva = New System.Windows.Forms.GroupBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ConexionReservasBS, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbDatosUsuario.SuspendLayout()
+        Me.gbDatosReserva.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -221,20 +221,20 @@ Partial Class GestionReservas
         Me.tbNombreCliente.Size = New System.Drawing.Size(200, 23)
         Me.tbNombreCliente.TabIndex = 17
         '
-        'btnGuardar
+        'btnAceptar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(736, 440)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
-        Me.btnGuardar.TabIndex = 18
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.btnAceptar.Location = New System.Drawing.Point(794, 414)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(160, 25)
+        Me.btnAceptar.TabIndex = 18
+        Me.btnAceptar.Text = "Aceptar"
+        Me.btnAceptar.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(859, 440)
+        Me.btnCancelar.Location = New System.Drawing.Point(960, 414)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelar.Size = New System.Drawing.Size(160, 25)
         Me.btnCancelar.TabIndex = 19
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -266,28 +266,28 @@ Partial Class GestionReservas
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'gbDatosUsuario
+        'gbDatosReserva
         '
-        Me.gbDatosUsuario.BackColor = System.Drawing.SystemColors.Window
-        Me.gbDatosUsuario.Controls.Add(Me.lblIdAlojamiento)
-        Me.gbDatosUsuario.Controls.Add(Me.tbIdAlojamiento)
-        Me.gbDatosUsuario.Controls.Add(Me.tbNombreAlojamiento)
-        Me.gbDatosUsuario.Controls.Add(Me.lblNombreAlojamiento)
-        Me.gbDatosUsuario.Controls.Add(Me.lblIdReserva)
-        Me.gbDatosUsuario.Controls.Add(Me.tbIdReserva)
-        Me.gbDatosUsuario.Controls.Add(Me.tbNombreCliente)
-        Me.gbDatosUsuario.Controls.Add(Me.lblDniCliente)
-        Me.gbDatosUsuario.Controls.Add(Me.lblNombreCliente)
-        Me.gbDatosUsuario.Controls.Add(Me.tbDniCliente)
-        Me.gbDatosUsuario.Controls.Add(Me.lblFechaSalida)
-        Me.gbDatosUsuario.Controls.Add(Me.tbFechaEntrada)
-        Me.gbDatosUsuario.Controls.Add(Me.lblFechaEntrada)
-        Me.gbDatosUsuario.Controls.Add(Me.tbFechaSalida)
-        Me.gbDatosUsuario.Location = New System.Drawing.Point(794, 128)
-        Me.gbDatosUsuario.Name = "gbDatosUsuario"
-        Me.gbDatosUsuario.Size = New System.Drawing.Size(326, 280)
-        Me.gbDatosUsuario.TabIndex = 34
-        Me.gbDatosUsuario.TabStop = False
+        Me.gbDatosReserva.BackColor = System.Drawing.SystemColors.Window
+        Me.gbDatosReserva.Controls.Add(Me.lblIdAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.tbIdAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.tbNombreAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.lblNombreAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.lblIdReserva)
+        Me.gbDatosReserva.Controls.Add(Me.tbIdReserva)
+        Me.gbDatosReserva.Controls.Add(Me.tbNombreCliente)
+        Me.gbDatosReserva.Controls.Add(Me.lblDniCliente)
+        Me.gbDatosReserva.Controls.Add(Me.lblNombreCliente)
+        Me.gbDatosReserva.Controls.Add(Me.tbDniCliente)
+        Me.gbDatosReserva.Controls.Add(Me.lblFechaSalida)
+        Me.gbDatosReserva.Controls.Add(Me.tbFechaEntrada)
+        Me.gbDatosReserva.Controls.Add(Me.lblFechaEntrada)
+        Me.gbDatosReserva.Controls.Add(Me.tbFechaSalida)
+        Me.gbDatosReserva.Location = New System.Drawing.Point(794, 128)
+        Me.gbDatosReserva.Name = "gbDatosReserva"
+        Me.gbDatosReserva.Size = New System.Drawing.Size(326, 280)
+        Me.gbDatosReserva.TabIndex = 34
+        Me.gbDatosReserva.TabStop = False
         '
         'GestionReservas
         '
@@ -295,22 +295,22 @@ Partial Class GestionReservas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1132, 504)
-        Me.Controls.Add(Me.gbDatosUsuario)
+        Me.Controls.Add(Me.gbDatosReserva)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnGuardar)
+        Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnVer)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "GestionReservas"
-        Me.Text = "Gestión Reserva"
+        Me.Text = "Gestión de Reservas"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ConexionReservasBS, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbDatosUsuario.ResumeLayout(False)
-        Me.gbDatosUsuario.PerformLayout()
+        Me.gbDatosReserva.ResumeLayout(False)
+        Me.gbDatosReserva.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -334,10 +334,10 @@ Partial Class GestionReservas
 	Friend WithEvents lblFechaSalida As Label
 	Friend WithEvents lblNombreCliente As Label
 	Friend WithEvents tbNombreCliente As TextBox
-	Friend WithEvents btnGuardar As Button
+	Friend WithEvents btnAceptar As Button
 	Friend WithEvents btnCancelar As Button
 	Friend WithEvents btnVolver As Button
     Friend WithEvents btnLogout As Button
     Friend WithEvents btnSalir As Button
-    Friend WithEvents gbDatosUsuario As GroupBox
+    Friend WithEvents gbDatosReserva As GroupBox
 End Class
