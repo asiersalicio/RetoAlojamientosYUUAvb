@@ -8,10 +8,10 @@ Public Class Metodos
     Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
     Public Sub Acceder()
-        Login.Hide()
         MenuGestion.Show()
         Login.tbUsuario.Clear()
         Login.tbPassword.Clear()
+        Login.Hide()
     End Sub
 
     Public Sub desconectar(c As Form)
@@ -19,8 +19,7 @@ Public Class Metodos
         If resp = MsgBoxResult.Yes Then
             Try
                 conex.Close()
-                c.Hide()
-                Login.Show()
+                cambioVentana(c, Login)
             Catch ex As Exception
                 conex.Close()
                 MsgBox(ex.Message)
@@ -71,17 +70,6 @@ Public Class Metodos
         da = New MySqlDataAdapter(query)
         'item.Text = da.Fill(ds, "tiposUsuario")
     End Sub
-    'Public Sub cargarTipoUsuario()
-    '    Dim query As New MySqlDataAdapter("SELECT DISTINCT tipoUsuario " &
-    '                                      "FROM usuario ORDER BY tipoUsuario ASC", conex)
-    '    Dim campoTexto As New DataTable()
-    '    query.Fill(campoTexto)
-
-    '    Dim numero As Integer = campoTexto.Rows.Count
-    '    For i = 0 To campoTexto.Rows.Count - 1
-    '        AddUsuario.cbTipoUsuario.Items.Add(campoTexto.Rows(i).Item(0))
-    '    Next
-    'End Sub
 
     Public Sub cargarTipos(tabla As String, campo As String, item As ComboBox)
         item.Text = "Elegir una opción"
@@ -115,42 +103,28 @@ Public Class Metodos
         Next
     End Sub
 
-    Public Sub irEditarAlojamiento()
-        GestionAlojamientos.Hide()
-        limpiarCampos(GestionAlojamientos.gbTAlojamientos)
-        limpiarCampos(GestionAlojamientos.gbTLocalizacion)
-        AddAlojamiento.Show()
-    End Sub
-
-    Public Sub irEditarUsuario()
-        GestionUsuarios.Hide()
-        GestionUsuarios.DataGridUsuarios.ClearSelection()
-        AddUsuario.Show()
+    Public Sub cambioVentana(origen As Form, destino As Form)
+        origen.Close()
+        destino.Show()
     End Sub
 
     Public Sub borrarReg(tabla As String, campo As String, dgv As DataGridView)
         Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
-        Dim query As New MySqlCommand("DELETE FROM " & tabla & " WHERE " & campo & "='" & "" & "'", conex)
+        Dim cmd As MySqlCommand
 
         If resp = MsgBoxResult.Yes Then
             Try
-                usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
-                passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-                conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
                 conex.Open()
-
-                Dim cmd As New MySqlCommand("DELETE FROM  `usuario` " &
-                                              "WHERE " &
-                                              "idDNi=" & campo & ";", conex)
-
+                cmd = New MySqlCommand("DELETE FROM " & tabla &
+                                              " WHERE" &
+                                              " idDNi= '" & campo & "';", conex)
                 cmd.ExecuteNonQuery()
-                conex.Close()
                 MsgBox("Se borrarron correctamente los datos de usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
-                dgv.Refresh()
+                conex.Close()
             Catch ex As Exception
                 MsgBox(ex.Message)
+                conex.Close()
             End Try
-            'Application.Exit()
         End If
     End Sub
 
@@ -162,6 +136,8 @@ Public Class Metodos
                 Application.Exit()
             Catch ex As Exception
                 MsgBox(ex.Message)
+                conex.Close()
+                Application.Exit()
             End Try
         End If
     End Sub

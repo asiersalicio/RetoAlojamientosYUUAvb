@@ -7,6 +7,7 @@ Public Class GestionUsuarios
     Public adapter As New MySqlDataAdapter
     Public arrayCampos As Control()
     Dim usuarioBBDD, passwordBBDD As String
+    Dim tabla As DataTable
 
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
@@ -19,13 +20,15 @@ Public Class GestionUsuarios
         'arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, cbTipoUsuario} 'combobox
 
 
-        Dim tabla As New DataTable()
+        tabla = New DataTable()
+        tabla.Clear()
         adapter.Fill(tabla)
+        DataGridUsuarios.ResetBindings()
         DataGridUsuarios.DataSource = tabla
         DataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridUsuarios.MultiSelect = False
 
-        DataGridUsuarios.Rows(1).Selected = True
+        DataGridUsuarios.Rows(0).Selected = True
 
         m.cargarTiposUsuarioTxt(tbTipoUsuario)
         m.soloLectura(gbLogin)
@@ -62,7 +65,7 @@ Public Class GestionUsuarios
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         DataGridUsuarios.ClearSelection()
-        m.irEditarUsuario()
+        m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -70,7 +73,7 @@ Public Class GestionUsuarios
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
-            m.irEditarUsuario()
+            m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
         End If
     End Sub
     Private Sub cargarDatosModificacion()
@@ -79,7 +82,7 @@ Public Class GestionUsuarios
 
         AddUsuario.tbDNI.Text = arrayCampos(0).Text
         AddUsuario.tbNick.Text = arrayCampos(1).Text
-        AddUsuario.tbPassword.Text = arrayCampos(2).Text
+        AddUsuario.tbPassword1.Text = arrayCampos(2).Text
         AddUsuario.tbEmail.Text = arrayCampos(3).Text
         AddUsuario.tbNombre.Text = arrayCampos(4).Text
         AddUsuario.tbApellidos.Text = arrayCampos(5).Text
@@ -89,9 +92,10 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        'm.borrarReg("usuario", "idDni")
-        m.borrarReg("usuario", tbDNI.Text, DataGridUsuarios)
-        DataGridUsuarios.Refresh()
+        m.borrarReg("usuario", Me.tbDNI.Text, DataGridUsuarios)
+        tabla.Clear()
+        adapter.Fill(tabla)
+        DataGridUsuarios.ResetBindings()
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
@@ -99,8 +103,7 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Hide()
-        MenuGestion.Show()
+        m.cambioVentana(Me, MenuGestion)
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

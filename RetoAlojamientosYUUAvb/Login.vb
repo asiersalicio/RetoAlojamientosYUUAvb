@@ -54,7 +54,7 @@ Public Class Login
                     bbddPasswordGet = dsPassword.Tables(0).Rows(0).Item(0)
                 Catch ex As Exception
                     conex.Close()
-                    MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
+                    MsgBox("Usuario no encontrado en la base de datos", MsgBoxStyle.Critical + MsgBoxStyle.DefaultButton2, "¡Atención!")
                     Exit Sub
                 End Try
 

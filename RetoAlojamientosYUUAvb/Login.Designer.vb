@@ -78,6 +78,7 @@ Partial Class Login
         '
         Me.tbPassword.Depth = 0
         Me.tbPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.tbPassword.ForeColor = System.Drawing.SystemColors.ControlText
         Me.tbPassword.Hint = ""
         Me.tbPassword.Location = New System.Drawing.Point(320, 227)
         Me.tbPassword.MouseState = MaterialSkin.MouseState.HOVER

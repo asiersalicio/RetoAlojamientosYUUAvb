@@ -45,9 +45,7 @@ Public Class GestionReservas
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        Me.Hide()
-        m.limpiarCampos(gbDatosReserva)
-        MenuGestion.Show()
+        m.cambioVentana(Me, MenuGestion)
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
@@ -55,9 +53,7 @@ Public Class GestionReservas
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Hide()
-        m.limpiarCampos(gbDatosReserva)
-        MenuGestion.Show()
+        m.cambioVentana(Me, MenuGestion)
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

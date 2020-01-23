@@ -39,11 +39,13 @@ Partial Class AddUsuario
         Me.tbDNI = New System.Windows.Forms.TextBox()
         Me.gbLogin = New System.Windows.Forms.GroupBox()
         Me.tbNick = New System.Windows.Forms.TextBox()
-        Me.tbPassword = New System.Windows.Forms.TextBox()
+        Me.tbPassword1 = New System.Windows.Forms.TextBox()
         Me.lblNick = New System.Windows.Forms.Label()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.tbPassword2 = New System.Windows.Forms.TextBox()
+        Me.lblPassword2 = New System.Windows.Forms.Label()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
         Me.SuspendLayout()
@@ -75,6 +77,7 @@ Partial Class AddUsuario
         '
         Me.cbTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoUsuario.FormattingEnabled = True
+        Me.cbTipoUsuario.Items.AddRange(New Object() {"administrador", "cliente"})
         Me.cbTipoUsuario.Location = New System.Drawing.Point(315, 148)
         Me.cbTipoUsuario.Name = "cbTipoUsuario"
         Me.cbTipoUsuario.Size = New System.Drawing.Size(200, 24)
@@ -217,55 +220,60 @@ Partial Class AddUsuario
         'gbLogin
         '
         Me.gbLogin.BackColor = System.Drawing.SystemColors.Window
+        Me.gbLogin.Controls.Add(Me.tbPassword2)
+        Me.gbLogin.Controls.Add(Me.lblPassword2)
         Me.gbLogin.Controls.Add(Me.tbNick)
-        Me.gbLogin.Controls.Add(Me.tbPassword)
+        Me.gbLogin.Controls.Add(Me.tbPassword1)
         Me.gbLogin.Controls.Add(Me.lblNick)
         Me.gbLogin.Controls.Add(Me.lblPassword)
-        Me.gbLogin.Location = New System.Drawing.Point(53, 72)
+        Me.gbLogin.Location = New System.Drawing.Point(53, 30)
         Me.gbLogin.Name = "gbLogin"
-        Me.gbLogin.Size = New System.Drawing.Size(699, 90)
+        Me.gbLogin.Size = New System.Drawing.Size(699, 132)
         Me.gbLogin.TabIndex = 34
         Me.gbLogin.TabStop = False
         '
         'tbNick
         '
         Me.tbNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNick.Location = New System.Drawing.Point(241, 19)
+        Me.tbNick.Location = New System.Drawing.Point(288, 19)
         Me.tbNick.Name = "tbNick"
         Me.tbNick.Size = New System.Drawing.Size(300, 23)
         Me.tbNick.TabIndex = 0
         Me.tbNick.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'tbPassword
+        'tbPassword1
         '
-        Me.tbPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbPassword.Location = New System.Drawing.Point(241, 51)
-        Me.tbPassword.Name = "tbPassword"
-        Me.tbPassword.Size = New System.Drawing.Size(300, 23)
-        Me.tbPassword.TabIndex = 1
-        Me.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.tbPassword1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPassword1.Location = New System.Drawing.Point(288, 51)
+        Me.tbPassword1.Name = "tbPassword1"
+        Me.tbPassword1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tbPassword1.Size = New System.Drawing.Size(300, 23)
+        Me.tbPassword1.TabIndex = 1
+        Me.tbPassword1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblNick
         '
         Me.lblNick.AutoSize = True
         Me.lblNick.BackColor = System.Drawing.SystemColors.Window
         Me.lblNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblNick.Location = New System.Drawing.Point(128, 22)
+        Me.lblNick.Location = New System.Drawing.Point(110, 22)
         Me.lblNick.Name = "lblNick"
         Me.lblNick.Size = New System.Drawing.Size(44, 17)
         Me.lblNick.TabIndex = 24
         Me.lblNick.Text = "Nick:"
+        Me.lblNick.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.BackColor = System.Drawing.SystemColors.Window
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPassword.Location = New System.Drawing.Point(128, 54)
+        Me.lblPassword.Location = New System.Drawing.Point(110, 54)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(96, 17)
         Me.lblPassword.TabIndex = 28
         Me.lblPassword.Text = "Contraseña:"
+        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'btnAceptar
         '
@@ -284,6 +292,28 @@ Partial Class AddUsuario
         Me.btnCancelar.TabIndex = 10
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
+        '
+        'tbPassword2
+        '
+        Me.tbPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPassword2.Location = New System.Drawing.Point(288, 85)
+        Me.tbPassword2.Name = "tbPassword2"
+        Me.tbPassword2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tbPassword2.Size = New System.Drawing.Size(300, 23)
+        Me.tbPassword2.TabIndex = 29
+        Me.tbPassword2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblPassword2
+        '
+        Me.lblPassword2.AutoSize = True
+        Me.lblPassword2.BackColor = System.Drawing.SystemColors.Window
+        Me.lblPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPassword2.Location = New System.Drawing.Point(110, 88)
+        Me.lblPassword2.Name = "lblPassword2"
+        Me.lblPassword2.Size = New System.Drawing.Size(169, 17)
+        Me.lblPassword2.TabIndex = 30
+        Me.lblPassword2.Text = "Confirmar contraseña:"
+        Me.lblPassword2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'AddUsuario
         '
@@ -319,11 +349,13 @@ Partial Class AddUsuario
     Friend WithEvents tbDNI As TextBox
     Friend WithEvents gbLogin As GroupBox
     Friend WithEvents tbNick As TextBox
-    Friend WithEvents tbPassword As TextBox
+    Friend WithEvents tbPassword1 As TextBox
     Friend WithEvents lblNick As Label
     Friend WithEvents lblPassword As Label
     Friend WithEvents cbTipoUsuario As ComboBox
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents dtpFechaNac As DateTimePicker
+    Friend WithEvents tbPassword2 As TextBox
+    Friend WithEvents lblPassword2 As Label
 End Class

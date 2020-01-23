@@ -15,7 +15,7 @@ Public Class AddUsuario
         m.limpiarCampos(gbLogin)
         m.limpiarCampos(gbDatosUsuario)
         cbTipoUsuario.Text = "Elegir una opción"
-        m.cargarTipos("usuario", "tipoUsuario", cbTipoUsuario)
+        'm.cargarTipos("usuario", "tipoUsuario", cbTipoUsuario)
     End Sub
 
     Private Sub TbNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellidos.KeyPress
@@ -34,7 +34,7 @@ Public Class AddUsuario
         m.limpiarCampos(gbLogin)
         m.limpiarCampos(gbDatosUsuario)
 
-        Me.Hide()
+        Me.Close()
 
         GestionUsuarios.Show()
     End Sub
@@ -43,42 +43,46 @@ Public Class AddUsuario
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-        Try
-            If (tbNick.Text = "") Then
-                MsgBox("Debe establecer su Nick", MsgBoxStyle.Exclamation, "Ingresar Nick")
-            ElseIf (tbPassword.TextLength < 6) Then
-                MsgBox("El registro debe contener una contraseña", MsgBoxStyle.Exclamation, "Ingresar Contraseña")
-            ElseIf (tbNombre.Text = "") Then
-                MsgBox("Indique su nombre", MsgBoxStyle.Exclamation, "Ingresar Nombre")
-            ElseIf (tbApellidos.Text = "") Then
-                MsgBox("Indique sus apellidos", MsgBoxStyle.Exclamation, "Ingresar Apellidos")
-            ElseIf (tbDNI.Text = "" Or tbDNI.TextLength < 9) Then
-                MsgBox("Debe completar el campo de DNI", MsgBoxStyle.Exclamation, "Ingresar DNI")
-            ElseIf (dtpFechaNac.Text = "") Then
-                MsgBox("Indique su fecha de nacimiento", MsgBoxStyle.Exclamation, "Ingresar Fecha de nacimiento")
-            ElseIf (tbTelefono.TextLength <> 9) Then
-                MsgBox("Indique teléfono de contacto", MsgBoxStyle.Exclamation, "Ingresar Teléfono")
-            ElseIf (tbEmail.Text = "") Then
-                MsgBox("Indique un correo electrónico de contacto", MsgBoxStyle.Exclamation, "Ingresar Email")
-            ElseIf (cbTipoUsuario.SelectedText = "" Or cbTipoUsuario.SelectedText <> "administrador" Or cbTipoUsuario.SelectedText <> "cliente") Then
-                MsgBox("Indique el tipo de usuario", MsgBoxStyle.Exclamation, "Indicar Tipo de Usuario")
-            Else
+        Dim claveEncriptada As String = ""
+        Dim tipoUsuario As String = cbTipoUsuario.GetItemText(cbTipoUsuario.SelectedItem)
+
+        If (tbNick.Text = "") Then
+            MsgBox("Debe establecer su Nick", MsgBoxStyle.Exclamation, "Ingresar Nick")
+        ElseIf (tbPassword1.TextLength < 6) Then
+            MsgBox("El registro debe contener una contraseña válida", MsgBoxStyle.Exclamation, "Ingresar contraseña")
+        ElseIf (tbPassword2.Text <> tbPassword1.Text) Then
+            MsgBox("Las contraseña introducida debe coincidir en los dos campos", MsgBoxStyle.Exclamation, "Confirmar contraseña")
+        ElseIf (tbNombre.Text = "") Then
+            MsgBox("Indique su nombre", MsgBoxStyle.Exclamation, "Ingresar nombre")
+        ElseIf (tbApellidos.Text = "") Then
+            MsgBox("Indique sus apellidos", MsgBoxStyle.Exclamation, "Ingresar apellidos")
+        ElseIf (tbDNI.Text = "" Or tbDNI.TextLength < 9) Then
+            MsgBox("Debe completar el campo de DNI", MsgBoxStyle.Exclamation, "Ingresar DNI")
+        ElseIf (dtpFechaNac.Text = "") Then
+            MsgBox("Indique su fecha de nacimiento", MsgBoxStyle.Exclamation, "Ingresar fecha de nacimiento")
+        ElseIf (tbTelefono.TextLength <> 9) Then
+            MsgBox("Indique teléfono de contacto", MsgBoxStyle.Exclamation, "Ingresar teléfono")
+        ElseIf (tbEmail.Text = "") Then
+            MsgBox("Indique un correo electrónico de contacto", MsgBoxStyle.Exclamation, "Ingresar email")
+        ElseIf (tipoUsuario = "" Or (tipoUsuario <> "administrador" And tipoUsuario <> "cliente")) Then
+            MsgBox("Indique el tipo de usuario", MsgBoxStyle.Exclamation, "Indicar Tipo de Usuario")
+            'ElseIf Not (cbTipoUsuario.SelectedText = "administrador" Or cbTipoUsuario.SelectedText = "cliente") Then
+            '    MsgBox("Indique un tipo de usuario válido", MsgBoxStyle.Exclamation, "Indicar Tipo de Usuario")
+        Else
+            Try
                 conex.Open()
-
                 'Dim dateTime As DateTime = Convert.ToDateTime(dtpFechaNac.Value)
-                Dim claveEncriptada As String = m.MD5EncryptPass(tbDNI.Text)
-
+                claveEncriptada = m.MD5EncryptPass(tbPassword1.Text)
                 Dim cmd As New MySqlCommand("INSERT INTO `usuario` " &
-                                                  "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
-                                                  "VALUES " &
-                                                  "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
+                                                      "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
+                                                      "VALUES " &
+                                                      "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
 
                 cmd.Parameters.AddWithValue("@idDni", tbDNI.Text)
                 cmd.Parameters.AddWithValue("@Apellidos", tbApellidos.Text)
                 cmd.Parameters.AddWithValue("@contrasena", claveEncriptada)
                 cmd.Parameters.AddWithValue("@correo", tbEmail.Text)
                 cmd.Parameters.AddWithValue("@fechaNacimiento", dtpFechaNac.Value)
-                'cmd.Parameters.AddWithValue("@fechaNacimiento", dtpFechaNac.Value.ToLongDateStrig)
                 cmd.Parameters.AddWithValue("@nombre", tbNombre.Text)
                 cmd.Parameters.AddWithValue("@nombreUsuario", tbNick.Text)
                 cmd.Parameters.AddWithValue("@telefono", tbTelefono.Text)
@@ -90,14 +94,13 @@ Public Class AddUsuario
 
                 m.limpiarCampos(gbLogin)
                 m.limpiarCampos(gbDatosUsuario)
-                Me.Hide()
-                GestionUsuarios.DataGridUsuarios.Refresh()
-                GestionUsuarios.Show()
-            End If
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+                Me.Close()
+                GestionUsuarios.Show()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 
 

@@ -1,17 +1,15 @@
 ﻿Public Class MenuGestion
     Dim m As New Metodos
     Private Sub BtnGestionAlojamientos_Click(sender As Object, e As EventArgs) Handles btnGestionAlojamientos.Click
-        Me.Hide()
-        GestionAlojamientos.Show()
+        m.cambioVentana(Me, GestionAlojamientos)
     End Sub
 
     Private Sub BtnGestionUsuarios_Click(sender As Object, e As EventArgs) Handles btnGestionUsuarios.Click
-        Me.Hide()
-        GestionUsuarios.Show()
+        m.cambioVentana(Me, GestionUsuarios)
     End Sub
 
     Private Sub BtnGestionReservas_Click(sender As Object, e As EventArgs) Handles btnGestionReservas.Click
-        GestionReservas.Show()
+        m.cambioVentana(Me, GestionReservas)
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
