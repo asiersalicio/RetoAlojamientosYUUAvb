@@ -28,9 +28,7 @@ Partial Class GestionReservas
         Me.btnVer = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnBorrar = New System.Windows.Forms.Button()
-        Me.tbIdAlojamiento = New System.Windows.Forms.TextBox()
-        Me.tbNombreAlojamiento = New System.Windows.Forms.TextBox()
-        Me.lblIdAlojamiento = New System.Windows.Forms.Label()
+        Me.tbCategoria = New System.Windows.Forms.TextBox()
         Me.lblNombreAlojamiento = New System.Windows.Forms.Label()
         Me.lblIdReserva = New System.Windows.Forms.Label()
         Me.tbIdReserva = New System.Windows.Forms.TextBox()
@@ -42,12 +40,14 @@ Partial Class GestionReservas
         Me.lblFechaSalida = New System.Windows.Forms.Label()
         Me.lblNombreCliente = New System.Windows.Forms.Label()
         Me.tbNombreCliente = New System.Windows.Forms.TextBox()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.gbDatosReserva = New System.Windows.Forms.GroupBox()
+        Me.tbAlojamiento = New System.Windows.Forms.TextBox()
+        Me.lblIdAlojamiento = New System.Windows.Forms.Label()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnAceptar = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ConexionReservasBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosReserva.SuspendLayout()
@@ -95,31 +95,13 @@ Partial Class GestionReservas
         Me.btnBorrar.Text = "Borrar"
         Me.btnBorrar.UseVisualStyleBackColor = True
         '
-        'tbIdAlojamiento
+        'tbCategoria
         '
-        Me.tbIdAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbIdAlojamiento.Location = New System.Drawing.Point(120, 145)
-        Me.tbIdAlojamiento.Name = "tbIdAlojamiento"
-        Me.tbIdAlojamiento.Size = New System.Drawing.Size(200, 23)
-        Me.tbIdAlojamiento.TabIndex = 4
-        '
-        'tbNombreAlojamiento
-        '
-        Me.tbNombreAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombreAlojamiento.Location = New System.Drawing.Point(120, 171)
-        Me.tbNombreAlojamiento.Name = "tbNombreAlojamiento"
-        Me.tbNombreAlojamiento.Size = New System.Drawing.Size(200, 23)
-        Me.tbNombreAlojamiento.TabIndex = 5
-        '
-        'lblIdAlojamiento
-        '
-        Me.lblIdAlojamiento.AutoSize = True
-        Me.lblIdAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIdAlojamiento.Location = New System.Drawing.Point(6, 148)
-        Me.lblIdAlojamiento.Name = "lblIdAlojamiento"
-        Me.lblIdAlojamiento.Size = New System.Drawing.Size(100, 17)
-        Me.lblIdAlojamiento.TabIndex = 6
-        Me.lblIdAlojamiento.Text = "Id Alojamiento:"
+        Me.tbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCategoria.Location = New System.Drawing.Point(120, 171)
+        Me.tbCategoria.Name = "tbCategoria"
+        Me.tbCategoria.Size = New System.Drawing.Size(200, 23)
+        Me.tbCategoria.TabIndex = 5
         '
         'lblNombreAlojamiento
         '
@@ -127,9 +109,9 @@ Partial Class GestionReservas
         Me.lblNombreAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombreAlojamiento.Location = New System.Drawing.Point(6, 174)
         Me.lblNombreAlojamiento.Name = "lblNombreAlojamiento"
-        Me.lblNombreAlojamiento.Size = New System.Drawing.Size(85, 17)
+        Me.lblNombreAlojamiento.Size = New System.Drawing.Size(73, 17)
         Me.lblNombreAlojamiento.TabIndex = 7
-        Me.lblNombreAlojamiento.Text = "Alojamiento:"
+        Me.lblNombreAlojamiento.Text = "Categoría:"
         '
         'lblIdReserva
         '
@@ -209,9 +191,9 @@ Partial Class GestionReservas
         Me.lblNombreCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombreCliente.Location = New System.Drawing.Point(6, 252)
         Me.lblNombreCliente.Name = "lblNombreCliente"
-        Me.lblNombreCliente.Size = New System.Drawing.Size(109, 17)
+        Me.lblNombreCliente.Size = New System.Drawing.Size(62, 17)
         Me.lblNombreCliente.TabIndex = 16
-        Me.lblNombreCliente.Text = "Nombre Cliente:"
+        Me.lblNombreCliente.Text = "Nombre:"
         '
         'tbNombreCliente
         '
@@ -220,24 +202,6 @@ Partial Class GestionReservas
         Me.tbNombreCliente.Name = "tbNombreCliente"
         Me.tbNombreCliente.Size = New System.Drawing.Size(200, 23)
         Me.tbNombreCliente.TabIndex = 17
-        '
-        'btnAceptar
-        '
-        Me.btnAceptar.Location = New System.Drawing.Point(794, 414)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(160, 25)
-        Me.btnAceptar.TabIndex = 18
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(960, 414)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(160, 25)
-        Me.btnCancelar.TabIndex = 19
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'btnVolver
         '
@@ -270,8 +234,8 @@ Partial Class GestionReservas
         '
         Me.gbDatosReserva.BackColor = System.Drawing.SystemColors.Window
         Me.gbDatosReserva.Controls.Add(Me.lblIdAlojamiento)
-        Me.gbDatosReserva.Controls.Add(Me.tbIdAlojamiento)
-        Me.gbDatosReserva.Controls.Add(Me.tbNombreAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.tbAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.tbCategoria)
         Me.gbDatosReserva.Controls.Add(Me.lblNombreAlojamiento)
         Me.gbDatosReserva.Controls.Add(Me.lblIdReserva)
         Me.gbDatosReserva.Controls.Add(Me.tbIdReserva)
@@ -288,6 +252,42 @@ Partial Class GestionReservas
         Me.gbDatosReserva.Size = New System.Drawing.Size(326, 280)
         Me.gbDatosReserva.TabIndex = 34
         Me.gbDatosReserva.TabStop = False
+        '
+        'tbAlojamiento
+        '
+        Me.tbAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbAlojamiento.Location = New System.Drawing.Point(120, 145)
+        Me.tbAlojamiento.Name = "tbAlojamiento"
+        Me.tbAlojamiento.Size = New System.Drawing.Size(200, 23)
+        Me.tbAlojamiento.TabIndex = 4
+        '
+        'lblIdAlojamiento
+        '
+        Me.lblIdAlojamiento.AutoSize = True
+        Me.lblIdAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIdAlojamiento.Location = New System.Drawing.Point(6, 148)
+        Me.lblIdAlojamiento.Name = "lblIdAlojamiento"
+        Me.lblIdAlojamiento.Size = New System.Drawing.Size(85, 17)
+        Me.lblIdAlojamiento.TabIndex = 6
+        Me.lblIdAlojamiento.Text = "Alojamiento:"
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Location = New System.Drawing.Point(960, 414)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(160, 25)
+        Me.btnCancelar.TabIndex = 19
+        Me.btnCancelar.Text = "Cancelar"
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
+        'btnAceptar
+        '
+        Me.btnAceptar.Location = New System.Drawing.Point(794, 414)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(160, 25)
+        Me.btnAceptar.TabIndex = 18
+        Me.btnAceptar.Text = "Aceptar"
+        Me.btnAceptar.UseVisualStyleBackColor = True
         '
         'GestionReservas
         '
@@ -320,24 +320,24 @@ Partial Class GestionReservas
 	Friend WithEvents btnVer As Button
 	Friend WithEvents btnModificar As Button
 	Friend WithEvents btnBorrar As Button
-	Friend WithEvents tbIdAlojamiento As TextBox
-	Friend WithEvents tbNombreAlojamiento As TextBox
-	Friend WithEvents lblIdAlojamiento As Label
-	Friend WithEvents lblNombreAlojamiento As Label
-	Friend WithEvents lblIdReserva As Label
-	Friend WithEvents tbIdReserva As TextBox
-	Friend WithEvents lblDniCliente As Label
-	Friend WithEvents tbDniCliente As TextBox
-	Friend WithEvents tbFechaEntrada As TextBox
-	Friend WithEvents tbFechaSalida As TextBox
-	Friend WithEvents lblFechaEntrada As Label
-	Friend WithEvents lblFechaSalida As Label
-	Friend WithEvents lblNombreCliente As Label
-	Friend WithEvents tbNombreCliente As TextBox
-	Friend WithEvents btnAceptar As Button
-	Friend WithEvents btnCancelar As Button
-	Friend WithEvents btnVolver As Button
+    Friend WithEvents tbCategoria As TextBox
+    Friend WithEvents lblNombreAlojamiento As Label
+    Friend WithEvents lblIdReserva As Label
+    Friend WithEvents tbIdReserva As TextBox
+    Friend WithEvents lblDniCliente As Label
+    Friend WithEvents tbDniCliente As TextBox
+    Friend WithEvents tbFechaEntrada As TextBox
+    Friend WithEvents tbFechaSalida As TextBox
+    Friend WithEvents lblFechaEntrada As Label
+    Friend WithEvents lblFechaSalida As Label
+    Friend WithEvents lblNombreCliente As Label
+    Friend WithEvents tbNombreCliente As TextBox
+    Friend WithEvents btnVolver As Button
     Friend WithEvents btnLogout As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents gbDatosReserva As GroupBox
+    Friend WithEvents lblIdAlojamiento As Label
+    Friend WithEvents tbAlojamiento As TextBox
+    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnAceptar As Button
 End Class

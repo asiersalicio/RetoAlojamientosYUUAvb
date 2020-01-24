@@ -6,6 +6,7 @@ Public Class AddUsuario
     Dim m As New Metodos
     Dim usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
+    Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
     Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
@@ -33,16 +34,10 @@ Public Class AddUsuario
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         m.limpiarCampos(gbLogin)
         m.limpiarCampos(gbDatosUsuario)
-
-        Me.Close()
-
-        GestionUsuarios.Show()
+        m.cambioVentana(Me, GestionUsuarios)
     End Sub
 
     Private Sub registrarUsuario()
-        usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
-        passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
         Dim claveEncriptada As String = ""
         Dim tipoUsuario As String = cbTipoUsuario.GetItemText(cbTipoUsuario.SelectedItem)
 
@@ -73,11 +68,10 @@ Public Class AddUsuario
                 conex.Open()
                 'Dim dateTime As DateTime = Convert.ToDateTime(dtpFechaNac.Value)
                 claveEncriptada = m.MD5EncryptPass(tbPassword1.Text)
-                Dim cmd As New MySqlCommand("INSERT INTO `usuario` " &
+                cmd = New MySqlCommand("INSERT INTO `usuario` " &
                                                       "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
                                                       "VALUES " &
                                                       "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
-
                 cmd.Parameters.AddWithValue("@idDni", tbDNI.Text)
                 cmd.Parameters.AddWithValue("@Apellidos", tbApellidos.Text)
                 cmd.Parameters.AddWithValue("@contrasena", claveEncriptada)
@@ -89,20 +83,18 @@ Public Class AddUsuario
                 cmd.Parameters.AddWithValue("@tipoUsuario", cbTipoUsuario.Text)
 
                 cmd.ExecuteNonQuery()
-                conex.Close()
                 MsgBox("Se ingresaron correctamente los datos del nuevo usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
+                conex.Close()
 
                 m.limpiarCampos(gbLogin)
                 m.limpiarCampos(gbDatosUsuario)
-
-                Me.Close()
-                GestionUsuarios.Show()
+                m.cambioVentana(Me, GestionUsuarios)
             Catch ex As Exception
                 MsgBox(ex.Message)
+                conex.Close()
             End Try
         End If
     End Sub
-
 
     'Private Sub TbDNI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbDNI.KeyPress
     '    ' Verificamos la longitud del control TextBox
@@ -129,5 +121,4 @@ Public Class AddUsuario
     '    Dim re As New Regex("[TRWAGMYFPDXBNJZSQVHLCKE]", RegexOptions.IgnoreCase)
     '    e.Handled = (Not (re.IsMatch(e.KeyChar)))
     'End Sub
-
 End Class

@@ -3,12 +3,11 @@ Imports MySql.Data.MySqlClient
 
 Public Class Login
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim usuarioBBDD, passwordBBDD, passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
     Dim conex As New MySqlConnection
     Dim cmdUsuario, cmdPassword As New MySqlCommand
     Dim daUsuario, daPassword As New MySqlDataAdapter
     Dim dsUsuario, dsPassword As New DataSet
-    Dim passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

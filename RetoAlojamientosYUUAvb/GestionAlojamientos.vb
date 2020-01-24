@@ -5,8 +5,8 @@ Public Class GestionAlojamientos
     Dim conex As MySqlConnection
     Dim adapter As MySqlDataAdapter
     Public arrayCampos As Control()
-    Dim usuarioBBDD As String
-    Dim passwordBBDD As String
+    Dim usuarioBBDD, passwordBBDD As String
+    Dim tabla As DataTable
 
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         m = New Metodos
@@ -24,12 +24,14 @@ Public Class GestionAlojamientos
         rtbDescripcion.Multiline = True
         rtbDescripcion.ScrollBars = ScrollBars.Vertical
 
-
-        Dim tabla As New DataTable()
+        tabla = New DataTable()
+        tabla.Clear()
         adapter.Fill(tabla)
+        DataGridAlojamientos.ResetBindings()
         DataGridAlojamientos.DataSource = tabla
         DataGridAlojamientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridAlojamientos.MultiSelect = False
+        DataGridAlojamientos.Rows(0).Selected = True
 
         'm.cargarTiposAloj(cbTiposAloj)
         'm.cargarDatosAloj("tpais", "country", cbPais)
@@ -62,7 +64,7 @@ Public Class GestionAlojamientos
                                           "FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
                                           "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
-        Dim tabla As New DataTable()
+        tabla = New DataTable()
         adapter.Fill(tabla)
         DataGridAlojamientos.DataSource = tabla
     End Sub

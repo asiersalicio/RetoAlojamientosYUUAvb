@@ -132,6 +132,12 @@
     <Compile Include="AddAlojamiento.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddReserva.Designer.vb">
+      <DependentUpon>AddReserva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddReserva.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AddUsuario.Designer.vb">
       <DependentUpon>AddUsuario.vb</DependentUpon>
     </Compile>
@@ -194,6 +200,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddAlojamiento.resx">
       <DependentUpon>AddAlojamiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReserva.resx">
+      <DependentUpon>AddReserva.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionReservas.resx">
       <DependentUpon>GestionReservas.vb</DependentUpon>

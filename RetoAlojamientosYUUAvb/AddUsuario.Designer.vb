@@ -38,14 +38,14 @@ Partial Class AddUsuario
         Me.tbTelefono = New System.Windows.Forms.TextBox()
         Me.tbDNI = New System.Windows.Forms.TextBox()
         Me.gbLogin = New System.Windows.Forms.GroupBox()
+        Me.tbPassword2 = New System.Windows.Forms.TextBox()
+        Me.lblPassword2 = New System.Windows.Forms.Label()
         Me.tbNick = New System.Windows.Forms.TextBox()
         Me.tbPassword1 = New System.Windows.Forms.TextBox()
         Me.lblNick = New System.Windows.Forms.Label()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.tbPassword2 = New System.Windows.Forms.TextBox()
-        Me.lblPassword2 = New System.Windows.Forms.Label()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
         Me.SuspendLayout()
@@ -232,6 +232,28 @@ Partial Class AddUsuario
         Me.gbLogin.TabIndex = 34
         Me.gbLogin.TabStop = False
         '
+        'tbPassword2
+        '
+        Me.tbPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPassword2.Location = New System.Drawing.Point(288, 85)
+        Me.tbPassword2.Name = "tbPassword2"
+        Me.tbPassword2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tbPassword2.Size = New System.Drawing.Size(300, 23)
+        Me.tbPassword2.TabIndex = 29
+        Me.tbPassword2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblPassword2
+        '
+        Me.lblPassword2.AutoSize = True
+        Me.lblPassword2.BackColor = System.Drawing.SystemColors.Window
+        Me.lblPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPassword2.Location = New System.Drawing.Point(110, 88)
+        Me.lblPassword2.Name = "lblPassword2"
+        Me.lblPassword2.Size = New System.Drawing.Size(169, 17)
+        Me.lblPassword2.TabIndex = 30
+        Me.lblPassword2.Text = "Confirmar contraseña:"
+        Me.lblPassword2.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'tbNick
         '
         Me.tbNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -293,32 +315,11 @@ Partial Class AddUsuario
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
-        'tbPassword2
-        '
-        Me.tbPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbPassword2.Location = New System.Drawing.Point(288, 85)
-        Me.tbPassword2.Name = "tbPassword2"
-        Me.tbPassword2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbPassword2.Size = New System.Drawing.Size(300, 23)
-        Me.tbPassword2.TabIndex = 29
-        Me.tbPassword2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'lblPassword2
-        '
-        Me.lblPassword2.AutoSize = True
-        Me.lblPassword2.BackColor = System.Drawing.SystemColors.Window
-        Me.lblPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPassword2.Location = New System.Drawing.Point(110, 88)
-        Me.lblPassword2.Name = "lblPassword2"
-        Me.lblPassword2.Size = New System.Drawing.Size(169, 17)
-        Me.lblPassword2.TabIndex = 30
-        Me.lblPassword2.Text = "Confirmar contraseña:"
-        Me.lblPassword2.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
         'AddUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.btnCancelar)

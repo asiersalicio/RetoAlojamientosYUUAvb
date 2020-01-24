@@ -27,7 +27,6 @@ Public Class GestionUsuarios
         DataGridUsuarios.DataSource = tabla
         DataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridUsuarios.MultiSelect = False
-
         DataGridUsuarios.Rows(0).Selected = True
 
         m.cargarTiposUsuarioTxt(tbTipoUsuario)
