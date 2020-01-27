@@ -62,12 +62,12 @@ Partial Class GestionAlojamientos
         Me.lblLongitud = New System.Windows.Forms.Label()
         Me.lblMunicipio = New System.Windows.Forms.Label()
         Me.lblPais = New System.Windows.Forms.Label()
-        Me.DataGridAlojamientos = New System.Windows.Forms.DataGridView()
+        Me.dgvAlojamientos = New System.Windows.Forms.DataGridView()
         Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.gbTAlojamientos.SuspendLayout()
         Me.gbTLocalizacion.SuspendLayout()
-        CType(Me.DataGridAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -434,20 +434,20 @@ Partial Class GestionAlojamientos
         Me.lblPais.TabIndex = 22
         Me.lblPais.Text = "Pais:"
         '
-        'DataGridAlojamientos
+        'dgvAlojamientos
         '
-        Me.DataGridAlojamientos.AllowUserToAddRows = False
-        Me.DataGridAlojamientos.AllowUserToDeleteRows = False
-        Me.DataGridAlojamientos.AllowUserToResizeRows = False
-        Me.DataGridAlojamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridAlojamientos.Location = New System.Drawing.Point(13, 135)
-        Me.DataGridAlojamientos.MultiSelect = False
-        Me.DataGridAlojamientos.Name = "DataGridAlojamientos"
-        Me.DataGridAlojamientos.ReadOnly = True
-        Me.DataGridAlojamientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridAlojamientos.Size = New System.Drawing.Size(694, 273)
-        Me.DataGridAlojamientos.TabIndex = 24
+        Me.dgvAlojamientos.AllowUserToAddRows = False
+        Me.dgvAlojamientos.AllowUserToDeleteRows = False
+        Me.dgvAlojamientos.AllowUserToResizeRows = False
+        Me.dgvAlojamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAlojamientos.Location = New System.Drawing.Point(13, 135)
+        Me.dgvAlojamientos.MultiSelect = False
+        Me.dgvAlojamientos.Name = "dgvAlojamientos"
+        Me.dgvAlojamientos.ReadOnly = True
+        Me.dgvAlojamientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvAlojamientos.Size = New System.Drawing.Size(694, 273)
+        Me.dgvAlojamientos.TabIndex = 24
         '
         'ConexionBindingSource
         '
@@ -469,7 +469,7 @@ Partial Class GestionAlojamientos
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1533, 504)
         Me.Controls.Add(Me.btnLogout)
-        Me.Controls.Add(Me.DataGridAlojamientos)
+        Me.Controls.Add(Me.dgvAlojamientos)
         Me.Controls.Add(Me.lblPais)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnLimpiar)
@@ -500,7 +500,7 @@ Partial Class GestionAlojamientos
         Me.gbTAlojamientos.PerformLayout()
         Me.gbTLocalizacion.ResumeLayout(False)
         Me.gbTLocalizacion.PerformLayout()
-        CType(Me.DataGridAlojamientos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAlojamientos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -541,7 +541,7 @@ Partial Class GestionAlojamientos
     Friend WithEvents lblMunicipio As Label
     Friend WithEvents ConexionBindingSource As BindingSource
     Friend WithEvents lblPais As Label
-    Friend WithEvents DataGridAlojamientos As DataGridView
+    Friend WithEvents dgvAlojamientos As DataGridView
     Friend WithEvents rtbDescripcion As RichTextBox
     Friend WithEvents cbTiposAloj As TextBox
     Friend WithEvents cbMunicipio As TextBox

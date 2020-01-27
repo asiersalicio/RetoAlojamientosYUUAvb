@@ -12,34 +12,31 @@ Public Class GestionUsuarios
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
         adapter = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
                                            "FROM usuario", conex)
-
-        arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, tbTipoUsuario} ' textbox
-        'arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, cbTipoUsuario} 'combobox
-
+        arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, tbTipoUsuario}
 
         tabla = New DataTable()
         tabla.Clear()
         adapter.Fill(tabla)
-        DataGridUsuarios.ResetBindings()
-        DataGridUsuarios.DataSource = tabla
-        DataGridUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridUsuarios.MultiSelect = False
-        DataGridUsuarios.Rows(0).Selected = True
+        dgvUsuarios.ResetBindings()
+        dgvUsuarios.DataSource = tabla
+        dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvUsuarios.MultiSelect = False
+        dgvUsuarios.Rows(0).Selected = True
 
         m.cargarTiposUsuarioTxt(tbTipoUsuario)
         m.soloLectura(gbLogin)
         m.soloLectura(gbDatosUsuario)
     End Sub
 
-    Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridUsuarios.RowEnter
+    Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.RowEnter
         Dim index As Integer = e.RowIndex
         Dim arrayStrings() As String = New String(8) {}
         For pos = 0 To 8
             Try
-                arrayStrings(pos) = DataGridUsuarios.Rows(index).Cells(pos).Value
+                arrayStrings(pos) = dgvUsuarios.Rows(index).Cells(pos).Value
             Catch ex As Exception
                 arrayStrings(pos) = Nothing
             End Try
@@ -55,7 +52,7 @@ Public Class GestionUsuarios
                                               "WHERE idDni AND lower(idDni) AND lower(nombreUsuario) like " & Chr(34) & "%" & tbBusqueda.Text.ToLower & "%" & Chr(34), conex)
         Dim tabla As New DataTable()
         query.Fill(tabla)
-        DataGridUsuarios.DataSource = tabla
+        dgvUsuarios.DataSource = tabla
     End Sub
 
     Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -63,12 +60,12 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        DataGridUsuarios.ClearSelection()
+        dgvUsuarios.ClearSelection()
         m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        If (DataGridUsuarios.SelectedRows.Count <> 1) Then
+        If (dgvUsuarios.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
@@ -91,10 +88,10 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("usuario", Me.tbDNI.Text, DataGridUsuarios)
+        m.borrarReg("usuario", Me.tbDNI.Text, dgvUsuarios)
         tabla.Clear()
         adapter.Fill(tabla)
-        DataGridUsuarios.ResetBindings()
+        dgvUsuarios.ResetBindings()
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

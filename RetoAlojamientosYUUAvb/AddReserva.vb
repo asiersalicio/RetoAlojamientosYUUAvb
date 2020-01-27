@@ -12,7 +12,7 @@ Public Class AddReserva
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         m.limpiarCampos(gbReserva)
         m.limpiarCampos(gbRvaAlojamiento)
@@ -72,7 +72,7 @@ Public Class AddReserva
                 cmd.Parameters.Add(New MySqlParameter("p_capacity", dtpSalida.Text))
 
                 cmd.ExecuteNonQuery()
-                MsgBox("Se ingresaron correctamente los datos de la reserva", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
+                MsgBox("Se ingresaron correctamente los datos de la reserva ", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
                 conex.Close()
 
                 m.limpiarCampos(gbReserva)

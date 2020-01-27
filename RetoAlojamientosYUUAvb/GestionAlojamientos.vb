@@ -12,12 +12,12 @@ Public Class GestionAlojamientos
         m = New Metodos
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
+        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
         adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
-                                          "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &
-                                          "FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
-                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          "FROM talojamientos aloj, tlocalizacion loc " &
+                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
 
         arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, rtbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
@@ -27,11 +27,11 @@ Public Class GestionAlojamientos
         tabla = New DataTable()
         tabla.Clear()
         adapter.Fill(tabla)
-        DataGridAlojamientos.ResetBindings()
-        DataGridAlojamientos.DataSource = tabla
-        DataGridAlojamientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridAlojamientos.MultiSelect = False
-        DataGridAlojamientos.Rows(0).Selected = True
+        dgvAlojamientos.ResetBindings()
+        dgvAlojamientos.DataSource = tabla
+        dgvAlojamientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvAlojamientos.MultiSelect = False
+        dgvAlojamientos.Rows(0).Selected = True
 
         'm.cargarTiposAloj(cbTiposAloj)
         'm.cargarDatosAloj("tpais", "country", cbPais)
@@ -42,12 +42,12 @@ Public Class GestionAlojamientos
         m.soloLectura(gbTLocalizacion)
     End Sub
 
-    Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridAlojamientos.RowEnter
+    Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlojamientos.RowEnter
         Dim index As Integer = e.RowIndex
         Dim arrayStrings() As String = New String(14) {}
         For pos = 0 To 14
             Try
-                arrayStrings(pos) = DataGridAlojamientos.Rows(index).Cells(pos).Value
+                arrayStrings(pos) = dgvAlojamientos.Rows(index).Cells(pos).Value
             Catch ex As Exception
                 arrayStrings(pos) = Nothing
             End Try
@@ -59,14 +59,14 @@ Public Class GestionAlojamientos
 
     Private Sub TbBusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbBusqueda.TextChanged
         adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
-                                          "tourismemail 'eMail',Web 'Web',pais.country 'Pais',terri.territory 'Territorio',muni.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &
-                                          "FROM talojamientos aloj, tlocalizacion loc, tmunicipio muni, tpais pais, tterritorio terri " &
-                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And Loc.municipalitycode = muni.municipalitycode And Loc.territorycode = terri.territorycode And Loc.countrycode = pais.countrycode And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          "FROM talojamientos aloj, tlocalizacion loc " &
+                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
         tabla = New DataTable()
         adapter.Fill(tabla)
-        DataGridAlojamientos.DataSource = tabla
+        dgvAlojamientos.DataSource = tabla
     End Sub
 
     Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -92,12 +92,12 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        DataGridAlojamientos.ClearSelection()
+        dgvAlojamientos.ClearSelection()
         m.cambioVentana(GestionAlojamientos.ActiveForm, AddAlojamiento)
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        If (DataGridAlojamientos.SelectedRows.Count < 1) Then
+        If (dgvAlojamientos.SelectedRows.Count < 1) Then
             MsgBox("Debe tener un alojamiento seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
@@ -106,7 +106,7 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("talojamientos", tbId.Text, DataGridAlojamientos)
+        m.borrarReg("talojamientos", tbId.Text, dgvAlojamientos)
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

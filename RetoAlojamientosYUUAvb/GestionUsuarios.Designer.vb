@@ -24,7 +24,7 @@ Partial Class GestionUsuarios
     Private Sub InitializeComponent()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.tbBusqueda = New System.Windows.Forms.TextBox()
-        Me.DataGridUsuarios = New System.Windows.Forms.DataGridView()
+        Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblDni = New System.Windows.Forms.Label()
         Me.lblTipoUsuario = New System.Windows.Forms.Label()
@@ -51,7 +51,7 @@ Partial Class GestionUsuarios
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
-        CType(Me.DataGridUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
         Me.SuspendLayout()
@@ -72,20 +72,20 @@ Partial Class GestionUsuarios
         Me.tbBusqueda.Size = New System.Drawing.Size(600, 20)
         Me.tbBusqueda.TabIndex = 19
         '
-        'DataGridUsuarios
+        'dgvUsuarios
         '
-        Me.DataGridUsuarios.AllowUserToAddRows = False
-        Me.DataGridUsuarios.AllowUserToDeleteRows = False
-        Me.DataGridUsuarios.AllowUserToResizeRows = False
-        Me.DataGridUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridUsuarios.Location = New System.Drawing.Point(13, 136)
-        Me.DataGridUsuarios.MultiSelect = False
-        Me.DataGridUsuarios.Name = "DataGridUsuarios"
-        Me.DataGridUsuarios.ReadOnly = True
-        Me.DataGridUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridUsuarios.Size = New System.Drawing.Size(694, 272)
-        Me.DataGridUsuarios.TabIndex = 23
+        Me.dgvUsuarios.AllowUserToAddRows = False
+        Me.dgvUsuarios.AllowUserToDeleteRows = False
+        Me.dgvUsuarios.AllowUserToResizeRows = False
+        Me.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvUsuarios.Location = New System.Drawing.Point(13, 136)
+        Me.dgvUsuarios.MultiSelect = False
+        Me.dgvUsuarios.Name = "dgvUsuarios"
+        Me.dgvUsuarios.ReadOnly = True
+        Me.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvUsuarios.Size = New System.Drawing.Size(694, 272)
+        Me.dgvUsuarios.TabIndex = 23
         '
         'lblNombre
         '
@@ -374,12 +374,12 @@ Partial Class GestionUsuarios
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.gbLogin)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.DataGridUsuarios)
+        Me.Controls.Add(Me.dgvUsuarios)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.tbBusqueda)
         Me.Name = "GestionUsuarios"
         Me.Text = "Gestión de Usuarios"
-        CType(Me.DataGridUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbDatosUsuario.ResumeLayout(False)
         Me.gbDatosUsuario.PerformLayout()
         Me.gbLogin.ResumeLayout(False)
@@ -390,7 +390,7 @@ Partial Class GestionUsuarios
     End Sub
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents tbBusqueda As TextBox
-    Friend WithEvents DataGridUsuarios As DataGridView
+    Friend WithEvents dgvUsuarios As DataGridView
     Friend WithEvents lblNombre As Label
     Friend WithEvents lblDni As Label
     Friend WithEvents lblTipoUsuario As Label
