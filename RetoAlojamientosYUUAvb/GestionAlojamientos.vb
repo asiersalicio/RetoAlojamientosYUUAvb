@@ -8,7 +8,7 @@ Public Class GestionAlojamientos
     Dim usuarioBBDD, passwordBBDD As String
     Dim tabla As DataTable
 
-    Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles Me.Load
         m = New Metodos
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
@@ -32,7 +32,7 @@ Public Class GestionAlojamientos
         dgvAlojamientos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvAlojamientos.MultiSelect = False
         dgvAlojamientos.Rows(0).Selected = True
-
+        dgvAlojamientos.ClearSelection()
         'm.cargarTiposAloj(cbTiposAloj)
         'm.cargarDatosAloj("tpais", "country", cbPais)
         'm.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
@@ -74,7 +74,6 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub cargarDatosModificacion()
-        tbId.Text = arrayCampos(0).Text
         AddAlojamiento.tbNombre.Text = arrayCampos(1).Text
         AddAlojamiento.cbTiposAloj.Text = arrayCampos(2).Text
         AddAlojamiento.tbCapacidad.Text = arrayCampos(3).Text
@@ -92,12 +91,11 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        dgvAlojamientos.ClearSelection()
         m.cambioVentana(GestionAlojamientos.ActiveForm, AddAlojamiento)
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        If (dgvAlojamientos.SelectedRows.Count < 1) Then
+        If (dgvAlojamientos.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un alojamiento seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()

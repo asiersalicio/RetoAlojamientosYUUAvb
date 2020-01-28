@@ -25,6 +25,7 @@ Public Class GestionUsuarios
         dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvUsuarios.MultiSelect = False
         dgvUsuarios.Rows(0).Selected = True
+        dgvUsuarios.ClearSelection()
 
         m.cargarTiposUsuarioTxt(tbTipoUsuario)
         m.soloLectura(gbLogin)
@@ -60,7 +61,6 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        dgvUsuarios.ClearSelection()
         m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
@@ -69,20 +69,17 @@ Public Class GestionUsuarios
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
-            m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
+            m.cambioVentana(Me, AddUsuario)
         End If
     End Sub
     Private Sub cargarDatosModificacion()
-        m.limpiarCampos(AddAlojamiento.gbTAlojamientos)
-        m.limpiarCampos(AddAlojamiento.gbTLocalizacion)
-
         AddUsuario.tbDNI.Text = arrayCampos(0).Text
         AddUsuario.tbNick.Text = arrayCampos(1).Text
         AddUsuario.tbPassword1.Text = arrayCampos(2).Text
         AddUsuario.tbEmail.Text = arrayCampos(3).Text
         AddUsuario.tbNombre.Text = arrayCampos(4).Text
         AddUsuario.tbApellidos.Text = arrayCampos(5).Text
-        AddUsuario.dtpFechaNac.Text = arrayCampos(6).Text
+        AddUsuario.dtpFechaNac.Text = CType(arrayCampos(6), DateTimePicker).Value.Date.ToString
         AddUsuario.tbTelefono.Text = arrayCampos(7).Text
         AddUsuario.cbTipoUsuario.Text = arrayCampos(8).Text
     End Sub

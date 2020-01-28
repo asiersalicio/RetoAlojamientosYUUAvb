@@ -32,7 +32,7 @@ Public Class GestionReservas
         m.soloLectura(gbDatosReserva)
     End Sub
 
-    Public Sub dgv_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.RowEnter
+    Private Sub DgvReservas_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.RowEnter
         Dim index As Integer = e.RowIndex
         Dim arrayStrings() As String = New String(7) {}
         For pos = 0 To 7
@@ -47,6 +47,10 @@ Public Class GestionReservas
         Next
     End Sub
 
+    Private Sub BtnVer_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        m.cambioVentana(Me, AddReserva)
+    End Sub
+
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If (dgvReservas.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
@@ -57,15 +61,9 @@ Public Class GestionReservas
     End Sub
 
     Private Sub cargarDatosModificacion()
-        m.limpiarCampos(AddReserva.gbReserva)
-        m.limpiarCampos(AddReserva.gbRvaAlojamiento)
-        m.limpiarCampos(AddReserva.gbRvaCliente)
-        fe = dtpEntrada.Text
-        fs = dtpSalida.Text
-
         AddReserva.tbIdReserva.Text = arrayCampos(0).Text
-        AddReserva.dtpEntrada.Text = arrayCampos(1).Text
-        AddReserva.dtpEntrada.Text = arrayCampos(2).Text
+        AddReserva.dtpEntrada.Text = CType(arrayCampos(1), DateTimePicker).Value.Date.ToString
+        AddReserva.dtpSalida.Text = CType(arrayCampos(2), DateTimePicker).Value.Date.ToString
         AddReserva.cbAlojamiento.Text = arrayCampos(3).Text
         AddReserva.cbTipoAlojamiento.Text = arrayCampos(4).Text
         AddReserva.tbDni.Text = arrayCampos(5).Text
@@ -73,11 +71,11 @@ Public Class GestionReservas
         AddReserva.tbApellidosUser.Text = arrayCampos(7).Text
     End Sub
 
-    Private Sub BtnVer_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        m.cambioVentana(Me, AddReserva)
-    End Sub
-
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        m.borrarReg("reserva", Me.tbIdReserva.Text, dgvReservas)
+        tabla.Clear()
+        adapter.Fill(tabla)
+        dgvReservas.ResetBindings()
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs)

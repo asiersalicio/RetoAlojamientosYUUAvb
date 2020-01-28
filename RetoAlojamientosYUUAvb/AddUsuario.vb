@@ -8,13 +8,13 @@ Public Class AddUsuario
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
-    Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles Me.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-        m.limpiarCampos(gbLogin)
-        m.limpiarCampos(gbDatosUsuario)
+        'm.limpiarCampos(gbLogin)
+        'm.limpiarCampos(gbDatosUsuario)
         cbTipoUsuario.Text = "Elegir una opción"
         'm.cargarTipos("usuario", "tipoUsuario", cbTipoUsuario)
     End Sub
@@ -32,8 +32,6 @@ Public Class AddUsuario
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        m.limpiarCampos(gbLogin)
-        m.limpiarCampos(gbDatosUsuario)
         m.cambioVentana(Me, GestionUsuarios)
     End Sub
 

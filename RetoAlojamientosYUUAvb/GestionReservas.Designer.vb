@@ -42,12 +42,12 @@ Partial Class GestionReservas
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.gbDatosReserva = New System.Windows.Forms.GroupBox()
+        Me.dtpSalida = New System.Windows.Forms.DateTimePicker()
+        Me.dtpEntrada = New System.Windows.Forms.DateTimePicker()
         Me.tbApellidosCliente = New System.Windows.Forms.TextBox()
         Me.lblApellidosCliente = New System.Windows.Forms.Label()
         Me.lblIdAlojamiento = New System.Windows.Forms.Label()
         Me.tbAlojamiento = New System.Windows.Forms.TextBox()
-        Me.dtpEntrada = New System.Windows.Forms.DateTimePicker()
-        Me.dtpSalida = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ConexionReservasBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosReserva.SuspendLayout()
@@ -102,6 +102,7 @@ Partial Class GestionReservas
         Me.tbCategoria.Name = "tbCategoria"
         Me.tbCategoria.Size = New System.Drawing.Size(200, 23)
         Me.tbCategoria.TabIndex = 5
+        Me.tbCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblNombreAlojamiento
         '
@@ -130,6 +131,7 @@ Partial Class GestionReservas
         Me.tbIdReserva.Name = "tbIdReserva"
         Me.tbIdReserva.Size = New System.Drawing.Size(200, 23)
         Me.tbIdReserva.TabIndex = 9
+        Me.tbIdReserva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblDniCliente
         '
@@ -148,6 +150,7 @@ Partial Class GestionReservas
         Me.tbDniCliente.Name = "tbDniCliente"
         Me.tbDniCliente.Size = New System.Drawing.Size(200, 23)
         Me.tbDniCliente.TabIndex = 11
+        Me.tbDniCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblFechaEntrada
         '
@@ -186,6 +189,7 @@ Partial Class GestionReservas
         Me.tbNombreCliente.Name = "tbNombreCliente"
         Me.tbNombreCliente.Size = New System.Drawing.Size(200, 23)
         Me.tbNombreCliente.TabIndex = 17
+        Me.tbNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnVolver
         '
@@ -239,6 +243,32 @@ Partial Class GestionReservas
         Me.gbDatosReserva.TabIndex = 34
         Me.gbDatosReserva.TabStop = False
         '
+        'dtpSalida
+        '
+        Me.dtpSalida.Enabled = False
+        Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpSalida.Location = New System.Drawing.Point(120, 74)
+        Me.dtpSalida.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
+        Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpSalida.Name = "dtpSalida"
+        Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dtpSalida.Size = New System.Drawing.Size(200, 23)
+        Me.dtpSalida.TabIndex = 38
+        Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        '
+        'dtpEntrada
+        '
+        Me.dtpEntrada.Enabled = False
+        Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpEntrada.Location = New System.Drawing.Point(120, 42)
+        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 11, 57, 43, 0)
+        Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpEntrada.Name = "dtpEntrada"
+        Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dtpEntrada.Size = New System.Drawing.Size(200, 23)
+        Me.dtpEntrada.TabIndex = 37
+        Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        '
         'tbApellidosCliente
         '
         Me.tbApellidosCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -246,6 +276,7 @@ Partial Class GestionReservas
         Me.tbApellidosCliente.Name = "tbApellidosCliente"
         Me.tbApellidosCliente.Size = New System.Drawing.Size(200, 23)
         Me.tbApellidosCliente.TabIndex = 36
+        Me.tbApellidosCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblApellidosCliente
         '
@@ -274,32 +305,7 @@ Partial Class GestionReservas
         Me.tbAlojamiento.Name = "tbAlojamiento"
         Me.tbAlojamiento.Size = New System.Drawing.Size(200, 23)
         Me.tbAlojamiento.TabIndex = 4
-        '
-        'dtpEntrada
-        '
-        Me.dtpEntrada.Enabled = False
-        Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpEntrada.Location = New System.Drawing.Point(120, 42)
-        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 11, 57, 43, 0)
-        Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
-        Me.dtpEntrada.Name = "dtpEntrada"
-        Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpEntrada.Size = New System.Drawing.Size(200, 23)
-        Me.dtpEntrada.TabIndex = 37
-        Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
-        '
-        'dtpSalida
-        '
-        Me.dtpSalida.Enabled = False
-        Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpSalida.Location = New System.Drawing.Point(120, 74)
-        Me.dtpSalida.MaxDate = New Date(2020, 1, 28, 11, 57, 36, 0)
-        Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
-        Me.dtpSalida.Name = "dtpSalida"
-        Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpSalida.Size = New System.Drawing.Size(200, 23)
-        Me.dtpSalida.TabIndex = 38
-        Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.tbAlojamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GestionReservas
         '

@@ -47,16 +47,16 @@ Public Class Metodos
         Return txtEncriptado
     End Function
 
-    Public Sub cargarTiposAlojTxt(item As TextBox)
-        Dim idAloj = GestionAlojamientos.tbId.Text
-        Dim ds = New DataSet
-        Dim da = New MySqlDataAdapter
-        Dim query As New MySqlCommand("SELECT lodgingtype 'Tipo alojamiento' FROM talojamientos WHERE idAlojamiento=" & idAloj, conex)
+    'Public Sub cargarTiposAlojTxt(item As TextBox)
+    '    Dim idAloj = GestionAlojamientos.tbId.Text
+    '    Dim ds = New DataSet
+    '    Dim da = New MySqlDataAdapter
+    '    Dim query As New MySqlCommand("SELECT lodgingtype 'Tipo alojamiento' FROM talojamientos WHERE idAlojamiento=" & idAloj, conex)
 
-        ds.Clear()
-        da = New MySqlDataAdapter(query)
-        GestionAlojamientos.cbTiposAloj.Text = da.Fill(ds, "tiposAlojamiento")
-    End Sub
+    '    ds.Clear()
+    '    da = New MySqlDataAdapter(query)
+    '    GestionAlojamientos.cbTiposAloj.Text = da.Fill(ds, "tiposAlojamiento")
+    'End Sub
 
     Public Sub cargarTiposUsuarioTxt(item As TextBox)
         Dim idDni = MD5EncryptPass(GestionUsuarios.tbDNI.Text)
@@ -75,22 +75,6 @@ Public Class Metodos
         Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
                                           " FROM " & tabla &
                                           " ORDER BY " & campo & " ASC", conex)
-        Dim da As New MySqlDataAdapter
-        Dim campoTexto As New DataTable()
-        query.Fill(campoTexto)
-
-        Dim numero As Integer = campoTexto.Rows.Count
-        For i = 0 To campoTexto.Rows.Count - 1
-            item.Items.Add(campoTexto.Rows(i).Item(0))
-        Next
-    End Sub
-
-    Public Sub cargarDatosAloj(tabla As String, campo As String, item As ComboBox)
-        item.Text = "Elegir una opción"
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
-                                          " FROM " & tabla &
-                                          " ORDER BY " & campo & " ASC", conex)
-
         Dim campoTexto As New DataTable()
         query.Fill(campoTexto)
 

@@ -110,6 +110,7 @@ Partial Class AddReserva
         Me.tbWeb.ReadOnly = True
         Me.tbWeb.Size = New System.Drawing.Size(250, 23)
         Me.tbWeb.TabIndex = 8
+        Me.tbWeb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblWeb
         '
@@ -130,6 +131,7 @@ Partial Class AddReserva
         Me.tbTelefonoAloj.ReadOnly = True
         Me.tbTelefonoAloj.Size = New System.Drawing.Size(250, 23)
         Me.tbTelefonoAloj.TabIndex = 7
+        Me.tbTelefonoAloj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblTelefonoAloj
         '
@@ -145,8 +147,7 @@ Partial Class AddReserva
         '
         Me.cbAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbAlojamiento.FormattingEnabled = True
-        Me.cbAlojamiento.Items.AddRange(New Object() {"administrador", "cliente"})
-        Me.cbAlojamiento.Location = New System.Drawing.Point(120, 13)
+        Me.cbAlojamiento.Location = New System.Drawing.Point(120, 45)
         Me.cbAlojamiento.Name = "cbAlojamiento"
         Me.cbAlojamiento.Size = New System.Drawing.Size(250, 24)
         Me.cbAlojamiento.TabIndex = 3
@@ -155,8 +156,7 @@ Partial Class AddReserva
         '
         Me.cbTipoAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoAlojamiento.FormattingEnabled = True
-        Me.cbTipoAlojamiento.Items.AddRange(New Object() {"administrador", "cliente"})
-        Me.cbTipoAlojamiento.Location = New System.Drawing.Point(120, 45)
+        Me.cbTipoAlojamiento.Location = New System.Drawing.Point(120, 13)
         Me.cbTipoAlojamiento.Name = "cbTipoAlojamiento"
         Me.cbTipoAlojamiento.Size = New System.Drawing.Size(250, 24)
         Me.cbTipoAlojamiento.TabIndex = 4
@@ -165,7 +165,7 @@ Partial Class AddReserva
         '
         Me.lblIdAlojamiento.AutoSize = True
         Me.lblIdAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIdAlojamiento.Location = New System.Drawing.Point(6, 16)
+        Me.lblIdAlojamiento.Location = New System.Drawing.Point(6, 48)
         Me.lblIdAlojamiento.Name = "lblIdAlojamiento"
         Me.lblIdAlojamiento.Size = New System.Drawing.Size(81, 17)
         Me.lblIdAlojamiento.TabIndex = 6
@@ -175,7 +175,7 @@ Partial Class AddReserva
         '
         Me.lblTipoAloj.AutoSize = True
         Me.lblTipoAloj.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoAloj.Location = New System.Drawing.Point(6, 48)
+        Me.lblTipoAloj.Location = New System.Drawing.Point(6, 16)
         Me.lblTipoAloj.Name = "lblTipoAloj"
         Me.lblTipoAloj.Size = New System.Drawing.Size(69, 17)
         Me.lblTipoAloj.TabIndex = 7
@@ -190,6 +190,7 @@ Partial Class AddReserva
         Me.tbDireccion.ReadOnly = True
         Me.tbDireccion.Size = New System.Drawing.Size(250, 23)
         Me.tbDireccion.TabIndex = 6
+        Me.tbDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblMunicipio
         '
@@ -220,6 +221,7 @@ Partial Class AddReserva
         Me.tbLocalidad.ReadOnly = True
         Me.tbLocalidad.Size = New System.Drawing.Size(250, 23)
         Me.tbLocalidad.TabIndex = 5
+        Me.tbLocalidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'gbReserva
         '
@@ -240,7 +242,7 @@ Partial Class AddReserva
         '
         Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpSalida.Location = New System.Drawing.Point(326, 98)
-        Me.dtpSalida.MaxDate = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.dtpSalida.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpSalida.Name = "dtpSalida"
         Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -252,7 +254,7 @@ Partial Class AddReserva
         '
         Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEntrada.Location = New System.Drawing.Point(326, 72)
-        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 0, 0, 0, 0)
+        Me.dtpEntrada.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEntrada.Name = "dtpEntrada"
         Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -279,6 +281,7 @@ Partial Class AddReserva
         Me.tbIdReserva.ReadOnly = True
         Me.tbIdReserva.Size = New System.Drawing.Size(250, 29)
         Me.tbIdReserva.TabIndex = 0
+        Me.tbIdReserva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblSalida
         '
@@ -323,11 +326,14 @@ Partial Class AddReserva
         '
         'tbNick
         '
+        Me.tbNick.BackColor = System.Drawing.SystemColors.Window
         Me.tbNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNick.Location = New System.Drawing.Point(127, 13)
         Me.tbNick.Name = "tbNick"
+        Me.tbNick.ReadOnly = True
         Me.tbNick.Size = New System.Drawing.Size(250, 23)
         Me.tbNick.TabIndex = 9
+        Me.tbNick.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblNick
         '
@@ -341,11 +347,14 @@ Partial Class AddReserva
         '
         'tbEmail
         '
+        Me.tbEmail.BackColor = System.Drawing.SystemColors.Window
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbEmail.Location = New System.Drawing.Point(127, 45)
         Me.tbEmail.Name = "tbEmail"
+        Me.tbEmail.ReadOnly = True
         Me.tbEmail.Size = New System.Drawing.Size(250, 23)
         Me.tbEmail.TabIndex = 10
+        Me.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblEmail
         '
@@ -359,11 +368,14 @@ Partial Class AddReserva
         '
         'tbTelefonoUser
         '
+        Me.tbTelefonoUser.BackColor = System.Drawing.SystemColors.Window
         Me.tbTelefonoUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTelefonoUser.Location = New System.Drawing.Point(127, 171)
         Me.tbTelefonoUser.Name = "tbTelefonoUser"
+        Me.tbTelefonoUser.ReadOnly = True
         Me.tbTelefonoUser.Size = New System.Drawing.Size(250, 23)
         Me.tbTelefonoUser.TabIndex = 14
+        Me.tbTelefonoUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblTelefonoUser
         '
@@ -377,11 +389,14 @@ Partial Class AddReserva
         '
         'tbApellidosUser
         '
+        Me.tbApellidosUser.BackColor = System.Drawing.SystemColors.Window
         Me.tbApellidosUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbApellidosUser.Location = New System.Drawing.Point(127, 139)
         Me.tbApellidosUser.Name = "tbApellidosUser"
+        Me.tbApellidosUser.ReadOnly = True
         Me.tbApellidosUser.Size = New System.Drawing.Size(250, 23)
         Me.tbApellidosUser.TabIndex = 13
+        Me.tbApellidosUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblApellidos
         '
@@ -395,11 +410,14 @@ Partial Class AddReserva
         '
         'tbNombreUser
         '
+        Me.tbNombreUser.BackColor = System.Drawing.SystemColors.Window
         Me.tbNombreUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNombreUser.Location = New System.Drawing.Point(127, 107)
         Me.tbNombreUser.Name = "tbNombreUser"
+        Me.tbNombreUser.ReadOnly = True
         Me.tbNombreUser.Size = New System.Drawing.Size(250, 23)
         Me.tbNombreUser.TabIndex = 12
+        Me.tbNombreUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblDni
         '
@@ -423,11 +441,14 @@ Partial Class AddReserva
         '
         'tbDni
         '
+        Me.tbDni.BackColor = System.Drawing.SystemColors.Window
         Me.tbDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDni.Location = New System.Drawing.Point(127, 77)
         Me.tbDni.Name = "tbDni"
+        Me.tbDni.ReadOnly = True
         Me.tbDni.Size = New System.Drawing.Size(250, 23)
         Me.tbDni.TabIndex = 11
+        Me.tbDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AddReserva
         '

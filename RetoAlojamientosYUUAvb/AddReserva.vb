@@ -7,18 +7,15 @@ Public Class AddReserva
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
-
+    Dim campo As Control
 
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-        m.limpiarCampos(gbReserva)
-        m.limpiarCampos(gbRvaAlojamiento)
-        m.limpiarCampos(gbRvaCliente)
-        cbAlojamiento.Text = "Elegir una opción"
-        cbTipoAlojamiento.Text = "Elegir una opción"
+        'cbAlojamiento.Text = "Elegir una opción"
+        'cbTipoAlojamiento.Text = "Elegir una opción"
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
     End Sub
 
@@ -31,9 +28,6 @@ Public Class AddReserva
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        m.limpiarCampos(gbReserva)
-        m.limpiarCampos(gbRvaAlojamiento)
-        m.limpiarCampos(gbRvaCliente)
         m.cambioVentana(Me, GestionReservas)
     End Sub
 
@@ -84,5 +78,23 @@ Public Class AddReserva
                 conex.Close()
             End Try
         End If
+    End Sub
+
+    Private Sub datosAloj(campo As String)
+        Dim ds = New DataSet
+        Dim da = New MySqlDataAdapter
+        Dim query As New MySqlCommand("SELECT documentname, municipality, address, phone, web FROM talojamientos WHERE lodgingtype=" & campo, conex)
+        Dim arrayCampos = New Control() {cbAlojamiento, tbLocalidad, tbDireccion, tbTelefonoAloj, tbWeb}
+        ds.Clear()
+        da = New MySqlDataAdapter(query)
+    End Sub
+
+    Private Sub datosCliente(campo As String)
+        Dim ds = New DataSet
+        Dim da = New MySqlDataAdapter
+        'Dim query As New MySqlCommand("SELECT tipoUsuario FROM usuarios WHERE idDni=" & campo, conex)
+
+        ds.Clear()
+        da = New MySqlDataAdapter(query)
     End Sub
 End Class
