@@ -6,7 +6,7 @@ Public Class GestionReservas
     Dim conex As MySqlConnection
     Dim adapter As MySqlDataAdapter
     Public arrayCampos As Control()
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim usuarioBBDD, passwordBBDD, fe, fs As String
     Dim tabla As DataTable
 
     Private Sub GestionReservas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,11 +14,11 @@ Public Class GestionReservas
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
-        adapter = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida',idAlojamiento 'Id alojamiento',res.idDni 'Dni',nombre 'Nombre', apellidos 'Apellidos' " &
-                                       "FROM reserva res, usuario usu " &
-                                       "WHERE res.idDni = usu.idDni " &
-                                       "ORDER BY idReserva ASC ", conex)
-        arrayCampos = New Control() {tbIdReserva, tbFechaEntrada, tbFechaSalida, tbAlojamiento, tbCategoria, tbDniCliente, tbNombreCliente, tbApellidosCliente}
+        adapter = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+                                       "FROM reserva res, usuario usu, talojamientos aloj " &
+                                       "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
+                                       "ORDER BY idReserva ASC", conex)
+        arrayCampos = New Control() {tbIdReserva, dtpEntrada, dtpSalida, tbAlojamiento, tbCategoria, tbDniCliente, tbNombreCliente, tbApellidosCliente}
 
         tabla = New DataTable()
         tabla.Clear()
@@ -27,45 +27,69 @@ Public Class GestionReservas
         dgvReservas.DataSource = tabla
         dgvReservas.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvReservas.MultiSelect = False
-        dgvReservas.Rows(0).Selected = True
+        'dgvReservas.Rows(0).Selected = True
 
         m.soloLectura(gbDatosReserva)
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.CellContentClick
-
-    End Sub
-
-    Private Sub BtnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
-
+    Public Sub dgv_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.RowEnter
+        Dim index As Integer = e.RowIndex
+        Dim arrayStrings() As String = New String(7) {}
+        For pos = 0 To 7
+            Try
+                arrayStrings(pos) = dgvReservas.Rows(index).Cells(pos).Value
+            Catch ex As Exception
+                arrayStrings(pos) = Nothing
+            End Try
+        Next
+        For pos2 = 0 To 7
+            arrayCampos(pos2).Text = arrayStrings(pos2)
+        Next
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        If (dgvReservas.SelectedRows.Count <> 1) Then
+            MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+        Else
+            cargarDatosModificacion()
+            m.cambioVentana(Me, AddReserva)
+        End If
+    End Sub
 
+    Private Sub cargarDatosModificacion()
+        m.limpiarCampos(AddReserva.gbReserva)
+        m.limpiarCampos(AddReserva.gbRvaAlojamiento)
+        m.limpiarCampos(AddReserva.gbRvaCliente)
+        fe = dtpEntrada.Text
+        fs = dtpSalida.Text
+
+        AddReserva.tbIdReserva.Text = arrayCampos(0).Text
+        AddReserva.dtpEntrada.Text = arrayCampos(1).Text
+        AddReserva.dtpEntrada.Text = arrayCampos(2).Text
+        AddReserva.cbAlojamiento.Text = arrayCampos(3).Text
+        AddReserva.cbTipoAlojamiento.Text = arrayCampos(4).Text
+        AddReserva.tbDni.Text = arrayCampos(5).Text
+        AddReserva.tbNombreUser.Text = arrayCampos(6).Text
+        AddReserva.tbApellidosUser.Text = arrayCampos(7).Text
+    End Sub
+
+    Private Sub BtnVer_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        m.cambioVentana(Me, AddReserva)
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-
-    End Sub
-
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs)
         m.cambioVentana(Me, MenuGestion)
     End Sub
 
-    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        m.desconectar(GestionReservas.ActiveForm)
-    End Sub
-
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         m.cambioVentana(Me, MenuGestion)
+    End Sub
+
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        m.desconectar(GestionReservas.ActiveForm)
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

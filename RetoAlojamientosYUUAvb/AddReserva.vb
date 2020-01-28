@@ -34,7 +34,7 @@ Public Class AddReserva
         m.limpiarCampos(gbReserva)
         m.limpiarCampos(gbRvaAlojamiento)
         m.limpiarCampos(gbRvaCliente)
-        m.cambioVentana(Me, GestionUsuarios)
+        m.cambioVentana(Me, GestionReservas)
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
@@ -85,5 +85,4 @@ Public Class AddReserva
             End Try
         End If
     End Sub
-
 End Class

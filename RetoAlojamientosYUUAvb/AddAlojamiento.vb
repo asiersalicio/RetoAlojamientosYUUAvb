@@ -20,9 +20,9 @@ Public Class AddAlojamiento
         'da.Fill(tabla)
 
         m.cargarTipos("talojamientos", "lodgingtype", cbTiposAloj)
-        m.cargarDatosAloj("tpais", "country", cbPais)
-        m.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
-        m.cargarDatosAloj("tmunicipio", "municipality", cbMunicipio)
+        m.cargarDatosAloj("tlocalizacion", "country", cbPais)
+        m.cargarDatosAloj("tlocalizacion", "territory", cbTerritorio)
+        m.cargarDatosAloj("tlocalizacion", "municipality", cbMunicipio)
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click

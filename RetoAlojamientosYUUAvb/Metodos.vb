@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 Public Class Metodos
     Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
     Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
     Public Sub Acceder()
         MenuGestion.Show()
@@ -51,8 +51,7 @@ Public Class Metodos
         Dim idAloj = GestionAlojamientos.tbId.Text
         Dim ds = New DataSet
         Dim da = New MySqlDataAdapter
-        Dim query As New MySqlCommand("SELECT lodgingtype 'Tipo alojamiento' FROM talojamientos WHERE idAlojamiento=" &
-                                      idAloj, conex)
+        Dim query As New MySqlCommand("SELECT lodgingtype 'Tipo alojamiento' FROM talojamientos WHERE idAlojamiento=" & idAloj, conex)
 
         ds.Clear()
         da = New MySqlDataAdapter(query)
@@ -77,7 +76,6 @@ Public Class Metodos
                                           " FROM " & tabla &
                                           " ORDER BY " & campo & " ASC", conex)
         Dim da As New MySqlDataAdapter
-
         Dim campoTexto As New DataTable()
         query.Fill(campoTexto)
 
@@ -90,9 +88,8 @@ Public Class Metodos
     Public Sub cargarDatosAloj(tabla As String, campo As String, item As ComboBox)
         item.Text = "Elegir una opción"
         Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
-                                          " FROM talojamientos aloj, tlocalizacion loc, " & tabla &
-                                          " WHERE aloj.localizacion_idLocalizacion=loc.idLocalizacion AND  loc." & campo & "code=" & tabla & "." & campo & "code " &
-                                          "ORDER BY " & campo & " ASC", conex)
+                                          " FROM " & tabla &
+                                          " ORDER BY " & campo & " ASC", conex)
 
         Dim campoTexto As New DataTable()
         query.Fill(campoTexto)

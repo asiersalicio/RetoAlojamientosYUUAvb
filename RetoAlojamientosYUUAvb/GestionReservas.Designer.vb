@@ -25,7 +25,7 @@ Partial Class GestionReservas
         Me.components = New System.ComponentModel.Container()
         Me.dgvReservas = New System.Windows.Forms.DataGridView()
         Me.ConexionReservasBS = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnVer = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnBorrar = New System.Windows.Forms.Button()
         Me.tbCategoria = New System.Windows.Forms.TextBox()
@@ -34,8 +34,6 @@ Partial Class GestionReservas
         Me.tbIdReserva = New System.Windows.Forms.TextBox()
         Me.lblDniCliente = New System.Windows.Forms.Label()
         Me.tbDniCliente = New System.Windows.Forms.TextBox()
-        Me.tbFechaEntrada = New System.Windows.Forms.TextBox()
-        Me.tbFechaSalida = New System.Windows.Forms.TextBox()
         Me.lblFechaEntrada = New System.Windows.Forms.Label()
         Me.lblFechaSalida = New System.Windows.Forms.Label()
         Me.lblNombreCliente = New System.Windows.Forms.Label()
@@ -48,6 +46,8 @@ Partial Class GestionReservas
         Me.lblApellidosCliente = New System.Windows.Forms.Label()
         Me.lblIdAlojamiento = New System.Windows.Forms.Label()
         Me.tbAlojamiento = New System.Windows.Forms.TextBox()
+        Me.dtpEntrada = New System.Windows.Forms.DateTimePicker()
+        Me.dtpSalida = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ConexionReservasBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosReserva.SuspendLayout()
@@ -68,14 +68,14 @@ Partial Class GestionReservas
         Me.dgvReservas.Size = New System.Drawing.Size(694, 273)
         Me.dgvReservas.TabIndex = 0
         '
-        'btnVer
+        'btnAdd
         '
-        Me.btnVer.Location = New System.Drawing.Point(713, 135)
-        Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(75, 86)
-        Me.btnVer.TabIndex = 1
-        Me.btnVer.Text = "Ver"
-        Me.btnVer.UseVisualStyleBackColor = True
+        Me.btnAdd.Location = New System.Drawing.Point(713, 135)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(75, 86)
+        Me.btnAdd.TabIndex = 1
+        Me.btnAdd.Text = "Añadir"
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnModificar
         '
@@ -149,22 +149,6 @@ Partial Class GestionReservas
         Me.tbDniCliente.Size = New System.Drawing.Size(200, 23)
         Me.tbDniCliente.TabIndex = 11
         '
-        'tbFechaEntrada
-        '
-        Me.tbFechaEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbFechaEntrada.Location = New System.Drawing.Point(120, 42)
-        Me.tbFechaEntrada.Name = "tbFechaEntrada"
-        Me.tbFechaEntrada.Size = New System.Drawing.Size(200, 23)
-        Me.tbFechaEntrada.TabIndex = 12
-        '
-        'tbFechaSalida
-        '
-        Me.tbFechaSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbFechaSalida.Location = New System.Drawing.Point(120, 71)
-        Me.tbFechaSalida.Name = "tbFechaSalida"
-        Me.tbFechaSalida.Size = New System.Drawing.Size(200, 23)
-        Me.tbFechaSalida.TabIndex = 13
-        '
         'lblFechaEntrada
         '
         Me.lblFechaEntrada.AutoSize = True
@@ -233,6 +217,8 @@ Partial Class GestionReservas
         'gbDatosReserva
         '
         Me.gbDatosReserva.BackColor = System.Drawing.SystemColors.Window
+        Me.gbDatosReserva.Controls.Add(Me.dtpSalida)
+        Me.gbDatosReserva.Controls.Add(Me.dtpEntrada)
         Me.gbDatosReserva.Controls.Add(Me.tbApellidosCliente)
         Me.gbDatosReserva.Controls.Add(Me.lblApellidosCliente)
         Me.gbDatosReserva.Controls.Add(Me.lblIdAlojamiento)
@@ -246,9 +232,7 @@ Partial Class GestionReservas
         Me.gbDatosReserva.Controls.Add(Me.lblNombreCliente)
         Me.gbDatosReserva.Controls.Add(Me.tbDniCliente)
         Me.gbDatosReserva.Controls.Add(Me.lblFechaSalida)
-        Me.gbDatosReserva.Controls.Add(Me.tbFechaEntrada)
         Me.gbDatosReserva.Controls.Add(Me.lblFechaEntrada)
-        Me.gbDatosReserva.Controls.Add(Me.tbFechaSalida)
         Me.gbDatosReserva.Location = New System.Drawing.Point(794, 128)
         Me.gbDatosReserva.Name = "gbDatosReserva"
         Me.gbDatosReserva.Size = New System.Drawing.Size(326, 280)
@@ -291,6 +275,32 @@ Partial Class GestionReservas
         Me.tbAlojamiento.Size = New System.Drawing.Size(200, 23)
         Me.tbAlojamiento.TabIndex = 4
         '
+        'dtpEntrada
+        '
+        Me.dtpEntrada.Enabled = False
+        Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpEntrada.Location = New System.Drawing.Point(120, 42)
+        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 11, 57, 43, 0)
+        Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpEntrada.Name = "dtpEntrada"
+        Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dtpEntrada.Size = New System.Drawing.Size(200, 23)
+        Me.dtpEntrada.TabIndex = 37
+        Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        '
+        'dtpSalida
+        '
+        Me.dtpSalida.Enabled = False
+        Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpSalida.Location = New System.Drawing.Point(120, 74)
+        Me.dtpSalida.MaxDate = New Date(2020, 1, 28, 11, 57, 36, 0)
+        Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpSalida.Name = "dtpSalida"
+        Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dtpSalida.Size = New System.Drawing.Size(200, 23)
+        Me.dtpSalida.TabIndex = 38
+        Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        '
         'GestionReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -303,7 +313,7 @@ Partial Class GestionReservas
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnModificar)
-        Me.Controls.Add(Me.btnVer)
+        Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.dgvReservas)
         Me.Name = "GestionReservas"
         Me.Text = "Gestión de Reservas"
@@ -317,7 +327,7 @@ Partial Class GestionReservas
 
     Friend WithEvents dgvReservas As DataGridView
 	Friend WithEvents ConexionReservasBS As BindingSource
-	Friend WithEvents btnVer As Button
+	Friend WithEvents btnAdd As Button
 	Friend WithEvents btnModificar As Button
 	Friend WithEvents btnBorrar As Button
     Friend WithEvents tbCategoria As TextBox
@@ -326,8 +336,6 @@ Partial Class GestionReservas
     Friend WithEvents tbIdReserva As TextBox
     Friend WithEvents lblDniCliente As Label
     Friend WithEvents tbDniCliente As TextBox
-    Friend WithEvents tbFechaEntrada As TextBox
-    Friend WithEvents tbFechaSalida As TextBox
     Friend WithEvents lblFechaEntrada As Label
     Friend WithEvents lblFechaSalida As Label
     Friend WithEvents lblNombreCliente As Label
@@ -340,4 +348,6 @@ Partial Class GestionReservas
     Friend WithEvents tbAlojamiento As TextBox
     Friend WithEvents tbApellidosCliente As TextBox
     Friend WithEvents lblApellidosCliente As Label
+    Friend WithEvents dtpSalida As DateTimePicker
+    Friend WithEvents dtpEntrada As DateTimePicker
 End Class

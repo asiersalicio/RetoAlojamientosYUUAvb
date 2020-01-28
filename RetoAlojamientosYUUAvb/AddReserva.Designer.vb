@@ -103,9 +103,11 @@ Partial Class AddReserva
         '
         'tbWeb
         '
+        Me.tbWeb.BackColor = System.Drawing.SystemColors.Window
         Me.tbWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbWeb.Location = New System.Drawing.Point(120, 173)
         Me.tbWeb.Name = "tbWeb"
+        Me.tbWeb.ReadOnly = True
         Me.tbWeb.Size = New System.Drawing.Size(250, 23)
         Me.tbWeb.TabIndex = 8
         '
@@ -121,9 +123,11 @@ Partial Class AddReserva
         '
         'tbTelefonoAloj
         '
+        Me.tbTelefonoAloj.BackColor = System.Drawing.SystemColors.Window
         Me.tbTelefonoAloj.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTelefonoAloj.Location = New System.Drawing.Point(120, 140)
         Me.tbTelefonoAloj.Name = "tbTelefonoAloj"
+        Me.tbTelefonoAloj.ReadOnly = True
         Me.tbTelefonoAloj.Size = New System.Drawing.Size(250, 23)
         Me.tbTelefonoAloj.TabIndex = 7
         '
@@ -179,9 +183,11 @@ Partial Class AddReserva
         '
         'tbDireccion
         '
+        Me.tbDireccion.BackColor = System.Drawing.SystemColors.Window
         Me.tbDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDireccion.Location = New System.Drawing.Point(120, 109)
         Me.tbDireccion.Name = "tbDireccion"
+        Me.tbDireccion.ReadOnly = True
         Me.tbDireccion.Size = New System.Drawing.Size(250, 23)
         Me.tbDireccion.TabIndex = 6
         '
@@ -207,9 +213,11 @@ Partial Class AddReserva
         '
         'tbLocalidad
         '
+        Me.tbLocalidad.BackColor = System.Drawing.SystemColors.Window
         Me.tbLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbLocalidad.Location = New System.Drawing.Point(120, 77)
         Me.tbLocalidad.Name = "tbLocalidad"
+        Me.tbLocalidad.ReadOnly = True
         Me.tbLocalidad.Size = New System.Drawing.Size(250, 23)
         Me.tbLocalidad.TabIndex = 5
         '
@@ -244,7 +252,7 @@ Partial Class AddReserva
         '
         Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEntrada.Location = New System.Drawing.Point(326, 72)
-        Me.dtpEntrada.MaxDate = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 0, 0, 0, 0)
         Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEntrada.Name = "dtpEntrada"
         Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -264,6 +272,7 @@ Partial Class AddReserva
         '
         'tbIdReserva
         '
+        Me.tbIdReserva.BackColor = System.Drawing.SystemColors.Window
         Me.tbIdReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbIdReserva.Location = New System.Drawing.Point(326, 19)
         Me.tbIdReserva.Name = "tbIdReserva"
