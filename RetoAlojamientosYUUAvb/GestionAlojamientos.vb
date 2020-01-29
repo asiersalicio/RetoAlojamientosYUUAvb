@@ -74,6 +74,7 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub cargarDatosModificacion()
+        AddAlojamiento.idAloj = arrayCampos(0).Text
         AddAlojamiento.tbNombre.Text = arrayCampos(1).Text
         AddAlojamiento.cbTiposAloj.Text = arrayCampos(2).Text
         AddAlojamiento.tbCapacidad.Text = arrayCampos(3).Text
@@ -91,6 +92,7 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        AddAlojamiento.modo = "insert"
         m.cambioVentana(GestionAlojamientos.ActiveForm, AddAlojamiento)
     End Sub
 
@@ -99,6 +101,7 @@ Public Class GestionAlojamientos
             MsgBox("Debe tener un alojamiento seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
+            AddAlojamiento.modo = "update"
             m.cambioVentana(GestionAlojamientos.ActiveForm, AddAlojamiento)
         End If
     End Sub

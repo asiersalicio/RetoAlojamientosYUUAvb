@@ -4,6 +4,8 @@ Imports MySql.Data.MySqlClient
 Public Class AddAlojamiento
     Dim m As New Metodos
     Dim usuarioBBDD, passwordBBDD As String
+    Public modo As String
+    Public idAloj As Integer
     Dim conex As New MySqlConnection
     Dim cmd As  MySqlCommand
     Dim da, daInsert, daTipoAloj As MySqlDataAdapter
@@ -61,7 +63,13 @@ Public Class AddAlojamiento
             cmd.Parameters.Add(New MySqlParameter("p_country", cbPais.Text))
             cmd.Parameters.Add(New MySqlParameter("p_lat", tbLatitud.Text))
             cmd.Parameters.Add(New MySqlParameter("p_lon", tbLongitud.Text))
-            cmd.CommandText = "ingresarReserva"
+
+            If (modo = "insert") Then
+                cmd.CommandText = "ingresarAlojamiento"
+            Else
+                cmd.Parameters.Add(New MySqlParameter("p_id", idAloj))
+                cmd.CommandText = "modificarAlojamiento"
+            End If
 
             cmd.ExecuteNonQuery()
             MsgBox("Se ingresaron correctamente los datos del nuevo usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
@@ -70,6 +78,10 @@ Public Class AddAlojamiento
             MsgBox(ex.Message)
             conex.Close()
         End Try
+    End Sub
+
+    Private Sub modificarAloj()
+
     End Sub
 
     Sub comprobarCamposAlojBBDD()

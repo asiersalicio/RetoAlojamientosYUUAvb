@@ -4,9 +4,11 @@ Imports MySql.Data.MySqlClient
 Public Class GestionReservas
     Dim m As Metodos
     Dim conex As MySqlConnection
-    Dim adapter As MySqlDataAdapter
+    Dim adapter, adapterTabla, da As MySqlDataAdapter
+    Dim ds As DataSet
+    Dim cmd As New MySqlCommand
     Public arrayCampos As Control()
-    Dim usuarioBBDD, passwordBBDD, fe, fs As String
+    Dim usuarioBBDD, passwordBBDD As String
     Dim tabla As DataTable
 
     Private Sub GestionReservas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -18,6 +20,10 @@ Public Class GestionReservas
                                        "FROM reserva res, usuario usu, talojamientos aloj " &
                                        "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
                                        "ORDER BY idReserva ASC", conex)
+        'adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+        '                               "FROM reserva res, usuario usu, talojamientos aloj " &
+        '                               "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
+        '                               "ORDER BY idReserva ASC", conex)
         arrayCampos = New Control() {tbIdReserva, dtpEntrada, dtpSalida, tbAlojamiento, tbCategoria, tbDniCliente, tbNombreCliente, tbApellidosCliente}
 
         tabla = New DataTable()
@@ -56,6 +62,7 @@ Public Class GestionReservas
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
+            m.cargarRvaDatosCliente(tbDniCliente.Text)
             m.cambioVentana(Me, AddReserva)
         End If
     End Sub

@@ -7,6 +7,9 @@ Public Class Metodos
     Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
     Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
+    'Public Function getEstado(ByRef modo As String)
+    '    Return modo
+    'End Function
     Public Sub Acceder()
         MenuGestion.Show()
         Login.tbUsuario.Clear()
@@ -47,17 +50,6 @@ Public Class Metodos
         Return txtEncriptado
     End Function
 
-    'Public Sub cargarTiposAlojTxt(item As TextBox)
-    '    Dim idAloj = GestionAlojamientos.tbId.Text
-    '    Dim ds = New DataSet
-    '    Dim da = New MySqlDataAdapter
-    '    Dim query As New MySqlCommand("SELECT lodgingtype 'Tipo alojamiento' FROM talojamientos WHERE idAlojamiento=" & idAloj, conex)
-
-    '    ds.Clear()
-    '    da = New MySqlDataAdapter(query)
-    '    GestionAlojamientos.cbTiposAloj.Text = da.Fill(ds, "tiposAlojamiento")
-    'End Sub
-
     Public Sub cargarTiposUsuarioTxt(item As TextBox)
         Dim idDni = MD5EncryptPass(GestionUsuarios.tbDNI.Text)
         Dim ds = New DataSet
@@ -75,6 +67,21 @@ Public Class Metodos
         Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
                                           " FROM " & tabla &
                                           " ORDER BY " & campo & " ASC", conex)
+        Dim campoTexto As New DataTable()
+        query.Fill(campoTexto)
+
+        Dim numero As Integer = campoTexto.Rows.Count
+        For i = 0 To campoTexto.Rows.Count - 1
+            item.Items.Add(campoTexto.Rows(i).Item(0))
+        Next
+    End Sub
+
+    Public Sub cargarAlojamientosPorTipo(campo As String, item As ComboBox)
+        item.Text = "Elegir una opción"
+        Dim query As New MySqlDataAdapter("SELECT DISTINCT documentname " &
+                                          " FROM talojamientos" &
+                                          " WHERE lodgingtype='" & campo & "'" &
+                                          " ORDER BY documentname ASC", conex)
         Dim campoTexto As New DataTable()
         query.Fill(campoTexto)
 
@@ -107,6 +114,22 @@ Public Class Metodos
                 conex.Close()
             End Try
         End If
+    End Sub
+
+    Public Sub cargarRvaDatosCliente(campo As String)
+        Dim cmd As MySqlCommand
+        Dim datosCliente As Control
+        Try
+            conex.Open()
+            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario" &
+                                              " WHERE idDni='" & campo & "'", conex)
+            'datosCliente = New Control{AddReserva.tbNick, AddReserva.tbEmail, AddReserva.tbTelefonoUser}
+            cmd.ExecuteNonQuery()
+            conex.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conex.Close()
+        End Try
     End Sub
 
     Public Sub salir()

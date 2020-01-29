@@ -51,6 +51,8 @@ Partial Class GestionUsuarios
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
@@ -361,11 +363,32 @@ Partial Class GestionUsuarios
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Items.AddRange(New Object() {"DNI", "Nombre", "Nombre de usuario", "Email"})
+        Me.CheckedListBox1.Location = New System.Drawing.Point(341, 422)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(335, 64)
+        Me.CheckedListBox1.TabIndex = 50
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(13, 87)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBox1.TabIndex = 51
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'GestionUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1533, 504)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.CheckedListBox1)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnSalir)
@@ -417,4 +440,6 @@ Partial Class GestionUsuarios
     Friend WithEvents btnVolver As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLogout As Button
+    Friend WithEvents CheckedListBox1 As CheckedListBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class
