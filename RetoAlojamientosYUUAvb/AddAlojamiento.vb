@@ -47,6 +47,7 @@ Public Class AddAlojamiento
             cmd.CommandType = CommandType.StoredProcedure
 
             'Datos Alojamiento
+            cmd.Parameters.Add(New MySqlParameter("p_id", idAloj))
             cmd.Parameters.Add(New MySqlParameter("p_capacity", tbCapacidad.Text))
             cmd.Parameters.Add(New MySqlParameter("p_turismdescription", rtbDescripcion.Text))
             cmd.Parameters.Add(New MySqlParameter("p_tourismemail", tbEmail.Text))
@@ -67,7 +68,6 @@ Public Class AddAlojamiento
             If (modo = "insert") Then
                 cmd.CommandText = "ingresarAlojamiento"
             Else
-                cmd.Parameters.Add(New MySqlParameter("p_id", idAloj))
                 cmd.CommandText = "modificarAlojamiento"
             End If
 
@@ -78,20 +78,6 @@ Public Class AddAlojamiento
             MsgBox(ex.Message)
             conex.Close()
         End Try
-    End Sub
-
-    Private Sub modificarAloj()
-
-    End Sub
-
-    Sub comprobarCamposAlojBBDD()
-        Try
-            conex.Open()
-            cmd = New MySqlCommand("SELECT DISTINCT country FROM tpais,tmunicipio,tterritorio,tlocalizacion WHERE tpais.countrycode=tlocalizacion.countrycode AND tmunicipio.municipalitycode=tlocalizacion.municipalitycode AND tterritorio.territorycode=tlocalizacion.territorycode")
-            conex.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            conex.Close()
-        End Try
+        m.cambioVentana(Me, GestionAlojamientos)
     End Sub
 End Class

@@ -121,10 +121,10 @@ Public Class Metodos
         Dim datosCliente As Control
         Try
             conex.Open()
-            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario" &
-                                              " WHERE idDni='" & campo & "'", conex)
-            'datosCliente = New Control{AddReserva.tbNick, AddReserva.tbEmail, AddReserva.tbTelefonoUser}
+            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario " &
+                                              "WHERE idDni='" & campo & "'", conex)
             cmd.ExecuteNonQuery()
+            'datosCliente = {AddReserva.tbNick.Text, AddReserva.tbEmail, AddReserva.tbTelefonoUser}
             conex.Close()
         Catch ex As Exception
             MsgBox(ex.Message)

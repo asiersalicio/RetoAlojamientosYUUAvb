@@ -93,7 +93,7 @@ Public Class GestionAlojamientos
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         AddAlojamiento.modo = "insert"
-        m.cambioVentana(GestionAlojamientos.ActiveForm, AddAlojamiento)
+        m.cambioVentana(Me, AddAlojamiento)
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -102,7 +102,7 @@ Public Class GestionAlojamientos
         Else
             cargarDatosModificacion()
             AddAlojamiento.modo = "update"
-            m.cambioVentana(GestionAlojamientos.ActiveForm, AddAlojamiento)
+            m.cambioVentana(Me, AddAlojamiento)
         End If
     End Sub
 

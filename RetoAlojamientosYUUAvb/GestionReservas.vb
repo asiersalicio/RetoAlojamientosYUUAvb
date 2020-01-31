@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class GestionReservas
     Dim m As Metodos
     Dim conex As MySqlConnection
-    Dim adapter, adapterTabla, da As MySqlDataAdapter
+    Dim adapterTabla, adapterUsu As MySqlDataAdapter
     Dim ds As DataSet
     Dim cmd As New MySqlCommand
     Public arrayCampos As Control()
@@ -16,19 +16,18 @@ Public Class GestionReservas
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
-        adapter = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+        adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
                                        "FROM reserva res, usuario usu, talojamientos aloj " &
                                        "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
                                        "ORDER BY idReserva ASC", conex)
-        'adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
-        '                               "FROM reserva res, usuario usu, talojamientos aloj " &
-        '                               "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
-        '                               "ORDER BY idReserva ASC", conex)
         arrayCampos = New Control() {tbIdReserva, dtpEntrada, dtpSalida, tbAlojamiento, tbCategoria, tbDniCliente, tbNombreCliente, tbApellidosCliente}
+
+        'adapterUsu = New MySqlDataAdapter("SELECT nombreUsuario, correo, telefono FROM usuario " &
+        '                                      "WHERE idDni='" & tbDniCliente.Text & "'", conex)
 
         tabla = New DataTable()
         tabla.Clear()
-        adapter.Fill(tabla)
+        adapterTabla.Fill(tabla)
         dgvReservas.ResetBindings()
         dgvReservas.DataSource = tabla
         dgvReservas.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -62,7 +61,6 @@ Public Class GestionReservas
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
-            m.cargarRvaDatosCliente(tbDniCliente.Text)
             m.cambioVentana(Me, AddReserva)
         End If
     End Sub
@@ -76,12 +74,15 @@ Public Class GestionReservas
         AddReserva.tbDni.Text = arrayCampos(5).Text
         AddReserva.tbNombreUser.Text = arrayCampos(6).Text
         AddReserva.tbApellidosUser.Text = arrayCampos(7).Text
+
+        m.cargarRvaDatosCliente(arrayCampos(5).Text)
+
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
         m.borrarReg("reserva", Me.tbIdReserva.Text, dgvReservas)
         tabla.Clear()
-        adapter.Fill(tabla)
+        adapterTabla.Fill(tabla)
         dgvReservas.ResetBindings()
     End Sub
 
