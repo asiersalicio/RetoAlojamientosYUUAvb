@@ -92,8 +92,9 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub btnVerReservas_Click(sender As Object, e As EventArgs) Handles btnVerReservas.Click
+        GestionReservas.modoVision = "ver"
+        GestionReservas.tbDniCliente.Text = arrayCampos(0).Text
         m.cambioVentana(Me, GestionReservas)
-
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click

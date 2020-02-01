@@ -8,6 +8,7 @@ Public Class GestionReservas
     Dim ds As DataSet
     Dim cmd As New MySqlCommand
     Public arrayCampos As Control()
+    Public modoVision As String
     Dim usuarioBBDD, passwordBBDD, servidor, baseDatos As String
     Dim tabla As DataTable
 
@@ -19,12 +20,18 @@ Public Class GestionReservas
         baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
         'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
         conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-        adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+        If (modoVision = "ver") Then
+            adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
                                        "FROM reserva res, usuario usu, talojamientos aloj " &
-                                       "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
+                                       "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento AND usu.idDni='" & tbDniCliente.Text & "'" &
                                        "ORDER BY idReserva ASC", conex)
+        Else
+            adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+                                                   "FROM reserva res, usuario usu, talojamientos aloj " &
+                                                   "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &
+                                                   "ORDER BY idReserva ASC", conex)
+        End If
         arrayCampos = New Control() {tbIdReserva, dtpEntrada, dtpSalida, tbAlojamiento, tbCategoria, tbDniCliente, tbNombreCliente, tbApellidosCliente}
-
         'adapterUsu = New MySqlDataAdapter("SELECT nombreUsuario, correo, telefono FROM usuario " &
         '                                      "WHERE idDni='" & tbDniCliente.Text & "'", conex)
 
