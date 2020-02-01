@@ -3,7 +3,8 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddReserva
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD, modo As String
+    Dim usuarioBBDD, passwordBBDD, servidor, baseDatos, modo As String
+    Public modoRva As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da As MySqlDataAdapter
@@ -13,17 +14,13 @@ Public Class AddReserva
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        servidor = ConfigurationManager.AppSettings.Get("Servidor")
+        baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+        'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-        'cbAlojamiento.Text = "Elegir una opción"
-        'cbTipoAlojamiento.Text = "Elegir una opción"
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
-        'm.cargarAlojamientosPorTipo(cbTipoAlojamiento.SelectedItem, cbAlojamiento)
     End Sub
-
-    'Private Sub TbNombreUser_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbNombreUser.KeyPress, tbApellidosUser.KeyPress
-    '    m.soloLetras(e)
-    'End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         m.cambioVentana(Me, GestionReservas)
@@ -113,6 +110,5 @@ Public Class AddReserva
         Catch ex As Exception
             conex.Close()
         End Try
-        'ds.Clear()
     End Sub
 End Class

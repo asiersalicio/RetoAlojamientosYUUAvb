@@ -3,17 +3,20 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddAlojamiento
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD As String
-    Public modo As String
+    Dim usuarioBBDD, passwordBBDD, servidor, baseDatos As String
+    Public modoAloj As String
     Public idAloj As Integer
     Dim conex As New MySqlConnection
-    Dim cmd As  MySqlCommand
+    Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoAloj As MySqlDataAdapter
 
     Private Sub AddAlojamiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        servidor = ConfigurationManager.AppSettings.Get("Servidor")
+        baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+        'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         rtbDescripcion.Multiline = True
         rtbDescripcion.ScrollBars = ScrollBars.Vertical
@@ -65,7 +68,7 @@ Public Class AddAlojamiento
             cmd.Parameters.Add(New MySqlParameter("p_lat", tbLatitud.Text))
             cmd.Parameters.Add(New MySqlParameter("p_lon", tbLongitud.Text))
 
-            If (modo = "insert") Then
+            If (modoAloj = "insert") Then
                 cmd.CommandText = "ingresarAlojamiento"
             Else
                 cmd.CommandText = "modificarAlojamiento"

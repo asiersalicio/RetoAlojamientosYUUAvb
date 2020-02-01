@@ -8,14 +8,17 @@ Public Class GestionReservas
     Dim ds As DataSet
     Dim cmd As New MySqlCommand
     Public arrayCampos As Control()
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim usuarioBBDD, passwordBBDD, servidor, baseDatos As String
     Dim tabla As DataTable
 
     Private Sub GestionReservas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         m = New Metodos
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
+        servidor = ConfigurationManager.AppSettings.Get("Servidor")
+        baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+        'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
         adapterTabla = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
                                        "FROM reserva res, usuario usu, talojamientos aloj " &
                                        "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento " &

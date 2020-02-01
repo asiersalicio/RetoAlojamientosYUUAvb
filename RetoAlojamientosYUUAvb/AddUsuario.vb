@@ -4,14 +4,18 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddUsuario
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim usuarioBBDD, passwordBBDD, servidor, baseDatos As String
+    Public modoUsuario As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
     Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles Me.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        servidor = ConfigurationManager.AppSettings.Get("Servidor")
+        baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+        'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         'm.limpiarCampos(gbLogin)
         'm.limpiarCampos(gbDatosUsuario)
@@ -66,10 +70,15 @@ Public Class AddUsuario
                 conex.Open()
                 'Dim dateTime As DateTime = Convert.ToDateTime(dtpFechaNac.Value)
                 claveEncriptada = m.MD5EncryptPass(tbPassword1.Text)
-                cmd = New MySqlCommand("INSERT INTO `usuario` " &
-                                                      "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
-                                                      "VALUES " &
-                                                      "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
+                If (modoUsuario = "insert") Then
+                    cmd = New MySqlCommand("INSERT INTO `usuario` " &
+                                           "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
+                                           "VALUES " &
+                                           "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
+                Else
+
+                End If
+
                 cmd.Parameters.AddWithValue("@idDni", tbDNI.Text)
                 cmd.Parameters.AddWithValue("@Apellidos", tbApellidos.Text)
                 cmd.Parameters.AddWithValue("@contrasena", claveEncriptada)

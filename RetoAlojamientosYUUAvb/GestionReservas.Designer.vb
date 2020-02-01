@@ -60,37 +60,42 @@ Partial Class GestionReservas
         Me.dgvReservas.AllowUserToResizeRows = False
         Me.dgvReservas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReservas.Location = New System.Drawing.Point(13, 135)
+        Me.dgvReservas.Location = New System.Drawing.Point(17, 166)
+        Me.dgvReservas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvReservas.MultiSelect = False
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
+        Me.dgvReservas.RowHeadersWidth = 51
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvReservas.Size = New System.Drawing.Size(694, 273)
+        Me.dgvReservas.Size = New System.Drawing.Size(925, 336)
         Me.dgvReservas.TabIndex = 0
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(713, 135)
+        Me.btnAdd.Location = New System.Drawing.Point(951, 166)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(75, 86)
+        Me.btnAdd.Size = New System.Drawing.Size(100, 106)
         Me.btnAdd.TabIndex = 1
         Me.btnAdd.Text = "Añadir"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(713, 229)
+        Me.btnModificar.Location = New System.Drawing.Point(951, 282)
+        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(75, 86)
+        Me.btnModificar.Size = New System.Drawing.Size(100, 106)
         Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
         '
         'btnBorrar
         '
-        Me.btnBorrar.Location = New System.Drawing.Point(713, 322)
+        Me.btnBorrar.Location = New System.Drawing.Point(951, 396)
+        Me.btnBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnBorrar.Name = "btnBorrar"
-        Me.btnBorrar.Size = New System.Drawing.Size(75, 86)
+        Me.btnBorrar.Size = New System.Drawing.Size(100, 106)
         Me.btnBorrar.TabIndex = 3
         Me.btnBorrar.Text = "Borrar"
         Me.btnBorrar.UseVisualStyleBackColor = True
@@ -98,9 +103,10 @@ Partial Class GestionReservas
         'tbCategoria
         '
         Me.tbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCategoria.Location = New System.Drawing.Point(120, 139)
+        Me.tbCategoria.Location = New System.Drawing.Point(160, 171)
+        Me.tbCategoria.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbCategoria.Name = "tbCategoria"
-        Me.tbCategoria.Size = New System.Drawing.Size(200, 23)
+        Me.tbCategoria.Size = New System.Drawing.Size(265, 26)
         Me.tbCategoria.TabIndex = 5
         Me.tbCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -108,9 +114,10 @@ Partial Class GestionReservas
         '
         Me.lblNombreAlojamiento.AutoSize = True
         Me.lblNombreAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreAlojamiento.Location = New System.Drawing.Point(6, 142)
+        Me.lblNombreAlojamiento.Location = New System.Drawing.Point(8, 175)
+        Me.lblNombreAlojamiento.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNombreAlojamiento.Name = "lblNombreAlojamiento"
-        Me.lblNombreAlojamiento.Size = New System.Drawing.Size(73, 17)
+        Me.lblNombreAlojamiento.Size = New System.Drawing.Size(86, 20)
         Me.lblNombreAlojamiento.TabIndex = 7
         Me.lblNombreAlojamiento.Text = "Categoría:"
         '
@@ -118,18 +125,20 @@ Partial Class GestionReservas
         '
         Me.lblIdReserva.AutoSize = True
         Me.lblIdReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIdReserva.Location = New System.Drawing.Point(6, 16)
+        Me.lblIdReserva.Location = New System.Drawing.Point(8, 20)
+        Me.lblIdReserva.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblIdReserva.Name = "lblIdReserva"
-        Me.lblIdReserva.Size = New System.Drawing.Size(103, 17)
+        Me.lblIdReserva.Size = New System.Drawing.Size(119, 20)
         Me.lblIdReserva.TabIndex = 8
         Me.lblIdReserva.Text = "Identificador:"
         '
         'tbIdReserva
         '
         Me.tbIdReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbIdReserva.Location = New System.Drawing.Point(120, 13)
+        Me.tbIdReserva.Location = New System.Drawing.Point(160, 16)
+        Me.tbIdReserva.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbIdReserva.Name = "tbIdReserva"
-        Me.tbIdReserva.Size = New System.Drawing.Size(200, 23)
+        Me.tbIdReserva.Size = New System.Drawing.Size(265, 26)
         Me.tbIdReserva.TabIndex = 9
         Me.tbIdReserva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -137,18 +146,20 @@ Partial Class GestionReservas
         '
         Me.lblDniCliente.AutoSize = True
         Me.lblDniCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDniCliente.Location = New System.Drawing.Point(6, 186)
+        Me.lblDniCliente.Location = New System.Drawing.Point(8, 229)
+        Me.lblDniCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDniCliente.Name = "lblDniCliente"
-        Me.lblDniCliente.Size = New System.Drawing.Size(82, 17)
+        Me.lblDniCliente.Size = New System.Drawing.Size(100, 20)
         Me.lblDniCliente.TabIndex = 10
         Me.lblDniCliente.Text = "DNI Cliente:"
         '
         'tbDniCliente
         '
         Me.tbDniCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDniCliente.Location = New System.Drawing.Point(120, 183)
+        Me.tbDniCliente.Location = New System.Drawing.Point(160, 225)
+        Me.tbDniCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbDniCliente.Name = "tbDniCliente"
-        Me.tbDniCliente.Size = New System.Drawing.Size(200, 23)
+        Me.tbDniCliente.Size = New System.Drawing.Size(265, 26)
         Me.tbDniCliente.TabIndex = 11
         Me.tbDniCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -156,9 +167,10 @@ Partial Class GestionReservas
         '
         Me.lblFechaEntrada.AutoSize = True
         Me.lblFechaEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaEntrada.Location = New System.Drawing.Point(6, 45)
+        Me.lblFechaEntrada.Location = New System.Drawing.Point(8, 55)
+        Me.lblFechaEntrada.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFechaEntrada.Name = "lblFechaEntrada"
-        Me.lblFechaEntrada.Size = New System.Drawing.Size(105, 17)
+        Me.lblFechaEntrada.Size = New System.Drawing.Size(123, 20)
         Me.lblFechaEntrada.TabIndex = 14
         Me.lblFechaEntrada.Text = "Fecha Entrada:"
         '
@@ -166,9 +178,10 @@ Partial Class GestionReservas
         '
         Me.lblFechaSalida.AutoSize = True
         Me.lblFechaSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaSalida.Location = New System.Drawing.Point(6, 74)
+        Me.lblFechaSalida.Location = New System.Drawing.Point(8, 91)
+        Me.lblFechaSalida.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFechaSalida.Name = "lblFechaSalida"
-        Me.lblFechaSalida.Size = New System.Drawing.Size(94, 17)
+        Me.lblFechaSalida.Size = New System.Drawing.Size(111, 20)
         Me.lblFechaSalida.TabIndex = 15
         Me.lblFechaSalida.Text = "Fecha Salida:"
         '
@@ -176,44 +189,49 @@ Partial Class GestionReservas
         '
         Me.lblNombreCliente.AutoSize = True
         Me.lblNombreCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreCliente.Location = New System.Drawing.Point(6, 215)
+        Me.lblNombreCliente.Location = New System.Drawing.Point(8, 265)
+        Me.lblNombreCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNombreCliente.Name = "lblNombreCliente"
-        Me.lblNombreCliente.Size = New System.Drawing.Size(62, 17)
+        Me.lblNombreCliente.Size = New System.Drawing.Size(73, 20)
         Me.lblNombreCliente.TabIndex = 16
         Me.lblNombreCliente.Text = "Nombre:"
         '
         'tbNombreCliente
         '
         Me.tbNombreCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombreCliente.Location = New System.Drawing.Point(120, 212)
+        Me.tbNombreCliente.Location = New System.Drawing.Point(160, 261)
+        Me.tbNombreCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbNombreCliente.Name = "tbNombreCliente"
-        Me.tbNombreCliente.Size = New System.Drawing.Size(200, 23)
+        Me.tbNombreCliente.Size = New System.Drawing.Size(265, 26)
         Me.tbNombreCliente.TabIndex = 17
         Me.tbNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(12, 467)
+        Me.btnVolver.Location = New System.Drawing.Point(16, 575)
+        Me.btnVolver.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(100, 25)
+        Me.btnVolver.Size = New System.Drawing.Size(133, 31)
         Me.btnVolver.TabIndex = 20
         Me.btnVolver.Text = "Volver"
         Me.btnVolver.UseVisualStyleBackColor = True
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(1020, 74)
+        Me.btnLogout.Location = New System.Drawing.Point(1360, 91)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
+        Me.btnLogout.Size = New System.Drawing.Size(133, 31)
         Me.btnLogout.TabIndex = 27
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(1020, 467)
+        Me.btnSalir.Location = New System.Drawing.Point(1360, 575)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(100, 25)
+        Me.btnSalir.Size = New System.Drawing.Size(133, 31)
         Me.btnSalir.TabIndex = 26
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
@@ -237,9 +255,11 @@ Partial Class GestionReservas
         Me.gbDatosReserva.Controls.Add(Me.tbDniCliente)
         Me.gbDatosReserva.Controls.Add(Me.lblFechaSalida)
         Me.gbDatosReserva.Controls.Add(Me.lblFechaEntrada)
-        Me.gbDatosReserva.Location = New System.Drawing.Point(794, 128)
+        Me.gbDatosReserva.Location = New System.Drawing.Point(1059, 158)
+        Me.gbDatosReserva.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gbDatosReserva.Name = "gbDatosReserva"
-        Me.gbDatosReserva.Size = New System.Drawing.Size(326, 280)
+        Me.gbDatosReserva.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbDatosReserva.Size = New System.Drawing.Size(435, 345)
         Me.gbDatosReserva.TabIndex = 34
         Me.gbDatosReserva.TabStop = False
         '
@@ -247,34 +267,37 @@ Partial Class GestionReservas
         '
         Me.dtpSalida.Enabled = False
         Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpSalida.Location = New System.Drawing.Point(120, 74)
+        Me.dtpSalida.Location = New System.Drawing.Point(160, 91)
+        Me.dtpSalida.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtpSalida.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpSalida.Name = "dtpSalida"
         Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpSalida.Size = New System.Drawing.Size(200, 23)
+        Me.dtpSalida.Size = New System.Drawing.Size(265, 26)
         Me.dtpSalida.TabIndex = 38
-        Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.dtpSalida.Value = New Date(2020, 2, 1, 0, 0, 0, 0)
         '
         'dtpEntrada
         '
         Me.dtpEntrada.Enabled = False
         Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpEntrada.Location = New System.Drawing.Point(120, 42)
-        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 11, 57, 43, 0)
+        Me.dtpEntrada.Location = New System.Drawing.Point(160, 52)
+        Me.dtpEntrada.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpEntrada.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEntrada.Name = "dtpEntrada"
         Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpEntrada.Size = New System.Drawing.Size(200, 23)
+        Me.dtpEntrada.Size = New System.Drawing.Size(265, 26)
         Me.dtpEntrada.TabIndex = 37
-        Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.dtpEntrada.Value = New Date(2020, 2, 1, 0, 0, 0, 0)
         '
         'tbApellidosCliente
         '
         Me.tbApellidosCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellidosCliente.Location = New System.Drawing.Point(120, 241)
+        Me.tbApellidosCliente.Location = New System.Drawing.Point(160, 297)
+        Me.tbApellidosCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbApellidosCliente.Name = "tbApellidosCliente"
-        Me.tbApellidosCliente.Size = New System.Drawing.Size(200, 23)
+        Me.tbApellidosCliente.Size = New System.Drawing.Size(265, 26)
         Me.tbApellidosCliente.TabIndex = 36
         Me.tbApellidosCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -282,9 +305,10 @@ Partial Class GestionReservas
         '
         Me.lblApellidosCliente.AutoSize = True
         Me.lblApellidosCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellidosCliente.Location = New System.Drawing.Point(6, 244)
+        Me.lblApellidosCliente.Location = New System.Drawing.Point(8, 300)
+        Me.lblApellidosCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblApellidosCliente.Name = "lblApellidosCliente"
-        Me.lblApellidosCliente.Size = New System.Drawing.Size(65, 17)
+        Me.lblApellidosCliente.Size = New System.Drawing.Size(77, 20)
         Me.lblApellidosCliente.TabIndex = 35
         Me.lblApellidosCliente.Text = "Apellidos"
         '
@@ -292,27 +316,29 @@ Partial Class GestionReservas
         '
         Me.lblIdAlojamiento.AutoSize = True
         Me.lblIdAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIdAlojamiento.Location = New System.Drawing.Point(6, 113)
+        Me.lblIdAlojamiento.Location = New System.Drawing.Point(8, 139)
+        Me.lblIdAlojamiento.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblIdAlojamiento.Name = "lblIdAlojamiento"
-        Me.lblIdAlojamiento.Size = New System.Drawing.Size(85, 17)
+        Me.lblIdAlojamiento.Size = New System.Drawing.Size(101, 20)
         Me.lblIdAlojamiento.TabIndex = 6
         Me.lblIdAlojamiento.Text = "Alojamiento:"
         '
         'tbAlojamiento
         '
         Me.tbAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbAlojamiento.Location = New System.Drawing.Point(120, 110)
+        Me.tbAlojamiento.Location = New System.Drawing.Point(160, 135)
+        Me.tbAlojamiento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbAlojamiento.Name = "tbAlojamiento"
-        Me.tbAlojamiento.Size = New System.Drawing.Size(200, 23)
+        Me.tbAlojamiento.Size = New System.Drawing.Size(265, 26)
         Me.tbAlojamiento.TabIndex = 4
         Me.tbAlojamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GestionReservas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(1132, 504)
+        Me.ClientSize = New System.Drawing.Size(1509, 620)
         Me.Controls.Add(Me.gbDatosReserva)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnSalir)
@@ -321,6 +347,7 @@ Partial Class GestionReservas
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.dgvReservas)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "GestionReservas"
         Me.Text = "Gestión de Reservas"
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).EndInit()

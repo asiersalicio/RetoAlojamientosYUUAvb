@@ -39,7 +39,7 @@ Partial Class Login
         Me.lablUsuario.Location = New System.Drawing.Point(169, 186)
         Me.lablUsuario.MouseState = MaterialSkin.MouseState.HOVER
         Me.lablUsuario.Name = "lablUsuario"
-        Me.lablUsuario.Size = New System.Drawing.Size(61, 19)
+        Me.lablUsuario.Size = New System.Drawing.Size(74, 24)
         Me.lablUsuario.TabIndex = 1
         Me.lablUsuario.Text = "Usuario"
         '
@@ -53,7 +53,7 @@ Partial Class Login
         Me.lblPassword.Location = New System.Drawing.Point(168, 231)
         Me.lblPassword.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(86, 19)
+        Me.lblPassword.Size = New System.Drawing.Size(105, 24)
         Me.lblPassword.TabIndex = 1
         Me.lblPassword.Text = "Contraseña"
         '
@@ -69,7 +69,7 @@ Partial Class Login
         Me.tbUsuario.SelectedText = ""
         Me.tbUsuario.SelectionLength = 0
         Me.tbUsuario.SelectionStart = 0
-        Me.tbUsuario.Size = New System.Drawing.Size(224, 23)
+        Me.tbUsuario.Size = New System.Drawing.Size(224, 28)
         Me.tbUsuario.TabIndex = 0
         Me.tbUsuario.TabStop = False
         Me.tbUsuario.UseSystemPasswordChar = False
@@ -87,7 +87,7 @@ Partial Class Login
         Me.tbPassword.SelectedText = ""
         Me.tbPassword.SelectionLength = 0
         Me.tbPassword.SelectionStart = 0
-        Me.tbPassword.Size = New System.Drawing.Size(224, 23)
+        Me.tbPassword.Size = New System.Drawing.Size(224, 28)
         Me.tbPassword.TabIndex = 1
         Me.tbPassword.TabStop = False
         Me.tbPassword.UseSystemPasswordChar = False

@@ -3,14 +3,24 @@ Imports MySql.Data.MySqlClient
 
 Public Class Login
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD, passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
+    Public usuarioBBDD, passwordBBDD, servidor, baseDatos As String
+    'Public usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+    'Public passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+    'Public servidor = ConfigurationManager.AppSettings.Get("Servidor2")
+    'Public baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+    Dim passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
     Dim conex As New MySqlConnection
     Dim cmdUsuario, cmdPassword As New MySqlCommand
     Dim daUsuario, daPassword As New MySqlDataAdapter
     Dim dsUsuario, dsPassword As New DataSet
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
+        passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
+        servidor = ConfigurationManager.AppSettings.Get("Servidor")
+        baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+        'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyPressEventArgs) Handles tbUsuario.KeyPress, tbPassword.KeyPress
@@ -32,10 +42,6 @@ Public Class Login
             ElseIf (tbPassword.Text = "") Then
                 MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             Else
-                usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
-                passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-                conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-
                 dsUsuario.Clear()
                 dsPassword.Clear()
                 conex.Open()

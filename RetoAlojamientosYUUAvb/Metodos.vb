@@ -5,11 +5,11 @@ Imports MySql.Data.MySqlClient
 Public Class Metodos
     Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
     Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+    Dim servidor = ConfigurationManager.AppSettings.Get("Servidor")
+    Dim baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+    'Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+    Dim conex As New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-    'Public Function getEstado(ByRef modo As String)
-    '    Return modo
-    'End Function
     Public Sub Acceder()
         MenuGestion.Show()
         Login.tbUsuario.Clear()

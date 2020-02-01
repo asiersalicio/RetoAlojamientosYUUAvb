@@ -6,13 +6,18 @@ Public Class GestionUsuarios
     Dim conex As New MySqlConnection
     Public adapter As New MySqlDataAdapter
     Public arrayCampos As Control()
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim usuarioBBDD, passwordBBDD, servidor, baseDatos As String
     Dim tabla As DataTable
 
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        m = New Metodos
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        servidor = ConfigurationManager.AppSettings.Get("Servidor")
+        baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
+        'conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+
         adapter = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
                                            "FROM usuario", conex)
         arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, tbTipoUsuario}
@@ -67,6 +72,8 @@ Public Class GestionUsuarios
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         If (dgvUsuarios.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+            'ElseIf (dgvUsuarios.SelectedColumns(0) Is Nothing) Then
+            '    MsgBox("Debe seleccionar un usuario válido", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
             m.cambioVentana(Me, AddUsuario)
@@ -82,6 +89,11 @@ Public Class GestionUsuarios
         AddUsuario.dtpFechaNac.Text = CType(arrayCampos(6), DateTimePicker).Value.Date.ToString
         AddUsuario.tbTelefono.Text = arrayCampos(7).Text
         AddUsuario.cbTipoUsuario.Text = arrayCampos(8).Text
+    End Sub
+
+    Private Sub btnVerReservas_Click(sender As Object, e As EventArgs) Handles btnVerReservas.Click
+        m.cambioVentana(Me, GestionReservas)
+
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
