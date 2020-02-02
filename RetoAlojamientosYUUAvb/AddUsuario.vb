@@ -9,6 +9,7 @@ Public Class AddUsuario
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
+
     Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles Me.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
@@ -75,8 +76,12 @@ Public Class AddUsuario
                                            "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
                                            "VALUES " &
                                            "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
-                Else
-
+                ElseIf (modoUsuario = "update") Then
+                    cmd = New MySqlCommand("UPDATE `usuario` " &
+                                           "SET " &
+                                           "`idDni` = @idDNi, `apellidos` = @Apellidos, `contrasena` = @contrasena, `correo` = @correo, `fechaNacimiento` = @fechaNacimiento, `nombre` = @nombre, `nombreUsuario` = @nombreUsuario, `telefono` =  @telefono, `tipoUsuario` =  @tipoUsuario " &
+                                           "WHERE " &
+                                           "`usuario`.`idDni` = " & tbDNI.Text & "; ")
                 End If
 
                 cmd.Parameters.AddWithValue("@idDni", tbDNI.Text)

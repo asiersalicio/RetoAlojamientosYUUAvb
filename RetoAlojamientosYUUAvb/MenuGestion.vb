@@ -9,6 +9,7 @@
     End Sub
 
     Private Sub BtnGestionReservas_Click(sender As Object, e As EventArgs) Handles btnGestionReservas.Click
+        GestionReservas.modoVision = ""
         m.cambioVentana(Me, GestionReservas)
     End Sub
 

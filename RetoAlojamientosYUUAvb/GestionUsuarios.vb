@@ -9,7 +9,7 @@ Public Class GestionUsuarios
     Dim usuarioBBDD, passwordBBDD, servidor, baseDatos As String
     Dim tabla As DataTable
 
-    Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         m = New Metodos
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
@@ -66,6 +66,7 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        AddUsuario.modoUsuario = "insert"
         m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
@@ -75,14 +76,16 @@ Public Class GestionUsuarios
             'ElseIf (dgvUsuarios.SelectedColumns(0) Is Nothing) Then
             '    MsgBox("Debe seleccionar un usuario válido", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
-            cargarDatosModificacion()
+            cargaDatosModUsuarios()
+            AddUsuario.modoUsuario = "update"
             m.cambioVentana(Me, AddUsuario)
         End If
     End Sub
-    Private Sub cargarDatosModificacion()
+    Public Sub cargaDatosModUsuarios()
         AddUsuario.tbDNI.Text = arrayCampos(0).Text
         AddUsuario.tbNick.Text = arrayCampos(1).Text
         AddUsuario.tbPassword1.Text = arrayCampos(2).Text
+        AddUsuario.tbPassword2.Text = arrayCampos(2).Text
         AddUsuario.tbEmail.Text = arrayCampos(3).Text
         AddUsuario.tbNombre.Text = arrayCampos(4).Text
         AddUsuario.tbApellidos.Text = arrayCampos(5).Text
@@ -92,8 +95,12 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub btnVerReservas_Click(sender As Object, e As EventArgs) Handles btnVerReservas.Click
-        GestionReservas.modoVision = "ver"
+        GestionReservas.modoVision = "filtroUsuario"
         GestionReservas.tbDniCliente.Text = arrayCampos(0).Text
+        'GestionReservas.adapterTabla = New MySqlDataAdapter("SELECT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+        '                                           "FROM reserva res, usuario usu, talojamientos aloj " &
+        '                                           "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento AND usu.idDni='" & tbDniCliente.Text & "'" &
+        '                                           "ORDER BY idReserva ASC", conex)
         m.cambioVentana(Me, GestionReservas)
     End Sub
 

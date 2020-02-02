@@ -20,6 +20,8 @@ Public Class AddReserva
         conex = New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
+        m.datosCliente()
+
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -52,7 +54,7 @@ Public Class AddReserva
             MsgBox("Indique un correo electrónico de contacto", MsgBoxStyle.Information, "Ingresar email")
         Else
         End If
-            cmd = conex.CreateCommand
+        cmd = conex.CreateCommand
         Try
             conex.Open()
             cmd.CommandType = CommandType.StoredProcedure
@@ -75,10 +77,6 @@ Public Class AddReserva
         End Try
     End Sub
 
-    Private Sub CbTipoAlojamiento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTipoAlojamiento.SelectedIndexChanged
-
-    End Sub
-
     Private Sub datosAloj(campo As String)
         ds = New DataSet
         da = New MySqlDataAdapter
@@ -94,21 +92,4 @@ Public Class AddReserva
         tbWeb.Text = arrayCampos(4).Text
     End Sub
 
-    Public Sub datosCliente(campo As String)
-        ds = New DataSet
-        da = New MySqlDataAdapter
-        Try
-            conex.Open()
-            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario WHERE idDni='" & campo & "'", conex)
-            cmd.ExecuteNonQuery()
-            Dim arrayCampos2 = New Control() {tbNick, tbEmail, tbTelefonoUser}
-
-            tbNick.Text = arrayCampos2(0).Text
-            tbEmail.Text = arrayCampos2(1).Text
-            tbTelefonoUser.Text = arrayCampos2(2).Text
-            conex.Close()
-        Catch ex As Exception
-            conex.Close()
-        End Try
-    End Sub
 End Class

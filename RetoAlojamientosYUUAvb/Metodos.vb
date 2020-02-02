@@ -9,6 +9,9 @@ Public Class Metodos
     Dim baseDatos = ConfigurationManager.AppSettings.Get("BaseDatos")
     'Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
     Dim conex As New MySqlConnection("Server=" & servidor & "; Database=" & baseDatos & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+    Dim ds = New DataSet
+    Dim da = New MySqlDataAdapter
+    Dim cmd As MySqlCommand
 
     Public Sub Acceder()
         MenuGestion.Show()
@@ -52,10 +55,9 @@ Public Class Metodos
 
     Public Sub cargarTiposUsuarioTxt(item As TextBox)
         Dim idDni = MD5EncryptPass(GestionUsuarios.tbDNI.Text)
-        Dim ds = New DataSet
-        Dim da = New MySqlDataAdapter
-        Dim query As New MySqlCommand("SELECT tipoUsuario FROM usuarios WHERE idDni=" &
-                                      idDni, conex)
+        ds = New DataSet
+        da = New MySqlDataAdapter
+        Dim query As New MySqlCommand("SELECT tipoUsuario FROM usuarios WHERE idDni=" & idDni, conex)
 
         ds.Clear()
         da = New MySqlDataAdapter(query)
@@ -76,19 +78,17 @@ Public Class Metodos
         Next
     End Sub
 
-    Public Sub cargarAlojamientosPorTipo(campo As String, item As ComboBox)
-        item.Text = "Elegir una opción"
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT documentname " &
-                                          " FROM talojamientos" &
-                                          " WHERE lodgingtype='" & campo & "'" &
-                                          " ORDER BY documentname ASC", conex)
-        Dim campoTexto As New DataTable()
-        query.Fill(campoTexto)
+    Public Sub datosCliente()
+        Dim dni = GestionUsuarios.arrayCampos(5).Text
+        Try
+            conex.Open()
+            'cmd = New MySqlCommand("SELECT nombreUsuario FROM usuario WHERE idDni=" & dni, conex)
+            'da = New MySqlDataAdapter("SELECT nombreUsuario FROM usuario WHERE idDni=" & dni, conex)
 
-        Dim numero As Integer = campoTexto.Rows.Count
-        For i = 0 To campoTexto.Rows.Count - 1
-            item.Items.Add(campoTexto.Rows(i).Item(0))
-        Next
+            conex.Close()
+        Catch ex As Exception
+            conex.Close()
+        End Try
     End Sub
 
     Public Sub cambioVentana(origen As Form, destino As Form)
@@ -114,22 +114,6 @@ Public Class Metodos
                 conex.Close()
             End Try
         End If
-    End Sub
-
-    Public Sub cargarRvaDatosCliente(campo As String)
-        Dim cmd As MySqlCommand
-        Dim datosCliente As Control
-        Try
-            conex.Open()
-            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario " &
-                                              "WHERE idDni='" & campo & "'", conex)
-            cmd.ExecuteNonQuery()
-            'datosCliente = {AddReserva.tbNick.Text, AddReserva.tbEmail, AddReserva.tbTelefonoUser}
-            conex.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            conex.Close()
-        End Try
     End Sub
 
     Public Sub salir()
@@ -212,5 +196,4 @@ Public Class Metodos
         GestionUsuarios.FormBorderStyle = FormBorderStyle.None
         GestionUsuarios.WindowState = FormWindowState.Maximized
     End Sub
-
 End Class

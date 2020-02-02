@@ -113,6 +113,16 @@ Public Class GestionAlojamientos
         m.borrarReg("talojamientos", tbId.Text, dgvAlojamientos)
     End Sub
 
+    Private Sub btnVerReservas_Click(sender As Object, e As EventArgs) Handles btnVerReservas.Click
+        GestionReservas.modoVision = "filtroAlojamiento"
+        GestionReservas.tbAlojamiento.Text = arrayCampos(3).Text
+        'GestionReservas.adapterTabla = New MySqlDataAdapter("SELECT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+        '                                   "FROM reserva res, usuario usu, talojamientos aloj " &
+        '                                   "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento AND aloj.documentname='" & tbAlojamiento.Text & "'" &
+        '                                   "ORDER BY idReserva ASC", conex)
+        m.cambioVentana(Me, GestionReservas)
+    End Sub
+
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         m.desconectar(GestionAlojamientos.ActiveForm)
     End Sub
