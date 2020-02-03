@@ -42,7 +42,7 @@ Public Class GestionAlojamientos
         m.soloLectura(gbTLocalizacion)
     End Sub
 
-    Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlojamientos.RowEnter
+    Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlojamientos.RowEnter, dgvAlojamientos.CellDoubleClick
         Dim index As Integer = e.RowIndex
         Dim arrayStrings() As String = New String(14) {}
         For pos = 0 To 14
