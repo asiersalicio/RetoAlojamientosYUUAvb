@@ -8,6 +8,7 @@ Public Class AddUsuario
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
+    Public modo As String
     Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles Me.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")

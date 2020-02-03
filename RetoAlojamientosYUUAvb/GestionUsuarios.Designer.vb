@@ -26,6 +26,10 @@ Partial Class GestionUsuarios
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.tbBusqueda = New System.Windows.Forms.TextBox()
         Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cmAddUsuario = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmEditUsuario = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmBorrarUsuario = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblDni = New System.Windows.Forms.Label()
         Me.lblTipoUsuario = New System.Windows.Forms.Label()
@@ -68,16 +72,12 @@ Partial Class GestionUsuarios
         Me.tbIdReserva = New System.Windows.Forms.TextBox()
         Me.lblFechaSalida = New System.Windows.Forms.Label()
         Me.lblFechaEntrada = New System.Windows.Forms.Label()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.cmAddUsuario = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmEditUsuario = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmBorrarUsuario = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
         CType(Me.dgvReservasUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosReserva.SuspendLayout()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnLimpiar
@@ -111,6 +111,31 @@ Partial Class GestionUsuarios
         Me.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvUsuarios.Size = New System.Drawing.Size(694, 272)
         Me.dgvUsuarios.TabIndex = 23
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAddUsuario, Me.cmEditUsuario, Me.cmBorrarUsuario})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.ShowCheckMargin = True
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(190, 70)
+        '
+        'cmAddUsuario
+        '
+        Me.cmAddUsuario.Name = "cmAddUsuario"
+        Me.cmAddUsuario.Size = New System.Drawing.Size(189, 22)
+        Me.cmAddUsuario.Text = "Añadir usuario"
+        '
+        'cmEditUsuario
+        '
+        Me.cmEditUsuario.Name = "cmEditUsuario"
+        Me.cmEditUsuario.Size = New System.Drawing.Size(189, 22)
+        Me.cmEditUsuario.Text = "Modificar usuario"
+        '
+        'cmBorrarUsuario
+        '
+        Me.cmBorrarUsuario.Name = "cmBorrarUsuario"
+        Me.cmBorrarUsuario.Size = New System.Drawing.Size(189, 22)
+        Me.cmBorrarUsuario.Text = "Borrar usuario"
         '
         'lblNombre
         '
@@ -560,31 +585,6 @@ Partial Class GestionUsuarios
         Me.lblFechaEntrada.TabIndex = 14
         Me.lblFechaEntrada.Text = "Fecha Entrada"
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAddUsuario, Me.cmEditUsuario, Me.cmBorrarUsuario})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.ShowCheckMargin = True
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(190, 70)
-        '
-        'cmAddUsuario
-        '
-        Me.cmAddUsuario.Name = "cmAddUsuario"
-        Me.cmAddUsuario.Size = New System.Drawing.Size(189, 22)
-        Me.cmAddUsuario.Text = "Añadir usuario"
-        '
-        'cmEditUsuario
-        '
-        Me.cmEditUsuario.Name = "cmEditUsuario"
-        Me.cmEditUsuario.Size = New System.Drawing.Size(189, 22)
-        Me.cmEditUsuario.Text = "Modificar usuario"
-        '
-        'cmBorrarUsuario
-        '
-        Me.cmBorrarUsuario.Name = "cmBorrarUsuario"
-        Me.cmBorrarUsuario.Size = New System.Drawing.Size(189, 22)
-        Me.cmBorrarUsuario.Text = "Borrar usuario"
-        '
         'GestionUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -610,6 +610,7 @@ Partial Class GestionUsuarios
         Me.Name = "GestionUsuarios"
         Me.Text = "Gestión de Usuarios"
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.gbDatosUsuario.ResumeLayout(False)
         Me.gbDatosUsuario.PerformLayout()
         Me.gbLogin.ResumeLayout(False)
@@ -617,7 +618,6 @@ Partial Class GestionUsuarios
         CType(Me.dgvReservasUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbDatosReserva.ResumeLayout(False)
         Me.gbDatosReserva.PerformLayout()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

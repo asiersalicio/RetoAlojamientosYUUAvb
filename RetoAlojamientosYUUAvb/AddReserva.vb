@@ -3,22 +3,21 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddReserva
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD, modo As String
+    Dim usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da As MySqlDataAdapter
     Dim ds As DataSet
-    Dim campo As Control
+    Public modo As String
 
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-        'cbAlojamiento.Text = "Elegir una opción"
-        'cbTipoAlojamiento.Text = "Elegir una opción"
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
-        'm.cargarAlojamientosPorTipo(cbTipoAlojamiento.SelectedItem, cbAlojamiento)
+
+        da = New MySqlDataAdapter("SELECT DISTINCT lodgingtype FROM talojamientos WHERE idAlojamiento=(SELECT idAlojamiento FROM reserva WHERE idReserva=" & tbIdReserva.Text & ")", conex)
     End Sub
 
     'Private Sub TbNombreUser_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbNombreUser.KeyPress, tbApellidosUser.KeyPress

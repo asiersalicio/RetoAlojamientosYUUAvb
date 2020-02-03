@@ -65,7 +65,13 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAddUsuario.Click, cmAddUsuario.Click
-        metodos.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
+        AddUsuario.modo = "insert"
+        metodos.cambioVentana(Me, AddUsuario)
+    End Sub
+
+    Private Sub BtnAddReserva_Click(sender As Object, e As EventArgs) Handles btnAddReserva.Click
+        AddReserva.modo = "insert"
+        metodos.cambioVentana(Me, AddReserva)
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEditUsuario.Click, cmEditUsuario.Click
@@ -73,6 +79,7 @@ Public Class GestionUsuarios
             MsgBox("Debe tener al menos un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             datosModUsuario()
+            AddUsuario.modo = "update"
             metodos.cambioVentana(Me, AddUsuario)
         End If
     End Sub
@@ -82,6 +89,7 @@ Public Class GestionUsuarios
             MsgBox("Debe tener al menos una reserva seleccionada para poder modificarla", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             datosModReserva()
+            AddReserva.modo = "update"
             metodos.cambioVentana(Me, AddReserva)
         End If
     End Sub
@@ -91,6 +99,7 @@ Public Class GestionUsuarios
         AddUsuario.tbDNI.Text = arrayCamposUsuario(0).Text
         AddUsuario.tbNick.Text = arrayCamposUsuario(1).Text
         AddUsuario.tbPassword1.Text = arrayCamposUsuario(2).Text
+        AddUsuario.tbPassword2.Text = arrayCamposUsuario(2).Text
         AddUsuario.tbEmail.Text = arrayCamposUsuario(3).Text
         AddUsuario.tbNombre.Text = arrayCamposUsuario(4).Text
         AddUsuario.tbApellidos.Text = arrayCamposUsuario(5).Text
@@ -100,16 +109,22 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub datosModReserva()
-        'AddReserva.tbIdReserva.Text = arrayCampos(0).Text
-        'AddReserva.dtpEntrada.Text = CType(arrayCampos(1), DateTimePicker).Value.Date.ToString
-        'AddReserva.dtpSalida.Text = CType(arrayCampos(2), DateTimePicker).Value.Date.ToString
-        'AddReserva.cbAlojamiento.Text = arrayCampos(3).Text
-        'AddReserva.cbTipoAlojamiento.Text = arrayCampos(4).Text
-        'AddReserva.tbDni.Text = arrayCampos(5).Text
-        'AddReserva.tbNombreUser.Text = arrayCampos(6).Text
-        'AddReserva.tbApellidosUser.Text = arrayCampos(7).Text
+        'DATOS RESERVA
+        AddReserva.tbIdReserva.Text = arrayCamposReserva(0).Text
+        AddReserva.dtpEntrada.Text = CType(arrayCamposReserva(1), DateTimePicker).Value.Date.ToString
+        AddReserva.dtpSalida.Text = CType(arrayCamposReserva(2), DateTimePicker).Value.Date.ToString
 
-        'm.cargarRvaDatosCliente(arrayCampos(5).Text)
+        'DATOS ALOJAMIENTOS-RESERVA
+        'AddReserva.cbAlojamiento.Text = arrayCamposReserva(3).Text
+        'AddReserva.cbTipoAlojamiento.Text = arrayCamposReserva(4).Text
+
+        'DATOS USUARIO-RESERVA
+        AddReserva.tbDni.Text = arrayCamposUsuario(0).Text
+        AddReserva.tbNick.Text = arrayCamposUsuario(1).Text
+        AddReserva.tbEmail.Text = arrayCamposUsuario(3).Text
+        AddReserva.tbNombreUser.Text = arrayCamposUsuario(4).Text
+        AddReserva.tbApellidosUser.Text = arrayCamposUsuario(5).Text
+        AddReserva.tbTelefonoUser.Text = arrayCamposUsuario(7).Text
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrarUsuario.Click, cmBorrarUsuario.Click
@@ -151,9 +166,10 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub dgvUsuarios_SelectionChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.CellClick
+        Dim idUsuario = dgvUsuarios.SelectedRows(0).Cells(0).Value
         adapterReserva = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
                                       "FROM reserva res, usuario usu, talojamientos aloj " &
-                                      "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento AND res.idDni='" & dgvUsuarios.SelectedRows(0).Cells(0).Value & "'" &
+                                      "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento AND res.idDni='" & idUsuario & "'" &
                                       "ORDER BY idReserva ASC", conex)
 
         tablaReservas = New DataTable()
@@ -164,8 +180,6 @@ Public Class GestionUsuarios
         dgvReservasUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvReservasUsuario.MultiSelect = False
     End Sub
-
-
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         metodos.salir()
