@@ -25,7 +25,6 @@ Partial Class MenuGestion
         Me.btnGestionAlojamientos = New System.Windows.Forms.Button()
         Me.btnGestionUsuarios = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.btnGestionReservas = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -56,15 +55,6 @@ Partial Class MenuGestion
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'btnGestionReservas
-        '
-        Me.btnGestionReservas.Location = New System.Drawing.Point(228, 296)
-        Me.btnGestionReservas.Name = "btnGestionReservas"
-        Me.btnGestionReservas.Size = New System.Drawing.Size(329, 41)
-        Me.btnGestionReservas.TabIndex = 3
-        Me.btnGestionReservas.Text = "Gestionar Reservas"
-        Me.btnGestionReservas.UseVisualStyleBackColor = True
-        '
         'btnLogout
         '
         Me.btnLogout.Location = New System.Drawing.Point(688, 74)
@@ -80,7 +70,6 @@ Partial Class MenuGestion
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnLogout)
-        Me.Controls.Add(Me.btnGestionReservas)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGestionUsuarios)
         Me.Controls.Add(Me.btnGestionAlojamientos)
@@ -93,6 +82,5 @@ Partial Class MenuGestion
     Friend WithEvents btnGestionAlojamientos As Button
     Friend WithEvents btnGestionUsuarios As Button
     Friend WithEvents btnSalir As Button
-    Friend WithEvents btnGestionReservas As Button
     Friend WithEvents btnLogout As Button
 End Class

@@ -26,7 +26,7 @@ Public Class AddReserva
     'End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        m.cambioVentana(Me, GestionReservas)
+        m.cambioVentana(Me, GestionUsuarios)
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click

@@ -64,19 +64,30 @@ Public Class GestionUsuarios
         metodos.limpiarBusqueda()
     End Sub
 
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAddUsuario.Click, cmAddUsuario.Click
         metodos.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEditUsuario.Click, cmEditUsuario.Click
         If (dgvUsuarios.SelectedRows.Count <> 1) Then
-            MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+            MsgBox("Debe tener al menos un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
-            cargarDatosModificacion()
+            datosModUsuario()
             metodos.cambioVentana(Me, AddUsuario)
         End If
     End Sub
-    Private Sub cargarDatosModificacion()
+
+    Private Sub BtnEditReserva_Click(sender As Object, e As EventArgs) Handles btnEditReserva.Click
+        If (dgvReservasUsuario.SelectedRows.Count <> 1) Then
+            MsgBox("Debe tener al menos una reserva seleccionada para poder modificarla", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+        Else
+            datosModReserva()
+            metodos.cambioVentana(Me, AddReserva)
+        End If
+    End Sub
+
+
+    Private Sub datosModUsuario()
         AddUsuario.tbDNI.Text = arrayCamposUsuario(0).Text
         AddUsuario.tbNick.Text = arrayCamposUsuario(1).Text
         AddUsuario.tbPassword1.Text = arrayCamposUsuario(2).Text
@@ -88,10 +99,30 @@ Public Class GestionUsuarios
         AddUsuario.cbTipoUsuario.Text = arrayCamposUsuario(8).Text
     End Sub
 
-    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("usuario", "idDni", Me.tbDNI.Text, dgvUsuarios)
-        tabla.Clear()
-        da.Fill(tabla)
+    Private Sub datosModReserva()
+        'AddReserva.tbIdReserva.Text = arrayCampos(0).Text
+        'AddReserva.dtpEntrada.Text = CType(arrayCampos(1), DateTimePicker).Value.Date.ToString
+        'AddReserva.dtpSalida.Text = CType(arrayCampos(2), DateTimePicker).Value.Date.ToString
+        'AddReserva.cbAlojamiento.Text = arrayCampos(3).Text
+        'AddReserva.cbTipoAlojamiento.Text = arrayCampos(4).Text
+        'AddReserva.tbDni.Text = arrayCampos(5).Text
+        'AddReserva.tbNombreUser.Text = arrayCampos(6).Text
+        'AddReserva.tbApellidosUser.Text = arrayCampos(7).Text
+
+        'm.cargarRvaDatosCliente(arrayCampos(5).Text)
+    End Sub
+
+    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrarUsuario.Click, cmBorrarUsuario.Click
+        metodos.borrarReg("usuario", "idDni", Me.tbDNI.Text, dgvUsuarios)
+        tablaUsuarios.Clear()
+        adapterUsuarios.Fill(tablaUsuarios)
+        dgvUsuarios.ResetBindings()
+    End Sub
+
+    Private Sub BtnBorrarReserva_Click(sender As Object, e As EventArgs) Handles btnBorrarReserva.Click
+        metodos.borrarReg("reserva", "idDni", Me.tbDNI.Text, dgvUsuarios)
+        tablaUsuarios.Clear()
+        adapterUsuarios.Fill(tablaUsuarios)
         dgvUsuarios.ResetBindings()
     End Sub
 

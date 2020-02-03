@@ -8,7 +8,7 @@
         m.cambioVentana(Me, GestionUsuarios)
     End Sub
 
-    Private Sub BtnGestionReservas_Click(sender As Object, e As EventArgs) Handles btnGestionReservas.Click
+    Private Sub BtnGestionReservas_Click(sender As Object, e As EventArgs) 
         m.cambioVentana(Me, GestionReservas)
     End Sub
 
