@@ -2,34 +2,38 @@
 Imports MySql.Data.MySqlClient
 
 Public Class GestionUsuarios
-    Dim m As New Metodos
+    Dim metodos As New Metodos
     Dim conex As New MySqlConnection
-    Public da As New MySqlDataAdapter
-    Public arrayCampos As Control()
+    Public adapterUsuarios As New MySqlDataAdapter
+    Public adapterReserva As New MySqlDataAdapter
+    Public arrayCamposUsuario, arrayCamposReserva As Control()
     Dim usuarioBBDD, passwordBBDD As String
-    Dim tabla As DataTable
+    Dim tablaUsuarios, tablaReservas As DataTable
 
-    Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles Me.Load
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-        da = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
+        adapterUsuarios = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
                                            "FROM usuario WHERE NOT nombreUsuario='root'", conex)
-        arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, tbTipoUsuario}
 
-        tabla = New DataTable()
-        tabla.Clear()
-        da.Fill(tabla)
+        arrayCamposUsuario = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, tbTipoUsuario}
+        arrayCamposReserva = New Control() {tbIdReserva, dtpEntrada, dtpSalida, tbAlojamiento, tbCategoria}
+
+        tablaUsuarios = New DataTable()
+        tablaUsuarios.Clear()
+        adapterUsuarios.Fill(tablaUsuarios)
         dgvUsuarios.ResetBindings()
-        dgvUsuarios.DataSource = tabla
+        dgvUsuarios.DataSource = tablaUsuarios
         dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvUsuarios.MultiSelect = False
         dgvUsuarios.Rows(0).Selected = True
         dgvUsuarios.ClearSelection()
 
-        m.cargarTiposUsuarioTxt(tbTipoUsuario)
-        m.soloLectura(gbLogin)
-        m.soloLectura(gbDatosUsuario)
+        metodos.cargarTiposUsuarioTxt(tbTipoUsuario)
+        metodos.soloLectura(gbLogin)
+        metodos.soloLectura(gbDatosUsuario)
+        metodos.soloLectura(gbDatosReserva)
     End Sub
 
     Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.RowEnter
@@ -43,7 +47,7 @@ Public Class GestionUsuarios
             End Try
         Next
         For pos2 = 0 To 8
-            arrayCampos(pos2).Text = arrayStrings(pos2)
+            arrayCamposUsuario(pos2).Text = arrayStrings(pos2)
         Next
     End Sub
 
@@ -57,11 +61,11 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        m.limpiarBusqueda()
+        metodos.limpiarBusqueda()
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
+        metodos.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
@@ -69,37 +73,70 @@ Public Class GestionUsuarios
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
             cargarDatosModificacion()
-            m.cambioVentana(Me, AddUsuario)
+            metodos.cambioVentana(Me, AddUsuario)
         End If
     End Sub
     Private Sub cargarDatosModificacion()
-        AddUsuario.tbDNI.Text = arrayCampos(0).Text
-        AddUsuario.tbNick.Text = arrayCampos(1).Text
-        AddUsuario.tbPassword1.Text = arrayCampos(2).Text
-        AddUsuario.tbEmail.Text = arrayCampos(3).Text
-        AddUsuario.tbNombre.Text = arrayCampos(4).Text
-        AddUsuario.tbApellidos.Text = arrayCampos(5).Text
-        AddUsuario.dtpFechaNac.Text = CType(arrayCampos(6), DateTimePicker).Value.Date.ToString
-        AddUsuario.tbTelefono.Text = arrayCampos(7).Text
-        AddUsuario.cbTipoUsuario.Text = arrayCampos(8).Text
+        AddUsuario.tbDNI.Text = arrayCamposUsuario(0).Text
+        AddUsuario.tbNick.Text = arrayCamposUsuario(1).Text
+        AddUsuario.tbPassword1.Text = arrayCamposUsuario(2).Text
+        AddUsuario.tbEmail.Text = arrayCamposUsuario(3).Text
+        AddUsuario.tbNombre.Text = arrayCamposUsuario(4).Text
+        AddUsuario.tbApellidos.Text = arrayCamposUsuario(5).Text
+        AddUsuario.dtpFechaNac.Text = CType(arrayCamposUsuario(6), DateTimePicker).Value.Date.ToString
+        AddUsuario.tbTelefono.Text = arrayCamposUsuario(7).Text
+        AddUsuario.cbTipoUsuario.Text = arrayCamposUsuario(8).Text
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("usuario", Me.tbDNI.Text, dgvUsuarios)
-        tabla.Clear()
-        da.Fill(tabla)
+        metodos.borrarReg("usuario", Me.tbDNI.Text, dgvUsuarios)
+        tablaReservas.Clear()
+        adapterUsuarios.Fill(tablaReservas)
         dgvUsuarios.ResetBindings()
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        m.desconectar(GestionUsuarios.ActiveForm)
+        metodos.desconectar(GestionUsuarios.ActiveForm)
+    End Sub
+
+    Private Sub dgvReservasUsuario_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservasUsuario.RowEnter
+        Dim index As Integer = e.RowIndex
+        Dim arrayStrings() As String = New String(4) {}
+        For pos = 0 To 4
+            Try
+                arrayStrings(pos) = dgvReservasUsuario.Rows(index).Cells(pos).Value
+            Catch ex As Exception
+                arrayStrings(pos) = Nothing
+            End Try
+        Next
+        For pos2 = 0 To 4
+            arrayCamposReserva(pos2).Text = arrayStrings(pos2)
+        Next
+
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        m.cambioVentana(Me, MenuGestion)
+        metodos.cambioVentana(Me, MenuGestion)
     End Sub
 
+    Private Sub dgvUsuarios_SelectionChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.CellClick
+        adapterReserva = New MySqlDataAdapter("SELECT DISTINCT idReserva 'Id reserva',fechaEntrada 'Fecha entrada', fechaSalida 'fecha salida', aloj.documentname 'Alojamiento', aloj.lodgingtype 'Categoria', res.idDni 'Dni',usu.nombre 'Nombre', usu.apellidos 'Apellidos' " &
+                                      "FROM reserva res, usuario usu, talojamientos aloj " &
+                                      "WHERE res.idDni=usu.idDni AND aloj.idAlojamiento=res.idAlojamiento AND res.idDni='" & dgvUsuarios.SelectedRows(0).Cells(0).Value & "'" &
+                                      "ORDER BY idReserva ASC", conex)
+
+        tablaReservas = New DataTable()
+        tablaReservas.Clear()
+        adapterReserva.Fill(tablaReservas)
+        dgvReservasUsuario.ResetBindings()
+        dgvReservasUsuario.DataSource = tablaReservas
+        dgvReservasUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvReservasUsuario.MultiSelect = False
+    End Sub
+
+
+
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        m.salir()
+        metodos.salir()
     End Sub
 End Class

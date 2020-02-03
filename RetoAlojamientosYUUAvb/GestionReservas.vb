@@ -22,9 +22,6 @@ Public Class GestionReservas
                                        "ORDER BY idReserva ASC", conex)
         arrayCampos = New Control() {tbIdReserva, dtpEntrada, dtpSalida, tbAlojamiento, tbCategoria, tbDniCliente, tbNombreCliente, tbApellidosCliente}
 
-        'adapterUsu = New MySqlDataAdapter("SELECT nombreUsuario, correo, telefono FROM usuario " &
-        '                                      "WHERE idDni='" & tbDniCliente.Text & "'", conex)
-
         tabla = New DataTable()
         tabla.Clear()
         adapterTabla.Fill(tabla)
@@ -92,6 +89,10 @@ Public Class GestionReservas
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         m.cambioVentana(Me, MenuGestion)
+    End Sub
+
+    Private Sub dgvReservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.CellContentClick
+
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
