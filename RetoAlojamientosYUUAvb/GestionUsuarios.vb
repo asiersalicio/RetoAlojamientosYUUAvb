@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class GestionUsuarios
     Dim m As New Metodos
     Dim conex As New MySqlConnection
-    Public adapter As New MySqlDataAdapter
+    Public da As New MySqlDataAdapter
     Public arrayCampos As Control()
     Dim usuarioBBDD, passwordBBDD As String
     Dim tabla As DataTable
@@ -13,13 +13,13 @@ Public Class GestionUsuarios
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-        adapter = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
-                                           "FROM usuario", conex)
+        da = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
+                                           "FROM usuario WHERE NOT nombreUsuario='root'", conex)
         arrayCampos = New Control() {tbDNI, tbNick, tbPassword, tbEmail, tbNombre, tbApellidos, dtpFechaNac, tbTelefono, tbTipoUsuario}
 
         tabla = New DataTable()
         tabla.Clear()
-        adapter.Fill(tabla)
+        da.Fill(tabla)
         dgvUsuarios.ResetBindings()
         dgvUsuarios.DataSource = tabla
         dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -64,7 +64,7 @@ Public Class GestionUsuarios
         m.cambioVentana(GestionUsuarios.ActiveForm, AddUsuario)
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         If (dgvUsuarios.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un usuario seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
@@ -87,7 +87,7 @@ Public Class GestionUsuarios
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
         m.borrarReg("usuario", Me.tbDNI.Text, dgvUsuarios)
         tabla.Clear()
-        adapter.Fill(tabla)
+        da.Fill(tabla)
         dgvUsuarios.ResetBindings()
     End Sub
 

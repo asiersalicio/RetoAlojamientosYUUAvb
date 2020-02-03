@@ -46,16 +46,32 @@ Partial Class GestionUsuarios
         Me.lblNick = New System.Windows.Forms.Label()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.btnBorrar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.dgvReservasUsuario = New System.Windows.Forms.DataGridView()
+        Me.lblReservasUsuario = New System.Windows.Forms.Label()
+        Me.btnBorrarReserva = New System.Windows.Forms.Button()
+        Me.btnEditReserva = New System.Windows.Forms.Button()
+        Me.btnAddReserva = New System.Windows.Forms.Button()
+        Me.gbDatosReserva = New System.Windows.Forms.GroupBox()
+        Me.dtpSalida = New System.Windows.Forms.DateTimePicker()
+        Me.dtpEntrada = New System.Windows.Forms.DateTimePicker()
+        Me.lblIdAlojamiento = New System.Windows.Forms.Label()
+        Me.tbAlojamiento = New System.Windows.Forms.TextBox()
+        Me.tbCategoria = New System.Windows.Forms.TextBox()
+        Me.lblNombreAlojamiento = New System.Windows.Forms.Label()
+        Me.lblIdReserva = New System.Windows.Forms.Label()
+        Me.tbIdReserva = New System.Windows.Forms.TextBox()
+        Me.lblFechaSalida = New System.Windows.Forms.Label()
+        Me.lblFechaEntrada = New System.Windows.Forms.Label()
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosUsuario.SuspendLayout()
         Me.gbLogin.SuspendLayout()
+        CType(Me.dgvReservasUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbDatosReserva.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnLimpiar
@@ -318,14 +334,14 @@ Partial Class GestionUsuarios
         Me.btnBorrar.Text = "Borrar"
         Me.btnBorrar.UseVisualStyleBackColor = True
         '
-        'btnModificar
+        'btnEdit
         '
-        Me.btnModificar.Location = New System.Drawing.Point(713, 228)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(75, 86)
-        Me.btnModificar.TabIndex = 45
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = True
+        Me.btnEdit.Location = New System.Drawing.Point(713, 228)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(75, 86)
+        Me.btnEdit.TabIndex = 45
+        Me.btnEdit.Text = "Modificar"
+        Me.btnEdit.UseVisualStyleBackColor = True
         '
         'btnAdd
         '
@@ -338,7 +354,7 @@ Partial Class GestionUsuarios
         '
         'btnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(13, 467)
+        Me.btnVolver.Location = New System.Drawing.Point(12, 758)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(100, 25)
         Me.btnVolver.TabIndex = 48
@@ -347,7 +363,7 @@ Partial Class GestionUsuarios
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(1421, 467)
+        Me.btnSalir.Location = New System.Drawing.Point(1421, 758)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(100, 25)
         Me.btnSalir.TabIndex = 47
@@ -363,38 +379,197 @@ Partial Class GestionUsuarios
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
-        'CheckedListBox1
+        'dgvReservasUsuario
         '
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {"DNI", "Nombre", "Nombre de usuario", "Email"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(341, 422)
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(335, 64)
-        Me.CheckedListBox1.TabIndex = 50
+        Me.dgvReservasUsuario.AllowUserToAddRows = False
+        Me.dgvReservasUsuario.AllowUserToDeleteRows = False
+        Me.dgvReservasUsuario.AllowUserToResizeRows = False
+        Me.dgvReservasUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvReservasUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvReservasUsuario.Location = New System.Drawing.Point(12, 457)
+        Me.dgvReservasUsuario.MultiSelect = False
+        Me.dgvReservasUsuario.Name = "dgvReservasUsuario"
+        Me.dgvReservasUsuario.ReadOnly = True
+        Me.dgvReservasUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvReservasUsuario.Size = New System.Drawing.Size(694, 272)
+        Me.dgvReservasUsuario.TabIndex = 50
         '
-        'CheckBox1
+        'lblReservasUsuario
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(13, 87)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox1.TabIndex = 51
-        Me.CheckBox1.Text = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.lblReservasUsuario.AutoSize = True
+        Me.lblReservasUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReservasUsuario.Location = New System.Drawing.Point(12, 424)
+        Me.lblReservasUsuario.Name = "lblReservasUsuario"
+        Me.lblReservasUsuario.Size = New System.Drawing.Size(201, 24)
+        Me.lblReservasUsuario.TabIndex = 51
+        Me.lblReservasUsuario.Text = "Reservas de usuario"
+        '
+        'btnBorrarReserva
+        '
+        Me.btnBorrarReserva.Location = New System.Drawing.Point(713, 643)
+        Me.btnBorrarReserva.Name = "btnBorrarReserva"
+        Me.btnBorrarReserva.Size = New System.Drawing.Size(75, 86)
+        Me.btnBorrarReserva.TabIndex = 54
+        Me.btnBorrarReserva.Text = "Borrar"
+        Me.btnBorrarReserva.UseVisualStyleBackColor = True
+        '
+        'btnEditReserva
+        '
+        Me.btnEditReserva.Location = New System.Drawing.Point(713, 549)
+        Me.btnEditReserva.Name = "btnEditReserva"
+        Me.btnEditReserva.Size = New System.Drawing.Size(75, 86)
+        Me.btnEditReserva.TabIndex = 53
+        Me.btnEditReserva.Text = "Modificar"
+        Me.btnEditReserva.UseVisualStyleBackColor = True
+        '
+        'btnAddReserva
+        '
+        Me.btnAddReserva.Location = New System.Drawing.Point(713, 457)
+        Me.btnAddReserva.Name = "btnAddReserva"
+        Me.btnAddReserva.Size = New System.Drawing.Size(75, 86)
+        Me.btnAddReserva.TabIndex = 52
+        Me.btnAddReserva.Text = "Añadir"
+        Me.btnAddReserva.UseVisualStyleBackColor = True
+        '
+        'gbDatosReserva
+        '
+        Me.gbDatosReserva.BackColor = System.Drawing.SystemColors.Window
+        Me.gbDatosReserva.Controls.Add(Me.dtpSalida)
+        Me.gbDatosReserva.Controls.Add(Me.dtpEntrada)
+        Me.gbDatosReserva.Controls.Add(Me.lblIdAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.tbAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.tbCategoria)
+        Me.gbDatosReserva.Controls.Add(Me.lblNombreAlojamiento)
+        Me.gbDatosReserva.Controls.Add(Me.lblIdReserva)
+        Me.gbDatosReserva.Controls.Add(Me.tbIdReserva)
+        Me.gbDatosReserva.Controls.Add(Me.lblFechaSalida)
+        Me.gbDatosReserva.Controls.Add(Me.lblFechaEntrada)
+        Me.gbDatosReserva.Location = New System.Drawing.Point(822, 457)
+        Me.gbDatosReserva.Name = "gbDatosReserva"
+        Me.gbDatosReserva.Size = New System.Drawing.Size(699, 280)
+        Me.gbDatosReserva.TabIndex = 55
+        Me.gbDatosReserva.TabStop = False
+        '
+        'dtpSalida
+        '
+        Me.dtpSalida.Enabled = False
+        Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpSalida.Location = New System.Drawing.Point(241, 124)
+        Me.dtpSalida.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
+        Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpSalida.Name = "dtpSalida"
+        Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dtpSalida.Size = New System.Drawing.Size(300, 23)
+        Me.dtpSalida.TabIndex = 38
+        Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        '
+        'dtpEntrada
+        '
+        Me.dtpEntrada.Enabled = False
+        Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpEntrada.Location = New System.Drawing.Point(241, 92)
+        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 11, 57, 43, 0)
+        Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+        Me.dtpEntrada.Name = "dtpEntrada"
+        Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dtpEntrada.Size = New System.Drawing.Size(300, 23)
+        Me.dtpEntrada.TabIndex = 37
+        Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
+        '
+        'lblIdAlojamiento
+        '
+        Me.lblIdAlojamiento.AutoSize = True
+        Me.lblIdAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIdAlojamiento.Location = New System.Drawing.Point(130, 189)
+        Me.lblIdAlojamiento.Name = "lblIdAlojamiento"
+        Me.lblIdAlojamiento.Size = New System.Drawing.Size(81, 17)
+        Me.lblIdAlojamiento.TabIndex = 6
+        Me.lblIdAlojamiento.Text = "Alojamiento"
+        '
+        'tbAlojamiento
+        '
+        Me.tbAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbAlojamiento.Location = New System.Drawing.Point(244, 186)
+        Me.tbAlojamiento.Name = "tbAlojamiento"
+        Me.tbAlojamiento.Size = New System.Drawing.Size(300, 23)
+        Me.tbAlojamiento.TabIndex = 4
+        Me.tbAlojamiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'tbCategoria
+        '
+        Me.tbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCategoria.Location = New System.Drawing.Point(244, 215)
+        Me.tbCategoria.Name = "tbCategoria"
+        Me.tbCategoria.Size = New System.Drawing.Size(300, 23)
+        Me.tbCategoria.TabIndex = 5
+        Me.tbCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblNombreAlojamiento
+        '
+        Me.lblNombreAlojamiento.AutoSize = True
+        Me.lblNombreAlojamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreAlojamiento.Location = New System.Drawing.Point(130, 218)
+        Me.lblNombreAlojamiento.Name = "lblNombreAlojamiento"
+        Me.lblNombreAlojamiento.Size = New System.Drawing.Size(69, 17)
+        Me.lblNombreAlojamiento.TabIndex = 7
+        Me.lblNombreAlojamiento.Text = "Categoría"
+        '
+        'lblIdReserva
+        '
+        Me.lblIdReserva.AutoSize = True
+        Me.lblIdReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIdReserva.Location = New System.Drawing.Point(128, 22)
+        Me.lblIdReserva.Name = "lblIdReserva"
+        Me.lblIdReserva.Size = New System.Drawing.Size(113, 17)
+        Me.lblIdReserva.TabIndex = 8
+        Me.lblIdReserva.Text = "Nº de Reserva"
+        '
+        'tbIdReserva
+        '
+        Me.tbIdReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbIdReserva.Location = New System.Drawing.Point(241, 19)
+        Me.tbIdReserva.Name = "tbIdReserva"
+        Me.tbIdReserva.Size = New System.Drawing.Size(300, 23)
+        Me.tbIdReserva.TabIndex = 9
+        Me.tbIdReserva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblFechaSalida
+        '
+        Me.lblFechaSalida.AutoSize = True
+        Me.lblFechaSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaSalida.Location = New System.Drawing.Point(127, 124)
+        Me.lblFechaSalida.Name = "lblFechaSalida"
+        Me.lblFechaSalida.Size = New System.Drawing.Size(90, 17)
+        Me.lblFechaSalida.TabIndex = 15
+        Me.lblFechaSalida.Text = "Fecha Salida"
+        '
+        'lblFechaEntrada
+        '
+        Me.lblFechaEntrada.AutoSize = True
+        Me.lblFechaEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaEntrada.Location = New System.Drawing.Point(127, 95)
+        Me.lblFechaEntrada.Name = "lblFechaEntrada"
+        Me.lblFechaEntrada.Size = New System.Drawing.Size(101, 17)
+        Me.lblFechaEntrada.TabIndex = 14
+        Me.lblFechaEntrada.Text = "Fecha Entrada"
         '
         'GestionUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1533, 504)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.CheckedListBox1)
+        Me.ClientSize = New System.Drawing.Size(1533, 795)
+        Me.Controls.Add(Me.gbDatosReserva)
+        Me.Controls.Add(Me.btnBorrarReserva)
+        Me.Controls.Add(Me.btnEditReserva)
+        Me.Controls.Add(Me.btnAddReserva)
+        Me.Controls.Add(Me.lblReservasUsuario)
+        Me.Controls.Add(Me.dgvReservasUsuario)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.gbDatosUsuario)
-        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.gbLogin)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.dgvUsuarios)
@@ -407,6 +582,9 @@ Partial Class GestionUsuarios
         Me.gbDatosUsuario.PerformLayout()
         Me.gbLogin.ResumeLayout(False)
         Me.gbLogin.PerformLayout()
+        CType(Me.dgvReservasUsuario, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbDatosReserva.ResumeLayout(False)
+        Me.gbDatosReserva.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -435,11 +613,25 @@ Partial Class GestionUsuarios
     Friend WithEvents dtpFechaNac As DateTimePicker
     Friend WithEvents tbTipoUsuario As TextBox
     Friend WithEvents btnBorrar As Button
-    Friend WithEvents btnModificar As Button
+    Friend WithEvents btnEdit As Button
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnVolver As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLogout As Button
-    Friend WithEvents CheckedListBox1 As CheckedListBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents dgvReservasUsuario As DataGridView
+    Friend WithEvents lblReservasUsuario As Label
+    Friend WithEvents btnBorrarReserva As Button
+    Friend WithEvents btnEditReserva As Button
+    Friend WithEvents btnAddReserva As Button
+    Friend WithEvents gbDatosReserva As GroupBox
+    Friend WithEvents dtpSalida As DateTimePicker
+    Friend WithEvents dtpEntrada As DateTimePicker
+    Friend WithEvents lblIdAlojamiento As Label
+    Friend WithEvents tbAlojamiento As TextBox
+    Friend WithEvents tbCategoria As TextBox
+    Friend WithEvents lblNombreAlojamiento As Label
+    Friend WithEvents lblIdReserva As Label
+    Friend WithEvents tbIdReserva As TextBox
+    Friend WithEvents lblFechaSalida As Label
+    Friend WithEvents lblFechaEntrada As Label
 End Class
