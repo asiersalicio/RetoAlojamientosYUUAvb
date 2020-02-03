@@ -96,7 +96,7 @@ Public Class Metodos
         destino.Show()
     End Sub
 
-    Public Sub borrarReg(tabla As String, campo As String, dgv As DataGridView)
+    Public Sub borrarReg(tabla As String, campoBBDD As String, x As String, dgv As DataGridView)
         Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Dim cmd As MySqlCommand
 
@@ -104,8 +104,8 @@ Public Class Metodos
             Try
                 conex.Open()
                 cmd = New MySqlCommand("DELETE FROM " & tabla &
-                                              " WHERE" &
-                                              " idDNi= '" & campo & "';", conex)
+                                              " WHERE " &
+                                              campoBBDD & "= '" & x & "';", conex)
                 cmd.ExecuteNonQuery()
                 MsgBox("Se borrarron correctamente los datos de usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Éxito!")
                 conex.Close()

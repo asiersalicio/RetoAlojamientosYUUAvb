@@ -77,7 +77,7 @@ Public Class GestionReservas
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("reserva", Me.tbIdReserva.Text, dgvReservas)
+        m.borrarReg("reserva", "idReserva", Me.tbIdReserva.Text, dgvReservas)
         tabla.Clear()
         adapterTabla.Fill(tabla)
         dgvReservas.ResetBindings()

@@ -42,7 +42,7 @@ Public Class GestionAlojamientos
         m.soloLectura(gbTLocalizacion)
     End Sub
 
-    Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlojamientos.RowEnter
+    Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlojamientos.RowEnter, dgvAlojamientos.CellDoubleClick
         Dim index As Integer = e.RowIndex
         Dim arrayStrings() As String = New String(14) {}
         For pos = 0 To 14
@@ -91,12 +91,12 @@ Public Class GestionAlojamientos
         AddAlojamiento.tbLongitud.Text = arrayCampos(14).Text
     End Sub
 
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click, cmAdd.Click
         AddAlojamiento.modo = "insert"
         m.cambioVentana(Me, AddAlojamiento)
     End Sub
 
-    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click, cmEdit.Click
         If (dgvAlojamientos.SelectedRows.Count <> 1) Then
             MsgBox("Debe tener un alojamiento seleccionado para poder modificarlo", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Else
@@ -106,8 +106,11 @@ Public Class GestionAlojamientos
         End If
     End Sub
 
-    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        m.borrarReg("talojamientos", tbId.Text, dgvAlojamientos)
+    Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click, cmBorrar.Click
+        m.borrarReg("talojamientos", "idAlojamiento", tbId.Text, dgvAlojamientos)
+        tabla.Clear()
+        adapter.Fill(tabla)
+        dgvAlojamientos.ResetBindings()
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

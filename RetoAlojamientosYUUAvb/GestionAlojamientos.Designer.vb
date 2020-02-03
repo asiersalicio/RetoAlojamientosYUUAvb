@@ -63,11 +63,16 @@ Partial Class GestionAlojamientos
         Me.lblMunicipio = New System.Windows.Forms.Label()
         Me.lblPais = New System.Windows.Forms.Label()
         Me.dgvAlojamientos = New System.Windows.Forms.DataGridView()
-        Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnLogout = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cmAdd = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmBorrar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbTAlojamientos.SuspendLayout()
         Me.gbTLocalizacion.SuspendLayout()
         CType(Me.dgvAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -441,6 +446,7 @@ Partial Class GestionAlojamientos
         Me.dgvAlojamientos.AllowUserToResizeRows = False
         Me.dgvAlojamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAlojamientos.ContextMenuStrip = Me.ContextMenuStrip1
         Me.dgvAlojamientos.Location = New System.Drawing.Point(13, 135)
         Me.dgvAlojamientos.MultiSelect = False
         Me.dgvAlojamientos.Name = "dgvAlojamientos"
@@ -448,10 +454,6 @@ Partial Class GestionAlojamientos
         Me.dgvAlojamientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlojamientos.Size = New System.Drawing.Size(694, 273)
         Me.dgvAlojamientos.TabIndex = 24
-        '
-        'ConexionBindingSource
-        '
-        Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
         '
         'btnLogout
         '
@@ -461,6 +463,34 @@ Partial Class GestionAlojamientos
         Me.btnLogout.TabIndex = 25
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAdd, Me.cmEdit, Me.cmBorrar})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(126, 70)
+        '
+        'cmAdd
+        '
+        Me.cmAdd.Name = "cmAdd"
+        Me.cmAdd.Size = New System.Drawing.Size(125, 22)
+        Me.cmAdd.Text = "Añadir"
+        '
+        'cmEdit
+        '
+        Me.cmEdit.Name = "cmEdit"
+        Me.cmEdit.Size = New System.Drawing.Size(125, 22)
+        Me.cmEdit.Text = "Modificar"
+        '
+        'cmBorrar
+        '
+        Me.cmBorrar.Name = "cmBorrar"
+        Me.cmBorrar.Size = New System.Drawing.Size(125, 22)
+        Me.cmBorrar.Text = "Borrar"
+        '
+        'ConexionBindingSource
+        '
+        Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
         '
         'GestionAlojamientos
         '
@@ -501,6 +531,7 @@ Partial Class GestionAlojamientos
         Me.gbTLocalizacion.ResumeLayout(False)
         Me.gbTLocalizacion.PerformLayout()
         CType(Me.dgvAlojamientos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -548,4 +579,8 @@ Partial Class GestionAlojamientos
     Friend WithEvents cbTerritorio As TextBox
     Friend WithEvents cbPais As TextBox
     Friend WithEvents btnLogout As Button
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents cmAdd As ToolStripMenuItem
+    Friend WithEvents cmEdit As ToolStripMenuItem
+    Friend WithEvents cmBorrar As ToolStripMenuItem
 End Class

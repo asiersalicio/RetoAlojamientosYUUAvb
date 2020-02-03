@@ -89,9 +89,9 @@ Public Class GestionUsuarios
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        metodos.borrarReg("usuario", Me.tbDNI.Text, dgvUsuarios)
-        tablaReservas.Clear()
-        adapterUsuarios.Fill(tablaReservas)
+        m.borrarReg("usuario", "idDni", Me.tbDNI.Text, dgvUsuarios)
+        tabla.Clear()
+        da.Fill(tabla)
         dgvUsuarios.ResetBindings()
     End Sub
 
