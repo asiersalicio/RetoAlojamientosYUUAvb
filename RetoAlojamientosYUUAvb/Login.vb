@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class Login
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD, passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
+    Dim usuarioBBDD, passwordBBDD, server, database, passwordEncriptada, bbddUsuarioGet, bbddPasswordGet As String
     Dim conex As New MySqlConnection
     Dim cmdUsuario, cmdPassword As New MySqlCommand
     Dim daUsuario, daPassword As New MySqlDataAdapter
@@ -32,9 +32,11 @@ Public Class Login
             ElseIf (tbPassword.Text = "") Then
                 MsgBox("Debe introducir una contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
             Else
+                server = ConfigurationManager.AppSettings.Get("Server")
+                database = ConfigurationManager.AppSettings.Get("Database")
                 usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
                 passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-                conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+                conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
                 dsUsuario.Clear()
                 dsPassword.Clear()

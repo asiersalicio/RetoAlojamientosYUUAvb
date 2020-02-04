@@ -3,13 +3,12 @@ Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
 
 Public Class Metodos
+    Dim server = ConfigurationManager.AppSettings.Get("Server")
+    Dim database = ConfigurationManager.AppSettings.Get("Database")
     Dim usuarioBBDD As String = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
     Dim passwordBBDD As String = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-    Dim conex As New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+    Dim conex As New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-    'Public Function getEstado(ByRef modo As String)
-    '    Return modo
-    'End Function
     Public Sub Acceder()
         MenuGestion.Show()
         Login.tbUsuario.Clear()
@@ -76,21 +75,6 @@ Public Class Metodos
         Next
     End Sub
 
-    Public Sub cargarAlojamientosPorTipo(campo As String, item As ComboBox)
-        item.Text = "Elegir una opción"
-        Dim query As New MySqlDataAdapter("SELECT DISTINCT documentname " &
-                                          " FROM talojamientos" &
-                                          " WHERE lodgingtype='" & campo & "'" &
-                                          " ORDER BY documentname ASC", conex)
-        Dim campoTexto As New DataTable()
-        query.Fill(campoTexto)
-
-        Dim numero As Integer = campoTexto.Rows.Count
-        For i = 0 To campoTexto.Rows.Count - 1
-            item.Items.Add(campoTexto.Rows(i).Item(0))
-        Next
-    End Sub
-
     Public Sub cambioVentana(origen As Form, destino As Form)
         origen.Close()
         destino.Show()
@@ -114,22 +98,6 @@ Public Class Metodos
                 conex.Close()
             End Try
         End If
-    End Sub
-
-    Public Sub cargarRvaDatosCliente(campo As String)
-        Dim cmd As MySqlCommand
-        Dim datosCliente As Control
-        Try
-            conex.Open()
-            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario " &
-                                              "WHERE idDni='" & campo & "'", conex)
-            cmd.ExecuteNonQuery()
-            'datosCliente = {AddReserva.tbNick.Text, AddReserva.tbEmail, AddReserva.tbTelefonoUser}
-            conex.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            conex.Close()
-        End Try
     End Sub
 
     Public Sub salir()

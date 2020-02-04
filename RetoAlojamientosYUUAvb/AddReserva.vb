@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddReserva
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da As MySqlDataAdapter
@@ -11,18 +11,16 @@ Public Class AddReserva
     Public modo As String
 
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        server = ConfigurationManager.AppSettings.Get("Server")
+        database = ConfigurationManager.AppSettings.Get("Database")
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
 
         da = New MySqlDataAdapter("SELECT DISTINCT lodgingtype FROM talojamientos WHERE idAlojamiento=(SELECT idAlojamiento FROM reserva WHERE idReserva=" & tbIdReserva.Text & ")", conex)
     End Sub
-
-    'Private Sub TbNombreUser_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbNombreUser.KeyPress, tbApellidosUser.KeyPress
-    '    m.soloLetras(e)
-    'End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         m.cambioVentana(Me, GestionUsuarios)
@@ -54,7 +52,7 @@ Public Class AddReserva
             MsgBox("Indique un correo electrónico de contacto", MsgBoxStyle.Information, "Ingresar email")
         Else
         End If
-            cmd = conex.CreateCommand
+        cmd = conex.CreateCommand
         Try
             conex.Open()
             cmd.CommandType = CommandType.StoredProcedure
@@ -75,43 +73,5 @@ Public Class AddReserva
             MsgBox(ex.Message)
             conex.Close()
         End Try
-    End Sub
-
-    Private Sub CbTipoAlojamiento_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTipoAlojamiento.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub datosAloj(campo As String)
-        ds = New DataSet
-        da = New MySqlDataAdapter
-        cmd = New MySqlCommand("SELECT DISTINCT documentname, municipality, address, phone, web FROM talojamientos WHERE lodgingtype=" & campo, conex)
-        Dim arrayCampos = New Control() {cbAlojamiento, tbLocalidad, tbDireccion, tbTelefonoAloj, tbWeb}
-        ds.Clear()
-        da = New MySqlDataAdapter(cmd)
-
-        cbAlojamiento.Text = arrayCampos(0).Text
-        tbLocalidad.Text = arrayCampos(1).Text
-        tbDireccion.Text = arrayCampos(2).Text
-        tbTelefonoAloj.Text = arrayCampos(3).Text
-        tbWeb.Text = arrayCampos(4).Text
-    End Sub
-
-    Public Sub datosCliente(campo As String)
-        ds = New DataSet
-        da = New MySqlDataAdapter
-        Try
-            conex.Open()
-            cmd = New MySqlCommand("SELECT nombreUsuario, correo, telefono FROM usuario WHERE idDni='" & campo & "'", conex)
-            cmd.ExecuteNonQuery()
-            Dim arrayCampos2 = New Control() {tbNick, tbEmail, tbTelefonoUser}
-
-            tbNick.Text = arrayCampos2(0).Text
-            tbEmail.Text = arrayCampos2(1).Text
-            tbTelefonoUser.Text = arrayCampos2(2).Text
-            conex.Close()
-        Catch ex As Exception
-            conex.Close()
-        End Try
-        'ds.Clear()
     End Sub
 End Class

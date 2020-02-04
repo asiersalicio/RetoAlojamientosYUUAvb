@@ -5,14 +5,16 @@ Public Class GestionAlojamientos
     Dim conex As MySqlConnection
     Dim adapter As MySqlDataAdapter
     Public arrayCampos As Control()
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim tabla As DataTable
 
     Private Sub Gestion_Load(sender As Object, e As EventArgs) Handles Me.Load
         m = New Metodos
+        server = ConfigurationManager.AppSettings.Get("Server")
+        database = ConfigurationManager.AppSettings.Get("Database")
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD)
+        conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
         adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
                                           "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &

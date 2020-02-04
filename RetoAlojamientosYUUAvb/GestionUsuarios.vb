@@ -7,13 +7,15 @@ Public Class GestionUsuarios
     Public adapterUsuarios As New MySqlDataAdapter
     Public adapterReserva As New MySqlDataAdapter
     Public arrayCamposUsuario, arrayCamposReserva As Control()
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim tablaUsuarios, tablaReservas As DataTable
 
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles Me.Load
+        server = ConfigurationManager.AppSettings.Get("Server")
+        database = ConfigurationManager.AppSettings.Get("Database")
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
         adapterUsuarios = New MySqlDataAdapter("SELECT idDni 'DNI',nombreUsuario 'Nombre Usuario',contrasena 'Contraseña', correo 'email',nombre 'Nombre',apellidos 'Apellidos',fechaNacimiento 'Fecha Nacimiento',telefono 'Teléfono',tipoUsuario 'Tipo Usuario' " &
                                            "FROM usuario WHERE NOT nombreUsuario='root'", conex)
 

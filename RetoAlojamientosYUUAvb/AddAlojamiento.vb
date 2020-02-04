@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddAlojamiento
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim database, server, usuarioBBDD, passwordBBDD As String
     Public modo As String
     Public idAloj As Integer
     Dim conex As New MySqlConnection
@@ -11,9 +11,11 @@ Public Class AddAlojamiento
     Dim da, daInsert, daTipoAloj As MySqlDataAdapter
 
     Private Sub AddAlojamiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        server = ConfigurationManager.AppSettings.Get("Server")
+        database = ConfigurationManager.AppSettings.Get("Database")
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         rtbDescripcion.Multiline = True
         rtbDescripcion.ScrollBars = ScrollBars.Vertical

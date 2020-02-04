@@ -251,7 +251,7 @@ Partial Class GestionUsuarios
         Me.dtpFechaNac.Enabled = False
         Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNac.Location = New System.Drawing.Point(443, 30)
-        Me.dtpFechaNac.MaxDate = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.dtpFechaNac.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -500,7 +500,7 @@ Partial Class GestionUsuarios
         Me.dtpEntrada.Enabled = False
         Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEntrada.Location = New System.Drawing.Point(241, 92)
-        Me.dtpEntrada.MaxDate = New Date(2020, 1, 28, 11, 57, 43, 0)
+        Me.dtpEntrada.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEntrada.Name = "dtpEntrada"
         Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No

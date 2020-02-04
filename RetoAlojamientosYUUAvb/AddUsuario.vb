@@ -4,15 +4,17 @@ Imports MySql.Data.MySqlClient
 
 Public Class AddUsuario
     Dim m As New Metodos
-    Dim usuarioBBDD, passwordBBDD As String
+    Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
     Dim da, daInsert, daTipoUsuario As MySqlDataAdapter
     Public modo As String
     Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles Me.Load
+        server = ConfigurationManager.AppSettings.Get("Server")
+        database = ConfigurationManager.AppSettings.Get("Database")
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
-        conex = New MySqlConnection("Server=192.168.101.21; Database=retoalojamientos2; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
+        conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         'm.limpiarCampos(gbLogin)
         'm.limpiarCampos(gbDatosUsuario)
