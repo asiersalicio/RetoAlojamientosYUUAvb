@@ -6,6 +6,7 @@ Public Class AddReserva
     Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
+    Dim da As MySqlDataAdapter
     Public modo As String
 
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
