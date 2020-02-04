@@ -7,8 +7,7 @@ Public Class AddAlojamiento
     Public modo As String
     Public idAloj As Integer
     Dim conex As New MySqlConnection
-    Dim cmd As  MySqlCommand
-    Dim da, daInsert, daTipoAloj As MySqlDataAdapter
+    Dim cmd As MySqlCommand
 
     Private Sub AddAlojamiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         server = ConfigurationManager.AppSettings.Get("Server")

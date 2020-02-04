@@ -4,11 +4,10 @@ Imports MySql.Data.MySqlClient
 Public Class GestionUsuarios
     Dim metodos As New Metodos
     Dim conex As New MySqlConnection
-    Public adapterUsuarios As New MySqlDataAdapter
-    Public adapterReserva As New MySqlDataAdapter
+    Public adapterUsuarios, adapterReserva As New MySqlDataAdapter
     Public arrayCamposUsuario, arrayCamposReserva As Control()
-    Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim tablaUsuarios, tablaReservas As DataTable
+    Dim database, server, usuarioBBDD, passwordBBDD As String
 
     Private Sub GestionUsuarios_Load(sender As Object, e As EventArgs) Handles Me.Load
         server = ConfigurationManager.AppSettings.Get("Server")
