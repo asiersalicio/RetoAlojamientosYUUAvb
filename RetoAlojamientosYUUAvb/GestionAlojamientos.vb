@@ -35,11 +35,13 @@ Public Class GestionAlojamientos
         dgvAlojamientos.MultiSelect = False
         dgvAlojamientos.Rows(0).Selected = True
         dgvAlojamientos.ClearSelection()
+
         'm.cargarTiposAloj(cbTiposAloj)
         'm.cargarDatosAloj("tpais", "country", cbPais)
         'm.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
         'm.cargarDatosAloj("tmunicipio", "municipality", cbMunicipio)
 
+        m.cargarTipos("tlocalizacion", "territory", cbFiltroProvincias)
         m.soloLectura(gbTAlojamientos)
         m.soloLectura(gbTLocalizacion)
     End Sub
@@ -71,8 +73,23 @@ Public Class GestionAlojamientos
         dgvAlojamientos.DataSource = tabla
     End Sub
 
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click, btnVolver.Click
         m.limpiarBusqueda()
+        cbFiltroProvincias.SelectedIndex = 0
+        adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                          "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "lonwgs84 'Longitud' " &
+                                          "FROM talojamientos aloj, tlocalizacion loc " &
+                                          "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          " ORDER BY documentname ASC", conex)
+        arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, rtbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+
+        tabla = New DataTable()
+        tabla.Clear()
+        adapter.Fill(tabla)
+        dgvAlojamientos.ResetBindings()
+        dgvAlojamientos.DataSource = tabla
+        dgvAlojamientos.ClearSelection()
     End Sub
 
     Private Sub cargarDatosModificacion()
@@ -115,12 +132,36 @@ Public Class GestionAlojamientos
         dgvAlojamientos.ResetBindings()
     End Sub
 
+    Private Sub CbFiltroProvincias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFiltroProvincias.SelectedIndexChanged
+        If (cbFiltroProvincias.SelectedItem <> "Elegir una opción") Then
+            m.limpiarCampos(gbTAlojamientos)
+            m.limpiarCampos(gbTLocalizacion)
+            Dim index As String = cbFiltroProvincias.SelectedItem
+            adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                              "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                              "lonwgs84 'Longitud' " &
+                                              "FROM talojamientos aloj, tlocalizacion loc " &
+                                              "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion AND loc.territory='" & index & "' AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                              " ORDER BY documentname ASC", conex)
+            arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, rtbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
+
+            tabla = New DataTable()
+            tabla.Clear()
+            adapter.Fill(tabla)
+            dgvAlojamientos.ResetBindings()
+            dgvAlojamientos.DataSource = tabla
+            dgvAlojamientos.ClearSelection()
+        End If
+    End Sub
+
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         m.desconectar(GestionAlojamientos.ActiveForm)
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         m.cambioVentana(Me, MenuGestion)
+        'm.limpiarCampos(gbTAlojamientos)
+        'm.limpiarCampos(gbTLocalizacion)
     End Sub
 
     Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

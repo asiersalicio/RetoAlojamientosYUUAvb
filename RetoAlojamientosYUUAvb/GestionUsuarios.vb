@@ -70,9 +70,18 @@ Public Class GestionUsuarios
         metodos.cambioVentana(Me, AddUsuario)
     End Sub
 
-    Private Sub BtnAddReserva_Click(sender As Object, e As EventArgs) Handles btnAddReserva.Click
-        AddReserva.modo = "insert"
-        metodos.cambioVentana(Me, AddReserva)
+    Private Sub BtnAddReserva_Click(sender As Object, e As EventArgs) Handles btnAddReserva.Click, cmNuevaReserva.Click
+        If (sender = cmNuevaReserva) Then
+            AddReserva.tbDni.Text = arrayCamposUsuario(0).Text
+            AddReserva.tbNick.Text = arrayCamposUsuario(1).Text
+            AddReserva.tbEmail.Text = arrayCamposUsuario(3).Text
+            AddReserva.tbNombreUser.Text = arrayCamposUsuario(4).Text
+            AddReserva.tbApellidosUser.Text = arrayCamposUsuario(5).Text
+            AddReserva.tbTelefonoUser.Text = arrayCamposUsuario(7).Text
+        Else
+            AddReserva.modo = "insert"
+            metodos.cambioVentana(Me, AddReserva)
+        End If
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEditUsuario.Click, cmEditUsuario.Click

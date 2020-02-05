@@ -241,24 +241,26 @@ Partial Class AddReserva
         'dtpSalida
         '
         Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpSalida.Location = New System.Drawing.Point(326, 98)
+        Me.dtpSalida.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpSalida.Location = New System.Drawing.Point(367, 92)
         Me.dtpSalida.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpSalida.Name = "dtpSalida"
         Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpSalida.Size = New System.Drawing.Size(250, 23)
+        Me.dtpSalida.Size = New System.Drawing.Size(150, 23)
         Me.dtpSalida.TabIndex = 2
         Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
         '
         'dtpEntrada
         '
         Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpEntrada.Location = New System.Drawing.Point(326, 72)
+        Me.dtpEntrada.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpEntrada.Location = New System.Drawing.Point(367, 66)
         Me.dtpEntrada.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEntrada.Name = "dtpEntrada"
         Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpEntrada.Size = New System.Drawing.Size(250, 23)
+        Me.dtpEntrada.Size = New System.Drawing.Size(150, 23)
         Me.dtpEntrada.TabIndex = 1
         Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
         '
@@ -287,7 +289,7 @@ Partial Class AddReserva
         '
         Me.lblSalida.AutoSize = True
         Me.lblSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSalida.Location = New System.Drawing.Point(176, 103)
+        Me.lblSalida.Location = New System.Drawing.Point(217, 97)
         Me.lblSalida.Name = "lblSalida"
         Me.lblSalida.Size = New System.Drawing.Size(90, 17)
         Me.lblSalida.TabIndex = 15
@@ -297,7 +299,7 @@ Partial Class AddReserva
         '
         Me.lblEntrada.AutoSize = True
         Me.lblEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEntrada.Location = New System.Drawing.Point(176, 77)
+        Me.lblEntrada.Location = New System.Drawing.Point(217, 71)
         Me.lblEntrada.Name = "lblEntrada"
         Me.lblEntrada.Size = New System.Drawing.Size(101, 17)
         Me.lblEntrada.TabIndex = 14

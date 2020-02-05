@@ -27,9 +27,13 @@ Partial Class GestionUsuarios
         Me.tbBusqueda = New System.Windows.Forms.TextBox()
         Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.tstbEdicionUsuario = New System.Windows.Forms.ToolStripTextBox()
         Me.cmAddUsuario = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmEditUsuario = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmBorrarUsuario = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tstbReservas = New System.Windows.Forms.ToolStripTextBox()
+        Me.cmNuevaReserva = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblDni = New System.Windows.Forms.Label()
         Me.lblTipoUsuario = New System.Windows.Forms.Label()
@@ -114,28 +118,58 @@ Partial Class GestionUsuarios
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAddUsuario, Me.cmEditUsuario, Me.cmBorrarUsuario})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tstbEdicionUsuario, Me.cmAddUsuario, Me.cmEditUsuario, Me.cmBorrarUsuario, Me.ToolStripSeparator1, Me.tstbReservas, Me.cmNuevaReserva})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.ShowCheckMargin = True
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(190, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(207, 139)
+        '
+        'tstbEdicionUsuario
+        '
+        Me.tstbEdicionUsuario.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.tstbEdicionUsuario.BackColor = System.Drawing.SystemColors.Window
+        Me.tstbEdicionUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.tstbEdicionUsuario.Font = New System.Drawing.Font("Segoe UI", 8.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(1, Byte), True)
+        Me.tstbEdicionUsuario.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.tstbEdicionUsuario.Name = "tstbEdicionUsuario"
+        Me.tstbEdicionUsuario.Size = New System.Drawing.Size(100, 15)
+        Me.tstbEdicionUsuario.Text = "EDICIÓN USUARIO"
         '
         'cmAddUsuario
         '
         Me.cmAddUsuario.Name = "cmAddUsuario"
-        Me.cmAddUsuario.Size = New System.Drawing.Size(189, 22)
+        Me.cmAddUsuario.Size = New System.Drawing.Size(206, 22)
         Me.cmAddUsuario.Text = "Añadir usuario"
         '
         'cmEditUsuario
         '
         Me.cmEditUsuario.Name = "cmEditUsuario"
-        Me.cmEditUsuario.Size = New System.Drawing.Size(189, 22)
+        Me.cmEditUsuario.Size = New System.Drawing.Size(206, 22)
         Me.cmEditUsuario.Text = "Modificar usuario"
         '
         'cmBorrarUsuario
         '
         Me.cmBorrarUsuario.Name = "cmBorrarUsuario"
-        Me.cmBorrarUsuario.Size = New System.Drawing.Size(189, 22)
+        Me.cmBorrarUsuario.Size = New System.Drawing.Size(206, 22)
         Me.cmBorrarUsuario.Text = "Borrar usuario"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(203, 6)
+        '
+        'tstbReservas
+        '
+        Me.tstbReservas.Font = New System.Drawing.Font("Segoe UI", 8.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(1, Byte), True)
+        Me.tstbReservas.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.tstbReservas.Name = "tstbReservas"
+        Me.tstbReservas.Size = New System.Drawing.Size(100, 22)
+        Me.tstbReservas.Text = "RESERVAS"
+        '
+        'cmNuevaReserva
+        '
+        Me.cmNuevaReserva.Name = "cmNuevaReserva"
+        Me.cmNuevaReserva.Size = New System.Drawing.Size(206, 22)
+        Me.cmNuevaReserva.Text = "Añadir nueva reserva"
         '
         'lblNombre
         '
@@ -144,9 +178,9 @@ Partial Class GestionUsuarios
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblNombre.Location = New System.Drawing.Point(6, 37)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(47, 13)
+        Me.lblNombre.Size = New System.Drawing.Size(44, 13)
         Me.lblNombre.TabIndex = 40
-        Me.lblNombre.Text = "Nombre:"
+        Me.lblNombre.Text = "Nombre"
         '
         'lblDni
         '
@@ -155,9 +189,9 @@ Partial Class GestionUsuarios
         Me.lblDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblDni.Location = New System.Drawing.Point(6, 103)
         Me.lblDni.Name = "lblDni"
-        Me.lblDni.Size = New System.Drawing.Size(29, 13)
+        Me.lblDni.Size = New System.Drawing.Size(26, 13)
         Me.lblDni.TabIndex = 39
-        Me.lblDni.Text = "DNI:"
+        Me.lblDni.Text = "DNI"
         '
         'lblTipoUsuario
         '
@@ -166,9 +200,9 @@ Partial Class GestionUsuarios
         Me.lblTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblTipoUsuario.Location = New System.Drawing.Point(241, 153)
         Me.lblTipoUsuario.Name = "lblTipoUsuario"
-        Me.lblTipoUsuario.Size = New System.Drawing.Size(68, 13)
+        Me.lblTipoUsuario.Size = New System.Drawing.Size(65, 13)
         Me.lblTipoUsuario.TabIndex = 38
-        Me.lblTipoUsuario.Text = "Tipo usuario:"
+        Me.lblTipoUsuario.Text = "Tipo usuario"
         '
         'lblEmail
         '
@@ -177,9 +211,9 @@ Partial Class GestionUsuarios
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblEmail.Location = New System.Drawing.Point(348, 101)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(35, 13)
+        Me.lblEmail.Size = New System.Drawing.Size(32, 13)
         Me.lblEmail.TabIndex = 37
-        Me.lblEmail.Text = "Email:"
+        Me.lblEmail.Text = "Email"
         '
         'lblFechaNac
         '
@@ -188,9 +222,9 @@ Partial Class GestionUsuarios
         Me.lblFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblFechaNac.Location = New System.Drawing.Point(348, 37)
         Me.lblFechaNac.Name = "lblFechaNac"
-        Me.lblFechaNac.Size = New System.Drawing.Size(94, 13)
+        Me.lblFechaNac.Size = New System.Drawing.Size(91, 13)
         Me.lblFechaNac.TabIndex = 36
-        Me.lblFechaNac.Text = "Fecha nacimiento:"
+        Me.lblFechaNac.Text = "Fecha nacimiento"
         '
         'lblTelefono
         '
@@ -199,9 +233,9 @@ Partial Class GestionUsuarios
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblTelefono.Location = New System.Drawing.Point(348, 67)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(52, 13)
+        Me.lblTelefono.Size = New System.Drawing.Size(49, 13)
         Me.lblTelefono.TabIndex = 35
-        Me.lblTelefono.Text = "Teléfono:"
+        Me.lblTelefono.Text = "Teléfono"
         '
         'lblApellidos
         '
@@ -210,9 +244,9 @@ Partial Class GestionUsuarios
         Me.lblApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.lblApellidos.Location = New System.Drawing.Point(6, 70)
         Me.lblApellidos.Name = "lblApellidos"
-        Me.lblApellidos.Size = New System.Drawing.Size(52, 13)
+        Me.lblApellidos.Size = New System.Drawing.Size(49, 13)
         Me.lblApellidos.TabIndex = 34
-        Me.lblApellidos.Text = "Apellidos:"
+        Me.lblApellidos.Text = "Apellidos"
         '
         'gbDatosUsuario
         '
@@ -250,12 +284,13 @@ Partial Class GestionUsuarios
         '
         Me.dtpFechaNac.Enabled = False
         Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(443, 30)
         Me.dtpFechaNac.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpFechaNac.Size = New System.Drawing.Size(250, 23)
+        Me.dtpFechaNac.Size = New System.Drawing.Size(110, 23)
         Me.dtpFechaNac.TabIndex = 11
         Me.dtpFechaNac.Value = New Date(2020, 1, 16, 12, 44, 46, 0)
         '
@@ -486,12 +521,13 @@ Partial Class GestionUsuarios
         '
         Me.dtpSalida.Enabled = False
         Me.dtpSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpSalida.Location = New System.Drawing.Point(241, 124)
+        Me.dtpSalida.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpSalida.Location = New System.Drawing.Point(351, 124)
         Me.dtpSalida.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpSalida.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpSalida.Name = "dtpSalida"
         Me.dtpSalida.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpSalida.Size = New System.Drawing.Size(300, 23)
+        Me.dtpSalida.Size = New System.Drawing.Size(110, 23)
         Me.dtpSalida.TabIndex = 38
         Me.dtpSalida.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
         '
@@ -499,12 +535,13 @@ Partial Class GestionUsuarios
         '
         Me.dtpEntrada.Enabled = False
         Me.dtpEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpEntrada.Location = New System.Drawing.Point(241, 92)
+        Me.dtpEntrada.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpEntrada.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.dtpEntrada.Location = New System.Drawing.Point(351, 92)
         Me.dtpEntrada.MaxDate = New Date(2100, 12, 31, 23, 59, 0, 0)
         Me.dtpEntrada.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpEntrada.Name = "dtpEntrada"
-        Me.dtpEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpEntrada.Size = New System.Drawing.Size(300, 23)
+        Me.dtpEntrada.Size = New System.Drawing.Size(110, 23)
         Me.dtpEntrada.TabIndex = 37
         Me.dtpEntrada.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
         '
@@ -569,7 +606,7 @@ Partial Class GestionUsuarios
         '
         Me.lblFechaSalida.AutoSize = True
         Me.lblFechaSalida.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaSalida.Location = New System.Drawing.Point(127, 124)
+        Me.lblFechaSalida.Location = New System.Drawing.Point(237, 124)
         Me.lblFechaSalida.Name = "lblFechaSalida"
         Me.lblFechaSalida.Size = New System.Drawing.Size(90, 17)
         Me.lblFechaSalida.TabIndex = 15
@@ -579,7 +616,7 @@ Partial Class GestionUsuarios
         '
         Me.lblFechaEntrada.AutoSize = True
         Me.lblFechaEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaEntrada.Location = New System.Drawing.Point(127, 95)
+        Me.lblFechaEntrada.Location = New System.Drawing.Point(237, 95)
         Me.lblFechaEntrada.Name = "lblFechaEntrada"
         Me.lblFechaEntrada.Size = New System.Drawing.Size(101, 17)
         Me.lblFechaEntrada.TabIndex = 14
@@ -611,6 +648,7 @@ Partial Class GestionUsuarios
         Me.Text = "Gestión de Usuarios"
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.ContextMenuStrip1.PerformLayout()
         Me.gbDatosUsuario.ResumeLayout(False)
         Me.gbDatosUsuario.PerformLayout()
         Me.gbLogin.ResumeLayout(False)
@@ -671,4 +709,8 @@ Partial Class GestionUsuarios
     Friend WithEvents cmAddUsuario As ToolStripMenuItem
     Friend WithEvents cmEditUsuario As ToolStripMenuItem
     Friend WithEvents cmBorrarUsuario As ToolStripMenuItem
+    Friend WithEvents tstbEdicionUsuario As ToolStripTextBox
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents tstbReservas As ToolStripTextBox
+    Friend WithEvents cmNuevaReserva As ToolStripMenuItem
 End Class

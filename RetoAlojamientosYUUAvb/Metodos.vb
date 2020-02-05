@@ -62,7 +62,7 @@ Public Class Metodos
     End Sub
 
     Public Sub cargarTipos(tabla As String, campo As String, item As ComboBox)
-        item.Text = "Elegir una opción"
+        item.Items.Add("Elegir una opción")
         Dim query As New MySqlDataAdapter("SELECT DISTINCT " & campo &
                                           " FROM " & tabla &
                                           " ORDER BY " & campo & " ASC", conex)
@@ -73,6 +73,7 @@ Public Class Metodos
         For i = 0 To campoTexto.Rows.Count - 1
             item.Items.Add(campoTexto.Rows(i).Item(0))
         Next
+        item.SelectedIndex = 0
     End Sub
 
     Public Sub cambioVentana(origen As Form, destino As Form)

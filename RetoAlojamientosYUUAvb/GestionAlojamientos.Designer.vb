@@ -63,17 +63,22 @@ Partial Class GestionAlojamientos
         Me.lblMunicipio = New System.Windows.Forms.Label()
         Me.lblPais = New System.Windows.Forms.Label()
         Me.dgvAlojamientos = New System.Windows.Forms.DataGridView()
-        Me.btnLogout = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmAdd = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmBorrar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnLogout = New System.Windows.Forms.Button()
+        Me.cbFiltroProvincias = New System.Windows.Forms.ComboBox()
         Me.ConexionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GestionAlojamientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MetodosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbTAlojamientos.SuspendLayout()
         Me.gbTLocalizacion.SuspendLayout()
         CType(Me.dgvAlojamientos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GestionAlojamientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MetodosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnSalir
@@ -455,15 +460,6 @@ Partial Class GestionAlojamientos
         Me.dgvAlojamientos.Size = New System.Drawing.Size(694, 273)
         Me.dgvAlojamientos.TabIndex = 24
         '
-        'btnLogout
-        '
-        Me.btnLogout.Location = New System.Drawing.Point(1421, 74)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
-        Me.btnLogout.TabIndex = 25
-        Me.btnLogout.Text = "Desconectar"
-        Me.btnLogout.UseVisualStyleBackColor = True
-        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAdd, Me.cmEdit, Me.cmBorrar})
@@ -488,9 +484,34 @@ Partial Class GestionAlojamientos
         Me.cmBorrar.Size = New System.Drawing.Size(125, 22)
         Me.cmBorrar.Text = "Borrar"
         '
+        'btnLogout
+        '
+        Me.btnLogout.Location = New System.Drawing.Point(1421, 74)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
+        Me.btnLogout.TabIndex = 25
+        Me.btnLogout.Text = "Desconectar"
+        Me.btnLogout.UseVisualStyleBackColor = True
+        '
+        'cbFiltroProvincias
+        '
+        Me.cbFiltroProvincias.FormattingEnabled = True
+        Me.cbFiltroProvincias.Location = New System.Drawing.Point(12, 414)
+        Me.cbFiltroProvincias.Name = "cbFiltroProvincias"
+        Me.cbFiltroProvincias.Size = New System.Drawing.Size(150, 21)
+        Me.cbFiltroProvincias.TabIndex = 26
+        '
         'ConexionBindingSource
         '
         Me.ConexionBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Conexion)
+        '
+        'GestionAlojamientosBindingSource
+        '
+        Me.GestionAlojamientosBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.GestionAlojamientos)
+        '
+        'MetodosBindingSource
+        '
+        Me.MetodosBindingSource.DataSource = GetType(RetoAlojamientosYUUAvb.Metodos)
         '
         'GestionAlojamientos
         '
@@ -498,6 +519,7 @@ Partial Class GestionAlojamientos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1533, 504)
+        Me.Controls.Add(Me.cbFiltroProvincias)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.dgvAlojamientos)
         Me.Controls.Add(Me.lblPais)
@@ -533,6 +555,8 @@ Partial Class GestionAlojamientos
         CType(Me.dgvAlojamientos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.ConexionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GestionAlojamientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MetodosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -583,4 +607,7 @@ Partial Class GestionAlojamientos
     Friend WithEvents cmAdd As ToolStripMenuItem
     Friend WithEvents cmEdit As ToolStripMenuItem
     Friend WithEvents cmBorrar As ToolStripMenuItem
+    Friend WithEvents cbFiltroProvincias As ComboBox
+    Friend WithEvents GestionAlojamientosBindingSource As BindingSource
+    Friend WithEvents MetodosBindingSource As BindingSource
 End Class
