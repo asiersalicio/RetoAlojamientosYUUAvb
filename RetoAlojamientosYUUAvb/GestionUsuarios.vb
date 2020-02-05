@@ -81,10 +81,11 @@ Public Class GestionUsuarios
             AddReserva.tbTelefonoUser.Text = arrayCamposUsuario(7).Text
         Else
             AddReserva.modo = "insert"
-            AddReserva.dtpEntrada.Value = Today
-            AddReserva.dtpEntrada.Value = Today.AddDays(+1)
             metodos.cambioVentana(Me, AddReserva)
         End If
+        AddReserva.dtpEntrada.Value = Today
+        AddReserva.dtpSalida.Value = Today.AddDays(+1)
+        AddReserva.dtpSalida.MinDate = AddReserva.dtpEntrada.Value
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEditUsuario.Click, cmEditUsuario.Click

@@ -106,7 +106,7 @@ Partial Class GestionAlojamientos
         'btnBorrar
         '
         Me.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBorrar.Location = New System.Drawing.Point(951, 396)
+        Me.btnBorrar.Location = New System.Drawing.Point(951, 425)
         Me.btnBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnBorrar.Name = "btnBorrar"
         Me.btnBorrar.Size = New System.Drawing.Size(100, 106)
@@ -117,7 +117,7 @@ Partial Class GestionAlojamientos
         'btnModificar
         '
         Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificar.Location = New System.Drawing.Point(951, 281)
+        Me.btnModificar.Location = New System.Drawing.Point(951, 310)
         Me.btnModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(100, 106)
@@ -128,7 +128,7 @@ Partial Class GestionAlojamientos
         'btnAdd
         '
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(951, 167)
+        Me.btnAdd.Location = New System.Drawing.Point(951, 196)
         Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(100, 106)
@@ -183,7 +183,7 @@ Partial Class GestionAlojamientos
         '
         Me.lblEmail.AutoSize = True
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblEmail.Location = New System.Drawing.Point(1112, 464)
+        Me.lblEmail.Location = New System.Drawing.Point(1112, 498)
         Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(128, 17)
@@ -205,7 +205,7 @@ Partial Class GestionAlojamientos
         '
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblTelefono.Location = New System.Drawing.Point(1112, 425)
+        Me.lblTelefono.Location = New System.Drawing.Point(1112, 459)
         Me.lblTelefono.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(68, 17)
@@ -227,7 +227,7 @@ Partial Class GestionAlojamientos
         '
         Me.lblWeb.AutoSize = True
         Me.lblWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblWeb.Location = New System.Drawing.Point(1112, 503)
+        Me.lblWeb.Location = New System.Drawing.Point(1112, 537)
         Me.lblWeb.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWeb.Name = "lblWeb"
         Me.lblWeb.Size = New System.Drawing.Size(41, 17)
@@ -266,7 +266,7 @@ Partial Class GestionAlojamientos
         Me.gbTAlojamientos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gbTAlojamientos.Name = "gbTAlojamientos"
         Me.gbTAlojamientos.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.gbTAlojamientos.Size = New System.Drawing.Size(283, 385)
+        Me.gbTAlojamientos.Size = New System.Drawing.Size(283, 413)
         Me.gbTAlojamientos.TabIndex = 11
         Me.gbTAlojamientos.TabStop = False
         '
@@ -285,14 +285,14 @@ Partial Class GestionAlojamientos
         Me.rtbDescripcion.Location = New System.Drawing.Point(8, 178)
         Me.rtbDescripcion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rtbDescripcion.Name = "rtbDescripcion"
-        Me.rtbDescripcion.Size = New System.Drawing.Size(265, 74)
+        Me.rtbDescripcion.Size = New System.Drawing.Size(265, 114)
         Me.rtbDescripcion.TabIndex = 25
         Me.rtbDescripcion.Text = ""
         '
         'tbWeb
         '
         Me.tbWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbWeb.Location = New System.Drawing.Point(8, 340)
+        Me.tbWeb.Location = New System.Drawing.Point(8, 379)
         Me.tbWeb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbWeb.Name = "tbWeb"
         Me.tbWeb.Size = New System.Drawing.Size(265, 26)
@@ -310,7 +310,7 @@ Partial Class GestionAlojamientos
         'tbEmail
         '
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbEmail.Location = New System.Drawing.Point(8, 300)
+        Me.tbEmail.Location = New System.Drawing.Point(8, 339)
         Me.tbEmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbEmail.Name = "tbEmail"
         Me.tbEmail.Size = New System.Drawing.Size(265, 26)
@@ -319,7 +319,7 @@ Partial Class GestionAlojamientos
         'tbTelefono
         '
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelefono.Location = New System.Drawing.Point(8, 261)
+        Me.tbTelefono.Location = New System.Drawing.Point(8, 300)
         Me.tbTelefono.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbTelefono.Name = "tbTelefono"
         Me.tbTelefono.Size = New System.Drawing.Size(265, 26)
@@ -497,7 +497,7 @@ Partial Class GestionAlojamientos
         Me.dgvAlojamientos.ReadOnly = True
         Me.dgvAlojamientos.RowHeadersWidth = 51
         Me.dgvAlojamientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAlojamientos.Size = New System.Drawing.Size(925, 336)
+        Me.dgvAlojamientos.Size = New System.Drawing.Size(925, 401)
         Me.dgvAlojamientos.TabIndex = 24
         '
         'ContextMenuStrip1

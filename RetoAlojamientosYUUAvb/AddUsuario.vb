@@ -15,7 +15,7 @@ Public Class AddUsuario
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-        cbTipoUsuario.Text = "Elegir una opción"
+        'cbTipoUsuario.Text = "Elegir una opción"
         'dtpFechaNac.Value = Today.AddYears(-18)
     End Sub
 
@@ -40,19 +40,23 @@ Public Class AddUsuario
         Dim tipoUsuario As String = cbTipoUsuario.GetItemText(cbTipoUsuario.SelectedItem)
 
         If (tbNick.Text = "") Then
-            MsgBox("Debe establecer su Nick", MsgBoxStyle.Exclamation, "Ingresar Nick")
+            MsgBox("Debe establecer su Nick", MsgBoxStyle.Information, "Ingresar Nick")
+
         ElseIf (tbPassword1.TextLength < 6) Then
             MsgBox("El registro debe contener una contraseña válida", MsgBoxStyle.Exclamation, "Ingresar contraseña")
         ElseIf (tbPassword2.Text <> tbPassword1.Text) Then
             MsgBox("Las contraseña introducida debe coincidir en los dos campos", MsgBoxStyle.Exclamation, "Confirmar contraseña")
         ElseIf (tbNombre.Text = "") Then
-            MsgBox("Indique su nombre", MsgBoxStyle.Exclamation, "Ingresar nombre")
+            MsgBox("Indique su nombre", MsgBoxStyle.Information, "Ingresar nombre")
         ElseIf (tbApellidos.Text = "") Then
-            MsgBox("Indique sus apellidos", MsgBoxStyle.Exclamation, "Ingresar apellidos")
-        ElseIf (tbDNI.Text = "" Or tbDNI.TextLength < 9) Then
-            MsgBox("Debe completar el campo de DNI", MsgBoxStyle.Exclamation, "Ingresar DNI")
+            MsgBox("Indique sus apellidos", MsgBoxStyle.Information, "Ingresar apellidos")
+        ElseIf (tbDNI.Text = "" Or tbDNI.TextLength <> 9) Then
+            MsgBox("Debe completar el campo de DNI", MsgBoxStyle.Information, "Ingresar DNI")
+            If (m.nifValido(tbDNI.Text)) Then
+                MsgBox("Debe introducir un DNI/NIE válido", MsgBoxStyle.Exclamation, "DNI incorrecto")
+            End If
         ElseIf (dtpFechaNac.Text = "") Then
-            MsgBox("Indique su fecha de nacimiento", MsgBoxStyle.Exclamation, "Ingresar fecha de nacimiento")
+            MsgBox("Indique su fecha de nacimiento", MsgBoxStyle.Information, "Ingresar fecha de nacimiento")
             If (dtpFechaNac.Value < Today.AddYears(-18)) Then
                 MsgBox("El usuario debe ser mayor de edad", MsgBoxStyle.Exclamation, "Establecer fecha de nacimiento")
             End If

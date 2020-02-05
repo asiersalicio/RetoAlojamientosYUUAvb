@@ -27,6 +27,7 @@ Partial Class Login
         Me.tbUsuario = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.tbPassword = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnAcceder = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'lablUsuario
@@ -77,7 +78,7 @@ Partial Class Login
         'tbPassword
         '
         Me.tbPassword.Depth = 0
-        Me.tbPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.tbPassword.Font = New System.Drawing.Font("Garamond", 11.0!)
         Me.tbPassword.ForeColor = System.Drawing.SystemColors.ControlText
         Me.tbPassword.Hint = ""
         Me.tbPassword.Location = New System.Drawing.Point(320, 227)
@@ -97,7 +98,8 @@ Partial Class Login
         Me.btnAcceder.AutoSize = True
         Me.btnAcceder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnAcceder.Depth = 0
-        Me.btnAcceder.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.btnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAcceder.Font = New System.Drawing.Font("Garamond", 11.0!)
         Me.btnAcceder.Location = New System.Drawing.Point(242, 294)
         Me.btnAcceder.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAcceder.MinimumSize = New System.Drawing.Size(250, 0)
@@ -110,11 +112,21 @@ Partial Class Login
         Me.btnAcceder.Text = "Acceder"
         Me.btnAcceder.UseVisualStyleBackColor = True
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(258, 380)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(175, 28)
+        Me.DateTimePicker1.TabIndex = 3
+        '
         'Login
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.btnAcceder)
         Me.Controls.Add(Me.tbPassword)
         Me.Controls.Add(Me.tbUsuario)
@@ -134,4 +146,5 @@ Partial Class Login
     Friend WithEvents tbUsuario As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents tbPassword As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnAcceder As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

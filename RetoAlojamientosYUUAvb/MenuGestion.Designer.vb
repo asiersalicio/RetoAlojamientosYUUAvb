@@ -30,9 +30,11 @@ Partial Class MenuGestion
         '
         'btnGestionAlojamientos
         '
+        Me.btnGestionAlojamientos.Cursor = System.Windows.Forms.Cursors.Default
         Me.btnGestionAlojamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGestionAlojamientos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGestionAlojamientos.Location = New System.Drawing.Point(304, 222)
-        Me.btnGestionAlojamientos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGestionAlojamientos.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGestionAlojamientos.Name = "btnGestionAlojamientos"
         Me.btnGestionAlojamientos.Size = New System.Drawing.Size(439, 50)
         Me.btnGestionAlojamientos.TabIndex = 0
@@ -42,8 +44,9 @@ Partial Class MenuGestion
         'btnGestionUsuarios
         '
         Me.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGestionUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGestionUsuarios.Location = New System.Drawing.Point(304, 290)
-        Me.btnGestionUsuarios.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGestionUsuarios.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGestionUsuarios.Name = "btnGestionUsuarios"
         Me.btnGestionUsuarios.Size = New System.Drawing.Size(439, 50)
         Me.btnGestionUsuarios.TabIndex = 1
@@ -52,8 +55,9 @@ Partial Class MenuGestion
         '
         'btnSalir
         '
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Location = New System.Drawing.Point(931, 508)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(120, 31)
         Me.btnSalir.TabIndex = 2
@@ -62,8 +66,9 @@ Partial Class MenuGestion
         '
         'btnLogout
         '
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Location = New System.Drawing.Point(917, 91)
-        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(133, 31)
         Me.btnLogout.TabIndex = 4
@@ -79,7 +84,7 @@ Partial Class MenuGestion
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGestionUsuarios)
         Me.Controls.Add(Me.btnGestionAlojamientos)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MenuGestion"
         Me.Text = "Menú"
         Me.ResumeLayout(False)

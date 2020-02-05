@@ -169,3 +169,15 @@ C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\
 C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.exe
 C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.xml
 C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.pdb
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Core.dll
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.dll
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.dll
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.pdb
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.xml
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Core.pdb
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Core.xml
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.pdb
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.xml
+C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Newtonsoft.Json.xml

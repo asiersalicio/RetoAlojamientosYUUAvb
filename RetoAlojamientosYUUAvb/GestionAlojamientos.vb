@@ -95,15 +95,15 @@ Public Class GestionAlojamientos
     Private Sub cargarDatosModificacion()
         AddAlojamiento.idAloj = arrayCampos(0).Text
         AddAlojamiento.tbNombre.Text = arrayCampos(1).Text
-        AddAlojamiento.cbTiposAloj.Text = arrayCampos(2).Text
+        AddAlojamiento.cbTiposAloj.SelectedItem = arrayCampos(2).Text
         AddAlojamiento.tbCapacidad.Text = arrayCampos(3).Text
         AddAlojamiento.rtbDescripcion.Text = arrayCampos(4).Text
         AddAlojamiento.tbTelefono.Text = arrayCampos(5).Text
         AddAlojamiento.tbEmail.Text = arrayCampos(6).Text
         AddAlojamiento.tbWeb.Text = arrayCampos(7).Text
-        AddAlojamiento.cbPais.Text = arrayCampos(8).Text
-        AddAlojamiento.cbTerritorio.Text = arrayCampos(9).Text
-        AddAlojamiento.cbMunicipio.Text = arrayCampos(10).Text
+        AddAlojamiento.cbPais.SelectedItem = arrayCampos(8).Text
+        AddAlojamiento.cbTerritorio.SelectedItem = arrayCampos(9).Text
+        AddAlojamiento.cbMunicipio.SelectedItem = arrayCampos(10).Text
         AddAlojamiento.tbCodPostal.Text = arrayCampos(11).Text
         AddAlojamiento.tbDireccion.Text = arrayCampos(12).Text
         AddAlojamiento.tbLatitud.Text = arrayCampos(13).Text

@@ -166,8 +166,11 @@ Public Class Metodos
     End Sub
 
     Public Function validarMail(ByVal sMail As String) As Boolean
-        ' retorna true o false   
         Return Regex.IsMatch(sMail, "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
+    End Function
+
+    Public Function nifValido(ByVal nif As String)
+        Return Regex.IsMatch(nif, "^([0-9]{8}[A-Z])|[XYZ][0-9]{7}[A-Z]")
     End Function
 
     Public Sub pantallaCompleta()

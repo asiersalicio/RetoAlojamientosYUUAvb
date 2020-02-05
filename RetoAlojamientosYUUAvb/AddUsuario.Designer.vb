@@ -112,6 +112,8 @@ Partial Class AddUsuario
         '
         'dtpFechaNac
         '
+        Me.dtpFechaNac.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText
+        Me.dtpFechaNac.CalendarTitleForeColor = System.Drawing.Color.AliceBlue
         Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(591, 37)
