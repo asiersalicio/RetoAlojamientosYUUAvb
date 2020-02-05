@@ -67,9 +67,11 @@ Partial Class AddUsuario
         Me.gbDatosUsuario.Controls.Add(Me.lblApellidos)
         Me.gbDatosUsuario.Controls.Add(Me.tbTelefono)
         Me.gbDatosUsuario.Controls.Add(Me.tbDNI)
-        Me.gbDatosUsuario.Location = New System.Drawing.Point(53, 168)
+        Me.gbDatosUsuario.Location = New System.Drawing.Point(71, 207)
+        Me.gbDatosUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gbDatosUsuario.Name = "gbDatosUsuario"
-        Me.gbDatosUsuario.Size = New System.Drawing.Size(699, 202)
+        Me.gbDatosUsuario.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbDatosUsuario.Size = New System.Drawing.Size(932, 249)
         Me.gbDatosUsuario.TabIndex = 35
         Me.gbDatosUsuario.TabStop = False
         '
@@ -78,9 +80,10 @@ Partial Class AddUsuario
         Me.cbTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoUsuario.FormattingEnabled = True
         Me.cbTipoUsuario.Items.AddRange(New Object() {"administrador", "cliente"})
-        Me.cbTipoUsuario.Location = New System.Drawing.Point(315, 148)
+        Me.cbTipoUsuario.Location = New System.Drawing.Point(420, 182)
+        Me.cbTipoUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbTipoUsuario.Name = "cbTipoUsuario"
-        Me.cbTipoUsuario.Size = New System.Drawing.Size(200, 24)
+        Me.cbTipoUsuario.Size = New System.Drawing.Size(265, 28)
         Me.cbTipoUsuario.TabIndex = 8
         '
         'lblNombre
@@ -88,32 +91,36 @@ Partial Class AddUsuario
         Me.lblNombre.AutoSize = True
         Me.lblNombre.BackColor = System.Drawing.SystemColors.Window
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblNombre.Location = New System.Drawing.Point(6, 37)
+        Me.lblNombre.Location = New System.Drawing.Point(8, 46)
+        Me.lblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(47, 13)
+        Me.lblNombre.Size = New System.Drawing.Size(58, 17)
         Me.lblNombre.TabIndex = 40
-        Me.lblNombre.Text = "Nombre:"
+        Me.lblNombre.Text = "Nombre"
         '
         'lblDni
         '
         Me.lblDni.AutoSize = True
         Me.lblDni.BackColor = System.Drawing.SystemColors.Window
         Me.lblDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblDni.Location = New System.Drawing.Point(6, 103)
+        Me.lblDni.Location = New System.Drawing.Point(8, 127)
+        Me.lblDni.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDni.Name = "lblDni"
-        Me.lblDni.Size = New System.Drawing.Size(29, 13)
+        Me.lblDni.Size = New System.Drawing.Size(31, 17)
         Me.lblDni.TabIndex = 39
-        Me.lblDni.Text = "DNI:"
+        Me.lblDni.Text = "DNI"
         '
         'dtpFechaNac
         '
         Me.dtpFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFechaNac.Location = New System.Drawing.Point(443, 30)
-        Me.dtpFechaNac.MaxDate = New Date(2020, 1, 20, 0, 0, 0, 0)
+        Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaNac.Location = New System.Drawing.Point(591, 37)
+        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpFechaNac.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dtpFechaNac.Size = New System.Drawing.Size(250, 23)
+        Me.dtpFechaNac.Size = New System.Drawing.Size(150, 26)
         Me.dtpFechaNac.TabIndex = 5
         Me.dtpFechaNac.Value = New Date(2020, 1, 20, 0, 0, 0, 0)
         '
@@ -122,9 +129,10 @@ Partial Class AddUsuario
         Me.lblTipoUsuario.AutoSize = True
         Me.lblTipoUsuario.BackColor = System.Drawing.SystemColors.Window
         Me.lblTipoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblTipoUsuario.Location = New System.Drawing.Point(241, 153)
+        Me.lblTipoUsuario.Location = New System.Drawing.Point(321, 188)
+        Me.lblTipoUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTipoUsuario.Name = "lblTipoUsuario"
-        Me.lblTipoUsuario.Size = New System.Drawing.Size(68, 13)
+        Me.lblTipoUsuario.Size = New System.Drawing.Size(91, 17)
         Me.lblTipoUsuario.TabIndex = 38
         Me.lblTipoUsuario.Text = "Tipo usuario:"
         '
@@ -133,18 +141,20 @@ Partial Class AddUsuario
         Me.lblEmail.AutoSize = True
         Me.lblEmail.BackColor = System.Drawing.SystemColors.Window
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblEmail.Location = New System.Drawing.Point(348, 101)
+        Me.lblEmail.Location = New System.Drawing.Point(464, 124)
+        Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(35, 13)
+        Me.lblEmail.Size = New System.Drawing.Size(42, 17)
         Me.lblEmail.TabIndex = 37
-        Me.lblEmail.Text = "Email:"
+        Me.lblEmail.Text = "Email"
         '
         'tbEmail
         '
         Me.tbEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbEmail.Location = New System.Drawing.Point(443, 96)
+        Me.tbEmail.Location = New System.Drawing.Point(591, 118)
+        Me.tbEmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbEmail.Name = "tbEmail"
-        Me.tbEmail.Size = New System.Drawing.Size(250, 23)
+        Me.tbEmail.Size = New System.Drawing.Size(332, 26)
         Me.tbEmail.TabIndex = 7
         Me.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -153,18 +163,20 @@ Partial Class AddUsuario
         Me.lblFechaNac.AutoSize = True
         Me.lblFechaNac.BackColor = System.Drawing.SystemColors.Window
         Me.lblFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblFechaNac.Location = New System.Drawing.Point(348, 37)
+        Me.lblFechaNac.Location = New System.Drawing.Point(464, 46)
+        Me.lblFechaNac.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFechaNac.Name = "lblFechaNac"
-        Me.lblFechaNac.Size = New System.Drawing.Size(94, 13)
+        Me.lblFechaNac.Size = New System.Drawing.Size(119, 17)
         Me.lblFechaNac.TabIndex = 36
-        Me.lblFechaNac.Text = "Fecha nacimiento:"
+        Me.lblFechaNac.Text = "Fecha nacimiento"
         '
         'tbApellidos
         '
         Me.tbApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellidos.Location = New System.Drawing.Point(59, 64)
+        Me.tbApellidos.Location = New System.Drawing.Point(79, 79)
+        Me.tbApellidos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbApellidos.Name = "tbApellidos"
-        Me.tbApellidos.Size = New System.Drawing.Size(250, 23)
+        Me.tbApellidos.Size = New System.Drawing.Size(332, 26)
         Me.tbApellidos.TabIndex = 3
         Me.tbApellidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -173,18 +185,20 @@ Partial Class AddUsuario
         Me.lblTelefono.AutoSize = True
         Me.lblTelefono.BackColor = System.Drawing.SystemColors.Window
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblTelefono.Location = New System.Drawing.Point(348, 67)
+        Me.lblTelefono.Location = New System.Drawing.Point(464, 82)
+        Me.lblTelefono.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(52, 13)
+        Me.lblTelefono.Size = New System.Drawing.Size(64, 17)
         Me.lblTelefono.TabIndex = 35
-        Me.lblTelefono.Text = "Teléfono:"
+        Me.lblTelefono.Text = "Teléfono"
         '
         'tbNombre
         '
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombre.Location = New System.Drawing.Point(59, 32)
+        Me.tbNombre.Location = New System.Drawing.Point(79, 39)
+        Me.tbNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbNombre.Name = "tbNombre"
-        Me.tbNombre.Size = New System.Drawing.Size(250, 23)
+        Me.tbNombre.Size = New System.Drawing.Size(332, 26)
         Me.tbNombre.TabIndex = 2
         Me.tbNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -193,27 +207,30 @@ Partial Class AddUsuario
         Me.lblApellidos.AutoSize = True
         Me.lblApellidos.BackColor = System.Drawing.SystemColors.Window
         Me.lblApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.lblApellidos.Location = New System.Drawing.Point(6, 70)
+        Me.lblApellidos.Location = New System.Drawing.Point(8, 86)
+        Me.lblApellidos.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblApellidos.Name = "lblApellidos"
-        Me.lblApellidos.Size = New System.Drawing.Size(52, 13)
+        Me.lblApellidos.Size = New System.Drawing.Size(65, 17)
         Me.lblApellidos.TabIndex = 34
-        Me.lblApellidos.Text = "Apellidos:"
+        Me.lblApellidos.Text = "Apellidos"
         '
         'tbTelefono
         '
         Me.tbTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTelefono.Location = New System.Drawing.Point(443, 62)
+        Me.tbTelefono.Location = New System.Drawing.Point(591, 76)
+        Me.tbTelefono.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbTelefono.Name = "tbTelefono"
-        Me.tbTelefono.Size = New System.Drawing.Size(250, 23)
+        Me.tbTelefono.Size = New System.Drawing.Size(332, 26)
         Me.tbTelefono.TabIndex = 6
         Me.tbTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbDNI
         '
         Me.tbDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDNI.Location = New System.Drawing.Point(59, 96)
+        Me.tbDNI.Location = New System.Drawing.Point(79, 118)
+        Me.tbDNI.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbDNI.Name = "tbDNI"
-        Me.tbDNI.Size = New System.Drawing.Size(250, 23)
+        Me.tbDNI.Size = New System.Drawing.Size(332, 26)
         Me.tbDNI.TabIndex = 4
         Me.tbDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -226,19 +243,22 @@ Partial Class AddUsuario
         Me.gbLogin.Controls.Add(Me.tbPassword1)
         Me.gbLogin.Controls.Add(Me.lblNick)
         Me.gbLogin.Controls.Add(Me.lblPassword)
-        Me.gbLogin.Location = New System.Drawing.Point(53, 30)
+        Me.gbLogin.Location = New System.Drawing.Point(71, 37)
+        Me.gbLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gbLogin.Name = "gbLogin"
-        Me.gbLogin.Size = New System.Drawing.Size(699, 132)
+        Me.gbLogin.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbLogin.Size = New System.Drawing.Size(932, 162)
         Me.gbLogin.TabIndex = 34
         Me.gbLogin.TabStop = False
         '
         'tbPassword2
         '
         Me.tbPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbPassword2.Location = New System.Drawing.Point(288, 85)
+        Me.tbPassword2.Location = New System.Drawing.Point(384, 105)
+        Me.tbPassword2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbPassword2.Name = "tbPassword2"
         Me.tbPassword2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbPassword2.Size = New System.Drawing.Size(300, 23)
+        Me.tbPassword2.Size = New System.Drawing.Size(399, 26)
         Me.tbPassword2.TabIndex = 29
         Me.tbPassword2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -247,9 +267,10 @@ Partial Class AddUsuario
         Me.lblPassword2.AutoSize = True
         Me.lblPassword2.BackColor = System.Drawing.SystemColors.Window
         Me.lblPassword2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPassword2.Location = New System.Drawing.Point(110, 88)
+        Me.lblPassword2.Location = New System.Drawing.Point(147, 108)
+        Me.lblPassword2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPassword2.Name = "lblPassword2"
-        Me.lblPassword2.Size = New System.Drawing.Size(169, 17)
+        Me.lblPassword2.Size = New System.Drawing.Size(197, 20)
         Me.lblPassword2.TabIndex = 30
         Me.lblPassword2.Text = "Confirmar contraseña:"
         Me.lblPassword2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -257,19 +278,21 @@ Partial Class AddUsuario
         'tbNick
         '
         Me.tbNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNick.Location = New System.Drawing.Point(288, 19)
+        Me.tbNick.Location = New System.Drawing.Point(384, 23)
+        Me.tbNick.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbNick.Name = "tbNick"
-        Me.tbNick.Size = New System.Drawing.Size(300, 23)
+        Me.tbNick.Size = New System.Drawing.Size(399, 26)
         Me.tbNick.TabIndex = 0
         Me.tbNick.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbPassword1
         '
         Me.tbPassword1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbPassword1.Location = New System.Drawing.Point(288, 51)
+        Me.tbPassword1.Location = New System.Drawing.Point(384, 63)
+        Me.tbPassword1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbPassword1.Name = "tbPassword1"
         Me.tbPassword1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbPassword1.Size = New System.Drawing.Size(300, 23)
+        Me.tbPassword1.Size = New System.Drawing.Size(399, 26)
         Me.tbPassword1.TabIndex = 1
         Me.tbPassword1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -278,9 +301,10 @@ Partial Class AddUsuario
         Me.lblNick.AutoSize = True
         Me.lblNick.BackColor = System.Drawing.SystemColors.Window
         Me.lblNick.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblNick.Location = New System.Drawing.Point(110, 22)
+        Me.lblNick.Location = New System.Drawing.Point(147, 27)
+        Me.lblNick.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNick.Name = "lblNick"
-        Me.lblNick.Size = New System.Drawing.Size(44, 17)
+        Me.lblNick.Size = New System.Drawing.Size(52, 20)
         Me.lblNick.TabIndex = 24
         Me.lblNick.Text = "Nick:"
         Me.lblNick.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -290,41 +314,45 @@ Partial Class AddUsuario
         Me.lblPassword.AutoSize = True
         Me.lblPassword.BackColor = System.Drawing.SystemColors.Window
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPassword.Location = New System.Drawing.Point(110, 54)
+        Me.lblPassword.Location = New System.Drawing.Point(147, 66)
+        Me.lblPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(96, 17)
+        Me.lblPassword.Size = New System.Drawing.Size(111, 20)
         Me.lblPassword.TabIndex = 28
         Me.lblPassword.Text = "Contraseña:"
         Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'btnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(358, 390)
+        Me.btnAceptar.Location = New System.Drawing.Point(477, 480)
+        Me.btnAceptar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(100, 40)
+        Me.btnAceptar.Size = New System.Drawing.Size(133, 49)
         Me.btnAceptar.TabIndex = 9
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(688, 413)
+        Me.btnCancelar.Location = New System.Drawing.Point(917, 508)
+        Me.btnCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(100, 25)
+        Me.btnCancelar.Size = New System.Drawing.Size(133, 31)
         Me.btnCancelar.TabIndex = 10
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'AddUsuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.gbDatosUsuario)
         Me.Controls.Add(Me.gbLogin)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "AddUsuario"
         Me.Text = "Añadir / Modificar Usuario"
         Me.gbDatosUsuario.ResumeLayout(False)

@@ -67,6 +67,7 @@ Public Class GestionUsuarios
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAddUsuario.Click, cmAddUsuario.Click
         AddUsuario.modo = "insert"
+        AddUsuario.dtpFechaNac.Value = Today.AddYears(-18)
         metodos.cambioVentana(Me, AddUsuario)
     End Sub
 
@@ -80,6 +81,8 @@ Public Class GestionUsuarios
             AddReserva.tbTelefonoUser.Text = arrayCamposUsuario(7).Text
         Else
             AddReserva.modo = "insert"
+            AddReserva.dtpEntrada.Value = Today
+            AddReserva.dtpEntrada.Value = Today.AddDays(+1)
             metodos.cambioVentana(Me, AddReserva)
         End If
     End Sub

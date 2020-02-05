@@ -17,7 +17,8 @@ Public Class AddReserva
         conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
-
+        dtpEntrada.Value = Today
+        dtpSalida.Value = Today.AddDays(+1)
         da = New MySqlDataAdapter("SELECT DISTINCT lodgingtype FROM talojamientos WHERE idAlojamiento=(SELECT idAlojamiento FROM reserva WHERE idReserva=" & tbIdReserva.Text & ")", conex)
     End Sub
 

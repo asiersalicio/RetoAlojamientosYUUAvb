@@ -1,5 +1,6 @@
 ﻿Imports System.Configuration
 Imports System.Security.Cryptography
+Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
 Public Class Metodos
@@ -163,6 +164,11 @@ Public Class Metodos
             MsgBox("Solo se pueden ingresar valores de tipo numérico", MsgBoxStyle.Exclamation, "Ingreso de Número")
         End If
     End Sub
+
+    Public Function validarMail(ByVal sMail As String) As Boolean
+        ' retorna true o false   
+        Return Regex.IsMatch(sMail, "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
+    End Function
 
     Public Sub pantallaCompleta()
         'Pantalla Login

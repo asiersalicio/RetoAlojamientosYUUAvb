@@ -15,10 +15,8 @@ Public Class AddUsuario
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
 
-        'm.limpiarCampos(gbLogin)
-        'm.limpiarCampos(gbDatosUsuario)
         cbTipoUsuario.Text = "Elegir una opción"
-        'm.cargarTipos("usuario", "tipoUsuario", cbTipoUsuario)
+        'dtpFechaNac.Value = Today.AddYears(-18)
     End Sub
 
     Private Sub TbNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellidos.KeyPress
@@ -55,10 +53,13 @@ Public Class AddUsuario
             MsgBox("Debe completar el campo de DNI", MsgBoxStyle.Exclamation, "Ingresar DNI")
         ElseIf (dtpFechaNac.Text = "") Then
             MsgBox("Indique su fecha de nacimiento", MsgBoxStyle.Exclamation, "Ingresar fecha de nacimiento")
+            If (dtpFechaNac.Value < Today.AddYears(-18)) Then
+                MsgBox("El usuario debe ser mayor de edad", MsgBoxStyle.Exclamation, "Establecer fecha de nacimiento")
+            End If
         ElseIf (tbTelefono.TextLength <> 9) Then
-            MsgBox("Indique teléfono de contacto", MsgBoxStyle.Exclamation, "Ingresar teléfono")
-        ElseIf (tbEmail.Text = "") Then
-            MsgBox("Indique un correo electrónico de contacto", MsgBoxStyle.Exclamation, "Ingresar email")
+            MsgBox("Indique teléfono de contacto válido con 9 dígitos", MsgBoxStyle.Exclamation, "Ingresar teléfono")
+        ElseIf (tbEmail.Text = "" Or m.validarMail(tbEmail.Text) = False) Then
+            MsgBox("Indique un correo electrónico de contacto válido", MsgBoxStyle.Exclamation, "Ingresar email")
         ElseIf (tipoUsuario = "" Or (tipoUsuario <> "administrador" And tipoUsuario <> "cliente")) Then
             MsgBox("Indique el tipo de usuario", MsgBoxStyle.Exclamation, "Indicar Tipo de Usuario")
             'ElseIf Not (cbTipoUsuario.SelectedText = "administrador" Or cbTipoUsuario.SelectedText = "cliente") Then
