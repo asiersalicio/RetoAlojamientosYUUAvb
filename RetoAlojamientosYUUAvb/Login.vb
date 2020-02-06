@@ -1,6 +1,7 @@
 ﻿Imports System.Configuration
 Imports MySql.Data.MySqlClient
 Imports Google.Apis.Webfonts.v1
+Imports MaterialSkin
 
 Public Class Login
     Dim m As New Metodos
@@ -11,6 +12,7 @@ Public Class Login
     Dim dsUsuario, dsPassword As New DataSet
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        m.coloresCorporativos(Me)
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyPressEventArgs) Handles tbUsuario.KeyPress, tbPassword.KeyPress

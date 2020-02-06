@@ -6,7 +6,6 @@ Public Class AddReserva
     Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
-    Dim da As MySqlDataAdapter
     Public modo As String
 
     Private Sub AddReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -19,7 +18,6 @@ Public Class AddReserva
         m.cargarTipos("talojamientos", "lodgingtype", cbTipoAlojamiento)
         'dtpEntrada.Value = Today
         'dtpSalida.Value = Today.AddDays(+1)
-        da = New MySqlDataAdapter("SELECT DISTINCT lodgingtype FROM talojamientos WHERE idAlojamiento=(SELECT idAlojamiento FROM reserva WHERE idReserva=" & tbIdReserva.Text & ")", conex)
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click

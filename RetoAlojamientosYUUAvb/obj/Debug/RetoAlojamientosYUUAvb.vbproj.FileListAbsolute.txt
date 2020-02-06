@@ -193,3 +193,7 @@ C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\R
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.pdb
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.xml
 C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Newtonsoft.Json.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.exe.manifest
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\RetoAlojamientosYUUAvb.application
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.exe.manifest
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\obj\Debug\RetoAlojamientosYUUAvb.application

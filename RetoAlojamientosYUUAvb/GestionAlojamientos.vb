@@ -15,13 +15,40 @@ Public Class GestionAlojamientos
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-        adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+        m.cargarTipos("tlocalizacion", "territory", cbFiltroProvincias)
+        m.cargarTipos("tlocalizacion", "municipality", cbFiltroMunicipios)
+        m.soloLectura(gbTAlojamientos)
+        m.soloLectura(gbTLocalizacion)
+
+        Dim prov As String = cbFiltroProvincias.SelectedItem
+        Dim muni As String = cbFiltroMunicipios.SelectedItem
+        If muni Is Nothing Or muni = "Elegir una opción" Then
+            If prov Is Nothing Or prov = "Elegir una opción" Then
+                'NORMAL: Carga de todos los alojamientos
+                adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
                                           "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &
                                           "FROM talojamientos aloj, tlocalizacion loc " &
                                           "WHERE aloj.localizacion_idLocalizacion = Loc.idLocalizacion And lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
-
+            Else
+                'FILTRO PROVINCIA
+                adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                          "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "lonwgs84 'Longitud' " &
+                                          "FROM talojamientos aloj, tlocalizacion loc " &
+                                          "WHERE aloj.localizacion_idLocalizacion=Loc.idLocalizacion AND lower(loc.territory) like " & Chr(34) & "%" & prov.ToLower & "%" & Chr(34) & " AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          " ORDER BY documentname ASC", conex)
+            End If
+        Else
+            'FILTRO PROVINCIA Y MUNICIPIO
+            adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
+                                          "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
+                                          "lonwgs84 'Longitud' " &
+                                          "FROM talojamientos aloj, tlocalizacion loc " &
+                                          "WHERE aloj.localizacion_idLocalizacion=Loc.idLocalizacion AND lower(loc.territory) like " & Chr(34) & "%" & prov.ToLower & "%" & Chr(34) & " AND lower(loc.municipality) like " & Chr(34) & "%" & muni.ToLower & "%" & Chr(34) & " AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          " ORDER BY documentname ASC", conex)
+        End If
         arrayCampos = New Control() {tbId, tbNombre, cbTiposAloj, tbCapacidad, rtbDescripcion, tbTelefono, tbEmail, tbWeb, cbPais, cbTerritorio, cbMunicipio, tbCodPostal, tbDireccion, tbLatitud, tbLongitud}
         rtbDescripcion.Multiline = True
         rtbDescripcion.ScrollBars = ScrollBars.Vertical
@@ -41,9 +68,7 @@ Public Class GestionAlojamientos
         'm.cargarDatosAloj("tterritorio", "territory", cbTerritorio)
         'm.cargarDatosAloj("tmunicipio", "municipality", cbMunicipio)
 
-        m.cargarTipos("tlocalizacion", "territory", cbFiltroProvincias)
-        m.soloLectura(gbTAlojamientos)
-        m.soloLectura(gbTLocalizacion)
+
     End Sub
 
     Public Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlojamientos.RowEnter, dgvAlojamientos.CellDoubleClick
@@ -65,8 +90,8 @@ Public Class GestionAlojamientos
         Dim prov As String = cbFiltroProvincias.SelectedItem
         Dim muni As String = cbFiltroMunicipios.SelectedItem
 
-        If muni Is Nothing Then
-            If prov Is Nothing Then
+        If muni Is Nothing Or muni = "Elegir una opción" Then
+            If prov Is Nothing Or prov = "Elegir una opción" Then
                 'NORMAL: Carga de todos los alojamientos
                 adapter = New MySqlDataAdapter("SELECT DISTINCT idAlojamiento 'Identificador',documentname 'Nombre',lodgingtype 'Tipo alojamiento', capacity 'Capacidad',turismdescription 'Descripción',phone 'Teléfono'," &
                                           "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
@@ -80,7 +105,7 @@ Public Class GestionAlojamientos
                                           "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &
                                           "FROM talojamientos aloj, tlocalizacion loc " &
-                                          "WHERE aloj.localizacion_idLocalizacion=Loc.idLocalizacion AND loc.territory='" & prov & "' AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          "WHERE aloj.localizacion_idLocalizacion=Loc.idLocalizacion AND lower(loc.territory) like " & Chr(34) & "%" & prov.ToLower & "%" & Chr(34) & " AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
             End If
         Else
@@ -89,7 +114,7 @@ Public Class GestionAlojamientos
                                           "tourismemail 'eMail',Web 'Web',loc.country 'Pais',loc.territory 'Territorio',loc.municipality 'Municipio',postalcode 'Codigo postal',address 'Dirección',latwgs84 'Latitud'," &
                                           "lonwgs84 'Longitud' " &
                                           "FROM talojamientos aloj, tlocalizacion loc " &
-                                          "WHERE aloj.localizacion_idLocalizacion=Loc.idLocalizacion AND loc.territory='" & prov & "' AND loc.municipality='" & muni & "' AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
+                                          "WHERE aloj.localizacion_idLocalizacion=Loc.idLocalizacion AND lower(loc.territory) like " & Chr(34) & "%" & prov.ToLower & "%" & Chr(34) & " AND lower(loc.municipality) like " & Chr(34) & "%" & muni.ToLower & "%" & Chr(34) & " AND lower(documentname) Like " & Chr(34) & "%" & tbBusqueda.Text & "%" & Chr(34) &
                                           " ORDER BY documentname ASC", conex)
         End If
 
@@ -152,7 +177,7 @@ Public Class GestionAlojamientos
     End Sub
 
     Private Sub BtnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click, cmBorrar.Click
-        m.borrarReg("talojamientos", "idAlojamiento", tbId.Text, dgvAlojamientos)
+        m.borrarReg("talojamientos", "idAlojamiento", tbId.Text)
         tabla.Clear()
         adapter.Fill(tabla)
         dgvAlojamientos.ResetBindings()

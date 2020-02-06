@@ -26,6 +26,10 @@ Partial Class MenuGestion
         Me.btnGestionUsuarios = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnGestionAlojamientos
@@ -33,9 +37,9 @@ Partial Class MenuGestion
         Me.btnGestionAlojamientos.Cursor = System.Windows.Forms.Cursors.Default
         Me.btnGestionAlojamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGestionAlojamientos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGestionAlojamientos.Location = New System.Drawing.Point(228, 180)
+        Me.btnGestionAlojamientos.Location = New System.Drawing.Point(228, 172)
         Me.btnGestionAlojamientos.Name = "btnGestionAlojamientos"
-        Me.btnGestionAlojamientos.Size = New System.Drawing.Size(329, 41)
+        Me.btnGestionAlojamientos.Size = New System.Drawing.Size(329, 55)
         Me.btnGestionAlojamientos.TabIndex = 1
         Me.btnGestionAlojamientos.Text = "Gestionar Alojamientos"
         Me.btnGestionAlojamientos.UseVisualStyleBackColor = True
@@ -44,9 +48,9 @@ Partial Class MenuGestion
         '
         Me.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGestionUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGestionUsuarios.Location = New System.Drawing.Point(228, 236)
+        Me.btnGestionUsuarios.Location = New System.Drawing.Point(228, 233)
         Me.btnGestionUsuarios.Name = "btnGestionUsuarios"
-        Me.btnGestionUsuarios.Size = New System.Drawing.Size(329, 41)
+        Me.btnGestionUsuarios.Size = New System.Drawing.Size(329, 55)
         Me.btnGestionUsuarios.TabIndex = 2
         Me.btnGestionUsuarios.Text = "Gestionar Usuarios"
         Me.btnGestionUsuarios.UseVisualStyleBackColor = True
@@ -71,17 +75,44 @@ Partial Class MenuGestion
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = Global.RetoAlojamientosYUUAvb.My.Resources.Resources.colgador_puerta
+        Me.PictureBox1.Location = New System.Drawing.Point(163, 172)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(57, 55)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.White
+        Me.PictureBox2.Image = Global.RetoAlojamientosYUUAvb.My.Resources.Resources.tarjeta_id
+        Me.PictureBox2.Location = New System.Drawing.Point(163, 233)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(57, 55)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 6
+        Me.PictureBox2.TabStop = False
+        '
         'MenuGestion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGestionUsuarios)
         Me.Controls.Add(Me.btnGestionAlojamientos)
         Me.Name = "MenuGestion"
         Me.Text = "Menú"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -90,4 +121,6 @@ Partial Class MenuGestion
     Friend WithEvents btnGestionUsuarios As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLogout As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

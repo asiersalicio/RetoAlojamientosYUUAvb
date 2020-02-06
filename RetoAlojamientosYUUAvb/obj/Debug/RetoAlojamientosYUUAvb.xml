@@ -27,5 +27,10 @@ RetoAlojamientosYUUAvb
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:RetoAlojamientosYUUAvb.My.Resources.Resources.tarjeta_id">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

@@ -1,6 +1,7 @@
 ﻿Imports System.Configuration
 Imports System.Security.Cryptography
 Imports System.Text.RegularExpressions
+Imports MaterialSkin
 Imports MySql.Data.MySqlClient
 
 Public Class Metodos
@@ -82,7 +83,7 @@ Public Class Metodos
         destino.Show()
     End Sub
 
-    Public Sub borrarReg(tabla As String, campoBBDD As String, x As String, dgv As DataGridView)
+    Public Sub borrarReg(tabla As String, campoBBDD As String, x As String)
         Dim resp = MsgBox("¿Desea realmente borrar el registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
         Dim cmd As MySqlCommand
 
@@ -172,6 +173,13 @@ Public Class Metodos
     Public Function nifValido(ByVal nif As String)
         Return Regex.IsMatch(nif, "^([0-9]{8}[A-Z])|[XYZ][0-9]{7}[A-Z]")
     End Function
+
+    Public Sub coloresCorporativos(f As Form)
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        SkinManager.AddFormToManage(f)
+        SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
+        SkinManager.ColorScheme = New ColorScheme(1402304, 15503, Primary.Orange100, Accent.Yellow200, 16758272)
+    End Sub
 
     Public Sub pantallaCompleta()
         'Pantalla Login

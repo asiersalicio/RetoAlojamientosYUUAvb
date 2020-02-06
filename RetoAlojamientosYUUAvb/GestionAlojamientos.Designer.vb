@@ -549,7 +549,7 @@ Partial Class GestionAlojamientos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(1455, 504)
+        Me.ClientSize = New System.Drawing.Size(1535, 504)
         Me.Controls.Add(Me.lblBusqueda)
         Me.Controls.Add(Me.lblFiltroMunicipios)
         Me.Controls.Add(Me.lblFiltroProvincias)

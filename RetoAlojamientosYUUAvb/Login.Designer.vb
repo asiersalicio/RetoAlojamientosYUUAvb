@@ -27,7 +27,6 @@ Partial Class Login
         Me.tbUsuario = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.tbPassword = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnAcceder = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'lablUsuario
@@ -40,7 +39,7 @@ Partial Class Login
         Me.lablUsuario.Location = New System.Drawing.Point(169, 186)
         Me.lablUsuario.MouseState = MaterialSkin.MouseState.HOVER
         Me.lablUsuario.Name = "lablUsuario"
-        Me.lablUsuario.Size = New System.Drawing.Size(74, 24)
+        Me.lablUsuario.Size = New System.Drawing.Size(61, 19)
         Me.lablUsuario.TabIndex = 1
         Me.lablUsuario.Text = "Usuario"
         '
@@ -54,7 +53,7 @@ Partial Class Login
         Me.lblPassword.Location = New System.Drawing.Point(168, 231)
         Me.lblPassword.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(105, 24)
+        Me.lblPassword.Size = New System.Drawing.Size(86, 19)
         Me.lblPassword.TabIndex = 1
         Me.lblPassword.Text = "Contraseña"
         '
@@ -70,7 +69,7 @@ Partial Class Login
         Me.tbUsuario.SelectedText = ""
         Me.tbUsuario.SelectionLength = 0
         Me.tbUsuario.SelectionStart = 0
-        Me.tbUsuario.Size = New System.Drawing.Size(224, 28)
+        Me.tbUsuario.Size = New System.Drawing.Size(224, 23)
         Me.tbUsuario.TabIndex = 0
         Me.tbUsuario.TabStop = False
         Me.tbUsuario.UseSystemPasswordChar = False
@@ -88,7 +87,7 @@ Partial Class Login
         Me.tbPassword.SelectedText = ""
         Me.tbPassword.SelectionLength = 0
         Me.tbPassword.SelectionStart = 0
-        Me.tbPassword.Size = New System.Drawing.Size(224, 28)
+        Me.tbPassword.Size = New System.Drawing.Size(224, 23)
         Me.tbPassword.TabIndex = 1
         Me.tbPassword.TabStop = False
         Me.tbPassword.UseSystemPasswordChar = False
@@ -112,21 +111,11 @@ Partial Class Login
         Me.btnAcceder.Text = "Acceder"
         Me.btnAcceder.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(258, 380)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(175, 28)
-        Me.DateTimePicker1.TabIndex = 3
-        '
         'Login
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.btnAcceder)
         Me.Controls.Add(Me.tbPassword)
         Me.Controls.Add(Me.tbUsuario)
@@ -146,5 +135,4 @@ Partial Class Login
     Friend WithEvents tbUsuario As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents tbPassword As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnAcceder As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
