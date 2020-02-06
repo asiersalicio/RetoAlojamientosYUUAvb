@@ -121,7 +121,7 @@ Partial Class GestionUsuarios
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tstbEdicionUsuario, Me.cmAddUsuario, Me.cmEditUsuario, Me.cmBorrarUsuario, Me.ToolStripSeparator1, Me.tstbReservas, Me.cmNuevaReserva})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.ShowCheckMargin = True
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(207, 139)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(207, 161)
         '
         'tstbEdicionUsuario
         '

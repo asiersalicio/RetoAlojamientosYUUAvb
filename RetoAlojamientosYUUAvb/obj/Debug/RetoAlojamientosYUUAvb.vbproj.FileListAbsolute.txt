@@ -181,3 +181,15 @@ C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\
 C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.pdb
 C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.xml
 C:\Users\rootOna\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Newtonsoft.Json.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Core.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Newtonsoft.Json.dll
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.pdb
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Core.pdb
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Core.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.pdb
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Google.Apis.Webfonts.v1.xml
+C:\Users\in1DM3b_02\source\repos\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\RetoAlojamientosYUUAvb\bin\Debug\Newtonsoft.Json.xml

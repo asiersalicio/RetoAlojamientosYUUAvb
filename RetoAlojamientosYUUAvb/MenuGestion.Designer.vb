@@ -33,11 +33,10 @@ Partial Class MenuGestion
         Me.btnGestionAlojamientos.Cursor = System.Windows.Forms.Cursors.Default
         Me.btnGestionAlojamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGestionAlojamientos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGestionAlojamientos.Location = New System.Drawing.Point(304, 222)
-        Me.btnGestionAlojamientos.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnGestionAlojamientos.Location = New System.Drawing.Point(228, 180)
         Me.btnGestionAlojamientos.Name = "btnGestionAlojamientos"
-        Me.btnGestionAlojamientos.Size = New System.Drawing.Size(439, 50)
-        Me.btnGestionAlojamientos.TabIndex = 0
+        Me.btnGestionAlojamientos.Size = New System.Drawing.Size(329, 41)
+        Me.btnGestionAlojamientos.TabIndex = 1
         Me.btnGestionAlojamientos.Text = "Gestionar Alojamientos"
         Me.btnGestionAlojamientos.UseVisualStyleBackColor = True
         '
@@ -45,46 +44,42 @@ Partial Class MenuGestion
         '
         Me.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGestionUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGestionUsuarios.Location = New System.Drawing.Point(304, 290)
-        Me.btnGestionUsuarios.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnGestionUsuarios.Location = New System.Drawing.Point(228, 236)
         Me.btnGestionUsuarios.Name = "btnGestionUsuarios"
-        Me.btnGestionUsuarios.Size = New System.Drawing.Size(439, 50)
-        Me.btnGestionUsuarios.TabIndex = 1
+        Me.btnGestionUsuarios.Size = New System.Drawing.Size(329, 41)
+        Me.btnGestionUsuarios.TabIndex = 2
         Me.btnGestionUsuarios.Text = "Gestionar Usuarios"
         Me.btnGestionUsuarios.UseVisualStyleBackColor = True
         '
         'btnSalir
         '
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(931, 508)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSalir.Location = New System.Drawing.Point(698, 413)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(120, 31)
-        Me.btnSalir.TabIndex = 2
+        Me.btnSalir.Size = New System.Drawing.Size(90, 25)
+        Me.btnSalir.TabIndex = 3
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnLogout
         '
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Location = New System.Drawing.Point(917, 91)
-        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnLogout.Location = New System.Drawing.Point(688, 74)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(133, 31)
+        Me.btnLogout.Size = New System.Drawing.Size(100, 25)
         Me.btnLogout.TabIndex = 4
         Me.btnLogout.Text = "Desconectar"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
         'MenuGestion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGestionUsuarios)
         Me.Controls.Add(Me.btnGestionAlojamientos)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MenuGestion"
         Me.Text = "Menú"
         Me.ResumeLayout(False)

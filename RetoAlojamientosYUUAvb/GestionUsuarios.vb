@@ -35,6 +35,8 @@ Public Class GestionUsuarios
         metodos.soloLectura(gbLogin)
         metodos.soloLectura(gbDatosUsuario)
         metodos.soloLectura(gbDatosReserva)
+        dtpEntrada.Value = Today
+        dtpSalida.Value = Today
     End Sub
 
     Private Sub DataGridAlojamientos_CambioDeSeleccion(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.RowEnter
@@ -67,25 +69,32 @@ Public Class GestionUsuarios
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAddUsuario.Click, cmAddUsuario.Click
         AddUsuario.modo = "insert"
+        AddUsuario.btnNuevaPassword.Hide()
+        AddUsuario.lblPassword.Text = "Contraseña"
         AddUsuario.dtpFechaNac.Value = Today.AddYears(-18)
         metodos.cambioVentana(Me, AddUsuario)
     End Sub
 
     Private Sub BtnAddReserva_Click(sender As Object, e As EventArgs) Handles btnAddReserva.Click, cmNuevaReserva.Click
-        If (sender = cmNuevaReserva) Then
+        AddReserva.modo = "insert"
+        If (sender Is cmNuevaReserva) Then
             AddReserva.tbDni.Text = arrayCamposUsuario(0).Text
             AddReserva.tbNick.Text = arrayCamposUsuario(1).Text
             AddReserva.tbEmail.Text = arrayCamposUsuario(3).Text
             AddReserva.tbNombreUser.Text = arrayCamposUsuario(4).Text
             AddReserva.tbApellidosUser.Text = arrayCamposUsuario(5).Text
             AddReserva.tbTelefonoUser.Text = arrayCamposUsuario(7).Text
-        Else
-            AddReserva.modo = "insert"
-            metodos.cambioVentana(Me, AddReserva)
         End If
         AddReserva.dtpEntrada.Value = Today
         AddReserva.dtpSalida.Value = Today.AddDays(+1)
         AddReserva.dtpSalida.MinDate = AddReserva.dtpEntrada.Value
+
+        If (AddReserva.tbIdReserva.Text = "") Then
+            AddReserva.lblIdReserva.Hide()
+            AddReserva.tbIdReserva.Hide()
+        End If
+
+        metodos.cambioVentana(Me, AddReserva)
     End Sub
 
     Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnEditUsuario.Click, cmEditUsuario.Click
@@ -94,6 +103,11 @@ Public Class GestionUsuarios
         Else
             datosModUsuario()
             AddUsuario.modo = "update"
+            AddUsuario.lblPassword.Hide()
+            AddUsuario.lblPassword2.Hide()
+            AddUsuario.tbPassword1.Hide()
+            AddUsuario.tbPassword2.Hide()
+            AddUsuario.btnNuevaPassword.Show()
             metodos.cambioVentana(Me, AddUsuario)
         End If
     End Sub

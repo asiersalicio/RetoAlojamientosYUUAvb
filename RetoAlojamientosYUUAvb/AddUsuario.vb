@@ -7,6 +7,7 @@ Public Class AddUsuario
     Dim database, server, usuarioBBDD, passwordBBDD As String
     Dim conex As New MySqlConnection
     Dim cmd As MySqlCommand
+    Dim dniOriginal As String
     Public modo As String
     Private Sub AddUsuario_Load(sender As Object, e As EventArgs) Handles Me.Load
         server = ConfigurationManager.AppSettings.Get("Server")
@@ -14,7 +15,7 @@ Public Class AddUsuario
         usuarioBBDD = ConfigurationManager.AppSettings.Get("UsuarioBBDD")
         passwordBBDD = ConfigurationManager.AppSettings.Get("PasswordBBDD")
         conex = New MySqlConnection("Server=" & server & "; Database=" & database & "; Uid=" & usuarioBBDD & "; Pwd=" & passwordBBDD & "")
-
+        dniOriginal = tbDNI.Text
         'cbTipoUsuario.Text = "Elegir una opción"
         'dtpFechaNac.Value = Today.AddYears(-18)
     End Sub
@@ -25,6 +26,18 @@ Public Class AddUsuario
 
     Private Sub TbTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbTelefono.KeyPress
         m.soloNumeros(e)
+    End Sub
+
+    Private Sub BtnNuevaPassword_Click(sender As Object, e As EventArgs) Handles btnNuevaPassword.Click
+        lblPassword.Show()
+        tbPassword1.Text = ""
+        tbPassword1.Show()
+
+        lblPassword2.Show()
+        tbPassword2.Text = ""
+        tbPassword2.Show()
+
+        btnNuevaPassword.Hide()
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
@@ -38,10 +51,10 @@ Public Class AddUsuario
     Private Sub registrarUsuario()
         Dim claveEncriptada As String = ""
         Dim tipoUsuario As String = cbTipoUsuario.GetItemText(cbTipoUsuario.SelectedItem)
+        Dim dni As String = tbDNI.Text
 
         If (tbNick.Text = "") Then
             MsgBox("Debe establecer su Nick", MsgBoxStyle.Information, "Ingresar Nick")
-
         ElseIf (tbPassword1.TextLength < 6) Then
             MsgBox("El registro debe contener una contraseña válida", MsgBoxStyle.Exclamation, "Ingresar contraseña")
         ElseIf (tbPassword2.Text <> tbPassword1.Text) Then
@@ -50,9 +63,9 @@ Public Class AddUsuario
             MsgBox("Indique su nombre", MsgBoxStyle.Information, "Ingresar nombre")
         ElseIf (tbApellidos.Text = "") Then
             MsgBox("Indique sus apellidos", MsgBoxStyle.Information, "Ingresar apellidos")
-        ElseIf (tbDNI.Text = "" Or tbDNI.TextLength <> 9) Then
+        ElseIf (dni = "" Or dni.Length <> 9) Then
             MsgBox("Debe completar el campo de DNI", MsgBoxStyle.Information, "Ingresar DNI")
-            If (m.nifValido(tbDNI.Text)) Then
+            If (m.nifValido(dni)) Then
                 MsgBox("Debe introducir un DNI/NIE válido", MsgBoxStyle.Exclamation, "DNI incorrecto")
             End If
         ElseIf (dtpFechaNac.Text = "") Then
@@ -70,13 +83,17 @@ Public Class AddUsuario
             '    MsgBox("Indique un tipo de usuario válido", MsgBoxStyle.Exclamation, "Indicar Tipo de Usuario")
         Else
             Try
+                If modo = "insert" Then
+                    cmd = New MySqlCommand("INSERT INTO `usuario` (`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
+                                                      "VALUES (@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
+                    claveEncriptada = m.MD5EncryptPass(tbPassword1.Text)
+                Else
+                    cmd = New MySqlCommand("UPDATE usuario " &
+                                           "SET idDni= @idDNi, apellidos= @Apellidos, contrasena = @contrasena, correo = @correo, fechaNacimiento = @fechaNacimiento, nombre = @nombre, nombreUsuario = @nombreUsuario, telefono = @telefono, tipoUsuario = @tipoUsuario" &
+                                           " WHERE idDni='" & dniOriginal & "'", conex)
+                    claveEncriptada = tbPassword1.Text
+                End If
                 conex.Open()
-                'Dim dateTime As DateTime = Convert.ToDateTime(dtpFechaNac.Value)
-                claveEncriptada = m.MD5EncryptPass(tbPassword1.Text)
-                cmd = New MySqlCommand("INSERT INTO `usuario` " &
-                                                      "(`idDni`, `apellidos`, `contrasena`, `correo`, `fechaNacimiento`, `nombre`, `nombreUsuario`, `telefono`, `tipoUsuario`) " &
-                                                      "VALUES " &
-                                                      "(@idDNi, @Apellidos, @contrasena, @correo, @fechaNacimiento, @nombre, @nombreUsuario, @telefono, @tipoUsuario);", conex)
                 cmd.Parameters.AddWithValue("@idDni", tbDNI.Text)
                 cmd.Parameters.AddWithValue("@Apellidos", tbApellidos.Text)
                 cmd.Parameters.AddWithValue("@contrasena", claveEncriptada)
@@ -100,30 +117,4 @@ Public Class AddUsuario
             End Try
         End If
     End Sub
-
-    'Private Sub TbDNI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbDNI.KeyPress
-    '    ' Verificamos la longitud del control TextBox
-    '    Dim l As Int32 = tbDNI.TextLength
-
-    '    If (l < 8) Then
-    '        ' Solamente abandonamos el procedimiento
-    '        Return
-
-    '    ElseIf (l >= 9) Then
-    '        ' Cancelamos el evento y abandonamos el procedimiento
-    '        e.Handled = True
-    '        Return
-
-    '    End If
-
-    '    ' Llegado a éste punto, se comprende que se está
-    '    ' intentando introducir el Dígito de Control
-    '    ' del NIF.
-    '    '
-    '    ' Verificamos si el carácter presionado se encuentra
-    '    ' en el modelo de expresión regular definido.
-    '    '
-    '    Dim re As New Regex("[TRWAGMYFPDXBNJZSQVHLCKE]", RegexOptions.IgnoreCase)
-    '    e.Handled = (Not (re.IsMatch(e.KeyChar)))
-    'End Sub
 End Class
